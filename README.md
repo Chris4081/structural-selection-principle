@@ -1,10 +1,65 @@
 # Structural Selection Principle
 
-Companion code and papers for the research programme:
+Companion code and papers for an ongoing research series on
+structural selection in nonlinear field theories.
 
-> Krieg, C. (2026). *A Structural Selection Principle for Dynamically Consistent Field Configurations — Maximum-Entropy Weighting on Physical Solution Spaces.*
+> *This work is part of an ongoing research programme on structural
+> selection principles for dynamically consistent field configurations.*
 
-> Krieg, C. (2026). *Topological Selection in Nonlinear Field Theories: Robust Dominance of Kink Configurations under Structural Energy Weighting.*
+---
+
+## Papers in this Series
+
+### Paper 1 — General Framework
+**A Structural Selection Principle for Dynamically Consistent Field Configurations**
+*Maximum-Entropy Weighting on Physical Solution Spaces*
+
+- [PDF on GitHub](https://github.com/Chris4081/structural-selection-principle/blob/main/documentation/A_Structural_Selection_Principle_for_Dynamically_Consistent_Field_Configurations_large_Maximum_Entropy_Weighting_on_Physical_Solution_Spaces.pdf)
+- [Academia.edu](https://independent.academia.edu/KriegChristof)
+
+**Core idea:** Among all solutions of `δS[Φ] = 0`, physically preferred
+configurations minimise a structural energy functional `E[Φ]`, derived
+from a Maximum-Entropy principle on the solution manifold.
+
+---
+
+### Paper 2 — 1D Topological Selection
+**Topological Selection in Nonlinear Field Theories: Robust Dominance of Kink Configurations under Structural Energy Weighting**
+
+- [Academia.edu](https://independent.academia.edu/KriegChristof)
+
+**Core result:** In a 1D φ⁴ field theory, kink configurations dominate
+the structural Boltzmann weight across **all 81 tested parameter
+combinations** (λ, β sweep).
+
+| Class | Ē | Weight |
+|-------|---|--------|
+| Vacuum | 4.479 | ≈ 0 |
+| **Kink** | **0.015** | **99.96%** ← preferred |
+| Localised | 1.941 | 0.04% |
+| Chaotic | 9.210 | ≈ 0 |
+
+---
+
+### Paper 3 — 2D Selection Transition
+**Activity-Target Dependence in the Structural Selection of Two-Dimensional φ⁴ Field Configurations**
+*Dimensional Dependence and Selection Transition in the Activity Sector*
+
+- [Academia.edu](https://independent.academia.edu/KriegChristof)
+
+**Core result:** In 2D, a clear selection transition occurs as a function
+of the activity target s★:
+
+| s★ | Dominant class | Domain-wall weight |
+|----|---------------|-------------------|
+| 0.01 | **Domain wall** | 87% |
+| 0.05 | **Domain wall** | 87% |
+| 0.10 | **Domain wall** | 86% |
+| 0.20 | **Domain wall** | 72% |
+| 0.42 | Chaotic | 0% |
+
+The activity target s★ is a **dimension-dependent calibration parameter**,
+not a universal constant of the framework.
 
 ---
 
@@ -15,29 +70,17 @@ structural-selection-principle/
 ├── documentation/
 │   ├── A_Structural_Selection_Principle_for_Dynamically_Consistent_Field_Configurations_large_Maximum_Entropy_Weighting_on_Physical_Solution_Spaces.pdf   ← Paper 1: General framework
 │   └── Topological_Selection_in_Nonlinear_Field_Theories__Robust_Dominance_of_Kink_Configurations_under_Structural_Energy_Weighting.pdf   ← Paper 2: Topological selection
-├── structural_selection_flrw_v4.py   ← FLRW benchmark (Paper 1)
-├── maat_structural_selection_study_v2.py  ← Lattice study (Paper 2)
+│   └──  Activity_Target_Dependence_in_the_Structural_Selection_of_Two_Dimensional _Field_Configurations.pdf  ← 2D selection transition
+├── structural_selection_flrw_v4.py      ← FLRW benchmark (Paper 1)
+├── maat_structural_selection_study_v2.py ← 1D lattice study (Paper 2)
+├── maat_structural_selection_2d_sstar_sweep.py ← 2D sweep (Paper 3)
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## Paper 1 — Structural Selection Principle (General Framework)
-
-**Full paper:** [PDF on GitHub](https://github.com/Chris4081/structural-selection-principle/blob/main/documentation/A_Structural_Selection_Principle_for_Dynamically_Consistent_Field_Configurations_large_Maximum_Entropy_Weighting_on_Physical_Solution_Spaces.pdf) · [Academia.edu](https://independent.academia.edu/KriegChristof)
-
-### Core Idea
-
-Among all solutions of `δS[Φ] = 0`, physically preferred configurations
-are those that minimise a structural energy functional `E[Φ]`, derived
-from a Maximum-Entropy principle on the solution manifold:
-
-```
-Φ_phys = arg min_{δS=0} E[Φ]
-```
-
-### Five Structural Diagnostics
+## Five Structural Diagnostics
 
 | Symbol | Name | Physical content |
 |--------|------|-----------------|
@@ -47,74 +90,47 @@ from a Maximum-Entropy principle on the solution manifold:
 | `N` | Connectivity | Inter-field coupling |
 | `Σ` | Consistency | Ghost-freeness / EFT integrity |
 
-### FLRW Benchmark
-
-```bash
-python structural_selection_flrw_v4.py
-```
-
-| Case | Description | E |
-|------|-------------|---|
-| A: de Sitter | Static field | 1.000 |
-| B: slow-roll | Dynamically active | **0.889** ← preferred |
-| C: ghost-near | Stress test | 399.933 |
-
 ---
 
-## Paper 2 — Topological Selection (Lattice Study)
-
-### Core Result
-
-Four classes of `φ⁴` field configurations compete under structural
-energy weighting across **81 parameter combinations**:
-
-| Class | E_mean | Weight | Result |
-|-------|--------|--------|--------|
-| Vacuum | 4.479 | ≈ 0 | Rejected |
-| **Kink** | **0.015** | **99.96%** | **← Preferred** |
-| Localised | 1.941 | 0.04% | Rejected |
-| Chaotic | 9.210 | ≈ 0 | Rejected |
-
-**Kink configurations win in all 81 parameter settings tested.**
-
-### Run the Study
-
-```bash
-python maat_structural_selection_study_v2.py
-```
-
-Outputs saved to `maat_results_v2/`:
-- `robustness.csv` — wins per class across all parameter settings
-- `class_sweep.csv` — full sweep results
-- `class_dominance.png` — bar chart
-- `heatmap_kink_weight_beta4.png` — kink weight heatmap
-
----
-
-## Installation
+## Run the Benchmarks
 
 ```bash
 pip install numpy pandas matplotlib
 ```
 
+**FLRW benchmark (Paper 1):**
+```bash
+python structural_selection_flrw_v4.py
+```
+
+**1D lattice study (Paper 2):**
+```bash
+python maat_structural_selection_study_v2.py
+```
+
+**2D activity-target sweep (Paper 3):**
+```bash
+python maat_structural_selection_2d_sstar_sweep.py
+```
+
 ---
 
-## Parameters (Paper 2)
+## Key Results at a Glance
 
-| Parameter | Value | Description |
-|-----------|-------|-------------|
-| `N` | 128 | Lattice sites |
-| `RUNS_PER_CLASS` | 12 | Runs per class |
-| `ACTIVITY_TARGET` | 0.42 | Preferred activity level |
-| `BETA_LIST` | [2,4,8] | Inverse temperatures |
-| `SEED` | 42 | Random seed |
+```
+1D (N=128):  kink       wins 81/81 parameter settings
+2D (48×48):  domainwall wins majority for s★ ≤ 0.20
+             chaotic    wins for s★ = 0.42
+             → selection transition at s★_c ∈ (0.20, 0.42)
+```
 
 ---
 
 ## Author
 
-Christof Krieg — Independent Researcher  
-[Academia.edu](https://independent.academia.edu/KriegChristof) · [GitHub: Chris4081](https://github.com/Chris4081)
+Christof Krieg — Independent Researcher
+[Academia.edu](https://independent.academia.edu/KriegChristof) ·
+[GitHub: Chris4081](https://github.com/Chris4081)
 
 ## License
 
