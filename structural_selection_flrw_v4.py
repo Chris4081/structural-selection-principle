@@ -4,7 +4,7 @@ Structural Selection Principle — FLRW Benchmark
 Three cosmological backgrounds are evaluated using the
 structural energy functional E[Phi] from:
 
-  Krieg, C. (2025). A Structural Selection Principle for
+  Krieg, C. (2026). A Structural Selection Principle for
   Dynamically Consistent Field Configurations.
 
 Goal:
