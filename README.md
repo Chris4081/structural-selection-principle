@@ -11,7 +11,7 @@ The full paper is available in two places:
 - **GitHub (PDF):** [A Structural Selection Principle for Dynamically Consistent Field Configurations](https://github.com/Chris4081/structural-selection-principle/blob/main/documentation/A_Structural_Selection_Principle_for_Dynamically_Consistent_Field_Configurations_large_Maximum_Entropy_Weighting_on_Physical_Solution_Spaces.pdf)
 - **Academia.edu:** [Christof Krieg](https://independent.academia.edu/KriegChristof)
 
-> Krieg, C. (2025). *A Structural Selection Principle for Dynamically Consistent Field Configurations — Maximum-Entropy Weighting on Physical Solution Spaces*. Preprint.
+> Krieg, C. (2026). *A Structural Selection Principle for Dynamically Consistent Field Configurations — Maximum-Entropy Weighting on Physical Solution Spaces*. Preprint.
 
 ## Overview
 
