@@ -1,7 +1,7 @@
 # Structural Selection Principle
 
 Companion code and papers for an ongoing research series on
-structural selection in nonlinear field theories.
+structural selection, coherence, and chaos in nonlinear field theories.
 
 > *This work is part of an ongoing research programme on structural
 > selection principles for dynamically consistent field configurations.*
@@ -12,54 +12,64 @@ structural selection in nonlinear field theories.
 
 ### Paper 1 — General Framework
 **A Structural Selection Principle for Dynamically Consistent Field Configurations**
-*Maximum-Entropy Weighting on Physical Solution Spaces*
 
-- [PDF on GitHub](https://github.com/Chris4081/structural-selection-principle/blob/main/documentation/A_Structural_Selection_Principle_for_Dynamically_Consistent_Field_Configurations_large_Maximum_Entropy_Weighting_on_Physical_Solution_Spaces.pdf)
+- [PDF on GitHub](https://github.com/Chris4081/structural-selection-principle/blob/main/documentation/)
 - [Academia.edu](https://independent.academia.edu/KriegChristof)
 
-**Core idea:** Among all solutions of `δS[Φ] = 0`, physically preferred
-configurations minimise a structural energy functional `E[Φ]`, derived
-from a Maximum-Entropy principle on the solution manifold.
+**Core idea:** δS[Φ]=0 defines possible universes; structural energy E[Φ] selects the physical one.
 
 ---
 
 ### Paper 2 — 1D Topological Selection
-**Topological Selection in Nonlinear Field Theories: Robust Dominance of Kink Configurations under Structural Energy Weighting**
+**Topological Selection in Nonlinear Field Theories: Robust Dominance of Kink Configurations**
 
-- [Academia.edu](https://independent.academia.edu/KriegChristof)
-
-**Core result:** In a 1D φ⁴ field theory, kink configurations dominate
-the structural Boltzmann weight across **all 81 tested parameter
-combinations** (λ, β sweep).
+**Core result:** Kinks dominate across **all 81** tested parameter combinations (λ, β sweep).
 
 | Class | Ē | Weight |
 |-------|---|--------|
 | Vacuum | 4.479 | ≈ 0 |
-| **Kink** | **0.015** | **99.96%** ← preferred |
+| **Kink** | **0.015** | **99.96%** |
 | Localised | 1.941 | 0.04% |
 | Chaotic | 9.210 | ≈ 0 |
 
 ---
 
 ### Paper 3 — 2D Selection Transition
-**Activity-Target Dependence in the Structural Selection of Two-Dimensional φ⁴ Field Configurations**
-*Dimensional Dependence and Selection Transition in the Activity Sector*
+**Activity-Target Dependence in the Structural Selection of 2D φ⁴ Field Configurations**
 
-- [Academia.edu](https://independent.academia.edu/KriegChristof)
-
-**Core result:** In 2D, a clear selection transition occurs as a function
-of the activity target s★:
+**Core result:** A clear selection transition at s★_c ∈ (0.20, 0.42):
 
 | s★ | Dominant class | Domain-wall weight |
-|----|---------------|-------------------|
-| 0.01 | **Domain wall** | 87% |
-| 0.05 | **Domain wall** | 87% |
-| 0.10 | **Domain wall** | 86% |
-| 0.20 | **Domain wall** | 72% |
-| 0.42 | Chaotic | 0% |
+|----|---------------|--------------------|
+| ≤ 0.20 | **Domain wall** | 72–87% |
+| 0.42 | Chaotic | 100% |
 
-The activity target s★ is a **dimension-dependent calibration parameter**,
-not a universal constant of the framework.
+---
+
+### Paper 4 — CCI Framework
+**A Structural Free Energy on the Solution Manifold**
+*Coherence Diagnostics, Critical Coherence Index, and Regime Classification*
+
+**Core idea:** CCI = destabilising / stabilising — a Reynolds-type number for field systems.
+
+```
+CCI < τ₁  →  Ordered  (solitons, kinks)
+τ₁ ≤ CCI < τ₂  →  Critical  (intermittency)
+CCI ≥ τ₂  →  Chaotic  (instability-dominated)
+```
+
+---
+
+### Paper 5 — Physical Grounding of the CCI
+**Physical Grounding of the Critical Coherence Index: Entropy Production and Structural Information**
+
+**Core result:** CCI ≈ Ṡ_prod / (I_nn + ε) — numerically confirmed.
+
+| Quantity | Spearman r |
+|----------|-----------|
+| **Ṡ/I ratio** | **0.760** ← strong |
+| Ṡ alone | 0.530 |
+| I alone | 0.246 |
 
 ---
 
@@ -67,61 +77,39 @@ not a universal constant of the framework.
 
 ```
 structural-selection-principle/
-├── documentation/
-│   ├── A_Structural_Selection_Principle_for_Dynamically_Consistent_Field_Configurations_large_Maximum_Entropy_Weighting_on_Physical_Solution_Spaces.pdf   ← Paper 1: General framework
-│   └── Topological_Selection_in_Nonlinear_Field_Theories__Robust_Dominance_of_Kink_Configurations_under_Structural_Energy_Weighting.pdf   ← Paper 2: Topological selection
-│   └──  Activity_Target_Dependence_in_the_Structural_Selection_of_Two_Dimensional _Field_Configurations.pdf  ← 2D selection transition
+├── documentation/              ← Papers (PDF)
 ├── structural_selection_flrw_v4.py      ← FLRW benchmark (Paper 1)
 ├── maat_structural_selection_study_v2.py ← 1D lattice study (Paper 2)
 ├── maat_structural_selection_2d_sstar_sweep.py ← 2D sweep (Paper 3)
+├── cci_entropy_test.py                  ← CCI entropy test (Paper 5)
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## Five Structural Diagnostics
-
-| Symbol | Name | Physical content |
-|--------|------|-----------------|
-| `H` | Residual Stability | Distance from solution manifold |
-| `B` | Conservation | Energy-momentum integrity |
-| `S_C` | Dynamical Activity | Regulated non-equilibrium activity |
-| `N` | Connectivity | Inter-field coupling |
-| `Σ` | Consistency | Ghost-freeness / EFT integrity |
-
----
-
-## Run the Benchmarks
+## Run the Code
 
 ```bash
-pip install numpy pandas matplotlib
+pip install numpy pandas matplotlib scipy
 ```
 
-**FLRW benchmark (Paper 1):**
-```bash
-python structural_selection_flrw_v4.py
-```
-
-**1D lattice study (Paper 2):**
-```bash
-python maat_structural_selection_study_v2.py
-```
-
-**2D activity-target sweep (Paper 3):**
-```bash
-python maat_structural_selection_2d_sstar_sweep.py
-```
+| Script | Paper | What it does |
+|--------|-------|-------------|
+| `structural_selection_flrw_v4.py` | Paper 1 | FLRW 3-case benchmark |
+| `maat_structural_selection_study_v2.py` | Paper 2 | 1D kink dominance sweep |
+| `maat_structural_selection_2d_sstar_sweep.py` | Paper 3 | 2D s★ phase diagram |
+| `cci_entropy_test.py` | Paper 5 | CCI vs Ṡ/I correlation |
 
 ---
 
 ## Key Results at a Glance
 
 ```
-1D (N=128):  kink       wins 81/81 parameter settings
-2D (48×48):  domainwall wins majority for s★ ≤ 0.20
-             chaotic    wins for s★ = 0.42
-             → selection transition at s★_c ∈ (0.20, 0.42)
+FLRW (Paper 1):   slow-roll FLRW preferred  E=0.889 < E_deSitter=1.00
+1D   (Paper 2):   kink wins 81/81 settings  weight 99.96%
+2D   (Paper 3):   selection transition       s★_c ∈ (0.20, 0.42)
+CCI  (Paper 5):   CCI ≈ Ṡ/I                Spearman r = 0.76
 ```
 
 ---
