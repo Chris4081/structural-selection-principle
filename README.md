@@ -75,6 +75,11 @@ CCI ≥ τ₂       →  Chaotic   (instability-dominated)
 | Ṡ/I ratio | 0.288 |
 | I_nn alone | −0.341 |
 
+> Note:
+> The entropy–information ratio should be understood as an empirical
+> scaling proxy, while the structural free energy provides a more
+> global effective description of solution selection.
+
 ---
 
 ### Paper 07 — Entropy–Information Scaling (1D)
@@ -144,7 +149,6 @@ structural-selection-principle/
 ├── cci_alpha_scaling.py                   ← Paper 07: α-scan + log-fit
 ├── cci_phase_diagram.py                   ← Paper 07: phase diagrams
 ├── cci_entropy_scaling_2d.py              ← Paper 09: 2D scaling test
-├── universality-test.py                   ← Paper 09: phase diagrams + regime
 │
 ├── documentation/                         ← PDFs of all papers
 └── README.md
@@ -168,7 +172,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `cci_alpha_scaling.py` | 07 | α-scan, log-fit, scatter plots |
 | `cci_phase_diagram.py` | 07 | 9×9 phase diagram heatmaps |
 | `cci_entropy_scaling_2d.py` | 09 | 2D α-scan + log-fit |
-| `universality-test.py` | 09 | 2D phase diagrams + regime plots |
+
 
 ---
 
