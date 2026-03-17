@@ -14,7 +14,7 @@ structural selection, coherence, and chaos in nonlinear field theories.
 
 ## Papers in this Series
 
-### Paper 1 — General Framework
+### Paper 01 — General Framework
 **A Structural Selection Principle for Dynamically Consistent Field Configurations**
 *Maximum-Entropy Weighting on Physical Solution Spaces*
 
@@ -22,33 +22,20 @@ structural selection, coherence, and chaos in nonlinear field theories.
 
 ---
 
-### Paper 2 — 1D Topological Selection
-**Topological Selection in Nonlinear Field Theories: Robust Dominance of Kink Configurations**
+### Paper 02/03 — 1D and 2D Topological Selection
+**Structural Selection in Nonlinear Field Theories:**
+*Kink Selection in 1D and Activity-Dependent Domain-Wall Selection in 2D*
 
-**Core result:** Kinks dominate across **all 81** tested (λ, β) parameter combinations.
+**Core results:**
 
-| Class | Ē | Weight |
-|-------|---|--------|
-| Vacuum | 4.479 | ≈ 0 |
-| **Kink** | **0.015** | **99.96%** |
-| Localised | 1.941 | 0.04% |
-| Chaotic | 9.210 | ≈ 0 |
-
----
-
-### Paper 3 — 2D Selection Transition
-**Activity-Target Dependence in the Structural Selection of 2D φ⁴ Field Configurations**
-
-**Core result:** A clear selection transition at s★_c ∈ (0.20, 0.42):
-
-| s★ | Dominant class | Weight |
-|----|---------------|--------|
-| ≤ 0.20 | **Domain wall** | 72–87% |
-| 0.42 | Chaotic | 100% |
+| System | Result |
+|--------|--------|
+| **1D** | Kinks dominate 81/81 parameter settings, weight 99.96% |
+| **2D** | Selection transition at s★_c ∈ (0.20, 0.42) |
 
 ---
 
-### Paper 4 — CCI Framework
+### Paper 04 — CCI Framework
 **A Structural Free Energy on the Solution Manifold**
 *Coherence Diagnostics, Critical Coherence Index, and Regime Classification*
 
@@ -62,10 +49,11 @@ CCI ≥ τ₂       →  Chaotic   (instability-dominated)
 
 ---
 
-### Paper 5 — Physical Grounding of the CCI
-**Physical Grounding of the Critical Coherence Index: Entropy Production and Structural Information**
+### Paper 05 — Physical Grounding of the CCI
+**Physical Grounding of the Critical Coherence Index:**
+*Entropy Production and Structural Information*
 
-**Core result:** CCI correlates with Ṡ/I ratio (discrete ensemble):
+**Core result:** CCI correlates with Ṡ/I ratio:
 
 | Quantity | Spearman r |
 |----------|-----------|
@@ -75,8 +63,9 @@ CCI ≥ τ₂       →  Chaotic   (instability-dominated)
 
 ---
 
-### Paper 6 — Continuous Ensemble Test
+### Paper 06 — Continuous Ensemble Study
 **Structural Free Energy and the CCI in a Continuous Ensemble of φ⁴ Field Configurations**
+*An Extended Numerical Study with Mixed Initial Conditions*
 
 **Core result:** CCI is primarily a proxy for structural free energy (160-trajectory ensemble):
 
@@ -88,25 +77,57 @@ CCI ≥ τ₂       →  Chaotic   (instability-dominated)
 
 ---
 
-### Paper 7 — CCI Entropy Test (Discrete)
-**Physical Grounding of the CCI: Entropy Production and Structural Information in Nonlinear Field Dynamics**
-
-Discrete 4-class ensemble (vacuum, kink, localised, chaotic).
-Establishes the Ṡ/I hypothesis; limitations acknowledged.
-
----
-
-### Paper 8 — Entropy–Information Scaling
+### Paper 07 — Entropy–Information Scaling (1D)
 **Entropy–Information Scaling of the Critical Coherence Index in Nonlinear Field Dynamics**
 
-**Core result:** CCI is consistent with a power-law scaling relation:
+**Core result:** CCI consistent with power-law scaling in 1D:
 
 ```
 CCI ∝ Ṡ_cg⁺ / I_nn^α,   α ≈ 2.5
 Spearman r_s = 0.734,  p ≈ 1.6×10⁻²¹
 ```
 
-Phase diagrams over (σ_π, σ_noise) reveal a clear ordered → chaotic transition. The exponent α is empirical; its theoretical origin is an open problem.
+Phase diagrams over (σ_π, σ_noise) reveal a clear ordered → chaotic transition.
+The exponent α is empirical; its theoretical origin is an open problem.
+
+---
+
+### Paper 08 — Landau-Type Theory
+**Landau-Type Theory of Structural Selection in Nonlinear Field Systems**
+*Entropy–Information Scaling and the Critical Coherence Index*
+
+**Core idea:** CCI and structural free energy fit a Landau framework:
+
+```
+F_struct[O] = a(μ)·O² + b·O⁴ + γ(∇O)²
+
+Order parameter:   O ~ I_nn  (structural information)
+Control parameter: μ ~ CCI
+
+μ < μ_c  →  Ordered   (high coherence)
+μ = μ_c  →  Critical  (phase boundary)
+μ > μ_c  →  Chaotic   (low coherence)
+```
+
+The Landau coefficients are not derived from first principles —
+this is a theoretical proposal and interpretive framework.
+
+---
+
+### Paper 09 — Entropy–Information Scaling (2D)
+**Entropy–Information Scaling of the CCI in Two-Dimensional φ⁴ Field Dynamics**
+*Dimensional Dependence and Robustness of Structural Instability*
+
+**Core result:** Scaling persists in 2D with shifted exponent:
+
+| Quantity | 1D (Paper 07) | 2D (Paper 09) |
+|----------|--------------|--------------|
+| Spearman r_s | 0.734 | **0.870** |
+| Best α | ≈ 2.5 | ≈ 3.0 (within tested range) |
+| Dominant factor | Ṡ/I balance | **I_nn loss** |
+
+Structural information (I_nn) becomes the dominant factor in 2D.
+Log-linear regression: R² ≈ 0.74.
 
 ---
 
@@ -115,13 +136,15 @@ Phase diagrams over (σ_π, σ_noise) reveal a clear ordered → chaotic transit
 ```
 structural-selection-principle/
 │
-├── structural_selection_flrw_v4.py        ← Paper 1: FLRW benchmark
-├── maat_structural_selection_study_v2.py  ← Paper 2: 1D kink sweep
-├── maat_structural_selection_2d_sstar.py  ← Paper 3: 2D s★ sweep
-├── cci_entropy_test.py                    ← Paper 5: CCI vs Ṡ/I
-├── cci_continuous_ensemble.py             ← Paper 6: 160-run ensemble
-├── cci_alpha_scaling.py                   ← Paper 8: α-scan + log-fit
-├── cci_phase_diagram.py                   ← Paper 8: phase diagrams
+├── structural_selection_flrw_v4.py        ← Paper 01: FLRW benchmark
+├── maat_structural_selection_study_v2.py  ← Paper 02: 1D kink sweep
+├── maat_structural_selection_2d_sstar.py  ← Paper 03: 2D s★ sweep
+├── cci_entropy_test.py                    ← Paper 05: CCI vs Ṡ/I
+├── cci_continuous_ensemble.py             ← Paper 06: 160-run ensemble
+├── cci_alpha_scaling.py                   ← Paper 07: α-scan + log-fit
+├── cci_phase_diagram.py                   ← Paper 07: phase diagrams
+├── cci_entropy_scaling_2d.py              ← Paper 09: 2D scaling test
+├── universality-test.py                   ← Paper 09: phase diagrams + regime
 │
 ├── documentation/                         ← PDFs of all papers
 └── README.md
@@ -137,24 +160,29 @@ pip install numpy pandas matplotlib scipy scikit-learn
 
 | Script | Paper | What it does |
 |--------|-------|-------------|
-| `structural_selection_flrw_v4.py` | 1 | FLRW 3-case MaxEnt benchmark |
-| `maat_structural_selection_study_v2.py` | 2 | 1D kink dominance, 81 settings |
-| `maat_structural_selection_2d_sstar.py` | 3 | 2D s★ phase diagram |
-| `cci_entropy_test.py` | 5 | CCI vs Ṡ/I, discrete classes |
-| `cci_continuous_ensemble.py` | 6 | CCI vs F_struct, 160 runs |
-| `cci_alpha_scaling.py` | 8 | α-scan, log-fit, scatter plots |
-| `cci_phase_diagram.py` | 8 | 9×9 phase diagram heatmaps |
+| `structural_selection_flrw_v4.py` | 01 | FLRW 3-case MaxEnt benchmark |
+| `maat_structural_selection_study_v2.py` | 02 | 1D kink dominance, 81 settings |
+| `maat_structural_selection_2d_sstar.py` | 03 | 2D s★ phase diagram |
+| `cci_entropy_test.py` | 05 | CCI vs Ṡ/I, discrete classes |
+| `cci_continuous_ensemble.py` | 06 | CCI vs F_struct, 160 runs |
+| `cci_alpha_scaling.py` | 07 | α-scan, log-fit, scatter plots |
+| `cci_phase_diagram.py` | 07 | 9×9 phase diagram heatmaps |
+| `cci_entropy_scaling_2d.py` | 09 | 2D α-scan + log-fit |
+| `universality-test.py` | 09 | 2D phase diagrams + regime plots |
 
 ---
 
 ## Key Results at a Glance
 
 ```
-Paper 1 (FLRW):    slow-roll preferred      E = 0.889 < E_deSitter
-Paper 2 (1D):      kink wins 81/81          weight 99.96%
-Paper 3 (2D):      selection transition     s★_c ∈ (0.20, 0.42)
-Paper 6 (ensemble):CCI ≈ F_struct           Spearman r = 0.878
-Paper 8 (scaling): CCI ∝ Ṡ/I^α            r_s = 0.734, α ≈ 2.5
+Paper 01 (SSP):    slow-roll preferred        E = 0.889 < E_deSitter
+Paper 02 (1D):     kink wins 81/81            weight 99.96%
+Paper 03 (2D):     selection transition       s★_c ∈ (0.20, 0.42)
+Paper 05 (ground): CCI vs Ṡ/I               Spearman r = 0.760
+Paper 06 (ensemb): CCI ≈ F_struct            Spearman r = 0.878
+Paper 07 (1D sc.): CCI ∝ Ṡ/I^α             r_s = 0.734, α ≈ 2.5
+Paper 08 (Landau): O ~ I_nn, μ ~ CCI        theoretical proposal
+Paper 09 (2D sc.): scaling persists in 2D    r_s = 0.870, α ≈ 3.0
 ```
 
 ---
