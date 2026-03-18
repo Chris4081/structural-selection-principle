@@ -136,6 +136,26 @@ Log-linear regression: R² ≈ 0.74.
 
 ---
 
+### Paper 10 — Dimensional Dependence of Scaling
+**Dimensional Dependence of Entropy–Information Scaling in Nonlinear Field Systems**
+*Evidence for a Dimension-Dependent Universality Class*
+
+**Core result:** Systematic dimensional trend of the scaling exponent:
+
+| Dimension | α_eff | Spearman r_s | Dominant factor |
+|-----------|-------|-------------|-----------------|
+| **1D** | ≈ 2.5 | 0.734 | Ṡ/I balance |
+| **2D** | ≳ 3.0 (within tested range) | **0.870** | I_nn loss |
+
+The effective exponent increases with dimension; the 2D value is a lower bound.
+The Spearman correlation strengthens from 1D to 2D, indicating increased robustness.
+
+> The dimensional dependence of α is a property of the projection from the
+> structural free energy onto the entropy–information plane, rather than a
+> fundamental property of the selection principle itself.
+
+---
+
 ## Repository Structure
 
 ```
@@ -148,7 +168,9 @@ structural-selection-principle/
 ├── cci_continuous_ensemble.py             ← Paper 06: 160-run ensemble
 ├── cci_alpha_scaling.py                   ← Paper 07: α-scan + log-fit
 ├── cci_phase_diagram.py                   ← Paper 07: phase diagrams
-├── cci_entropy_scaling_2d.py              ← Paper 09: 2D scaling test
+├── cci_entropy_scaling_2d.py              ← Paper 09: 2D α-scan + log-fit
+├── figure_dimensional_trend.py            ← Paper 10: Figure 1 (α trend)
+├── figure_scaling_comparison.py           ← Paper 10: Figure 2 (1D vs 2D)
 │
 ├── documentation/                         ← PDFs of all papers
 └── README.md
@@ -172,7 +194,8 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `cci_alpha_scaling.py` | 07 | α-scan, log-fit, scatter plots |
 | `cci_phase_diagram.py` | 07 | 9×9 phase diagram heatmaps |
 | `cci_entropy_scaling_2d.py` | 09 | 2D α-scan + log-fit |
-
+| `figure_dimensional_trend.py` | 10 | α(d) and r_s(d) trend figures |
+| `figure_scaling_comparison.py` | 10 | 1D vs 2D scaling side-by-side |
 
 ---
 
@@ -187,6 +210,7 @@ Paper 06 (ensemb): CCI ≈ F_struct            Spearman r = 0.878
 Paper 07 (1D sc.): CCI ∝ Ṡ/I^α             r_s = 0.734, α ≈ 2.5
 Paper 08 (Landau): O ~ I_nn, μ ~ CCI        theoretical proposal
 Paper 09 (2D sc.): scaling persists in 2D    r_s = 0.870, α ≈ 3.0
+Paper 10 (dim.):   α increases with d        r_s: 0.734 → 0.870
 ```
 
 ---
