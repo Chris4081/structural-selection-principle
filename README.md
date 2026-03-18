@@ -156,6 +156,29 @@ The Spearman correlation strengthens from 1D to 2D, indicating increased robustn
 
 ---
 
+
+### Paper 11 — Entropy–Information Scaling (3D)
+**Persistence of Entropy–Information Scaling in Three Dimensions**
+*Breakdown of a Simple Exponent Trend in Nonlinear Field Systems*
+
+**Core result:** Scaling persists in 3D but the exponent structure changes:
+
+| Quantity | 1D | 2D | 3D |
+|----------|-----|-----|-----|
+| Spearman r_s | 0.734 | 0.870 | **0.850** |
+| α_eff | ≈ 2.5 | ≳ 3.0 | plateau [2.8, 3.5] |
+| R² | moderate | 0.74 | **0.37** |
+| Dominant | Ṡ/I balance | I_nn loss | balanced |
+
+The notion of a single effective exponent breaks down in 3D: instead of a sharp
+optimum, a broad plateau of near-maximal correlation appears over α ∈ [2.8, 3.5].
+The reduced R² indicates a degeneracy of effective scaling descriptions.
+
+> The entropy–information scaling remains robust across dimensions,
+> but transitions from a well-defined power-law exponent to a broad
+> effective scaling regime in higher dimensions.
+
+---
 ## Repository Structure
 
 ```
@@ -171,6 +194,7 @@ structural-selection-principle/
 ├── cci_entropy_scaling_2d.py              ← Paper 09: 2D α-scan + log-fit
 ├── figure_dimensional_trend.py            ← Paper 10: Figure 1 (α trend)
 ├── figure_scaling_comparison.py           ← Paper 10: Figure 2 (1D vs 2D)
+├── cci_entropy_scaling_3d.py              ← Paper 11: 3D ensemble + figures
 │
 ├── documentation/                         ← PDFs of all papers
 └── README.md
@@ -196,6 +220,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `cci_entropy_scaling_2d.py` | 09 | 2D α-scan + log-fit |
 | `figure_dimensional_trend.py` | 10 | α(d) and r_s(d) trend figures |
 | `figure_scaling_comparison.py` | 10 | 1D vs 2D scaling side-by-side |
+| `cci_entropy_scaling_3d.py` | 11 | 3D ensemble, α-scan, dimension comparison |
 
 ---
 
@@ -211,6 +236,7 @@ Paper 07 (1D sc.): CCI ∝ Ṡ/I^α             r_s = 0.734, α ≈ 2.5
 Paper 08 (Landau): O ~ I_nn, μ ~ CCI        theoretical proposal
 Paper 09 (2D sc.): scaling persists in 2D    r_s = 0.870, α ≈ 3.0
 Paper 10 (dim.):   α increases with d        r_s: 0.734 → 0.870
+Paper 11 (3D):     plateau in 3D              r_s = 0.850, α ∈ [2.8, 3.5]
 ```
 
 ---
