@@ -283,6 +283,49 @@ in 3D reflects its higher-dimensional geometry.
 | `3d_cci_entropy_information_v2.csv` | `python cci_entropy_scaling_3d_v2.py` |
 
 ---
+
+### Paper 16 — Plateau Degeneracy Measure
+**Plateau Degeneracy in Entropy–Information Scaling:**
+*A Quantitative Measure for the Breakdown of Single-Exponent Descriptions in Nonlinear Field Systems*
+
+**Core idea:** Formalises the breakdown of single-exponent scaling observed in 3D
+by introducing a rigorous plateau degeneracy framework.
+
+**Key definitions:**
+
+| Measure | Formula | Meaning |
+|---------|---------|---------|
+| Plateau set | P_ε = {α \| r_s(α) ≥ r_s^max − ε_plat} | near-optimal exponents |
+| Width | D_width = α_max^(ε) − α_min^(ε) | plateau size |
+| Normalised | D_norm = D_width / (α_max − α_min) | in [0, 1] |
+| Flatness | D_flat = Var(r_s) within P_ε | 0 = perfectly flat |
+| Combined | D = D_width / (1 + D_flat) | joint measure |
+
+**Exact results** (ε_plat = 0.01 · r_s^max, scan range α ∈ [0.5, 3.5], step h = 0.1):
+
+| Dimension | α* | r_s^max | Plateau | D_norm | n |
+|-----------|-----|---------|---------|--------|---|
+| 1D | 3.5 | 0.748 | [2.9, 3.5] | 0.200 | 7 |
+| 2D | 3.5 | 0.881 | [3.1, 3.5] | 0.133 | 5 |
+| 3D | 2.8 | 0.849 | [2.6, 3.5] | 0.300 | 10 |
+
+**Key finding:**
+> D_norm(2D) < D_norm(1D) < D_norm(3D) — non-monotonic dimensional dependence.
+> The breakdown of single-exponent scaling is not gradual but occurs via a
+> dimensional transition between 2D and 3D.
+
+**Script:** `plateau_degeneracy_exact.py`
+
+**Requires the following CSV files:**
+
+| CSV file | Used for |
+|----------|----------|
+| `cci_entropy_information_test.csv` | 1D r_s(α) scan (Paper 07) |
+| `2d_cci_entropy_information_test.csv` | 2D r_s(α) scan (Paper 09) |
+| `3d_cci_alpha_scan.csv` | 3D r_s(α) scan (Paper 11) |
+
+---
+
 ## Repository Structure
 
 ```
@@ -304,6 +347,7 @@ structural-selection-principle/
 ├── cci_entropy_scaling_3d_v2.py           ← Paper 14: 3D with directional MI
 ├── manifold_geometry_plot.py              ← Paper 14: PCA + log-space figures
 ├── xi_aniso_full_test.py                  ← Paper 14: ξ_aniso quartile analysis
+├── plateau_degeneracy_exact.py            ← Paper 16: plateau degeneracy measures
 │
 ├── documentation/                         ← PDFs of all papers
 └── README.md
@@ -335,6 +379,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `cci_entropy_scaling_3d_v2.py` | 14 | 3D sim with directional MI (I_x, I_y, I_z) |
 | `manifold_geometry_plot.py` | 14 | PCA + log-space manifold figures |
 | `xi_aniso_full_test.py` | 14 | ξ_aniso quartile-split + regression |
+| `plateau_degeneracy_exact.py` | 16 | exact plateau degeneracy D_width, D_norm, D_flat, D |
 
 ---
 
@@ -354,6 +399,7 @@ Paper 11 (3D):     plateau in 3D              r_s = 0.850, α ∈ [2.8, 3.5]
 Paper 12 (collapse):partial collapse 1D–3D     shared structure, no universal exponent
 Paper 13 (multi-p): sign flip a: -1.6→+0.3       dimension-dependent scaling family
 Paper 14 (manifold):scaling = projection          r_s(ξ_aniso,R_α) = -0.721, p=0.0001
+Paper 16 (degeneracy):D_norm non-monotonic        D(2D)<D(1D)<D(3D), transition at 2D→3D
 ```
 
 ---
