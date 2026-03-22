@@ -326,6 +326,33 @@ by introducing a rigorous plateau degeneracy framework.
 
 ---
 
+### Paper 17 — Predictive Power of the CCI
+**Predictive Power of the Critical Coherence Index:**
+*From Structural Diagnostics to Regime Classification*
+
+**Core idea:** Tests whether the CCI can predict the dynamical regime of a system
+using a threshold-based classifier on a 120-sample 1D benchmark dataset.
+
+**Core results:**
+
+| Classifier | Accuracy | τ₁ | τ₂ |
+|------------|----------|-----|-----|
+| **CCI-only** | **1.000 (120/120)** | 0.2785 | 0.3527 |
+| F_struct-only | 0.8417 (101/120) | 0.4204 | 0.4984 |
+
+5-fold cross-validation (CCI-only): **Ā = 0.992 ± 0.019**
+(folds: [1.000, 1.000, 1.000, 0.958, 1.000])
+
+> The CCI alone is sufficient to fully separate ordered, critical, and chaotic
+> regimes. The near-perfect cross-validated accuracy indicates robustness
+> across data splits.
+
+**Script:** `paper17_analysis.py`
+
+**Requires:** `cci_entropy_information_test.csv` (1D benchmark dataset)
+
+---
+
 ## Repository Structure
 
 ```
@@ -348,6 +375,7 @@ structural-selection-principle/
 ├── manifold_geometry_plot.py              ← Paper 14: PCA + log-space figures
 ├── xi_aniso_full_test.py                  ← Paper 14: ξ_aniso quartile analysis
 ├── plateau_degeneracy_exact.py            ← Paper 16: plateau degeneracy measures
+├── paper17_analysis.py                    ← Paper 17: CCI regime classifier + CV
 │
 ├── documentation/                         ← PDFs of all papers
 └── README.md
@@ -380,6 +408,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `manifold_geometry_plot.py` | 14 | PCA + log-space manifold figures |
 | `xi_aniso_full_test.py` | 14 | ξ_aniso quartile-split + regression |
 | `plateau_degeneracy_exact.py` | 16 | exact plateau degeneracy D_width, D_norm, D_flat, D |
+| `paper17_analysis.py` | 17 | CCI threshold classifier, F_struct comparison, 5-fold CV |
 
 ---
 
@@ -400,6 +429,7 @@ Paper 12 (collapse):partial collapse 1D–3D     shared structure, no universal 
 Paper 13 (multi-p): sign flip a: -1.6→+0.3       dimension-dependent scaling family
 Paper 14 (manifold):scaling = projection          r_s(ξ_aniso,R_α) = -0.721, p=0.0001
 Paper 16 (degeneracy):D_norm non-monotonic        D(2D)<D(1D)<D(3D), transition at 2D→3D
+Paper 17 (predict.): CCI perfect classifier      Acc=1.00, CV Ā=0.992±0.019
 ```
 
 ---
