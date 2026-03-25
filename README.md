@@ -353,6 +353,53 @@ using a threshold-based classifier on a 120-sample 1D benchmark dataset.
 
 ---
 
+### Paper 18 — Dynamical Origin of Structural Selection
+**A Minimal Dynamical Model for Structural Selection:**
+*A Field Equation for the Critical Coherence Index*
+
+**Core idea:** Promotes the Critical Coherence Index (CCI) from a diagnostic observable to a dynamical field \(C(x,t)\), governed by a minimal nonlinear relaxation equation with gradient-flow structure.
+
+**Model equation:**
+
+| Term | Expression | Meaning |
+|------|------------|--------|
+| Dynamics | ∂ₜC = D ∇²C + aC − bC³ | coherence-field evolution |
+| Free energy | F[C] = ∫ [ (D/2)|∇C|² − (a/2)C² + (b/4)C⁴ ] dx | structural potential |
+| Gradient flow | ∂ₜC = −δF/δC | energy minimisation |
+
+**Stationary structure:**
+
+| Regime | Condition | Solution |
+|--------|----------|----------|
+| Disordered | a < 0 | C = 0 (stable) |
+| Critical point | a = 0 | pitchfork bifurcation |
+| Ordered | a > 0 | C = ±√(a/b) |
+
+**Numerical results** (a = b = 1, D = 0.8):
+
+| Quantity | Value | Interpretation |
+|----------|--------|----------------|
+| Fixed points | ±1.0 | stable coherence states |
+| ⟨C⟩ (1D) | -0.080 | domain balance |
+| std(C) (1D) | 0.939 | saturation near ±1 |
+| Energy drop | 0.057 → -27.076 | monotonic decay |
+
+**Key findings:**
+> The coherence-field equation reproduces spontaneous symmetry breaking,
+> domain formation, and energy minimisation within a minimal framework.
+> Structural selection emerges dynamically as gradient descent in a quartic free-energy landscape.
+
+**Script:** `coherence_simulation.py`
+
+**Features:**
+
+| Component | Description |
+|----------|-------------|
+| 0D dynamics | relaxation to fixed points |
+| 1D field | domain formation with periodic BC |
+| Energy tracking | verifies gradient-flow behaviour |
+
+
 ## Repository Structure
 
 ```
@@ -376,6 +423,7 @@ structural-selection-principle/
 ├── xi_aniso_full_test.py                  ← Paper 14: ξ_aniso quartile analysis
 ├── plateau_degeneracy_exact.py            ← Paper 16: plateau degeneracy measures
 ├── paper17_analysis.py                    ← Paper 17: CCI regime classifier + CV
+├── coherence_simulation.py                ← Paper 18: A minimal numerical validation of the coherence-field equation
 │
 ├── documentation/                         ← PDFs of all papers
 └── README.md
@@ -409,7 +457,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `xi_aniso_full_test.py` | 14 | ξ_aniso quartile-split + regression |
 | `plateau_degeneracy_exact.py` | 16 | exact plateau degeneracy D_width, D_norm, D_flat, D |
 | `paper17_analysis.py` | 17 | CCI threshold classifier, F_struct comparison, 5-fold CV |
-
+| `coherence_simulation.py ` | 18 | coherence-field dynamics (0D + 1D, domain formation, energy decay)|
 ---
 
 ## Key Results at a Glance
@@ -430,6 +478,7 @@ Paper 13 (multi-p): sign flip a: -1.6→+0.3       dimension-dependent scaling f
 Paper 14 (manifold):scaling = projection          r_s(ξ_aniso,R_α) = -0.721, p=0.0001
 Paper 16 (degeneracy):D_norm non-monotonic        D(2D)<D(1D)<D(3D), transition at 2D→3D
 Paper 17 (predict.): CCI perfect classifier      Acc=1.00, CV Ā=0.992±0.019
+Paper 18 (dynamics): coherence field emerges  symmetry breaking, domains, F ↓ monotonic
 ```
 
 ---
