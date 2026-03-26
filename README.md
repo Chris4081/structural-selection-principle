@@ -156,7 +156,6 @@ The Spearman correlation strengthens from 1D to 2D, indicating increased robustn
 
 ---
 
-
 ### Paper 11 — Entropy–Information Scaling (3D)
 **Persistence of Entropy–Information Scaling in Three Dimensions**
 *Breakdown of a Simple Exponent Trend in Nonlinear Field Systems*
@@ -357,14 +356,14 @@ using a threshold-based classifier on a 120-sample 1D benchmark dataset.
 **A Minimal Dynamical Model for Structural Selection:**
 *A Field Equation for the Critical Coherence Index*
 
-**Core idea:** Promotes the Critical Coherence Index (CCI) from a diagnostic observable to a dynamical field \(C(x,t)\), governed by a minimal nonlinear relaxation equation with gradient-flow structure.
+**Core idea:** Promotes the Critical Coherence Index (CCI) from a diagnostic observable to a dynamical field C(x,t), governed by a minimal nonlinear relaxation equation with gradient-flow structure.
 
 **Model equation:**
 
 | Term | Expression | Meaning |
 |------|------------|--------|
 | Dynamics | ∂ₜC = D ∇²C + aC − bC³ | coherence-field evolution |
-| Free energy | F[C] = ∫ [ (D/2)|∇C|² − (a/2)C² + (b/4)C⁴ ] dx | structural potential |
+| Free energy | F[C] = ∫ [ (D/2)\|∇C\|² − (a/2)C² + (b/4)C⁴ ] dx | structural potential |
 | Gradient flow | ∂ₜC = −δF/δC | energy minimisation |
 
 **Stationary structure:**
@@ -399,6 +398,50 @@ using a threshold-based classifier on a 120-sample 1D benchmark dataset.
 | 1D field | domain formation with periodic BC |
 | Energy tracking | verifies gradient-flow behaviour |
 
+---
+
+### Paper 19 — Active Structural Control
+**Active Structural Control in Nonlinear Field Systems:**
+*Parameter-Dependent Steering of Coherence*
+
+**Core idea:** Extends the CCI framework from a passive diagnostic into an active
+control paradigm. A feedback control term is introduced into the coherence-field
+dynamics, formalising the complete loop φ → C → U → φ. Structural coherence
+becomes a controllable quantity rather than a purely emergent observable.
+
+**Control scheme:**
+
+| Step | Expression | Role |
+|------|------------|------|
+| Field → Coherence | C = G_σ[φ²] − (G_σ[φ])² | coarse-grained variance |
+| Coherence → Control | U = −(C − C*) | feedback signal |
+| Control → Field | φ̈ = ∇²φ − (φ³−φ) − γφ̇ + λU | controlled dynamics |
+
+**Best-performing configuration** (γ = 0.02, λ = 0.24):
+
+| Observable | Baseline | Controlled | Change |
+|------------|----------|------------|--------|
+| CCI | 0.0579 | 0.0540 | −6.7% |
+| F_struct | 3.3433 | 3.1322 | −6.3% |
+| I_nn | 0.1080 | 0.2746 | +154% |
+
+**Two operational regimes:**
+
+| Regime | Damping | Effect |
+|--------|---------|--------|
+| Structure refinement | γ ≳ 0.05 | F_struct ↓, I_nn ↑, CCI stable |
+| Regime steering | γ ≲ 0.03 | CCI ↓, genuine regime transition |
+
+> Structural selection can be formulated as a control problem.
+> The feedback loop φ → C → U → φ enables target-driven steering
+> of the system in coherence space, with qualitatively distinct
+> effectiveness regimes depending on damping strength.
+
+**Script:** `active_control_phi4.py`
+
+**Requires:** 2D φ⁴ field simulation with RK4 integration (see repository)
+
+---
 
 ## Repository Structure
 
@@ -423,7 +466,8 @@ structural-selection-principle/
 ├── xi_aniso_full_test.py                  ← Paper 14: ξ_aniso quartile analysis
 ├── plateau_degeneracy_exact.py            ← Paper 16: plateau degeneracy measures
 ├── paper17_analysis.py                    ← Paper 17: CCI regime classifier + CV
-├── coherence_simulation.py                ← Paper 18: A minimal numerical validation of the coherence-field equation
+├── coherence_simulation.py                ← Paper 18: coherence-field dynamics
+├── active_control_phi4.py                 ← Paper 19: active structural control
 │
 ├── documentation/                         ← PDFs of all papers
 └── README.md
@@ -457,31 +501,36 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `xi_aniso_full_test.py` | 14 | ξ_aniso quartile-split + regression |
 | `plateau_degeneracy_exact.py` | 16 | exact plateau degeneracy D_width, D_norm, D_flat, D |
 | `paper17_analysis.py` | 17 | CCI threshold classifier, F_struct comparison, 5-fold CV |
-| `coherence_simulation.py ` | 18 | coherence-field dynamics (0D + 1D, domain formation, energy decay)|
+| `coherence_simulation.py` | 18 | coherence-field dynamics (0D + 1D, domain formation, energy decay) |
+| `active_control_phi4.py` | 19 | active structural control, parameter sweep, heatmaps |
+
 ---
 
 ## Key Results at a Glance
 
 ```
-Paper 01 (SSP):    slow-roll preferred        E = 0.889 < E_deSitter
-Paper 02 (1D):     kink wins 81/81            weight 99.96%
-Paper 03 (2D):     selection transition       s★_c ∈ (0.20, 0.42)
-Paper 05 (ground): CCI vs Ṡ/I               Spearman r = 0.760
-Paper 06 (ensemb): CCI ≈ F_struct            Spearman r = 0.878
-Paper 07 (1D sc.): CCI ∝ Ṡ/I^α             r_s = 0.734, α ≈ 2.5
-Paper 08 (Landau): O ~ I_nn, μ ~ CCI        theoretical proposal
-Paper 09 (2D sc.): scaling persists in 2D    r_s = 0.870, α ≈ 3.0
-Paper 10 (dim.):   α increases with d        r_s: 0.734 → 0.870
-Paper 11 (3D):     plateau in 3D              r_s = 0.850, α ∈ [2.8, 3.5]
-Paper 12 (collapse):partial collapse 1D–3D     shared structure, no universal exponent
-Paper 13 (multi-p): sign flip a: -1.6→+0.3       dimension-dependent scaling family
-Paper 14 (manifold):scaling = projection          r_s(ξ_aniso,R_α) = -0.721, p=0.0001
+Paper 01 (SSP):      slow-roll preferred        E = 0.889 < E_deSitter
+Paper 02 (1D):       kink wins 81/81            weight 99.96%
+Paper 03 (2D):       selection transition        s★_c ∈ (0.20, 0.42)
+Paper 05 (ground):   CCI vs Ṡ/I                Spearman r = 0.760
+Paper 06 (ensemb):   CCI ≈ F_struct             Spearman r = 0.878
+Paper 07 (1D sc.):   CCI ∝ Ṡ/I^α              r_s = 0.734, α ≈ 2.5
+Paper 08 (Landau):   O ~ I_nn, μ ~ CCI          theoretical proposal
+Paper 09 (2D sc.):   scaling persists in 2D     r_s = 0.870, α ≈ 3.0
+Paper 10 (dim.):     α increases with d         r_s: 0.734 → 0.870
+Paper 11 (3D):       plateau in 3D               r_s = 0.850, α ∈ [2.8, 3.5]
+Paper 12 (collapse): partial collapse 1D–3D      shared structure, no universal exponent
+Paper 13 (multi-p):  sign flip a: -1.6→+0.3     dimension-dependent scaling family
+Paper 14 (manifold): scaling = projection         r_s(ξ_aniso,R_α) = -0.721, p=0.0001
 Paper 16 (degeneracy):D_norm non-monotonic        D(2D)<D(1D)<D(3D), transition at 2D→3D
 Paper 17 (predict.): CCI perfect classifier      Acc=1.00, CV Ā=0.992±0.019
-Paper 18 (dynamics): coherence field emerges  symmetry breaking, domains, F ↓ monotonic
+Paper 18 (dynamics): coherence field emerges     symmetry breaking, domains, F ↓ monotonic
+Paper 19 (control):  active coherence steering   CCI ↓6.7%, I_nn ↑154%, two control regimes
 ```
 
 ---
+
+www.maat-research.com
 
 ## License
 
