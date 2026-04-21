@@ -491,6 +491,41 @@ as a scale-invariant measure of dimensional stability.
 
 ---
 
+### Paper 22 — Numerical Validation of Structural Selection
+**Numerical Validation of Structural Selection:**
+*Evidence Beyond Energy-Based Ranking in a Minimal φ⁴ Model*
+
+**Core idea:** First static lattice validation of the structural-selection
+functional in a minimal 1+1 dimensional φ⁴ model. Tests whether
+`F_struct` does more than reproduce ordinary energy ranking by
+benchmarking vacua, the unstable homogeneous saddle, the discrete kink, and a
+sector-matched distortion ensemble.
+
+**Core results:**
+
+| Benchmark | Result | Interpretation |
+|----------|--------|----------------|
+| Vacuum discrimination | **Δ_vac = 2.583852** | true vacua cleanly separated from unstable saddle |
+| Kink discrimination | **p_K = 1.000** | discrete kink outranks all tested distortions |
+| Ranking test (20%) | **0.010363 < 0.012128** | structural ranking outperforms energy ranking at the 20% percentile |
+
+**Key finding:**
+> Structural selection becomes numerically testable in a minimal field-theory
+> setting. The structural layer is not merely a relabeling of on-shellness or
+> static energy: it distinguishes stable from unstable exact solutions and adds
+> measurable ranking power within a nontrivial topological sector.
+
+**Scripts:**
+
+| Script | Role |
+|--------|------|
+| `structural_selection_phi4_protocol.py` | runs the static lattice benchmark and generates `structural_selection_phi4_results.json` |
+| `structural_selection_phi4_plots.py` | reads `structural_selection_phi4_results.json` and generates the validation figures |
+
+**Documentation PDF:** `documentation/22_Numerical_Validation_of_Structural_Selection__Evidence_Beyond_Energy_Based_Ranking_in_a_Minimal_phi4_Model.pdf`
+
+---
+
 ---
 
 ## Repository Structure
@@ -519,6 +554,8 @@ structural-selection-principle/
 ├── coherence_simulation.py                ← Paper 18: coherence-field dynamics
 ├── active_control_phi4.py                 ← Paper 19: active structural control
 ├── uni_stability_test.py                  ← Paper 20: cross-dimensional stability test
+├── structural_selection_phi4_protocol.py  ← Paper 22: static φ⁴ validation benchmark
+├── structural_selection_phi4_plots.py     ← Paper 22: figure generation from benchmark JSON
 │
 ├── documentation/                         ← PDFs of all papers
 └── README.md
@@ -555,6 +592,8 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `coherence_simulation.py` | 18 | coherence-field dynamics (0D + 1D, domain formation, energy decay) |
 | `active_control_phi4.py` | 19 | active structural control, parameter sweep, heatmaps |
 | `uni_stability_test.py` | 20 | cross-dimensional stability test, drift analysis, figure |
+| `structural_selection_phi4_protocol.py` | 22 | static φ⁴ benchmark, vacua vs saddle, kink vs distortions, writes result JSON |
+| `structural_selection_phi4_plots.py` | 22 | generates Paper 22 validation plots from `structural_selection_phi4_results.json` |
 
 ---
 
@@ -579,6 +618,7 @@ Paper 17 (predict.): CCI perfect classifier      Acc=1.00, CV Ā=0.992±0.019
 Paper 18 (dynamics): coherence field emerges     symmetry breaking, domains, F ↓ monotonic
 Paper 19 (control):  active coherence steering   CCI ↓6.7%, I_nn ↑154%, two control regimes
 Paper 20 (robust.):  CCI/F_struct stable           drift<2 vs ratio drift≈2000, projection vs intrinsic
+Paper 22 (validate): struct. beats energy rank     Δ_vac=2.583852, p_K=1.000, gain at 20% percentile
 ```
 
 ---
