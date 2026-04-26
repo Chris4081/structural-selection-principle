@@ -16,6 +16,11 @@ energy-only ordering in progressively more structured toy and bridge ensembles.
 ```text
 experiments/
 ├── phenomenological_structural_selection_string_measure.pdf
+├── fixed_energy_structural_selection/
+│   ├── README.md
+│   ├── structural_selection_fixed_energy_benchmarks.py
+│   ├── fixed_energy_structural_selection_results.json
+│   └── fixed_energy_structural_selection_plots/
 └── string_landscape_selection/
     ├── structural_selection_10d_tadpole_toy.py
     ├── structural_selection_iib_kklt_scan.py
@@ -37,7 +42,7 @@ python3 -m pip install numpy scipy matplotlib mpmath
 
 No network access is required once the Python packages are installed.
 
-## Reproducing the Results
+## Reproducing the String-Landscape Results
 
 Run the scripts from the `string_landscape_selection/` directory:
 
@@ -55,7 +60,28 @@ Each script writes a JSON result file and a plot directory in the same folder.
 The default seeds are fixed inside the scripts, so the benchmark outputs are
 deterministic for the same Python/package versions.
 
-## Script Overview
+## Reproducing the Fixed-Energy Field Tests
+
+The `fixed_energy_structural_selection/` directory contains a separate
+field-theory benchmark bundle testing whether structural ranking differs from
+energy-only ranking in `phi^4` and Sine-Gordon systems.
+
+Run:
+
+```bash
+cd experiments/fixed_energy_structural_selection
+python3 structural_selection_fixed_energy_benchmarks.py
+```
+
+This generates:
+
+- `fixed_energy_structural_selection_results.json`
+- `fixed_energy_structural_selection_plots/`
+
+The 2D plots use a 2x2 constrained layout with separated labels to avoid
+overlap in the domain-wall panels and energy-vs-structure comparison.
+
+## String-Landscape Script Overview
 
 | Script | Purpose | Main outputs |
 | --- | --- | --- |
@@ -66,9 +92,15 @@ deterministic for the same Python/package versions.
 | `structural_selection_iib_exact_period_kklt_bridge.py` | Mirror-quintic Picard-Fuchs period benchmark connected to KKLT ranking. | `structural_selection_iib_exact_period_kklt_bridge_results.json`, `structural_selection_iib_exact_period_kklt_bridge_plots/` |
 | `structural_selection_iib_backreaction_sm_bridge.py` | Adds phenomenological backreaction and Standard-Model-sector proxy layers. | `structural_selection_iib_backreaction_sm_bridge_results.json`, `structural_selection_iib_backreaction_sm_bridge_plots/` |
 
+## Fixed-Energy Benchmark Overview
+
+| Script | Purpose | Main outputs |
+| --- | --- | --- |
+| `fixed_energy_structural_selection/structural_selection_fixed_energy_benchmarks.py` | Consolidated 1D `phi^4`, 2D `phi^4`, equal-energy `phi^4`, and Sine-Gordon structural-selection tests. | `fixed_energy_structural_selection_results.json`, `fixed_energy_structural_selection_plots/` |
+
 ## Scientific Status
 
-These scripts implement toy and bridge models. In particular:
+These scripts implement toy, bridge, and proxy models. In particular:
 
 - The tadpole and backreaction terms are operational proxies, not full 10D
   supergravity solutions.
@@ -76,6 +108,8 @@ These scripts implement toy and bridge models. In particular:
   constructed chiral compactification.
 - The Picard-Fuchs benchmark uses a controlled mirror-quintic period model, but
   does not constitute a full global compactification scan.
+- The fixed-energy field tests use operational structural diagnostics, not a
+  first-principles microscopic derivation.
 - The structural measure is intended as a testable ranking architecture, not as
   a final microscopic string measure.
 
@@ -93,4 +127,3 @@ If using or discussing these experiments, cite the accompanying paper:
 Christof Krieg,
 *A Phenomenological Structural Selection Measure for String Backgrounds*,
 2026.
-
