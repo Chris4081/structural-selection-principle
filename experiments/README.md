@@ -16,6 +16,11 @@ energy-only ordering in progressively more structured toy and bridge ensembles.
 ```text
 experiments/
 ├── phenomenological_structural_selection_string_measure.pdf
+├── cosmology_structural_selection/
+│   ├── README.md
+│   ├── maat_cosmology_toy_v2.py
+│   ├── maat_cosmology_toy_v2_results.json
+│   └── maat_cosmology_toy_v2_plots/
 ├── fixed_energy_structural_selection/
 │   ├── README.md
 │   ├── structural_selection_fixed_energy_benchmarks.py
@@ -81,6 +86,24 @@ This generates:
 The 2D plots use a 2x2 constrained layout with separated labels to avoid
 overlap in the domain-wall panels and energy-vs-structure comparison.
 
+## Reproducing the Cosmology Toy Benchmark
+
+The `cosmology_structural_selection/` directory contains the FLRW scalar-field
+toy benchmark extending structural selection from static field configurations
+to simple cosmological histories.
+
+Run:
+
+```bash
+cd experiments/cosmology_structural_selection
+python3 maat_cosmology_toy_v2.py
+```
+
+This generates:
+
+- `maat_cosmology_toy_v2_results.json`
+- `maat_cosmology_toy_v2_plots/`
+
 ## String-Landscape Script Overview
 
 | Script | Purpose | Main outputs |
@@ -98,6 +121,12 @@ overlap in the domain-wall panels and energy-vs-structure comparison.
 | --- | --- | --- |
 | `fixed_energy_structural_selection/structural_selection_fixed_energy_benchmarks.py` | Consolidated 1D `phi^4`, 2D `phi^4`, equal-energy `phi^4`, and Sine-Gordon structural-selection tests. | `fixed_energy_structural_selection_results.json`, `fixed_energy_structural_selection_plots/` |
 
+## Cosmology Benchmark Overview
+
+| Script | Purpose | Main outputs |
+| --- | --- | --- |
+| `cosmology_structural_selection/maat_cosmology_toy_v2.py` | Flat-FLRW scalar-field toy histories ranked by MAAT structural diagnostics. | `maat_cosmology_toy_v2_results.json`, `maat_cosmology_toy_v2_plots/` |
+
 ## Scientific Status
 
 These scripts implement toy, bridge, and proxy models. In particular:
@@ -110,6 +139,8 @@ These scripts implement toy, bridge, and proxy models. In particular:
   does not constitute a full global compactification scan.
 - The fixed-energy field tests use operational structural diagnostics, not a
   first-principles microscopic derivation.
+- The cosmology benchmark is a flat-FLRW scalar-field toy model, not a complete
+  cosmological theory.
 - The structural measure is intended as a testable ranking architecture, not as
   a final microscopic string measure.
 

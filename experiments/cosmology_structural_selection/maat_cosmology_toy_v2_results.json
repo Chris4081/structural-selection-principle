@@ -1,0 +1,88 @@
+{
+  "config": {
+    "dt": 0.005,
+    "total_time": 60.0,
+    "v0": 1.0,
+    "delta": 3.0
+  },
+  "ranking_by_F_MAAT": [
+    "slow_roll_coherent",
+    "kinetic_relaxing",
+    "static_dead",
+    "ghost_like",
+    "collapse_negative_potential"
+  ],
+  "results": {
+    "slow_roll_coherent": {
+      "F_MAAT": 0.22608137110191037,
+      "Stability": 0.9450472470029535,
+      "H": 1.0,
+      "B": 1.0,
+      "S": 0.7976531731615322,
+      "V": 0.9999999724666616,
+      "R": 1.0,
+      "mean_w": -0.9201934014020741,
+      "inflation_fraction": 1.0,
+      "invalid_fraction": 0.0,
+      "efolds": 20.826305176170884
+    },
+    "kinetic_relaxing": {
+      "F_MAAT": 0.29876309619689956,
+      "Stability": 0.9292871804866185,
+      "H": 1.0,
+      "B": 1.0,
+      "S": 0.7457873370848287,
+      "V": 0.9999649536841357,
+      "R": 0.994601313193133,
+      "mean_w": -0.8687544573573268,
+      "inflation_fraction": 0.9925,
+      "invalid_fraction": 0.0,
+      "efolds": 13.147508920185606
+    },
+    "static_dead": {
+      "F_MAAT": 0.5781868208226273,
+      "Stability": 0.8654144795860593,
+      "H": 1.0,
+      "B": 1.0,
+      "S": 0.5609144643544471,
+      "V": 0.9999999763899313,
+      "R": 1.0,
+      "mean_w": -0.8697579589548325,
+      "inflation_fraction": 1.0,
+      "invalid_fraction": 0.0,
+      "efolds": 3.52224853565222
+    },
+    "collapse_negative_potential": {
+      "F_MAAT": 40.4852020597305,
+      "Stability": 5.899192334775784e-08,
+      "H": 0.009946949602122016,
+      "B": 6.089707286000769e-27,
+      "S": 0.20010682389948273,
+      "V": 0.9991299773626628,
+      "R": 1.2150003794508437e-07,
+      "mean_w": -9.906666666666666,
+      "inflation_fraction": 0.0,
+      "invalid_fraction": 0.9953333333333333,
+      "efolds": 0.006106086473205299
+    },
+    "ghost_like": {
+      "F_MAAT": 2.7813322778439584,
+      "Stability": 0.09090909090909091,
+      "H": 1.0,
+      "B": 0.9999258977963318,
+      "S": 0.6815724314021633,
+      "V": 0.9999896964555993,
+      "R": 0.09090909090909091,
+      "mean_w": -1.0176347645268522,
+      "inflation_fraction": 1.0,
+      "invalid_fraction": 0.0,
+      "efolds": 34.408447842463666
+    }
+  },
+  "plots": [
+    "fig_cosmo_v2_w.png",
+    "fig_cosmo_v2_expansion.png",
+    "fig_cosmo_v2_maat_ranking.png"
+  ],
+  "status": "Operational FLRW scalar-field toy benchmark; not a complete cosmological model."
+}
