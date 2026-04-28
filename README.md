@@ -632,6 +632,49 @@ changes the inferred selection hierarchy.
 
 ---
 
+### Paper 28 — Cosmological Critical Coherence Index
+**Cosmological Critical Coherence Index:**
+*A Structural-Stress Observable for Cosmic Evolution*
+
+**Core idea:** Defines a dimensionless cosmological CCI diagnostic combining
+expansion stress, redshift activity, linear growth coherence, and structural
+imbalance. The goal is to visualise the balance between expansion history and
+structure-growth history, not to replace standard cosmological inference.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Reference cosmology | Planck-2018 flat LCDM |
+| Chronometer points | 31 |
+| Model range | `0 <= z <= 10` |
+| Normalised CCI at `z=1` | `~6.66` |
+| Normalised CCI at `z=2` | `~22.6` |
+| Normalised CCI at `z=10` | `~803.8` |
+| Chronometer residual RMS | `~1.01` |
+
+**Key finding:**
+> Cosmic evolution can be represented not only as expansion history, but as a
+> structural-stress history comparing expansion/activity against growth
+> coherence.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/cosmological_cci/` | Cosmological CCI script, chronometer input table, generated CSVs, and plots |
+
+**Data attribution and license note:** Planck-2018 parameter values and Cosmic
+Chronometer measurements are external scientific data and should be cited to
+the original publications/collaborations when reused or discussed. The CSV
+tables and figures in this repository are derived analysis artifacts generated
+for reproducibility of the CCI diagnostic. No endorsement by the Planck
+Collaboration or the chronometer-data authors is implied.
+
+**Documentation PDF:** `documentation/28_Cosmological_Critical_Coherence_Index.pdf`
+
+---
+
 ## Repository Structure
 
 ```
@@ -664,7 +707,8 @@ structural-selection-principle/
 ├── experiments/
 │   ├── natural_constants_selection/       ← Paper 26: natural-constants v1--v13 benchmark
 │   ├── standard_model_bridge/             ← Paper 26: SM-like RG bridge and v11 holdout
-│   └── boundary_aware_lambda_calibration/ ← Paper 27: fused boundary-aware λ calibration
+│   ├── boundary_aware_lambda_calibration/ ← Paper 27: fused boundary-aware λ calibration
+│   └── cosmological_cci/                  ← Paper 28: cosmological CCI observable
 │
 ├── documentation/                         ← PDFs of all papers
 └── README.md
@@ -712,6 +756,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/standard_model_bridge/standard_model_rg_maat_v11_holdout.py` | 26 | direct-term holdout benchmark for cross-sector predictivity |
 | `experiments/boundary_aware_lambda_calibration/fit_closed_maat_lambda_v1.py` | 27 | closed boundary-aware MAAT lambda calibration over fused defect data |
 | `experiments/boundary_aware_lambda_calibration/plot_closed_maat_lambda_v2.py` | 27 | generates Paper 27 lambda and defect-comparison figures |
+| `experiments/cosmological_cci/maat_cci_cosmology_v02.py` | 28 | generates the cosmological CCI model grid, chronometer projection, and plots |
 
 ---
 
@@ -739,6 +784,7 @@ Paper 20 (robust.):  CCI/F_struct stable           drift<2 vs ratio drift≈2000
 Paper 22 (validate): struct. beats energy rank     Δ_vac=2.583852, p_K=1.000, gain at 20% percentile
 Paper 26 (constants): basin-level SM compatibility, MaxEnt weights R>V≈S>B>H, v11/v13 test predictivity
 Paper 27 (boundary): R dominates closed λ fit       R share=0.3917, λ_R=8.078, N=3400 fused samples
+Paper 28 (cosmo CCI): structural-stress history     CCI_norm(z=10)≈803.8, chronometer RMS≈1.01
 ```
 
 ---
