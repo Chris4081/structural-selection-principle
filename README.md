@@ -599,6 +599,39 @@ inputs.
 
 ---
 
+### Paper 27 — Boundary-Aware Calibration of MAAT Structural Weights
+**Boundary-Aware Calibration of MAAT Structural Weights:**
+*A Reproducible Benchmark for Constraint-Dominated Structural Selection*
+
+**Core idea:** Calibrates MAAT structural weights on a fused dataset containing
+SAT hardness instances, unconstrained MAAT-Core states, and explicit
+constraint-boundary regimes. The key question is whether boundary information
+changes the inferred selection hierarchy.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Fused samples | 3400 |
+| Sources | SAT hardness atlas, MAAT-Core, MAAT-Core boundary |
+| Lambda hierarchy | `R > V > H > S ~= B` |
+| Dominant share | `R = 0.3917` |
+| Fit loss | `0.0029543310` |
+
+**Key finding:**
+> Robustness / Respect becomes the dominant structural selector once explicit
+> boundary, margin, and violation information are included.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/boundary_aware_lambda_calibration/` | fused defect dataset, closed lambda fit, plots, and result JSON |
+
+**Documentation PDF:** `documentation/27_Boundary_Aware_Calibration_of_MAAT_Structural_Weights.pdf`
+
+---
+
 ## Repository Structure
 
 ```
@@ -630,7 +663,8 @@ structural-selection-principle/
 │
 ├── experiments/
 │   ├── natural_constants_selection/       ← Paper 26: natural-constants v1--v13 benchmark
-│   └── standard_model_bridge/             ← Paper 26: SM-like RG bridge and v11 holdout
+│   ├── standard_model_bridge/             ← Paper 26: SM-like RG bridge and v11 holdout
+│   └── boundary_aware_lambda_calibration/ ← Paper 27: fused boundary-aware λ calibration
 │
 ├── documentation/                         ← PDFs of all papers
 └── README.md
@@ -676,6 +710,8 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/standard_model_bridge/standard_model_rg_maat_bridge.py` | 26 | one-loop SM-like RG bridge from UV parameters to IR effective observables |
 | `experiments/standard_model_bridge/standard_model_rg_maat_summary_figure.py` | 26 | generates the four-panel Paper 26 summary figure |
 | `experiments/standard_model_bridge/standard_model_rg_maat_v11_holdout.py` | 26 | direct-term holdout benchmark for cross-sector predictivity |
+| `experiments/boundary_aware_lambda_calibration/fit_closed_maat_lambda_v1.py` | 27 | closed boundary-aware MAAT lambda calibration over fused defect data |
+| `experiments/boundary_aware_lambda_calibration/plot_closed_maat_lambda_v2.py` | 27 | generates Paper 27 lambda and defect-comparison figures |
 
 ---
 
@@ -702,6 +738,7 @@ Paper 19 (control):  active coherence steering   CCI ↓6.7%, I_nn ↑154%, two 
 Paper 20 (robust.):  CCI/F_struct stable           drift<2 vs ratio drift≈2000, projection vs intrinsic
 Paper 22 (validate): struct. beats energy rank     Δ_vac=2.583852, p_K=1.000, gain at 20% percentile
 Paper 26 (constants): basin-level SM compatibility, MaxEnt weights R>V≈S>B>H, v11/v13 test predictivity
+Paper 27 (boundary): R dominates closed λ fit       R share=0.3917, λ_R=8.078, N=3400 fused samples
 ```
 
 ---
