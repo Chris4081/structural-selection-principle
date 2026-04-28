@@ -34,6 +34,13 @@ experiments/
 │   ├── closed_maat_lambda_fit_results.json
 │   ├── maat_defects_*.csv
 │   └── plots/
+├── cosmological_cci/
+│   ├── README.md
+│   ├── maat_cci_cosmology_v02.py
+│   ├── maat_cci_cosmology_v02_chronometers.csv
+│   ├── maat_cci_cosmology_v02.csv
+│   ├── maat_cci_cosmology_v02_data_comparison.csv
+│   └── plots/
 ├── natural_constants_selection/
 │   ├── README.md
 │   ├── naturkonstante.py
@@ -158,6 +165,35 @@ This generates:
 - `plots/fig4_structural_energy_distribution.png`
 - `plots/fig5_c_hat_vs_flambda_sat.png`
 
+## Reproducing the Cosmological CCI Observable
+
+The `cosmological_cci/` directory contains the Paper 28 diagnostic pipeline
+for the Cosmological Critical Coherence Index.
+
+Run:
+
+```bash
+cd experiments/cosmological_cci
+python3 maat_cci_cosmology_v02.py
+```
+
+This generates:
+
+- `maat_cci_cosmology_v02.csv`
+- `maat_cci_cosmology_v02_data_comparison.csv`
+- `plots/maat_cci_cosmology_v02_plot.png`
+- `plots/maat_cci_cosmology_v02_Hz_comparison.png`
+- `plots/maat_cci_cosmology_v02_data_comparison.png`
+- `plots/maat_cci_cosmology_v02_residuals.png`
+
+**Data attribution and license note:** The Planck-2018 parameter values and
+Cosmic Chronometer H(z) measurements are external scientific data from the
+cited literature. The repository contains a compact chronometer table and
+derived CSV/PNG artifacts only for reproducibility of this diagnostic. Reuse of
+the original measurements remains subject to the terms of the original
+publications, journals, and collaborations. No endorsement by the Planck
+Collaboration or the chronometer-data authors is implied.
+
 ## Reproducing the Natural-Constants Benchmark
 
 The `natural_constants_selection/` directory contains the v1--v13
@@ -262,6 +298,12 @@ holdout plots.
 | `boundary_aware_lambda_calibration/fit_closed_maat_lambda_v1.py` | Fits closed MAAT sector weights over the fused defect ensemble. | `closed_maat_lambda_fit_results.json` |
 | `boundary_aware_lambda_calibration/plot_closed_maat_lambda_v2.py` | Generates lambda, share, defect-comparison, and structural-energy plots from the fitted result. | `plots/fig*.png` |
 
+## Cosmological CCI Overview
+
+| Script | Purpose | Main outputs |
+| --- | --- | --- |
+| `cosmological_cci/maat_cci_cosmology_v02.py` | Generates the cosmological CCI model grid, chronometer H(z) projection, residual table, and plots. | `maat_cci_cosmology_v02.csv`, `maat_cci_cosmology_v02_data_comparison.csv`, `plots/*.png` |
+
 ## Standard-Model Bridge Overview
 
 | Script | Purpose | Main outputs |
@@ -289,6 +331,9 @@ These scripts implement toy, bridge, and proxy models. In particular:
 - The boundary-aware lambda calibration is a fused benchmark over SAT and
   MAAT-Core-derived data. It shows constraint dominance in that closed system,
   but does not establish universal MAAT constants.
+- The cosmological CCI benchmark is a diagnostic projection over Planck LCDM
+  and Cosmic Chronometer H(z) data. It is not a new cosmological model and does
+  not perform parameter inference.
 - The v11 holdout benchmark removes direct score terms only; indirect
   cross-sector appearances of held-out observables remain active by design.
 - The Picard-Fuchs benchmark uses a controlled mirror-quintic period model, but
@@ -328,6 +373,17 @@ Christof Krieg,
 *Boundary-Aware Calibration of MAAT Structural Weights: A Reproducible
 Benchmark for Constraint-Dominated Structural Selection*,
 2026.
+
+For the cosmological CCI benchmark, cite:
+
+Christof Krieg,
+*Cosmological Critical Coherence Index: A Structural-Stress Observable for
+Cosmic Evolution*,
+2026.
+
+For the external cosmology inputs used in Paper 28, cite the Planck-2018
+cosmological-parameter paper and the Cosmic Chronometer literature referenced
+in the manuscript.
 
 Reference comparison values for fundamental constants and Standard-Model
 inputs should cite CODATA/NIST and PDG 2024:
