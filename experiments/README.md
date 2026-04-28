@@ -26,6 +26,27 @@ experiments/
 │   ├── structural_selection_fixed_energy_benchmarks.py
 │   ├── fixed_energy_structural_selection_results.json
 │   └── fixed_energy_structural_selection_plots/
+├── natural_constants_selection/
+│   ├── README.md
+│   ├── naturkonstante.py
+│   ├── naturkonstante_v2_structure_scan.py
+│   ├── ...
+│   ├── naturkonstante_v10_multiseed.py
+│   ├── naturkonstante_v12_maxent_lambda.py
+│   ├── naturkonstante_v13_maxent_sm_bridge.py
+│   ├── naturkonstante_v12_maxent_lambda_results.json
+│   ├── naturkonstante_v13_maxent_sm_bridge_results.json
+│   └── plots/
+├── standard_model_bridge/
+│   ├── README.md
+│   ├── standard_model_rg_maat_bridge.py
+│   ├── standard_model_rg_maat_summary_figure.py
+│   ├── standard_model_rg_maat_v11_holdout.py
+│   ├── sm_bridge_result_section.tex
+│   ├── sm_bridge_v11_holdout_section.tex
+│   ├── standard_model_rg_maat_results.json
+│   ├── standard_model_rg_maat_v11_holdout_results.json
+│   └── standard_model_rg_maat_plots/
 └── string_landscape_selection/
     ├── structural_selection_10d_tadpole_toy.py
     ├── structural_selection_iib_kklt_scan.py
@@ -104,6 +125,62 @@ This generates:
 - `maat_cosmology_toy_v2_results.json`
 - `maat_cosmology_toy_v2_plots/`
 
+## Reproducing the Natural-Constants Benchmark
+
+The `natural_constants_selection/` directory contains the v1--v13
+natural-constants benchmark sequence leading into the Standard-Model bridge.
+The scripts test whether broad MAAT-type structural diagnostics define stable
+low-defect basins in effective-constant space. Versions v12 and v13 add a
+maximum-entropy calibration of the sector weights `lambda_a`.
+
+Run:
+
+```bash
+cd experiments/natural_constants_selection
+python3 naturkonstante.py
+python3 naturkonstante_v2_structure_scan.py
+python3 naturkonstante_v3_physics_constraints.py
+python3 naturkonstante_v4_stellar_chemistry.py
+python3 naturkonstante_v5_robustness_scan.py
+python3 naturkonstante_v6_ablation_scan.py
+python3 naturkonstante_v7_landscape_heatmap.py
+python3 naturkonstante_v8_gradient_flow.py
+python3 naturkonstante_v9_rg_maat.py
+python3 naturkonstante_v10_multiseed.py
+python3 naturkonstante_v12_maxent_lambda.py
+python3 naturkonstante_v13_maxent_sm_bridge.py
+```
+
+Publication figures copied from the local workspace are stored in:
+
+- `natural_constants_selection/plots/maat_constants_v7_heatmap.png`
+- `natural_constants_selection/plots/maat_constants_v8_gradient_flow.png`
+
+## Reproducing the Standard-Model Bridge Benchmark
+
+The `standard_model_bridge/` directory contains a phenomenological bridge test
+between one-loop Standard-Model-like RG flow and MAAT structural selection.
+Observed Standard Model values are used only as comparison markers, not as
+optimisation targets in the score.
+
+Run:
+
+```bash
+cd experiments/standard_model_bridge
+python3 standard_model_rg_maat_bridge.py
+python3 standard_model_rg_maat_summary_figure.py
+python3 standard_model_rg_maat_v11_holdout.py
+```
+
+This generates:
+
+- `standard_model_rg_maat_results.json`
+- `standard_model_rg_maat_v11_holdout_results.json`
+- `standard_model_rg_maat_plots/`
+including the publication-style summary figure
+`standard_model_rg_maat_plots/sm_bridge_nature_summary.png` and the v11
+holdout plots.
+
 ## String-Landscape Script Overview
 
 | Script | Purpose | Main outputs |
@@ -127,6 +204,31 @@ This generates:
 | --- | --- | --- |
 | `cosmology_structural_selection/maat_cosmology_toy_v2.py` | Flat-FLRW scalar-field toy histories ranked by MAAT structural diagnostics. | `maat_cosmology_toy_v2_results.json`, `maat_cosmology_toy_v2_plots/` |
 
+## Natural-Constants Benchmark Overview
+
+| Script | Purpose | Main outputs |
+| --- | --- | --- |
+| `natural_constants_selection/naturkonstante.py` | Initial direct structural optimisation over dimensionless effective constants. | Console output / script-defined outputs |
+| `natural_constants_selection/naturkonstante_v2_structure_scan.py` | Log-space structure scan. | Script-defined outputs |
+| `natural_constants_selection/naturkonstante_v3_physics_constraints.py` | Broad physics viability bands. | Script-defined outputs |
+| `natural_constants_selection/naturkonstante_v4_stellar_chemistry.py` | Chemistry and fusion proxies. | Script-defined outputs |
+| `natural_constants_selection/naturkonstante_v5_robustness_scan.py` | Multi-seed robustness. | Script-defined outputs |
+| `natural_constants_selection/naturkonstante_v6_ablation_scan.py` | Sector ablation tests. | Script-defined outputs |
+| `natural_constants_selection/naturkonstante_v7_landscape_heatmap.py` | Basin visualisation. | `plots/maat_constants_v7_heatmap.png` |
+| `natural_constants_selection/naturkonstante_v8_gradient_flow.py` | Gradient-flow attractor test. | `plots/maat_constants_v8_gradient_flow.png` |
+| `natural_constants_selection/naturkonstante_v9_rg_maat.py` | Toy RG plus MAAT score. | Script-defined outputs |
+| `natural_constants_selection/naturkonstante_v10_multiseed.py` | RG multi-seed robustness. | Script-defined outputs |
+| `natural_constants_selection/naturkonstante_v12_maxent_lambda.py` | Maximum-entropy calibration of sector weights. | `naturkonstante_v12_maxent_lambda_results.json` |
+| `natural_constants_selection/naturkonstante_v13_maxent_sm_bridge.py` | MaxEnt-weighted constants bridge. | `naturkonstante_v13_maxent_sm_bridge_results.json` |
+
+## Standard-Model Bridge Overview
+
+| Script | Purpose | Main outputs |
+| --- | --- | --- |
+| `standard_model_bridge/standard_model_rg_maat_bridge.py` | One-loop Standard-Model-like RG bridge from UV parameters to IR effective observables ranked by MAAT structural diagnostics. | `standard_model_rg_maat_results.json`, `standard_model_rg_maat_plots/` |
+| `standard_model_bridge/standard_model_rg_maat_summary_figure.py` | Builds the four-panel publication-style summary figure from the benchmark outputs. | `standard_model_rg_maat_plots/sm_bridge_nature_summary.png`, `standard_model_rg_maat_plots/sm_bridge_nature_summary.pdf` |
+| `standard_model_bridge/standard_model_rg_maat_v11_holdout.py` | Direct-term holdout benchmark testing cross-sector predictivity for selected SM-like observables. | `standard_model_rg_maat_v11_holdout_results.json`, `standard_model_rg_maat_plots/sm_bridge_v11_holdout_*.png` |
+
 ## Scientific Status
 
 These scripts implement toy, bridge, and proxy models. In particular:
@@ -135,6 +237,16 @@ These scripts implement toy, bridge, and proxy models. In particular:
   supergravity solutions.
 - The Standard-Model-sector layer is a phenomenological diagnostic proxy, not a
   constructed chiral compactification.
+- The Standard-Model bridge uses broad viability bands and one-loop toy
+  matching; it is not a precision electroweak fit or a derivation of the
+  observed constants.
+- The natural-constants benchmark uses broad phenomenological viability bands;
+  it identifies structural basins rather than deriving constants from first
+  principles.
+- The v12/v13 MaxEnt weights are effective benchmark weights calibrated on a
+  synthetic defect ensemble; they are not unique microscopic constants.
+- The v11 holdout benchmark removes direct score terms only; indirect
+  cross-sector appearances of held-out observables remain active by design.
 - The Picard-Fuchs benchmark uses a controlled mirror-quintic period model, but
   does not constitute a full global compactification scan.
 - The fixed-energy field tests use operational structural diagnostics, not a
@@ -158,3 +270,18 @@ If using or discussing these experiments, cite the accompanying paper:
 Christof Krieg,
 *A Phenomenological Structural Selection Measure for String Backgrounds*,
 2026.
+
+For the natural-constants and Standard-Model bridge benchmarks, cite:
+
+Christof Krieg,
+*Structural Selection of Effective Constants: From MAAT Basins to
+MaxEnt-Weighted RG Bridge Tests*,
+2026.
+
+Reference comparison values for fundamental constants and Standard-Model
+inputs should cite CODATA/NIST and PDG 2024:
+
+- NIST/CODATA values of the fundamental physical constants:
+  <https://www.nist.gov/programs-projects/codata-values-fundamental-physical-constants>
+- Particle Data Group, Review of Particle Physics 2024:
+  <https://pdg.lbl.gov/index-2024.html>
