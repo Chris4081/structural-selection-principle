@@ -26,6 +26,14 @@ experiments/
 │   ├── structural_selection_fixed_energy_benchmarks.py
 │   ├── fixed_energy_structural_selection_results.json
 │   └── fixed_energy_structural_selection_plots/
+├── boundary_aware_lambda_calibration/
+│   ├── README.md
+│   ├── merge_defects.py
+│   ├── fit_closed_maat_lambda_v1.py
+│   ├── plot_closed_maat_lambda_v2.py
+│   ├── closed_maat_lambda_fit_results.json
+│   ├── maat_defects_*.csv
+│   └── plots/
 ├── natural_constants_selection/
 │   ├── README.md
 │   ├── naturkonstante.py
@@ -125,6 +133,31 @@ This generates:
 - `maat_cosmology_toy_v2_results.json`
 - `maat_cosmology_toy_v2_plots/`
 
+## Reproducing the Boundary-Aware Lambda Calibration
+
+The `boundary_aware_lambda_calibration/` directory contains the fused
+SAT/MAAT-Core/boundary defect benchmark used to calibrate closed MAAT
+structural weights.
+
+Run:
+
+```bash
+cd experiments/boundary_aware_lambda_calibration
+python3 merge_defects.py
+python3 fit_closed_maat_lambda_v1.py
+python3 plot_closed_maat_lambda_v2.py
+```
+
+This generates:
+
+- `maat_defects_fused.csv`
+- `closed_maat_lambda_fit_results.json`
+- `plots/fig1_lambda_distribution.png`
+- `plots/fig2_lambda_shares.png`
+- `plots/fig3_sat_vs_core_defects.png`
+- `plots/fig4_structural_energy_distribution.png`
+- `plots/fig5_c_hat_vs_flambda_sat.png`
+
 ## Reproducing the Natural-Constants Benchmark
 
 The `natural_constants_selection/` directory contains the v1--v13
@@ -221,6 +254,14 @@ holdout plots.
 | `natural_constants_selection/naturkonstante_v12_maxent_lambda.py` | Maximum-entropy calibration of sector weights. | `naturkonstante_v12_maxent_lambda_results.json` |
 | `natural_constants_selection/naturkonstante_v13_maxent_sm_bridge.py` | MaxEnt-weighted constants bridge. | `naturkonstante_v13_maxent_sm_bridge_results.json` |
 
+## Boundary-Aware Lambda Calibration Overview
+
+| Script | Purpose | Main outputs |
+| --- | --- | --- |
+| `boundary_aware_lambda_calibration/merge_defects.py` | Merges SAT, MAAT-Core, and boundary defect CSVs into a fused calibration ensemble. | `maat_defects_fused.csv` |
+| `boundary_aware_lambda_calibration/fit_closed_maat_lambda_v1.py` | Fits closed MAAT sector weights over the fused defect ensemble. | `closed_maat_lambda_fit_results.json` |
+| `boundary_aware_lambda_calibration/plot_closed_maat_lambda_v2.py` | Generates lambda, share, defect-comparison, and structural-energy plots from the fitted result. | `plots/fig*.png` |
+
 ## Standard-Model Bridge Overview
 
 | Script | Purpose | Main outputs |
@@ -245,6 +286,9 @@ These scripts implement toy, bridge, and proxy models. In particular:
   principles.
 - The v12/v13 MaxEnt weights are effective benchmark weights calibrated on a
   synthetic defect ensemble; they are not unique microscopic constants.
+- The boundary-aware lambda calibration is a fused benchmark over SAT and
+  MAAT-Core-derived data. It shows constraint dominance in that closed system,
+  but does not establish universal MAAT constants.
 - The v11 holdout benchmark removes direct score terms only; indirect
   cross-sector appearances of held-out observables remain active by design.
 - The Picard-Fuchs benchmark uses a controlled mirror-quintic period model, but
@@ -276,6 +320,13 @@ For the natural-constants and Standard-Model bridge benchmarks, cite:
 Christof Krieg,
 *Structural Selection of Effective Constants: From MAAT Basins to
 MaxEnt-Weighted RG Bridge Tests*,
+2026.
+
+For the boundary-aware lambda calibration benchmark, cite:
+
+Christof Krieg,
+*Boundary-Aware Calibration of MAAT Structural Weights: A Reproducible
+Benchmark for Constraint-Dominated Structural Selection*,
 2026.
 
 Reference comparison values for fundamental constants and Standard-Model
