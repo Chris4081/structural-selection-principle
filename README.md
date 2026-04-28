@@ -540,6 +540,63 @@ This produces:
 
 ---
 
+### Paper 26 — Structural Selection of Effective Constants
+**Structural Selection of Effective Constants:**
+*From MAAT Basins to MaxEnt-Weighted RG Bridge Tests*
+
+**Core idea:** Extends structural selection from nonlinear field configurations
+to effective constants. The paper tests whether MAAT-type structural scores
+define low-defect basins in constant space and whether Standard-Model-like
+RG flow preserves cross-sector structural constraints. The v12/v13 extension
+calibrates the sector weights `lambda_a` through a maximum-entropy procedure.
+
+**Scientific status:** This is a phenomenological benchmark, not a
+first-principles derivation of the constants, not a precision Standard Model
+fit, and not a solution of the cosmological-constant problem.
+
+**Core results:**
+
+| Benchmark | Result | Interpretation |
+|----------|--------|----------------|
+| Natural-constants basin | observed proxy and MAAT optimum lie in same low-defect basin | basin-level compatibility, not exact prediction |
+| SM RG bridge | `F_bridge = 0.210446 < F_obs = 0.231789` | selected bridge point lies in same structural region as observed SM proxy |
+| v11 holdout: α_em | predicted/observed = 1.581 | direct electromagnetic term can be removed while cross-sector constraints remain informative |
+| v11 holdout: sin²θ_W | predicted/observed = 1.543 | weak-sector proxy remains order-of-magnitude constrained |
+| v11 holdout: λ_H | predicted/observed = 0.170 | Higgs quartic sector is the main limitation of the current toy bridge |
+| v12 MaxEnt weights | `R > V ≈ S > B > H` | equal sector weighting is replaced by calibrated effective weights |
+| v13 MaxEnt bridge | stability = 0.9936 | MaxEnt-weighted run preserves the low-defect constants basin |
+
+**Key finding:**
+> Structural selection identifies a compatible basin of effective constants
+> rather than a unique point. The v11 holdout test provides a first
+> falsifiable cross-sector prediction protocol, while v12/v13 reduce the
+> earlier equal-weight assumption by MaxEnt-calibrating effective sector
+> weights.
+
+**Reference data sources:**
+
+| Source | Used for |
+|--------|----------|
+| [CODATA/NIST fundamental constants](https://www.nist.gov/programs-projects/codata-values-fundamental-physical-constants) | low-energy constants and dimensionless comparison values |
+| [Particle Data Group 2024](https://pdg.lbl.gov/index-2024.html) | Standard-Model proxy values near the electroweak scale |
+
+**Data attribution and license note:** PDG 2024 content is licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) except where
+otherwise noted. NIST web information is generally public information unless
+marked otherwise, but NIST Standard Reference Data may have separate copyright
+and licensing conditions. The benchmark uses only reference comparison values;
+users should cite CODATA/NIST and PDG when reusing or discussing the numerical
+inputs.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/natural_constants_selection/` | v1--v13 natural-constants basin, robustness, ablation, gradient-flow, and MaxEnt-weight tests |
+| `experiments/standard_model_bridge/` | one-loop SM-like RG bridge, four-panel summary figure, and v11 holdout test |
+
+**Documentation PDF:** `documentation/26_Structural_Selection_of_Effective_Constants.pdf`
+
 ---
 
 ## Repository Structure
@@ -570,6 +627,10 @@ structural-selection-principle/
 ├── uni_stability_test.py                  ← Paper 20: cross-dimensional stability test
 ├── structural_selection_phi4_protocol.py  ← Paper 22: static φ⁴ validation benchmark
 ├── structural_selection_phi4_plots.py     ← Paper 22: figure generation from benchmark JSON
+│
+├── experiments/
+│   ├── natural_constants_selection/       ← Paper 26: natural-constants v1--v13 benchmark
+│   └── standard_model_bridge/             ← Paper 26: SM-like RG bridge and v11 holdout
 │
 ├── documentation/                         ← PDFs of all papers
 └── README.md
@@ -608,6 +669,13 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `uni_stability_test.py` | 20 | cross-dimensional stability test, drift analysis, figure |
 | `structural_selection_phi4_protocol.py` | 22 | static φ⁴ benchmark, vacua vs saddle, kink vs distortions, writes result JSON |
 | `structural_selection_phi4_plots.py` | 22 | generates Paper 22 validation plots from `structural_selection_phi4_results.json` |
+| `experiments/natural_constants_selection/naturkonstante_v7_landscape_heatmap.py` | 26 | natural-constants basin visualisation |
+| `experiments/natural_constants_selection/naturkonstante_v8_gradient_flow.py` | 26 | gradient-flow attractor test in constant space |
+| `experiments/natural_constants_selection/naturkonstante_v12_maxent_lambda.py` | 26 | maximum-entropy calibration of sector weights |
+| `experiments/natural_constants_selection/naturkonstante_v13_maxent_sm_bridge.py` | 26 | MaxEnt-weighted constants bridge using calibrated sector weights |
+| `experiments/standard_model_bridge/standard_model_rg_maat_bridge.py` | 26 | one-loop SM-like RG bridge from UV parameters to IR effective observables |
+| `experiments/standard_model_bridge/standard_model_rg_maat_summary_figure.py` | 26 | generates the four-panel Paper 26 summary figure |
+| `experiments/standard_model_bridge/standard_model_rg_maat_v11_holdout.py` | 26 | direct-term holdout benchmark for cross-sector predictivity |
 
 ---
 
@@ -633,6 +701,7 @@ Paper 18 (dynamics): coherence field emerges     symmetry breaking, domains, F �
 Paper 19 (control):  active coherence steering   CCI ↓6.7%, I_nn ↑154%, two control regimes
 Paper 20 (robust.):  CCI/F_struct stable           drift<2 vs ratio drift≈2000, projection vs intrinsic
 Paper 22 (validate): struct. beats energy rank     Δ_vac=2.583852, p_K=1.000, gain at 20% percentile
+Paper 26 (constants): basin-level SM compatibility, MaxEnt weights R>V≈S>B>H, v11/v13 test predictivity
 ```
 
 ---
