@@ -41,6 +41,14 @@ experiments/
 │   ├── maat_cci_cosmology_v02.csv
 │   ├── maat_cci_cosmology_v02_data_comparison.csv
 │   └── plots/
+├── cosmological_cci_v03/
+│   ├── README.md
+│   ├── maat_cci_cosmology_v03_growth.py
+│   ├── maat_cci_cosmology_v03_chronometers.csv
+│   ├── maat_cci_cosmology_v03_fsigma8.csv
+│   ├── maat_cci_cosmology_v03_grid.csv
+│   ├── maat_cci_cosmology_v03_results.json
+│   └── plots/
 ├── natural_constants_selection/
 │   ├── README.md
 │   ├── naturkonstante.py
@@ -194,6 +202,37 @@ the original measurements remains subject to the terms of the original
 publications, journals, and collaborations. No endorsement by the Planck
 Collaboration or the chronometer-data authors is implied.
 
+## Reproducing the Cosmological CCI v0.3 Multi-Sector Benchmark
+
+The `cosmological_cci_v03/` directory contains the Paper 29 benchmark that
+extends the cosmological CCI with measured growth connectivity, robustness
+margins, maximum-entropy companion weights, and a data-driven transition proxy.
+
+Run:
+
+```bash
+cd experiments/cosmological_cci_v03
+python3 maat_cci_cosmology_v03_growth.py
+```
+
+This generates:
+
+- `maat_cci_cosmology_v03_grid.csv`
+- `maat_cci_cosmology_v03_results.json`
+- `plots/fsigma8_growth_connectivity.png`
+- `plots/v_r_supports.png`
+- `plots/cci_v02_v03_comparison.png`
+- `plots/transition_curvature.png`
+- `plots/lambda_calibration.png`
+
+**Data attribution and license note:** The benchmark uses Planck-2018
+reference parameters, a compact Cosmic Chronometer H(z) table, and BOSS DR12
+consensus f sigma_8 values from the cited literature. The repository contains
+derived CSV/PNG artifacts only for reproducibility. Reuse of the original
+measurements remains subject to the terms of the original publications,
+journals, and collaborations. No endorsement by the Planck Collaboration,
+SDSS/BOSS Collaboration, or the chronometer-data authors is implied.
+
 ## Reproducing the Natural-Constants Benchmark
 
 The `natural_constants_selection/` directory contains the v1--v13
@@ -303,6 +342,7 @@ holdout plots.
 | Script | Purpose | Main outputs |
 | --- | --- | --- |
 | `cosmological_cci/maat_cci_cosmology_v02.py` | Generates the cosmological CCI model grid, chronometer H(z) projection, residual table, and plots. | `maat_cci_cosmology_v02.csv`, `maat_cci_cosmology_v02_data_comparison.csv`, `plots/*.png` |
+| `cosmological_cci_v03/maat_cci_cosmology_v03_growth.py` | Extends the cosmological CCI with f sigma_8 growth connectivity, robustness margins, MaxEnt companion weights, and a curvature-derived transition proxy. | `maat_cci_cosmology_v03_grid.csv`, `maat_cci_cosmology_v03_results.json`, `plots/*.png` |
 
 ## Standard-Model Bridge Overview
 
@@ -334,6 +374,9 @@ These scripts implement toy, bridge, and proxy models. In particular:
 - The cosmological CCI benchmark is a diagnostic projection over Planck LCDM
   and Cosmic Chronometer H(z) data. It is not a new cosmological model and does
   not perform parameter inference.
+- The cosmological CCI v0.3 benchmark adds BOSS DR12 f sigma_8 growth
+  connectivity and robustness margins, but remains a diagnostic benchmark, not
+  a full cosmological likelihood or model comparison.
 - The v11 holdout benchmark removes direct score terms only; indirect
   cross-sector appearances of held-out observables remain active by design.
 - The Picard-Fuchs benchmark uses a controlled mirror-quintic period model, but
@@ -381,9 +424,16 @@ Christof Krieg,
 Cosmic Evolution*,
 2026.
 
-For the external cosmology inputs used in Paper 28, cite the Planck-2018
-cosmological-parameter paper and the Cosmic Chronometer literature referenced
-in the manuscript.
+For the cosmological CCI v0.3 multi-sector benchmark, cite:
+
+Christof Krieg,
+*Cosmological Critical Coherence Index with Growth Connectivity and Robustness
+Margins: A Multi-Sector Structural-Stress Benchmark Using H(z) and f sigma_8(z)*,
+2026.
+
+For the external cosmology inputs used in Papers 28 and 29, cite the
+Planck-2018 cosmological-parameter paper, the Cosmic Chronometer literature,
+and the BOSS DR12 consensus analysis referenced in the manuscripts.
 
 Reference comparison values for fundamental constants and Standard-Model
 inputs should cite CODATA/NIST and PDG 2024:

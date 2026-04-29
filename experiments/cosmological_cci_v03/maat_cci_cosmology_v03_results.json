@@ -1,0 +1,54 @@
+{
+  "status": "Diagnostic v0.3 benchmark; not a precision cosmology likelihood.",
+  "config": {
+    "H0": 67.4,
+    "omega_m": 0.315,
+    "omega_l": 0.685,
+    "sigma8_0": 0.811,
+    "gamma_growth": 0.55,
+    "z_min": 0.05,
+    "z_max": 2.0,
+    "n_grid": 450,
+    "kernel_h": 0.12,
+    "kernel_growth": 0.08,
+    "maxent_best_fraction": 0.2,
+    "maxent_prior_strength": 0.02,
+    "maxent_balance_strength": 0.01
+  },
+  "transition_redshift_zc": 1.1140311804008909,
+  "lambda_fit": {
+    "sectors": [
+      "H",
+      "S",
+      "V",
+      "R"
+    ],
+    "lambda": {
+      "H": 1.773878930069038,
+      "S": 1.9607028223973695,
+      "V": 1.0508708189440623,
+      "R": 1.2677133848157607
+    },
+    "shares": {
+      "H": 0.29304977636560464,
+      "S": 0.3239136075654253,
+      "V": 0.1736068078043589,
+      "R": 0.2094298080994083
+    },
+    "targets": {
+      "H": 0.18467133966502114,
+      "S": 0.17455399457298706,
+      "V": 0.24266199283996243,
+      "R": 0.21366666625249175
+    },
+    "loss": 0.037289010877442956,
+    "success": true,
+    "best_fraction": 0.2
+  },
+  "h_pull_rms": 0.6927239731033159,
+  "fsigma8_pull_rms": 0.6974776785039813,
+  "cci_v03_norm_at_z1": 6.600590092331436,
+  "cci_v03_norm_at_z2": 15.415168724582802,
+  "min_R_support": 0.4599315041306983,
+  "min_V_support": 0.5095959137259619
+}
