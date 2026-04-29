@@ -1,8 +1,14 @@
 # Phenomenological String-Landscape Selection Experiments
 
-This directory contains the reproducibility bundle for the paper
+This directory contains the reproducibility bundle for the phenomenological
+string-landscape papers
 
 **A Phenomenological Structural Selection Measure for String Backgrounds**.
+
+and
+
+**Structural Selection in the String Landscape: A MAAT-Based Phenomenological
+Framework for Vacuum Ranking**.
 
 The experiments are exploratory benchmark tests for extending the structural
 selection framework to string-background ranking. They are not claimed to be a
@@ -16,6 +22,7 @@ energy-only ordering in progressively more structured toy and bridge ensembles.
 ```text
 experiments/
 ├── phenomenological_structural_selection_string_measure.pdf
+├── ../documentation/Structural_Selection_in_the_String_Landscape_MAAT_Framework.pdf
 ├── cosmology_structural_selection/
 │   ├── README.md
 │   ├── maat_cosmology_toy_v2.py
@@ -33,6 +40,11 @@ experiments/
 │   ├── plot_closed_maat_lambda_v2.py
 │   ├── closed_maat_lambda_fit_results.json
 │   ├── maat_defects_*.csv
+│   └── plots/
+├── lambda_response_closure/
+│   ├── README.md
+│   ├── lambda_response_closure.py
+│   ├── lambda_response_closure_results.json
 │   └── plots/
 ├── cosmological_cci/
 │   ├── README.md
@@ -86,7 +98,7 @@ experiments/
 The scripts require Python 3 and the following packages:
 
 ```bash
-python3 -m pip install numpy scipy matplotlib mpmath
+python3 -m pip install numpy scipy pandas matplotlib mpmath
 ```
 
 No network access is required once the Python packages are installed.
@@ -172,6 +184,35 @@ This generates:
 - `plots/fig3_sat_vs_core_defects.png`
 - `plots/fig4_structural_energy_distribution.png`
 - `plots/fig5_c_hat_vs_flambda_sat.png`
+
+## Reproducing the Lambda Response Closure
+
+The `lambda_response_closure/` directory contains the response-theoretic
+closure of MAAT sector weights.  It derives effective `lambda_a` values from
+the covariance geometry of the fused defect ensemble:
+
+```text
+lambda = (Cov_mu0[d] + eta tr(C)/A I)^(-1)(<d>_mu0 - <d>_target)
+```
+
+Run:
+
+```bash
+cd experiments/lambda_response_closure
+python3 lambda_response_closure.py
+```
+
+This generates:
+
+- `lambda_response_closure_results.json`
+- `plots/lambda_response_shares.png`
+- `plots/lambda_response_correlation.png`
+- `plots/lambda_response_target_match.png`
+- `plots/lambda_response_vs_closed_fit.png`
+
+Main result: `R` dominance emerges as a covariance-response effect when the
+target ensemble encodes safety or boundary stability, rather than being imposed
+as a fixed assumption.
 
 ## Reproducing the Cosmological CCI Observable
 
@@ -337,6 +378,12 @@ holdout plots.
 | `boundary_aware_lambda_calibration/fit_closed_maat_lambda_v1.py` | Fits closed MAAT sector weights over the fused defect ensemble. | `closed_maat_lambda_fit_results.json` |
 | `boundary_aware_lambda_calibration/plot_closed_maat_lambda_v2.py` | Generates lambda, share, defect-comparison, and structural-energy plots from the fitted result. | `plots/fig*.png` |
 
+## Lambda Response Closure Overview
+
+| Script | Purpose | Main outputs |
+| --- | --- | --- |
+| `lambda_response_closure/lambda_response_closure.py` | Derives effective MAAT sector weights from defect covariance and target-response geometry. | `lambda_response_closure_results.json`, `plots/lambda_response_*.png` |
+
 ## Cosmological CCI Overview
 
 | Script | Purpose | Main outputs |
@@ -371,6 +418,10 @@ These scripts implement toy, bridge, and proxy models. In particular:
 - The boundary-aware lambda calibration is a fused benchmark over SAT and
   MAAT-Core-derived data. It shows constraint dominance in that closed system,
   but does not establish universal MAAT constants.
+- The lambda response closure gives an effective physical/statistical
+  derivation of `lambda_a` as response coefficients of a specified defect
+  ensemble. It does not prove that the resulting weights are universal
+  microscopic constants.
 - The cosmological CCI benchmark is a diagnostic projection over Planck LCDM
   and Cosmic Chronometer H(z) data. It is not a new cosmological model and does
   not perform parameter inference.
@@ -403,6 +454,13 @@ Christof Krieg,
 *A Phenomenological Structural Selection Measure for String Backgrounds*,
 2026.
 
+For the updated MAAT string-landscape ranking framework, cite:
+
+Christof Krieg,
+*Structural Selection in the String Landscape: A MAAT-Based Phenomenological
+Framework for Vacuum Ranking*,
+2026.
+
 For the natural-constants and Standard-Model bridge benchmarks, cite:
 
 Christof Krieg,
@@ -415,6 +473,13 @@ For the boundary-aware lambda calibration benchmark, cite:
 Christof Krieg,
 *Boundary-Aware Calibration of MAAT Structural Weights: A Reproducible
 Benchmark for Constraint-Dominated Structural Selection*,
+2026.
+
+For the response-theoretic lambda closure, cite:
+
+Christof Krieg,
+*Response-Based Derivation of MAAT Structural Weights: From Covariance Geometry
+to Selection Pressure*,
 2026.
 
 For the cosmological CCI benchmark, cite:
