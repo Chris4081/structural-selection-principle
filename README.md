@@ -632,6 +632,47 @@ changes the inferred selection hierarchy.
 
 ---
 
+### Paper 30 — Response-Based Derivation of MAAT Structural Weights
+**Response-Based Derivation of MAAT Structural Weights:**
+*From Covariance Geometry to Selection Pressure*
+
+**Core idea:** Provides the missing response-theoretic interpretation of
+`lambda_a`.  Instead of treating the weights as arbitrary fitted constants,
+the addendum derives them as linear-response coefficients of the empirical
+defect ensemble:
+
+```text
+lambda = (Cov_mu0[d] + eta tr(C)/A I)^(-1)(<d>_mu0 - <d>_target)
+```
+
+Here `mu0` is the empirical reference measure over the fused defect ensemble,
+`Cov_mu0[d]` is the defect covariance matrix, and `<d>_target` is the selected
+target sub-ensemble.
+
+**Core results:**
+
+| Target ensemble | Main hierarchy | Interpretation |
+|----------------|----------------|----------------|
+| Low-defect 20% | `R > B > S > H > V` | generic low-defect selection gives dominant but not exclusive robustness |
+| Safe + core-safe | `R >> H > B > V` | explicit safety targets are overwhelmingly robustness-driven |
+| Safe boundary only | `R > S > B > V > H` | boundary-safe states reproduce a balanced but R-dominant hierarchy |
+| Not violated | `R > S` | excluding violations activates mainly robustness and activity |
+
+**Key finding:**
+> `R` dominance emerges as a covariance-response effect of safety/boundary
+> target selection.  The weights are still effective and ensemble-dependent,
+> but they are no longer merely hand-chosen fit parameters.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/lambda_response_closure/` | response-theoretic lambda derivation, result JSON, and comparison plots |
+
+**Documentation PDF:** `documentation/30_Response_Theoretic_Closure_of_MAAT_Structural_Weights.pdf`
+
+---
+
 ### Paper 28 — Cosmological Critical Coherence Index
 **Cosmological Critical Coherence Index:**
 *A Structural-Stress Observable for Cosmic Evolution*
@@ -730,6 +771,41 @@ implied.
 
 ---
 
+### Extra Phenomenological Paper — Structural Selection in the String Landscape
+**Structural Selection in the String Landscape:**
+*A MAAT-Based Phenomenological Framework for Vacuum Ranking*
+
+**Core idea:** Treats string theory as the dynamical base and MAAT as a
+structural ranking layer over candidate string backgrounds. The paper does not
+replace string theory, derive a unique string measure, construct a Standard
+Model vacuum, or solve the landscape problem. It proposes a reproducible
+multi-sector ranking architecture over admissible or approximately admissible
+backgrounds.
+
+**Master formula:**
+
+```
+F_MAAT^landscape[X] =
+- sum_a lambda_a log(epsilon + Gamma_a[X]),
+Gamma_a[X] = 1 / (1 + d_a[X])
+```
+
+**Benchmark evidence:** Existing `string_landscape_selection/` scripts test
+10D-inspired tadpole closure, KKLT-style bridges, period-controlled flux
+backgrounds, and backreaction / Standard-Model-sector proxies. Across these
+benchmarks, structural ranking differs from energy-only ordering and can reduce
+tadpole, stability, or phenomenological obstruction in the selected subsets.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/string_landscape_selection/` | string-landscape toy and bridge benchmarks, result JSON files, and generated plots |
+
+**Documentation PDF:** `documentation/Structural_Selection_in_the_String_Landscape_MAAT_Framework.pdf`
+
+---
+
 ## Repository Structure
 
 ```
@@ -763,8 +839,10 @@ structural-selection-principle/
 │   ├── natural_constants_selection/       ← Paper 26: natural-constants v1--v13 benchmark
 │   ├── standard_model_bridge/             ← Paper 26: SM-like RG bridge and v11 holdout
 │   ├── boundary_aware_lambda_calibration/ ← Paper 27: fused boundary-aware λ calibration
+│   ├── lambda_response_closure/           ← addendum: response-theoretic λ closure
 │   ├── cosmological_cci/                  ← Paper 28: cosmological CCI observable
-│   └── cosmological_cci_v03/              ← Paper 29: growth connectivity + robustness CCI
+│   ├── cosmological_cci_v03/              ← Paper 29: growth connectivity + robustness CCI
+│   └── string_landscape_selection/        ← extra paper: MAAT string-landscape ranking
 │
 ├── documentation/                         ← PDFs of all papers
 └── README.md
@@ -812,6 +890,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/standard_model_bridge/standard_model_rg_maat_v11_holdout.py` | 26 | direct-term holdout benchmark for cross-sector predictivity |
 | `experiments/boundary_aware_lambda_calibration/fit_closed_maat_lambda_v1.py` | 27 | closed boundary-aware MAAT lambda calibration over fused defect data |
 | `experiments/boundary_aware_lambda_calibration/plot_closed_maat_lambda_v2.py` | 27 | generates Paper 27 lambda and defect-comparison figures |
+| `experiments/lambda_response_closure/lambda_response_closure.py` | addendum | derives effective lambda weights from defect covariance and target-response geometry |
 | `experiments/cosmological_cci/maat_cci_cosmology_v02.py` | 28 | generates the cosmological CCI model grid, chronometer projection, and plots |
 | `experiments/cosmological_cci_v03/maat_cci_cosmology_v03_growth.py` | 29 | adds f sigma_8 growth connectivity, robustness margins, MaxEnt companion weights, and curvature transition proxy |
 
@@ -841,6 +920,7 @@ Paper 20 (robust.):  CCI/F_struct stable           drift<2 vs ratio drift≈2000
 Paper 22 (validate): struct. beats energy rank     Δ_vac=2.583852, p_K=1.000, gain at 20% percentile
 Paper 26 (constants): basin-level SM compatibility, MaxEnt weights R>V≈S>B>H, v11/v13 test predictivity
 Paper 27 (boundary): R dominates closed λ fit       R share=0.3917, λ_R=8.078, N=3400 fused samples
+Lambda closure:       λ from Cov[d] response         safe target: R share≈0.833, low-defect target: R share≈0.297
 Paper 28 (cosmo CCI): structural-stress history     CCI_norm(z=10)≈803.8, chronometer RMS≈1.01
 Paper 29 (cosmo v03): V/R measured + λ + z_c        z_c≈1.114, λ:S>H>R>V, CCI_v03(z=2)≈15.42
 ```
