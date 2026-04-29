@@ -658,6 +658,12 @@ structure-growth history, not to replace standard cosmological inference.
 > structural-stress history comparing expansion/activity against growth
 > coherence.
 
+**Operational convention:** This first CCI-cosmology projection uses unit
+weights, fixes `kappa = 1`, and does not fit regime cutoffs. Full MAAT
+connectivity (`V`) and robustness (`R`) sectors are specified in the paper as
+operational targets for future multi-probe work, not as measured sectors in
+the chronometer-only projection.
+
 **Scripts and reproducibility:**
 
 | Folder | Role |
@@ -672,6 +678,55 @@ for reproducibility of the CCI diagnostic. No endorsement by the Planck
 Collaboration or the chronometer-data authors is implied.
 
 **Documentation PDF:** `documentation/28_Cosmological_Critical_Coherence_Index.pdf`
+
+---
+
+### Paper 29 — Cosmological CCI with Growth Connectivity and Robustness
+**Cosmological Critical Coherence Index with Growth Connectivity and Robustness Margins:**
+*A Multi-Sector Structural-Stress Benchmark Using H(z) and f sigma_8(z)*
+
+**Core idea:** Extends the chronometer-only cosmological CCI into a
+multi-sector diagnostic by making the previously open connectivity (`V`) and
+robustness (`R`) sectors operational. Cosmic Chronometer H(z) residuals define
+expansion consistency, BOSS DR12 f sigma_8 residuals define growth
+connectivity, and joint expansion-growth consistency defines robustness.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Chronometer points | 31 |
+| BOSS DR12 f sigma_8 points | 3 |
+| H(z) pull RMS | `0.693` |
+| f sigma_8 pull RMS | `0.697` |
+| Transition proxy | `z_c ~= 1.114` |
+| Normalised v0.3 CCI at `z=1` | `~6.60` |
+| Normalised v0.3 CCI at `z=2` | `~15.42` |
+| Lambda hierarchy | `S > H > R > V` |
+
+**Key finding:**
+> The cosmological CCI can be extended from an expansion-growth scalar into a
+> multi-sector observable with measured growth connectivity, robustness
+> margins, companion MaxEnt weights, and a reproducible transition marker.
+
+**Scientific status:** This is a diagnostic benchmark, not precision
+cosmological inference. It does not fit cosmological parameters, replace
+LCDM, or claim evidence for modified gravity.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/cosmological_cci_v03/` | v0.3 cosmological CCI script, H(z) and f sigma_8 input tables, generated CSV/JSON outputs, and plots |
+
+**Data attribution and license note:** Paper 29 uses Planck-2018 reference
+parameters, Cosmic Chronometer H(z) values, and BOSS DR12 consensus
+f sigma_8 measurements from the cited literature. Repository CSV/PNG files are
+derived reproducibility artifacts only. No endorsement by the Planck
+Collaboration, SDSS/BOSS Collaboration, or the chronometer-data authors is
+implied.
+
+**Documentation PDF:** `documentation/29_Cosmological_CCI_Growth_Connectivity_and_Robustness.pdf`
 
 ---
 
@@ -708,7 +763,8 @@ structural-selection-principle/
 │   ├── natural_constants_selection/       ← Paper 26: natural-constants v1--v13 benchmark
 │   ├── standard_model_bridge/             ← Paper 26: SM-like RG bridge and v11 holdout
 │   ├── boundary_aware_lambda_calibration/ ← Paper 27: fused boundary-aware λ calibration
-│   └── cosmological_cci/                  ← Paper 28: cosmological CCI observable
+│   ├── cosmological_cci/                  ← Paper 28: cosmological CCI observable
+│   └── cosmological_cci_v03/              ← Paper 29: growth connectivity + robustness CCI
 │
 ├── documentation/                         ← PDFs of all papers
 └── README.md
@@ -757,6 +813,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/boundary_aware_lambda_calibration/fit_closed_maat_lambda_v1.py` | 27 | closed boundary-aware MAAT lambda calibration over fused defect data |
 | `experiments/boundary_aware_lambda_calibration/plot_closed_maat_lambda_v2.py` | 27 | generates Paper 27 lambda and defect-comparison figures |
 | `experiments/cosmological_cci/maat_cci_cosmology_v02.py` | 28 | generates the cosmological CCI model grid, chronometer projection, and plots |
+| `experiments/cosmological_cci_v03/maat_cci_cosmology_v03_growth.py` | 29 | adds f sigma_8 growth connectivity, robustness margins, MaxEnt companion weights, and curvature transition proxy |
 
 ---
 
@@ -785,6 +842,7 @@ Paper 22 (validate): struct. beats energy rank     Δ_vac=2.583852, p_K=1.000, g
 Paper 26 (constants): basin-level SM compatibility, MaxEnt weights R>V≈S>B>H, v11/v13 test predictivity
 Paper 27 (boundary): R dominates closed λ fit       R share=0.3917, λ_R=8.078, N=3400 fused samples
 Paper 28 (cosmo CCI): structural-stress history     CCI_norm(z=10)≈803.8, chronometer RMS≈1.01
+Paper 29 (cosmo v03): V/R measured + λ + z_c        z_c≈1.114, λ:S>H>R>V, CCI_v03(z=2)≈15.42
 ```
 
 ---
