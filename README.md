@@ -632,6 +632,104 @@ changes the inferred selection hierarchy.
 
 ---
 
+### Paper 28 — Cosmological Critical Coherence Index
+**Cosmological Critical Coherence Index:**
+*A Structural-Stress Observable for Cosmic Evolution*
+
+**Core idea:** Defines a dimensionless cosmological CCI diagnostic combining
+expansion stress, redshift activity, linear growth coherence, and structural
+imbalance. The goal is to visualise the balance between expansion history and
+structure-growth history, not to replace standard cosmological inference.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Reference cosmology | Planck-2018 flat LCDM |
+| Chronometer points | 31 |
+| Model range | `0 <= z <= 10` |
+| Normalised CCI at `z=1` | `~6.66` |
+| Normalised CCI at `z=2` | `~22.6` |
+| Normalised CCI at `z=10` | `~803.8` |
+| Chronometer residual RMS | `~1.01` |
+
+**Key finding:**
+> Cosmic evolution can be represented not only as expansion history, but as a
+> structural-stress history comparing expansion/activity against growth
+> coherence.
+
+**Operational convention:** This first CCI-cosmology projection uses unit
+weights, fixes `kappa = 1`, and does not fit regime cutoffs. Full MAAT
+connectivity (`V`) and robustness (`R`) sectors are specified in the paper as
+operational targets for future multi-probe work, not as measured sectors in
+the chronometer-only projection.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/cosmological_cci/` | Cosmological CCI script, chronometer input table, generated CSVs, and plots |
+
+**Data attribution and license note:** Planck-2018 parameter values and Cosmic
+Chronometer measurements are external scientific data and should be cited to
+the original publications/collaborations when reused or discussed. The CSV
+tables and figures in this repository are derived analysis artifacts generated
+for reproducibility of the CCI diagnostic. No endorsement by the Planck
+Collaboration or the chronometer-data authors is implied.
+
+**Documentation PDF:** `documentation/28_Cosmological_Critical_Coherence_Index.pdf`
+
+---
+
+### Paper 29 — Cosmological CCI with Growth Connectivity and Robustness
+**Cosmological Critical Coherence Index with Growth Connectivity and Robustness Margins:**
+*A Multi-Sector Structural-Stress Benchmark Using H(z) and f sigma_8(z)*
+
+**Core idea:** Extends the chronometer-only cosmological CCI into a
+multi-sector diagnostic by making the previously open connectivity (`V`) and
+robustness (`R`) sectors operational. Cosmic Chronometer H(z) residuals define
+expansion consistency, BOSS DR12 f sigma_8 residuals define growth
+connectivity, and joint expansion-growth consistency defines robustness.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Chronometer points | 31 |
+| BOSS DR12 f sigma_8 points | 3 |
+| H(z) pull RMS | `0.693` |
+| f sigma_8 pull RMS | `0.697` |
+| Transition proxy | `z_c ~= 1.114` |
+| Normalised v0.3 CCI at `z=1` | `~6.60` |
+| Normalised v0.3 CCI at `z=2` | `~15.42` |
+| Lambda hierarchy | `S > H > R > V` |
+
+**Key finding:**
+> The cosmological CCI can be extended from an expansion-growth scalar into a
+> multi-sector observable with measured growth connectivity, robustness
+> margins, companion MaxEnt weights, and a reproducible transition marker.
+
+**Scientific status:** This is a diagnostic benchmark, not precision
+cosmological inference. It does not fit cosmological parameters, replace
+LCDM, or claim evidence for modified gravity.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/cosmological_cci_v03/` | v0.3 cosmological CCI script, H(z) and f sigma_8 input tables, generated CSV/JSON outputs, and plots |
+
+**Data attribution and license note:** Paper 29 uses Planck-2018 reference
+parameters, Cosmic Chronometer H(z) values, and BOSS DR12 consensus
+f sigma_8 measurements from the cited literature. Repository CSV/PNG files are
+derived reproducibility artifacts only. No endorsement by the Planck
+Collaboration, SDSS/BOSS Collaboration, or the chronometer-data authors is
+implied.
+
+**Documentation PDF:** `documentation/29_Cosmological_CCI_Growth_Connectivity_and_Robustness.pdf`
+
+---
+
 ### Paper 30 — Response-Based Derivation of MAAT Structural Weights
 **Response-Based Derivation of MAAT Structural Weights:**
 *From Covariance Geometry to Selection Pressure*
@@ -751,104 +849,6 @@ MAAT scalar scan.
 | `experiments/maat_hz_chi2_paper32/` | fixed v0.10 chronometer comparison and two-parameter H(z) chi-square scan |
 
 **Documentation PDF:** `documentation/32_First_Hz_Data_Comparison_of_MAAT_Structural_Selection_Cosmology.pdf`
-
----
-
-### Paper 28 — Cosmological Critical Coherence Index
-**Cosmological Critical Coherence Index:**
-*A Structural-Stress Observable for Cosmic Evolution*
-
-**Core idea:** Defines a dimensionless cosmological CCI diagnostic combining
-expansion stress, redshift activity, linear growth coherence, and structural
-imbalance. The goal is to visualise the balance between expansion history and
-structure-growth history, not to replace standard cosmological inference.
-
-**Core results:**
-
-| Quantity | Result |
-|----------|--------|
-| Reference cosmology | Planck-2018 flat LCDM |
-| Chronometer points | 31 |
-| Model range | `0 <= z <= 10` |
-| Normalised CCI at `z=1` | `~6.66` |
-| Normalised CCI at `z=2` | `~22.6` |
-| Normalised CCI at `z=10` | `~803.8` |
-| Chronometer residual RMS | `~1.01` |
-
-**Key finding:**
-> Cosmic evolution can be represented not only as expansion history, but as a
-> structural-stress history comparing expansion/activity against growth
-> coherence.
-
-**Operational convention:** This first CCI-cosmology projection uses unit
-weights, fixes `kappa = 1`, and does not fit regime cutoffs. Full MAAT
-connectivity (`V`) and robustness (`R`) sectors are specified in the paper as
-operational targets for future multi-probe work, not as measured sectors in
-the chronometer-only projection.
-
-**Scripts and reproducibility:**
-
-| Folder | Role |
-|--------|------|
-| `experiments/cosmological_cci/` | Cosmological CCI script, chronometer input table, generated CSVs, and plots |
-
-**Data attribution and license note:** Planck-2018 parameter values and Cosmic
-Chronometer measurements are external scientific data and should be cited to
-the original publications/collaborations when reused or discussed. The CSV
-tables and figures in this repository are derived analysis artifacts generated
-for reproducibility of the CCI diagnostic. No endorsement by the Planck
-Collaboration or the chronometer-data authors is implied.
-
-**Documentation PDF:** `documentation/28_Cosmological_Critical_Coherence_Index.pdf`
-
----
-
-### Paper 29 — Cosmological CCI with Growth Connectivity and Robustness
-**Cosmological Critical Coherence Index with Growth Connectivity and Robustness Margins:**
-*A Multi-Sector Structural-Stress Benchmark Using H(z) and f sigma_8(z)*
-
-**Core idea:** Extends the chronometer-only cosmological CCI into a
-multi-sector diagnostic by making the previously open connectivity (`V`) and
-robustness (`R`) sectors operational. Cosmic Chronometer H(z) residuals define
-expansion consistency, BOSS DR12 f sigma_8 residuals define growth
-connectivity, and joint expansion-growth consistency defines robustness.
-
-**Core results:**
-
-| Quantity | Result |
-|----------|--------|
-| Chronometer points | 31 |
-| BOSS DR12 f sigma_8 points | 3 |
-| H(z) pull RMS | `0.693` |
-| f sigma_8 pull RMS | `0.697` |
-| Transition proxy | `z_c ~= 1.114` |
-| Normalised v0.3 CCI at `z=1` | `~6.60` |
-| Normalised v0.3 CCI at `z=2` | `~15.42` |
-| Lambda hierarchy | `S > H > R > V` |
-
-**Key finding:**
-> The cosmological CCI can be extended from an expansion-growth scalar into a
-> multi-sector observable with measured growth connectivity, robustness
-> margins, companion MaxEnt weights, and a reproducible transition marker.
-
-**Scientific status:** This is a diagnostic benchmark, not precision
-cosmological inference. It does not fit cosmological parameters, replace
-LCDM, or claim evidence for modified gravity.
-
-**Scripts and reproducibility:**
-
-| Folder | Role |
-|--------|------|
-| `experiments/cosmological_cci_v03/` | v0.3 cosmological CCI script, H(z) and f sigma_8 input tables, generated CSV/JSON outputs, and plots |
-
-**Data attribution and license note:** Paper 29 uses Planck-2018 reference
-parameters, Cosmic Chronometer H(z) values, and BOSS DR12 consensus
-f sigma_8 measurements from the cited literature. Repository CSV/PNG files are
-derived reproducibility artifacts only. No endorsement by the Planck
-Collaboration, SDSS/BOSS Collaboration, or the chronometer-data authors is
-implied.
-
-**Documentation PDF:** `documentation/29_Cosmological_CCI_Growth_Connectivity_and_Robustness.pdf`
 
 ---
 
