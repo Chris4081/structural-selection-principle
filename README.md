@@ -673,6 +673,48 @@ target sub-ensemble.
 
 ---
 
+### Paper 31 — Dynamic Structural Selection
+**Dynamic Structural Selection:**
+*From Response Fields to Observable Cosmology in the MAAT Framework*
+
+**Core idea:** Consolidates the MAAT versioned development from static
+structural ranking into a dynamical, local, gravitational, and observable
+effective-theory pipeline:
+
+```text
+d_a -> C_ab -> lambda_a(t) -> lambda_a(x,t) -> T_MAAT -> FLRW -> observables
+```
+
+The paper combines response-field dynamics, local selection-pressure fields,
+effective gravitational coupling, a scalar worked example, an FLRW stability
+scan, and an observable-projection layer.
+
+**Core results:**
+
+| Layer | Result | Interpretation |
+|-------|--------|----------------|
+| v0.5 response flow | final tracking error `9.91e-7` | lambda follows covariance-response fixed point |
+| v0.6 local fields | final residual ratio `0.1648` | local fields reduce equation residuals with energy unchanged |
+| v0.9 FLRW scan | `666/784` stable, `618/784` background-safe | broad stable region in the toy scalar scan |
+| v0.10 observables | max `|Delta H/H| = 0.0399` | small structured expansion deviation |
+| v0.10 growth proxy | max `|Delta f sigma_8/f sigma_8| = 0.0336` | first approximate growth-sector signal |
+
+**Key finding:**
+> Structural selection can be represented as a reproducible effective-theory
+> ladder from defect diagnostics to observable cosmological signatures, while
+> remaining explicitly toy-level and not a completed cosmological model.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_dynamic_fields_v05_v09/` | v0.5 response flow, v0.6 local field benchmark, v0.9 FLRW stability scan |
+| `experiments/maat_observable_predictions_v10/` | observable projection used in Paper 31 |
+
+**Documentation PDF:** `documentation/31_Dynamic_Structural_Selection_From_Response_Fields_to_Observable_Cosmology.pdf`
+
+---
+
 ### Paper 28 — Cosmological Critical Coherence Index
 **Cosmological Critical Coherence Index:**
 *A Structural-Stress Observable for Cosmic Evolution*
@@ -842,6 +884,8 @@ structural-selection-principle/
 │   ├── lambda_response_closure/           ← addendum: response-theoretic λ closure
 │   ├── cosmological_cci/                  ← Paper 28: cosmological CCI observable
 │   ├── cosmological_cci_v03/              ← Paper 29: growth connectivity + robustness CCI
+│   ├── maat_dynamic_fields_v05_v09/       ← Paper 31: response/local/gravity/FLRW tests
+│   ├── maat_observable_predictions_v10/   ← Paper 31: observable projection layer
 │   └── string_landscape_selection/        ← extra paper: MAAT string-landscape ranking
 │
 ├── documentation/                         ← PDFs of all papers
@@ -893,6 +937,10 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/lambda_response_closure/lambda_response_closure.py` | addendum | derives effective lambda weights from defect covariance and target-response geometry |
 | `experiments/cosmological_cci/maat_cci_cosmology_v02.py` | 28 | generates the cosmological CCI model grid, chronometer projection, and plots |
 | `experiments/cosmological_cci_v03/maat_cci_cosmology_v03_growth.py` | 29 | adds f sigma_8 growth connectivity, robustness margins, MaxEnt companion weights, and curvature transition proxy |
+| `experiments/maat_dynamic_fields_v05_v09/v05_dynamic_lambda_flow/lambda_dynamic_flow_v05.py` | 31 | covariance-driven response-field dynamics |
+| `experiments/maat_dynamic_fields_v05_v09/v06_local_selection_fields/local_selection_phi4_v06.py` | 31 | local selection-pressure fields in a perturbed 1D phi4 benchmark |
+| `experiments/maat_dynamic_fields_v05_v09/v09_flrw_stability_scan/maat_flrw_stability_scan_v09.py` | 31 | toy scalar FLRW stability scan |
+| `experiments/maat_observable_predictions_v10/maat_observable_predictions_v10.py` | 31 | observable projection: H(z), Delta H/H, w(z), Omega_MAAT, and f sigma_8 proxy |
 
 ---
 
@@ -923,6 +971,7 @@ Paper 27 (boundary): R dominates closed λ fit       R share=0.3917, λ_R=8.078,
 Lambda closure:       λ from Cov[d] response         safe target: R share≈0.833, low-defect target: R share≈0.297
 Paper 28 (cosmo CCI): structural-stress history     CCI_norm(z=10)≈803.8, chronometer RMS≈1.01
 Paper 29 (cosmo v03): V/R measured + λ + z_c        z_c≈1.114, λ:S>H>R>V, CCI_v03(z=2)≈15.42
+Paper 31 (dynamic):  diagnostics -> observables      track err=9.91e-7, residual=0.1648, max |DeltaH/H|=0.0399
 ```
 
 ---
@@ -930,5 +979,5 @@ Paper 29 (cosmo v03): V/R measured + λ + z_c        z_c≈1.114, λ:S>H>R>V, CC
 www.maat-research.com
 
 ## License
-
+Code:
 MIT License — free to use, modify, and share with attribution.
