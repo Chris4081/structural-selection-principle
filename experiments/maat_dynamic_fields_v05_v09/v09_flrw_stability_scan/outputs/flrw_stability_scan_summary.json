@@ -1,0 +1,30 @@
+{
+  "total_cases": 784,
+  "stable_cases": 666,
+  "background_safe_cases": 618,
+  "stable_fraction": 0.8494897959183674,
+  "background_safe_fraction": 0.7882653061224489,
+  "representative": {
+    "mu": 27.825594022071257,
+    "pi0": 2.3781481481481483,
+    "stable": true,
+    "background_safe": true,
+    "fail_reason": "",
+    "min_P_X": 1.363466336983924,
+    "min_D": 0.826440629579504,
+    "min_c_s2": 1.0,
+    "max_c_s2": 1.8257000065345725,
+    "max_omega_maat": 0.02905372156220547,
+    "final_a": 1047.767258620384,
+    "final_lambda": 0.09593541508029878,
+    "final_X": 2.151259847337143e-22,
+    "final_w_maat": -0.8989368550240971,
+    "final_omega_maat": 0.0006976705296451624
+  },
+  "stable_ranges": {
+    "mu_min": 0.001,
+    "mu_max": 1000.0,
+    "pi0_min": 0.03,
+    "pi0_max": 3.2
+  }
+}
