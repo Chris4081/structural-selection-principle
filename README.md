@@ -715,6 +715,45 @@ scan, and an observable-projection layer.
 
 ---
 
+### Paper 32 — First H(z) Data Comparison
+**First H(z) Data Comparison of MAAT Structural-Selection Cosmology:**
+*Cosmic Chronometer Diagnostic and Chi-Square Scan*
+
+**Core idea:** Moves the MAAT cosmology stack from internal observable
+projection to a first direct comparison with observational expansion data.
+The paper uses Cosmic Chronometer H(z) measurements as a diagnostic
+goodness-of-fit test for the fixed v0.10 branch and for a two-parameter
+MAAT scalar scan.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Chronometer points | `31` |
+| LCDM reference | `chi2 = 14.8759`, `chi2/N = 0.4799` |
+| Fixed v0.10 MAAT | `chi2 = 15.3661`, `chi2/N = 0.4957` |
+| Best scanned MAAT branch | `chi2 = 15.3674`, `Delta chi2 = +0.4915` vs LCDM |
+| Best scan reduced chi-square | `chi2_nu = 0.5299` for `N-k = 29` |
+| Stable scan points | `581/616` |
+| Best branch maximum `Omega_MAAT` | `0.02668` |
+| Best branch maximum `|Delta H/H|` | `0.02347` |
+
+**Key finding:**
+> In this first H(z) diagnostic, MAAT remains stable, subdominant, and close
+> to LCDM, but it is not favoured over LCDM by the Cosmic Chronometer chi-square.
+> The value of the result is therefore falsifiability and pipeline closure, not
+> a detection claim.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_hz_chi2_paper32/` | fixed v0.10 chronometer comparison and two-parameter H(z) chi-square scan |
+
+**Documentation PDF:** `documentation/32_First_Hz_Data_Comparison_of_MAAT_Structural_Selection_Cosmology.pdf`
+
+---
+
 ### Paper 28 — Cosmological Critical Coherence Index
 **Cosmological Critical Coherence Index:**
 *A Structural-Stress Observable for Cosmic Evolution*
@@ -886,6 +925,7 @@ structural-selection-principle/
 │   ├── cosmological_cci_v03/              ← Paper 29: growth connectivity + robustness CCI
 │   ├── maat_dynamic_fields_v05_v09/       ← Paper 31: response/local/gravity/FLRW tests
 │   ├── maat_observable_predictions_v10/   ← Paper 31: observable projection layer
+│   ├── maat_hz_chi2_paper32/              ← Paper 32: H(z) chronometer comparison and χ² scan
 │   └── string_landscape_selection/        ← extra paper: MAAT string-landscape ranking
 │
 ├── documentation/                         ← PDFs of all papers
@@ -941,6 +981,8 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/maat_dynamic_fields_v05_v09/v06_local_selection_fields/local_selection_phi4_v06.py` | 31 | local selection-pressure fields in a perturbed 1D phi4 benchmark |
 | `experiments/maat_dynamic_fields_v05_v09/v09_flrw_stability_scan/maat_flrw_stability_scan_v09.py` | 31 | toy scalar FLRW stability scan |
 | `experiments/maat_observable_predictions_v10/maat_observable_predictions_v10.py` | 31 | observable projection: H(z), Delta H/H, w(z), Omega_MAAT, and f sigma_8 proxy |
+| `experiments/maat_hz_chi2_paper32/maat_hz_data_comparison_v01.py` | 32 | fixed v0.10 MAAT comparison against Cosmic Chronometer H(z) data |
+| `experiments/maat_hz_chi2_paper32/maat_hz_chi2_fit_v01.py` | 32 | two-parameter MAAT H(z) chi-square scan |
 
 ---
 
@@ -972,6 +1014,7 @@ Lambda closure:       λ from Cov[d] response         safe target: R share≈0.8
 Paper 28 (cosmo CCI): structural-stress history     CCI_norm(z=10)≈803.8, chronometer RMS≈1.01
 Paper 29 (cosmo v03): V/R measured + λ + z_c        z_c≈1.114, λ:S>H>R>V, CCI_v03(z=2)≈15.42
 Paper 31 (dynamic):  diagnostics -> observables      track err=9.91e-7, residual=0.1648, max |DeltaH/H|=0.0399
+Paper 32 (H(z)):     first chronometer chi2 test      LCDM χ²=14.8759, MAAT χ²=15.3661, χ²ν(best)=0.5299
 ```
 
 ---
