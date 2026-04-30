@@ -1,0 +1,15 @@
+{
+  "n_data_points": 31,
+  "n_fitted_parameters_fixed_branch": 0,
+  "degrees_of_freedom_fixed_branch": 31,
+  "chi2_LCDM": 14.87586159027335,
+  "chi2_MAAT": 15.366081569368205,
+  "chi2_per_point_LCDM": 0.4798665029120436,
+  "chi2_per_point_MAAT": 0.4956800506247808,
+  "reduced_chi2_LCDM_fixed": 0.4798665029120436,
+  "reduced_chi2_MAAT_fixed": 0.4956800506247808,
+  "delta_chi2_MAAT_minus_LCDM": 0.4902199790948547,
+  "max_abs_pull_LCDM": 1.5805311292412472,
+  "max_abs_pull_MAAT": 1.6005529222059067,
+  "note": "This is a first diagnostic comparison, not a parameter fit."
+}

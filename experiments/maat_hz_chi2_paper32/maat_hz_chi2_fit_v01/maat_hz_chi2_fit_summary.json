@@ -1,0 +1,25 @@
+{
+  "lcdm_chi2": 14.87586159027335,
+  "lcdm_chi2_per_point": 0.4798665029120436,
+  "lcdm_reduced_chi2_fixed_reference": 0.4798665029120436,
+  "n_data_points": 31,
+  "n_scan_parameters": 2,
+  "degrees_of_freedom_for_scan": 29,
+  "n_scan_total": 616,
+  "n_stable": 581,
+  "best": {
+    "mu": 15.848931924611142,
+    "phidot0": 2.7888888888888888,
+    "stable": true,
+    "chi2": 15.367382413446219,
+    "chi2_per_point": 0.4957220133369748,
+    "chi2_reduced_k2": 0.5299097383946972,
+    "delta_chi2_vs_LCDM": 0.49152082317286805,
+    "max_Omega_MAAT": 0.026678728851532368,
+    "max_abs_delta_H": 0.02346724085007733,
+    "min_P_X": 1.1620885102041516,
+    "min_cs2": 1.0002583419330067,
+    "max_cs2": 1.5263049633719905
+  },
+  "note": "First diagnostic parameter scan; not a full cosmological inference."
+}
