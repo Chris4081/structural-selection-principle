@@ -852,6 +852,44 @@ MAAT scalar scan.
 
 ---
 
+### Paper 33 — CCI as Projection Observable
+**The Critical Coherence Index as a Projection Observable:**
+*Breadth--Depth Compression and Transition Robustness in a Minimal Cosmological Benchmark*
+
+**Core idea:** Clarifies what the CCI represents in the cosmological setting:
+not an energy density and not a fitted cosmological parameter, but a projection
+observable measuring stress between expansion-driven breadth and accessible
+structural depth.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| v0.3 reference background | Planck-like flat LCDM |
+| v0.3 transition estimate | `z_tr = 0.84985` |
+| v0.3 `C_norm(z_tr)` | `12.0466` |
+| v0.3 final `C_norm(z=3)` | `474.184` |
+| v0.4 sensitivity points | `6930` |
+| v0.4 mean transition redshift | `0.84491` |
+| v0.4 median transition redshift | `0.88889` |
+| v0.4 fraction in `0.5 <= z_tr <= 1.1` | `0.55657` |
+
+**Key finding:**
+> The CCI can be operationally interpreted as a stabilized projection stress:
+> it grows when expansion breadth outpaces accessible coherent depth. The
+> resulting transition marker is reproducible across a broad proxy-parameter
+> grid, but it is not a measured cosmological transition or a data-fit result.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_cci_projection_paper33/` | v0.2 stabilization predecessor, v0.3 LCDM-growth projection benchmark, and v0.4 sensitivity scan |
+
+**Documentation PDF:** `documentation/33_CCI_as_Projection_Observable.pdf`
+
+---
+
 ### Extra Phenomenological Paper — Structural Selection in the String Landscape
 **Structural Selection in the String Landscape:**
 *A MAAT-Based Phenomenological Framework for Vacuum Ranking*
@@ -926,6 +964,7 @@ structural-selection-principle/
 │   ├── maat_dynamic_fields_v05_v09/       ← Paper 31: response/local/gravity/FLRW tests
 │   ├── maat_observable_predictions_v10/   ← Paper 31: observable projection layer
 │   ├── maat_hz_chi2_paper32/              ← Paper 32: H(z) chronometer comparison and χ² scan
+│   ├── maat_cci_projection_paper33/       ← Paper 33: CCI projection observable + sensitivity scan
 │   └── string_landscape_selection/        ← extra paper: MAAT string-landscape ranking
 │
 ├── documentation/                         ← PDFs of all papers
@@ -1015,6 +1054,7 @@ Paper 28 (cosmo CCI): structural-stress history     CCI_norm(z=10)≈803.8, chro
 Paper 29 (cosmo v03): V/R measured + λ + z_c        z_c≈1.114, λ:S>H>R>V, CCI_v03(z=2)≈15.42
 Paper 31 (dynamic):  diagnostics -> observables      track err=9.91e-7, residual=0.1648, max |DeltaH/H|=0.0399
 Paper 32 (H(z)):     first chronometer chi2 test      LCDM χ²=14.8759, MAAT χ²=15.3661, χ²ν(best)=0.5299
+Paper 33 (CCI proj): breadth-depth projection stress z_tr=0.8499, scan median=0.8889, N=6930
 ```
 
 ---
