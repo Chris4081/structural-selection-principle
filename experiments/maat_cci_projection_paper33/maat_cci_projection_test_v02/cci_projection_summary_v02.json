@@ -1,0 +1,21 @@
+{
+  "model": "MAAT CCI Projection Test v0.2",
+  "interpretation": "Stabilized toy model of CCI as projection observable of latent structural depth under expansion.",
+  "redshift_range": [
+    0.0,
+    3.0
+  ],
+  "baseline_projection_alpha": 1.0,
+  "depth_floor": 0.25,
+  "compression": "saturating tanh",
+  "transition_estimate": {
+    "z_transition_estimate": 0.4538375973303671,
+    "residual_at_transition": 0.0005408973739659792,
+    "max_abs_curvature": 397.80913075354437,
+    "CCI_norm_at_transition": 3.2037372201516314
+  },
+  "final_CCI_norm": 106.40098304356907,
+  "max_CCI_norm": 106.40098304356907,
+  "max_projection_residual": 0.9910396165836262,
+  "note": "Toy projection model only; not a cosmological parameter fit."
+}

@@ -1,0 +1,25 @@
+{
+  "model": "MAAT CCI Projection Test v0.3",
+  "interpretation": "CCI as stabilized projection observable using LCDM expansion and growth proxy.",
+  "redshift_range": [
+    0.0,
+    3.0
+  ],
+  "H0": 67.4,
+  "Omega_m0": 0.315,
+  "Omega_L0": 0.685,
+  "matter_lambda_equality_z": 0.2955673834609527,
+  "baseline_projection_alpha": 1.0,
+  "depth_floor": 0.2,
+  "compression": "saturating tanh of expansion breadth",
+  "transition_estimate": {
+    "z_transition_estimate": 0.8498498498498498,
+    "residual_at_transition": 0.00032077260299765814,
+    "CCI_norm_at_transition": 12.046603434659241,
+    "max_abs_curvature": 562.9614432485989
+  },
+  "delta_z_transition_minus_matter_lambda_equality": 0.5542824663888971,
+  "final_CCI_norm": 474.1839742824349,
+  "max_projection_residual": 0.9909139526274526,
+  "note": "Uses LCDM expansion and an analytic growth proxy; not a full cosmological parameter fit."
+}
