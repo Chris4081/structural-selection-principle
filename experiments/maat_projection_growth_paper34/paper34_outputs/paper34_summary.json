@@ -1,0 +1,49 @@
+{
+  "cosmology": {
+    "H0": 67.4,
+    "Omm": 0.315,
+    "OmL": 0.685,
+    "sigma8_0": 0.811,
+    "gamma_growth": 0.55
+  },
+  "projection_baseline": {
+    "gamma": 2.0,
+    "alpha": 1.0,
+    "zc": 1.1,
+    "s": 3.5,
+    "L_floor": 0.2,
+    "edge_frac": 0.08
+  },
+  "baseline_results": {
+    "z_tr": 1.0435617808904454,
+    "C_norm_z_tr": 22.644627945088576,
+    "R_proj_z_tr": 0.0011115129548598425,
+    "curvature_z_tr": 966.9451056885265,
+    "C_norm_z3": 647.492953193546
+  },
+  "fsigma8_diagnostic": {
+    "n_points": 13,
+    "chi2_lcdm": 13.6257314360737,
+    "dof_lcdm": 13,
+    "chi2_dof_lcdm": 1.0481331873902846,
+    "chi2_cproj": 513.2202362066688,
+    "dof_cproj": 12,
+    "chi2_dof_cproj": 42.7683530172224,
+    "scale_wls": 0.02783621295530795
+  },
+  "Hz_reference": {
+    "n_points": 31,
+    "chi2_lcdm": 14.862576325848682,
+    "dof_lcdm": 31,
+    "chi2_dof_lcdm": 0.4794379459951188
+  },
+  "scan_gamma_alpha": {
+    "n_points": 625,
+    "z_tr_min": 0.2807303651825913,
+    "z_tr_max": 1.583526763381691,
+    "z_tr_median": 1.1871535767883943,
+    "z_tr_mean": 1.1619340710355177,
+    "z_tr_std": 0.23980462009081088
+  },
+  "interpretation_note": "C_proj is a projection-stress observable, not a physical f_sigma8 growth model. z_tr=1.044 (vs Paper 33 ~0.85) reflects the v0.11-consistent R_proj formulation using gamma*D_acc in the residual."
+}
