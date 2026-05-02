@@ -890,6 +890,46 @@ structural depth.
 
 ---
 
+### Paper 34 — Projection Observable vs Growth and Expansion Data
+**MAAT Projection Observable vs Growth and Expansion Data:**
+*Transition Marker and Parameter Sensitivity in v0.11*
+
+**Core idea:** Tests whether the MAAT projection observable `C_proj` collapses
+onto standard growth data. It does not: the large mismatch against
+`f sigma_8` is interpreted as evidence that `C_proj` is a projection-level
+diagnostic, not a matter-growth observable.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| v0.11 baseline transition marker | `z_tr = 1.04356` |
+| `C_norm(z_tr)` | `22.64463` |
+| `R_proj(z_tr)` | `1.11151e-03` |
+| `C_norm(z=3)` | `647.49295` |
+| LCDM `f sigma_8` chi-square/dof | `1.04813` |
+| Rescaled `C_proj` vs `f sigma_8` chi-square/dof | `42.76835` |
+| LCDM `H(z)` chi-square/dof | `0.47944` |
+| Gamma-alpha scan points | `625` |
+| Scan median transition | `1.18715` |
+| Scan transition range | `[0.28073, 1.58353]` |
+
+**Key finding:**
+> Paper 34 demonstrates that the MAAT projection observable does not reduce
+> to known growth observables, establishing it as a distinct layer of
+> cosmological information. The result is diagnostic, not a cosmological fit
+> or evidence claim.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_projection_growth_paper34/` | v0.11 projection residual, growth-data mismatch diagnostic, H(z) reference, and gamma-alpha transition scan |
+
+**Documentation PDF:** `documentation/34_MAAT_Projection_Observable_vs_Growth_and_Expansion_Data.pdf`
+
+---
+
 ### Extra Phenomenological Paper — Structural Selection in the String Landscape
 **Structural Selection in the String Landscape:**
 *A MAAT-Based Phenomenological Framework for Vacuum Ranking*
@@ -965,6 +1005,7 @@ structural-selection-principle/
 │   ├── maat_observable_predictions_v10/   ← Paper 31: observable projection layer
 │   ├── maat_hz_chi2_paper32/              ← Paper 32: H(z) chronometer comparison and χ² scan
 │   ├── maat_cci_projection_paper33/       ← Paper 33: CCI projection observable + sensitivity scan
+│   ├── maat_projection_growth_paper34/    ← Paper 34: projection observable vs growth-data diagnostic
 │   └── string_landscape_selection/        ← extra paper: MAAT string-landscape ranking
 │
 ├── documentation/                         ← PDFs of all papers
@@ -1055,6 +1096,7 @@ Paper 29 (cosmo v03): V/R measured + λ + z_c        z_c≈1.114, λ:S>H>R>V, CC
 Paper 31 (dynamic):  diagnostics -> observables      track err=9.91e-7, residual=0.1648, max |DeltaH/H|=0.0399
 Paper 32 (H(z)):     first chronometer chi2 test      LCDM χ²=14.8759, MAAT χ²=15.3661, χ²ν(best)=0.5299
 Paper 33 (CCI proj): breadth-depth projection stress z_tr=0.8499, scan median=0.8889, N=6930
+Paper 34 (proj/growth): distinct info layer           z_tr=1.0436, C_proj χ²ν=42.77 vs fσ8, scan N=625
 ```
 
 ---
