@@ -930,6 +930,43 @@ diagnostic, not a matter-growth observable.
 
 ---
 
+### Paper 35 — Linear Growth Embedding
+**Linear Growth Embedding of MAAT Structural Selection:**
+*Perturbation Stability, Positivity, and Sub-Percent Growth Signatures*
+
+**Core idea:** Moves beyond the direct `C_proj` versus `f sigma_8` template
+comparison of Paper 34 by embedding the representative MAAT branch into a
+minimal linear growth equation. The goal is to test whether MAAT produces
+small and stable growth-sector effects when treated as a forward model.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| `Omega_MAAT,0` | `0.00331` |
+| `w_MAAT` | `-0.801` |
+| Max `|Delta D/D|` for `z < 2` | `0.0591 %` |
+| Max `|Delta f sigma_8/f sigma_8|` for `z < 2` | `0.4570 %` |
+| NEC margin | `+0.199 rho` |
+| Positivity stress tests | `3/3 positive` |
+| Fixed-point mode stability | all tested `gamma_k > 0` |
+
+**Key finding:**
+> A minimal MAAT growth embedding produces sub-percent growth-sector
+> deviations while preserving linear stability, positivity, and acceptable
+> energy-condition behaviour for the tested branch. This is a first
+> perturbative toy embedding, not a precision cosmological constraint.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_growth_perturbation_paper35/` | corrected LCDM reference, MAAT growth equation, selection-pressure perturbations, positivity stress test, and energy-condition check |
+
+**Documentation PDF:** `documentation/35_Linear_Growth_Embedding_of_MAAT_Structural_Selection.pdf`
+
+---
+
 ### Extra Phenomenological Paper — Structural Selection in the String Landscape
 **Structural Selection in the String Landscape:**
 *A MAAT-Based Phenomenological Framework for Vacuum Ranking*
@@ -1006,6 +1043,7 @@ structural-selection-principle/
 │   ├── maat_hz_chi2_paper32/              ← Paper 32: H(z) chronometer comparison and χ² scan
 │   ├── maat_cci_projection_paper33/       ← Paper 33: CCI projection observable + sensitivity scan
 │   ├── maat_projection_growth_paper34/    ← Paper 34: projection observable vs growth-data diagnostic
+│   ├── maat_growth_perturbation_paper35/  ← Paper 35: linear growth embedding + perturbation stability
 │   └── string_landscape_selection/        ← extra paper: MAAT string-landscape ranking
 │
 ├── documentation/                         ← PDFs of all papers
@@ -1097,6 +1135,7 @@ Paper 31 (dynamic):  diagnostics -> observables      track err=9.91e-7, residual
 Paper 32 (H(z)):     first chronometer chi2 test      LCDM χ²=14.8759, MAAT χ²=15.3661, χ²ν(best)=0.5299
 Paper 33 (CCI proj): breadth-depth projection stress z_tr=0.8499, scan median=0.8889, N=6930
 Paper 34 (proj/growth): distinct info layer           z_tr=1.0436, C_proj χ²ν=42.77 vs fσ8, scan N=625
+Paper 35 (growth):  forward perturbation embedding    max |ΔD/D|=0.0591%, max |Δfσ8/fσ8|=0.4570%
 ```
 
 ---
