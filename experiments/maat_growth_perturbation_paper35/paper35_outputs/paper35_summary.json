@@ -1,0 +1,126 @@
+{
+  "cosmology": {
+    "H0": 67.4,
+    "Omm": 0.315,
+    "OmL": 0.685,
+    "sigma8_0": 0.811,
+    "gamma_growth": 0.55
+  },
+  "maat": {
+    "Omm_MAAT": 0.00331,
+    "w_MAAT": -0.801
+  },
+  "diffusion": {
+    "tau_a": 1.0,
+    "D_a": 0.1,
+    "lam_star": 0.5
+  },
+  "growth_results": {
+    "max_dD_pct": 0.05905646696559518,
+    "max_dfsigma8_pct": 0.4569841312045709,
+    "z_table": {
+      "0.0": {
+        "D_ratio": 1.0,
+        "dD_pct": 0.0,
+        "dfsigma8_pct": 0.4569841312045709
+      },
+      "0.3": {
+        "D_ratio": 0.9996930422853305,
+        "dD_pct": -0.030695771466945188,
+        "dfsigma8_pct": 0.17169883497856053
+      },
+      "0.57": {
+        "D_ratio": 0.9995574261038745,
+        "dD_pct": -0.044257389612541526,
+        "dfsigma8_pct": 0.058257154222086875
+      },
+      "0.85": {
+        "D_ratio": 0.999488070688523,
+        "dD_pct": -0.05119293114769955,
+        "dfsigma8_pct": 0.004936986911390078
+      },
+      "1.0": {
+        "D_ratio": 0.9994670114907176,
+        "dD_pct": -0.053298850928236136,
+        "dfsigma8_pct": -0.010339408792103112
+      },
+      "2.0": {
+        "D_ratio": 0.9994094353303441,
+        "dD_pct": -0.05905646696559518,
+        "dfsigma8_pct": -0.048302863995525996
+      }
+    }
+  },
+  "dlambda_results": {
+    "0.01": {
+      "gamma_k": 1.00001,
+      "dlam_t5": 0.7816695750022992
+    },
+    "0.1": {
+      "gamma_k": 1.001,
+      "dlam_t5": 0.7812839810088826
+    },
+    "0.3": {
+      "gamma_k": 1.009,
+      "dlam_t5": 0.778181947693886
+    },
+    "1.0": {
+      "gamma_k": 1.1,
+      "dlam_t5": 0.7445526788329299
+    }
+  },
+  "positivity_results": {
+    "near-zero": {
+      "init_min": 0.01,
+      "min_ever": 0.01,
+      "final_min": 0.4999999990000902,
+      "final_mean": 0.49999999900009023,
+      "positive": true
+    },
+    "spike-down": {
+      "init_min": 0.010030529568173963,
+      "min_ever": 0.010030529568173963,
+      "final_min": 0.49999999948125023,
+      "final_mean": 0.4999999995025454,
+      "positive": true
+    },
+    "random-small": {
+      "init_min": 0.00025567283212304503,
+      "min_ever": 0.00025567283212304503,
+      "final_min": 0.4999999990542544,
+      "final_mean": 0.4999999990551373,
+      "positive": true
+    }
+  },
+  "fixedpoint_stability": {
+    "0.01": {
+      "gamma_k": 1.00001,
+      "decay_time": 0.9999900000999989
+    },
+    "0.1": {
+      "gamma_k": 1.001,
+      "decay_time": 0.9990009990009991
+    },
+    "0.3": {
+      "gamma_k": 1.009,
+      "decay_time": 0.9910802775024778
+    },
+    "1.0": {
+      "gamma_k": 1.1,
+      "decay_time": 0.9090909090909091
+    }
+  },
+  "energy_conditions": {
+    "w_MAAT": -0.801,
+    "NEC": 0.19899999999999995,
+    "WEC_rho": true,
+    "WEC_NEC": true,
+    "SEC": -1.403,
+    "DEC_rho": true,
+    "DEC_p": true,
+    "NEC_ok": true,
+    "WEC_ok": true,
+    "SEC_ok": false,
+    "DEC_ok": true
+  }
+}
