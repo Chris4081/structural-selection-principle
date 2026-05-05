@@ -1,0 +1,134 @@
+{
+  "model": "MAAT Paper 42 Blind Projection Test",
+  "n_growth_points": 13,
+  "lambda": {
+    "lambda_H": 13.89949253725917,
+    "lambda_B": -18.194142320256596,
+    "lambda_S": 56.13051497755161,
+    "lambda_V": 56.4879074059714
+  },
+  "lambda_shares": {
+    "pi_H": 0.0960493050976911,
+    "pi_B": 0.12572651282229722,
+    "pi_S": 0.38787725119585414,
+    "pi_V": 0.39034693088415057
+  },
+  "derived_projection_parameters": {
+    "gamma_lambda": 1.3305071182030523,
+    "Bstar_lambda": 4.5090578827501755,
+    "alpha_lambda": 1.9936731161592685
+  },
+  "transition": {
+    "z_transition": 0.6985539488320356,
+    "curvature_peak": 769.2988157776182
+  },
+  "mean_d": [
+    0.5954779854686563,
+    0.6120395691985526,
+    0.4541574233045819,
+    0.6994426009119065
+  ],
+  "d_star": [
+    0.2964889788532755,
+    0.27802316406862904,
+    0.15086951907707455,
+    0.39638721624110285
+  ],
+  "correlations": {
+    "C_proj_lambda": {
+      "pearson_signed": 0.43462568818896335,
+      "spearman_signed": -0.08791208791208792,
+      "p_signed": 0.7746612669366532,
+      "pearson_abs": 0.0513583736413575,
+      "spearman_abs": 0.42857142857142855,
+      "p_abs": 0.1463426828658567
+    },
+    "R_proj_lambda": {
+      "pearson_signed": 0.35433751118180856,
+      "spearman_signed": 0.5274725274725275,
+      "p_signed": 0.06859657017149143,
+      "pearson_abs": -0.23004031127237695,
+      "spearman_abs": -0.35714285714285715,
+      "p_abs": 0.23173841307934603
+    },
+    "H": {
+      "pearson_signed": 0.4540434781854729,
+      "spearman_signed": 0.5934065934065934,
+      "p_signed": 0.035048247587620616,
+      "pearson_abs": -0.3503367563187988,
+      "spearman_abs": -0.31868131868131866,
+      "p_abs": 0.28903554822258887
+    },
+    "B": {
+      "pearson_signed": 0.32402841182676484,
+      "spearman_signed": 0.5604395604395604,
+      "p_signed": 0.05089745512724364,
+      "pearson_abs": -0.3817740742368385,
+      "spearman_abs": -0.43956043956043955,
+      "p_abs": 0.136043197840108
+    },
+    "S": {
+      "pearson_signed": 0.2649235664552885,
+      "spearman_signed": -0.08791208791208792,
+      "p_signed": 0.7746612669366532,
+      "pearson_abs": 0.159030455714201,
+      "spearman_abs": 0.42857142857142855,
+      "p_abs": 0.1463426828658567
+    },
+    "V": {
+      "pearson_signed": -0.004945752296574861,
+      "spearman_signed": 0.08791208791208792,
+      "p_signed": 0.7746612669366532,
+      "pearson_abs": -0.280178940640324,
+      "spearman_abs": -0.42857142857142855,
+      "p_abs": 0.1463426828658567
+    },
+    "R_resp": {
+      "pearson_signed": 0.25004191573773765,
+      "spearman_signed": 0.4175824175824176,
+      "p_signed": 0.15569221538923053,
+      "pearson_abs": -0.3847010998079657,
+      "spearman_abs": -0.4340659340659341,
+      "p_abs": 0.14119294035298235
+    },
+    "R_rob": {
+      "pearson_signed": 0.29710977570237407,
+      "spearman_signed": 0.5274725274725275,
+      "p_signed": 0.06784660766961652,
+      "pearson_abs": -0.3841200610813656,
+      "spearman_abs": -0.4340659340659341,
+      "p_abs": 0.13974301284935753
+    },
+    "CCI_min": {
+      "pearson_signed": 0.002689954257711793,
+      "spearman_signed": -0.08791208791208792,
+      "p_signed": 0.7746612669366532,
+      "pearson_abs": 0.27958077788922514,
+      "spearman_abs": 0.42857142857142855,
+      "p_abs": 0.1463426828658567
+    },
+    "CCI_diag": {
+      "pearson_signed": 0.0074986132066258765,
+      "spearman_signed": -0.08791208791208792,
+      "p_signed": 0.7746612669366532,
+      "pearson_abs": 0.27968743336226637,
+      "spearman_abs": 0.42857142857142855,
+      "p_abs": 0.1463426828658567
+    }
+  },
+  "main_null_tests": {
+    "CCI_diag_vs_abs_residual_sigma": {
+      "spearman": 0.42857142857142855,
+      "p_perm": 0.1456427178641068,
+      "null_mean": -0.003217307692307692,
+      "null_std": 0.2875757084755697
+    },
+    "C_proj_lambda_vs_abs_residual_sigma": {
+      "spearman": 0.42857142857142855,
+      "p_perm": 0.1431928403579821,
+      "null_mean": 0.0004898351648351647,
+      "null_std": 0.28766697488541587
+    }
+  },
+  "note": "Blind projection test: projection parameters are derived from lambda response weights. No epsilon fit, no gamma scan, no template tuning."
+}

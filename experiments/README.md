@@ -469,6 +469,47 @@ Because the balance support `B` is residual-sensitive, this benchmark is a
 semi-supervised structural consistency test, not a blind prediction or
 detection claim.
 
+## Reproducing Paper 42 Blind Projection Test
+
+The `maat_paper42_blind_projection_test/` directory contains the Paper 42
+blind projection benchmark. It derives the projection-shape parameters from
+response-closed MAAT v1.2.1 sector weights and then tests whether the resulting
+projection/CCI diagnostics retain a residual-structure alignment against a
+compact `f sigma_8` comparison set.
+
+Run:
+
+```bash
+cd experiments/maat_paper42_blind_projection_test
+python3 maat_paper42_blind_projection_test.py
+```
+
+This generates:
+
+- `outputs_paper42/paper42_summary.json`
+- `outputs_paper42/paper42_correlation_table.csv`
+- `outputs_paper42/paper42_blind_signature_table.csv`
+- `outputs_paper42/paper42_lambda_projection_curve.csv`
+- `outputs_paper42/fig1_blind_projection_curve.png`
+- `outputs_paper42/fig2_lambda_response_shares.png`
+- `outputs_paper42/fig3_blind_cci_vs_abs_residual.png`
+- `outputs_paper42/fig4_blind_cproj_vs_abs_residual.png`
+- `outputs_paper42/fig5_null_test_blind_cci.png`
+
+Main diagnostic results:
+
+- Growth comparison points: `13`
+- Response shares: `pi_H = 0.0960`, `pi_B = 0.1257`,
+  `pi_S = 0.3879`, `pi_V = 0.3903`
+- Derived projection parameters: `gamma_lambda = 1.3305`,
+  `Bstar_lambda = 4.5091`, `alpha_lambda = 1.9937`
+- Transition marker: `z_tr = 0.6986`
+- Spearman `CCI_diag` vs `|residual_sigma|`: `0.4286`, `p = 0.1456`
+- Spearman `C_proj_lambda` vs `|residual_sigma|`: `0.4286`, `p = 0.1432`
+
+The result is positive but non-significant. This is a response-derived
+robustness stress test, not a detection claim.
+
 ## Reproducing the SO(10)-Motivated Structural Selection Benchmark
 
 The `maat_so10_structural_selection/` directory contains the extra
