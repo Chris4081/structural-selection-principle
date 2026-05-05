@@ -1231,6 +1231,61 @@ variable conventions used by the existing reproducibility folders:
 
 ---
 
+### Paper 42 — Blind Projection Test
+**Blind Projection Test:**
+*Response-Derived Projection, No Projection-Shape Tuning, and Residual Structure Diagnostics*
+
+**Core idea:** Removes the projection-shape tuning used in earlier residual
+diagnostics. The observable parameters are derived from response-closed
+MAAT v1.2.1 sector weights:
+
+```text
+defects -> covariance C -> lambda -> response shares pi_a
+        -> gamma_lambda, Bstar_lambda, alpha_lambda
+        -> C_proj_lambda(z)
+```
+
+The test uses a compact `f sigma_8(z)` growth comparison set and asks whether
+the response-derived projection observable and CCI diagnostics retain a
+residual-structure alignment without fitting `epsilon`, `gamma`, `Bstar`, or
+`alpha`. The small denominator regulator is fixed numerically and is not
+treated as a physical parameter.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Growth comparison points | `13` |
+| Response shares | `pi_H=0.0960`, `pi_B=0.1257`, `pi_S=0.3879`, `pi_V=0.3903` |
+| Derived `gamma_lambda` | `1.3305` |
+| Derived `Bstar_lambda` | `4.5091` |
+| Derived `alpha_lambda` | `1.9937` |
+| Transition marker | `z_tr = 0.6986` |
+| Spearman `CCI_diag` vs `|residual_sigma|` | `0.4286`, permutation `p = 0.1456` |
+| Spearman `C_proj_lambda` vs `|residual_sigma|` | `0.4286`, permutation `p = 0.1432` |
+
+**Key finding:**
+> The residual-structure direction survives blind projection-shape closure,
+> but the signal is reduced to a positive, non-significant exploratory trend.
+> Paper 42 is therefore a robustness stress test, not a detection claim.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_paper42_blind_projection_test/` | Paper 42 blind projection test, response-derived parameters, residual/CCI correlations, permutation null tests, output CSV/JSON files, and figures |
+
+**Data attribution and license note:** The Planck-normalised reference
+parameters and compact `f sigma_8` comparison points are external scientific
+data and should be cited to the original publications/collaborations. The
+repository CSV/PNG files are derived reproducibility artifacts only. No
+endorsement by the Planck Collaboration, survey collaborations, or original
+data authors is implied.
+
+**Documentation PDF:** `documentation/42_Blind_Projection_Test.pdf`
+
+---
+
 ### Extra Phenomenological Paper — Structural Selection in SO(10)-Motivated Unified Field Theories
 **Structural Selection in SO(10)-Motivated Unified Field Theories:**
 *A Phenomenological MAAT Layer for Gauge and Yukawa Benchmarks*
@@ -1364,6 +1419,7 @@ structural-selection-principle/
 │   ├── maat_paper38_v121_robustness_closure/ ← Paper 38: v1.2.1 closure in linear growth
 │   ├── maat_paper39_observable_growth_signature/ ← Paper 39: v1.2.1 observable growth signature proxy
 │   ├── maat_paper40_structural_signature_test/ ← Paper 40: v1.2.1 CCI residual signature test
+│   ├── maat_paper42_blind_projection_test/ ← Paper 42: response-derived blind projection test
 │   ├── maat_so10_structural_selection/   ← extra paper: SO(10)-motivated gauge and Yukawa benchmarks
 │   └── string_landscape_selection/        ← extra paper: MAAT string-landscape ranking
 │
@@ -1467,6 +1523,7 @@ Paper 38 (growth closure): v1.2.1 in linear growth      <R_rob>=0.9313, max |ΔD
 Paper 39 (growth signature): projection-modulated fσ8   ε_best=-0.0100, Δχ²=-0.0601, max |Δfσ8/fσ8|=0.9891%
 Paper 40 (residual signature): CCI vs residual stress    ρS(CCI_diag, |rσ|)=0.5934, p=0.0338, null p≈0.036
 Paper 41 (variable closure): definitions + measurement map H,B,S,V primary; R_rob emergent; no standalone code
+Paper 42 (blind projection): response-derived projection  ρS(CCI_diag, |rσ|)=0.4286, p=0.1456, no shape tuning
 SO(10) extra: gauge one-loop + Yukawa bridge           M_GUT≈1.86e16 GeV, Δb≈0.0506, Yukawa R_rob≈0.999
 ```
 
