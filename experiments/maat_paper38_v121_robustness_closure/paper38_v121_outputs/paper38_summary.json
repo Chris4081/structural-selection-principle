@@ -1,0 +1,127 @@
+{
+  "paper": "MAAT Paper 38 \u2014 v1.2.1 Robustness Closure",
+  "cosmology": {
+    "H0": 67.4,
+    "Omm": 0.315,
+    "OmL": 0.685,
+    "sigma8_0": 0.811,
+    "gamma_growth": 0.55
+  },
+  "maat": {
+    "Omm_MAAT": 0.00331,
+    "w_MAAT": -0.801
+  },
+  "diffusion": {
+    "tau_a": 1.0,
+    "D_a": 0.1,
+    "lam_star": 0.5
+  },
+  "growth_results": {
+    "max_dD_pct_z_lt_2": 0.05905646696559518,
+    "max_dfsigma8_pct_z_lt_2": 0.4569841312045709
+  },
+  "maat_v121_closure": {
+    "definition": {
+      "R_resp": "(H*B*V)^(1/3)",
+      "R_rob": "min(R_resp, (H*B*S*V)^(1/4))",
+      "Stability": "R_rob",
+      "CCI_min": "S/(H+B+V+eps)",
+      "CCI_diag": "S/(H+B+V+R_rob+eps)",
+      "note": "R_resp is not included separately in CCI denominator to avoid double counting."
+    },
+    "means": {
+      "H": 0.9994326962078971,
+      "B": 0.9992824309766657,
+      "S": 0.8956339466403402,
+      "V": 0.8727561606977979,
+      "R_resp": 0.9543491323723476,
+      "R_rob": 0.9312655662575967,
+      "CCI_min": 0.3113973685905736,
+      "CCI_diag": 0.23475758131653757
+    },
+    "mins": {
+      "R_resp": 0.7924951678363807,
+      "R_rob": 0.7063012391795747,
+      "CCI_min": 0.19746900502228576,
+      "CCI_diag": 0.15323395768191198
+    },
+    "maxs": {
+      "R_resp": 0.9992970362842759,
+      "R_rob": 0.9595300420837388,
+      "CCI_min": 0.3472083839661469,
+      "CCI_diag": 0.260519157523212
+    }
+  },
+  "dlambda_results": {
+    "0.01": {
+      "gamma_k": 1.00001,
+      "dlam_t5": 0.7816695750022992
+    },
+    "0.1": {
+      "gamma_k": 1.001,
+      "dlam_t5": 0.7812839810088826
+    },
+    "0.3": {
+      "gamma_k": 1.009,
+      "dlam_t5": 0.778181947693886
+    },
+    "1.0": {
+      "gamma_k": 1.1,
+      "dlam_t5": 0.7445526788329299
+    }
+  },
+  "positivity_results": {
+    "near-zero": {
+      "init_min": 0.01,
+      "min_ever": 0.01,
+      "final_min": 0.4999999990000902,
+      "final_mean": 0.49999999900009023,
+      "positive": true
+    },
+    "spike-down": {
+      "init_min": 0.010030529568173963,
+      "min_ever": 0.010030529568173963,
+      "final_min": 0.49999999948125023,
+      "final_mean": 0.4999999995025454,
+      "positive": true
+    },
+    "random-small": {
+      "init_min": 0.00025567283212304503,
+      "min_ever": 0.00025567283212304503,
+      "final_min": 0.4999999990542544,
+      "final_mean": 0.4999999990551373,
+      "positive": true
+    }
+  },
+  "fixedpoint_stability": {
+    "0.01": {
+      "gamma_k": 1.00001,
+      "decay_time": 0.9999900000999989
+    },
+    "0.1": {
+      "gamma_k": 1.001,
+      "decay_time": 0.9990009990009991
+    },
+    "0.3": {
+      "gamma_k": 1.009,
+      "decay_time": 0.9910802775024778
+    },
+    "1.0": {
+      "gamma_k": 1.1,
+      "decay_time": 0.9090909090909091
+    }
+  },
+  "energy_conditions": {
+    "w_MAAT": -0.801,
+    "NEC": 0.19899999999999995,
+    "WEC_rho": true,
+    "WEC_NEC": true,
+    "SEC": -1.403,
+    "DEC_rho": true,
+    "DEC_p": true,
+    "NEC_ok": true,
+    "WEC_ok": true,
+    "SEC_ok": false,
+    "DEC_ok": true
+  }
+}

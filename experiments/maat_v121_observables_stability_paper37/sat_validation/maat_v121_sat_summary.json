@@ -1,0 +1,9 @@
+{
+  "input_file": "maat_cosmos_full_results.csv",
+  "rows": 2000,
+  "input_mode": "field_columns_HBSV",
+  "runtime_column": "runtime",
+  "base_cv_r2_mean": -22.87630953473221,
+  "v121_cv_r2_mean": -30.852533150001108,
+  "delta_cv_r2": -7.976223615268896
+}

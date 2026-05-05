@@ -82,6 +82,13 @@ experiments/
 │   ├── standard_model_rg_maat_results.json
 │   ├── standard_model_rg_maat_v11_holdout_results.json
 │   └── standard_model_rg_maat_plots/
+├── maat_v121_observables_stability_paper37/
+│   ├── README.md
+│   ├── paper37_observables_emergent_robustness.py
+│   ├── paper37_stability_landscape.py
+│   ├── observable_outputs/
+│   ├── stability_landscape_outputs/
+│   └── sat_validation/
 └── string_landscape_selection/
     ├── structural_selection_10d_tadpole_toy.py
     ├── structural_selection_iib_kklt_scan.py
@@ -330,6 +337,138 @@ including the publication-style summary figure
 `standard_model_rg_maat_plots/sm_bridge_nature_summary.png` and the v11
 holdout plots.
 
+## Reproducing Paper 37 v1.2.1 Observable and Stability Benchmarks
+
+The `maat_v121_observables_stability_paper37/` directory contains the Paper 37
+v1.2.1 companion benchmark. It reproduces the baseline observable proxy run,
+the two-parameter stability landscape, and the SAT correlation table used in
+the empirical discussion of emergent robustness.
+
+Run:
+
+```bash
+cd experiments/maat_v121_observables_stability_paper37
+python3 paper37_observables_emergent_robustness.py
+python3 paper37_stability_landscape.py
+cd sat_validation
+python3 maat_v121_sat_validation.py maat_cosmos_full_results.csv
+```
+
+This generates:
+
+- `observable_outputs/maat_v121_observable_predictions.csv`
+- `observable_outputs/maat_v121_observable_summary.json`
+- `stability_landscape_outputs/paper37_maat_v121_landscape_scan.csv`
+- `stability_landscape_outputs/paper37_landscape_summary.json`
+- `sat_validation/maat_v121_sat_validation_results.csv`
+- `sat_validation/maat_v121_sat_correlations.csv`
+- all figures used in the Paper 37 proxy and scan sections
+
+## Reproducing Paper 38 v1.2.1 Linear-Growth Closure Benchmark
+
+The `maat_paper38_v121_robustness_closure/` directory contains the Paper 38
+linear-growth closure benchmark. It updates the Paper 35 growth pipeline with
+the v1.2.1 closure convention, tests selection-field perturbations, checks
+positivity of the lambda-relaxation equation, and exports the closure
+diagnostics.
+
+Run:
+
+```bash
+cd experiments/maat_paper38_v121_robustness_closure
+python3 maat_paper38_v121_robustness_closure.py
+```
+
+This generates:
+
+- `paper38_v121_outputs/paper38_summary.json`
+- `paper38_v121_outputs/paper38_growth_curves.csv`
+- `paper38_v121_outputs/paper38_v121_structural_closure.csv`
+- `paper38_v121_outputs/paper38_dlambda_evolution.csv`
+- `paper38_v121_outputs/fig_paper38_growth.png`
+- `paper38_v121_outputs/fig_paper38_v121_closure.png`
+- `paper38_v121_outputs/fig_paper38_perturbations.png`
+
+## Reproducing Paper 39 v1.2.1 Observable Growth Signature Proxy
+
+The `maat_paper39_observable_growth_signature/` directory contains the Paper 39
+observable-signature proxy. It modulates a Planck-normalised `f sigma_8`
+baseline by a bounded MAAT projection template, scans a small epsilon interval,
+and exports the v1.2.1 robustness closure diagnostics.
+
+Run:
+
+```bash
+cd experiments/maat_paper39_observable_growth_signature
+python3 maat_paper39_observable_signature_v121.py
+```
+
+This generates:
+
+- `outputs_paper39/paper39_summary.json`
+- `outputs_paper39/paper39_growth_signature_results.csv`
+- `outputs_paper39/paper39_epsilon_chi2_scan.csv`
+- `outputs_paper39/paper39_projection_template_v121.csv`
+- `outputs_paper39/fig1_projection_template.png`
+- `outputs_paper39/fig2_growth_comparison.png`
+- `outputs_paper39/fig3_residuals.png`
+- `outputs_paper39/fig4_chi2_scan.png`
+- `outputs_paper39/fig5_v121_robustness_closure.png`
+- `outputs_paper39/fig6_v121_cci.png`
+- `outputs_paper39/fig7_v121_support_fields.png`
+
+Main diagnostic results:
+
+- Growth comparison points: `13`
+- Best epsilon: `-0.0100`
+- LCDM chi2: `12.4373`
+- MAAT proxy chi2: `12.3772`
+- Delta chi2: `-0.0601`
+- Max `|Delta f sigma_8 / f sigma_8|`: `0.9891%`
+- Mean `R_rob`: `0.6673`
+
+The best epsilon value lies at the scan boundary. The benchmark should
+therefore be read as a compatibility/signature test, not as a parameter
+measurement.
+
+## Reproducing Paper 40 v1.2.1 Structural Signature Test
+
+The `maat_paper40_structural_signature_test/` directory contains the Paper 40
+residual-structure diagnostic. It compares MAAT v1.2.1 projection and CCI
+diagnostics against signed and absolute `f sigma_8` residuals relative to a
+Planck-normalised LCDM baseline, then runs permutation null tests.
+
+Run:
+
+```bash
+cd experiments/maat_paper40_structural_signature_test
+python3 maat_paper40_structural_signature_test.py
+```
+
+This generates:
+
+- `outputs_paper40/paper40_summary.json`
+- `outputs_paper40/paper40_signature_table.csv`
+- `outputs_paper40/fig1_cci_diag_vs_signed_residual.png`
+- `outputs_paper40/fig2_scatter_cci_diag_signed_residual.png`
+- `outputs_paper40/fig3_scatter_cci_diag_abs_residual.png`
+- `outputs_paper40/fig4_spearman_signed_residuals.png`
+- `outputs_paper40/fig5_spearman_abs_residuals.png`
+- `outputs_paper40/fig6_breakthrough_null_test_cci_diag.png`
+
+Main diagnostic results:
+
+- Growth comparison points: `13`
+- Spearman `CCI_diag` vs `|residual_sigma|`: `0.5934`, `p = 0.0338`
+- Random-field null for `CCI_diag`: `p = 0.0363`
+- Redshift-shuffle null for `CCI_diag`: `p = 0.0359`
+- Spearman `R_proj` vs signed residual: `0.6319`, `p = 0.0228`
+- Spearman `V` vs signed residual: `-0.6319`, `p = 0.0228`
+
+Because the balance support `B` is residual-sensitive, this benchmark is a
+semi-supervised structural consistency test, not a blind prediction or
+detection claim.
+
 ## String-Landscape Script Overview
 
 | Script | Purpose | Main outputs |
@@ -436,6 +575,13 @@ These scripts implement toy, bridge, and proxy models. In particular:
   first-principles microscopic derivation.
 - The cosmology benchmark is a flat-FLRW scalar-field toy model, not a complete
   cosmological theory.
+- The Paper 37 v1.2.1 benchmark uses proxy observable and SAT-correlation
+  diagnostics. It validates internal consistency of the closure convention; it
+  is not a precision cosmological likelihood or a proof of universal SAT
+  hardness laws.
+- The Paper 38 v1.2.1 benchmark is a linear-growth and selection-field
+  perturbation consistency check. It is not a Boltzmann-code calculation and
+  not an observational detection.
 - The structural measure is intended as a testable ranking architecture, not as
   a final microscopic string measure.
 

@@ -1,0 +1,37 @@
+{
+  "model": "MAAT Paper 37 Stability & Robustness Landscape v1.2.1",
+  "n_models": 1089,
+  "n_stable": 1089,
+  "stable_fraction": 1.0,
+  "eta_range": [
+    0.0,
+    0.16
+  ],
+  "gamma_range": [
+    0.05,
+    1.2
+  ],
+  "best_model": {
+    "eta_proj": 0.0,
+    "gamma_proj": 0.05,
+    "stable": true,
+    "max_abs_delta_H": 0.016969042533123823,
+    "max_abs_delta_fsigma8": 0.018339098363062988,
+    "max_Omega_MAAT": 0.033093378394160454,
+    "min_cs2": 1.0001090094549119,
+    "max_cs2": 1.829978040905736,
+    "min_P_X": 1.3634659968904848,
+    "mean_H_struct": 0.9707230202759586,
+    "mean_B_struct": 0.9300797545028213,
+    "mean_S_struct": 0.8460269156983463,
+    "mean_V_struct": 0.6060596525715697,
+    "mean_Respect_implicit": 0.8177514764462607,
+    "mean_R_emergent": 0.8047146274380386,
+    "mean_C_proj": 0.9100711710017872,
+    "trusted_w_fraction": 0.1544502617801047,
+    "trusted_w_min": 0.9904569654672736,
+    "trusted_w_max": 2.474553928659271,
+    "scan_diagnostic_score": 0.49813476463949513
+  },
+  "note": "Toy/proxy parameter scan. Growth is not Boltzmann-code based. The scan diagnostic score is a ranking aid, not a proof."
+}

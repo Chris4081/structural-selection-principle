@@ -1,0 +1,237 @@
+{
+  "model": "MAAT Paper 40 Structural Signature Test",
+  "n_growth_points": 13,
+  "z_transition_estimate": 0.6508135168961202,
+  "transition_curvature_peak": 637.2354593185346,
+  "tested_hypothesis": "Structural diagnostics, especially CCI_diag, should correlate with the residual structure of f_sigma8 observations relative to LCDM.",
+  "residual_definitions": {
+    "residual_raw": "fsigma8_obs - fsigma8_LCDM",
+    "residual_sigma": "(fsigma8_obs - fsigma8_LCDM)/sigma",
+    "abs_residual_sigma": "abs(residual_sigma)"
+  },
+  "correlations_signed_residuals": [
+    {
+      "name": "C_proj",
+      "pearson_raw": 0.6275854171126253,
+      "spearman_raw": 0.14285714285714285,
+      "pearson_sigma": 0.4095543365069014,
+      "spearman_sigma": -0.08791208791208792,
+      "p_pearson_raw_perm": 0.03529823508824559,
+      "p_spearman_raw_perm": 0.639918004099795,
+      "p_pearson_sigma_perm": 0.23743812809359532,
+      "p_spearman_sigma_perm": 0.784060796960152
+    },
+    {
+      "name": "R_proj",
+      "pearson_raw": 0.27375021638752534,
+      "spearman_raw": 0.3626373626373626,
+      "pearson_sigma": 0.4243317411731058,
+      "spearman_sigma": 0.6318681318681318,
+      "p_pearson_raw_perm": 0.3687815609219539,
+      "p_spearman_raw_perm": 0.22363881805909705,
+      "p_pearson_sigma_perm": 0.15034248287585622,
+      "p_spearman_sigma_perm": 0.02279886005699715
+    },
+    {
+      "name": "H",
+      "pearson_raw": -0.4761511288727441,
+      "spearman_raw": -0.14285714285714285,
+      "pearson_sigma": -0.2020841831790202,
+      "spearman_sigma": 0.08791208791208792,
+      "p_pearson_raw_perm": 0.10089495525223739,
+      "p_spearman_raw_perm": 0.639918004099795,
+      "p_pearson_sigma_perm": 0.5060746962651868,
+      "p_spearman_sigma_perm": 0.784060796960152
+    },
+    {
+      "name": "B",
+      "pearson_raw": 0.1955032828283191,
+      "spearman_raw": 0.46703296703296704,
+      "pearson_sigma": 0.2596444930388944,
+      "spearman_sigma": 0.32967032967032966,
+      "p_pearson_raw_perm": 0.5262736863156842,
+      "p_spearman_raw_perm": 0.11254437278136094,
+      "p_pearson_sigma_perm": 0.3946302684865757,
+      "p_spearman_sigma_perm": 0.26923653817309134
+    },
+    {
+      "name": "S",
+      "pearson_raw": 0.640941841122377,
+      "spearman_raw": 0.14285714285714285,
+      "pearson_sigma": 0.4441373768213833,
+      "spearman_sigma": -0.08791208791208792,
+      "p_pearson_raw_perm": 0.0336483175841208,
+      "p_spearman_raw_perm": 0.639918004099795,
+      "p_pearson_sigma_perm": 0.2336383180840958,
+      "p_spearman_sigma_perm": 0.784060796960152
+    },
+    {
+      "name": "V",
+      "pearson_raw": -0.22499480346859468,
+      "spearman_raw": -0.3626373626373626,
+      "pearson_sigma": -0.3879586635990947,
+      "spearman_sigma": -0.6318681318681318,
+      "p_pearson_raw_perm": 0.46452677366131695,
+      "p_spearman_raw_perm": 0.22363881805909705,
+      "p_pearson_sigma_perm": 0.1886905654717264,
+      "p_spearman_sigma_perm": 0.02279886005699715
+    },
+    {
+      "name": "R_resp",
+      "pearson_raw": -0.2228915949759332,
+      "spearman_raw": 0.11538461538461539,
+      "pearson_sigma": -0.1589966074150258,
+      "spearman_sigma": -0.14285714285714285,
+      "p_pearson_raw_perm": 0.44612769361531923,
+      "p_spearman_raw_perm": 0.7072146392680366,
+      "p_pearson_sigma_perm": 0.6021698915054248,
+      "p_spearman_sigma_perm": 0.6381180940952952
+    },
+    {
+      "name": "R_rob",
+      "pearson_raw": -0.2387246729361765,
+      "spearman_raw": 0.14285714285714285,
+      "pearson_sigma": -0.1898259863893967,
+      "spearman_sigma": -0.10989010989010989,
+      "p_pearson_raw_perm": 0.41247937603119844,
+      "p_spearman_raw_perm": 0.6441177941102945,
+      "p_pearson_sigma_perm": 0.5327733613319334,
+      "p_spearman_sigma_perm": 0.7237638118094095
+    },
+    {
+      "name": "CCI_min",
+      "pearson_raw": 0.5749143133147192,
+      "spearman_raw": -0.23626373626373626,
+      "pearson_sigma": 0.4032580941008357,
+      "spearman_sigma": -0.0989010989010989,
+      "p_pearson_raw_perm": 0.07464626768661567,
+      "p_spearman_raw_perm": 0.431728413579321,
+      "p_pearson_sigma_perm": 0.2950852457377131,
+      "p_spearman_sigma_perm": 0.7502124893755312
+    },
+    {
+      "name": "CCI_diag",
+      "pearson_raw": 0.5758931571267526,
+      "spearman_raw": -0.23626373626373626,
+      "pearson_sigma": 0.40522928082968057,
+      "spearman_sigma": -0.0989010989010989,
+      "p_pearson_raw_perm": 0.07424628768561573,
+      "p_spearman_raw_perm": 0.431728413579321,
+      "p_pearson_sigma_perm": 0.29463526823658814,
+      "p_spearman_sigma_perm": 0.7502124893755312
+    }
+  ],
+  "correlations_residual_magnitude": [
+    {
+      "name": "C_proj",
+      "pearson_abs_sigma": 0.06996468980386523,
+      "spearman_abs_sigma": 0.42857142857142855,
+      "p_pearson_abs_sigma_perm": 0.743662816859157,
+      "p_spearman_abs_sigma_perm": 0.14614269286535672
+    },
+    {
+      "name": "R_proj",
+      "pearson_abs_sigma": -0.21956165621415308,
+      "spearman_abs_sigma": -0.3241758241758242,
+      "p_pearson_abs_sigma_perm": 0.472026398680066,
+      "p_spearman_abs_sigma_perm": 0.27688615569221536
+    },
+    {
+      "name": "H",
+      "pearson_abs_sigma": -0.1680770957733737,
+      "spearman_abs_sigma": -0.42857142857142855,
+      "p_pearson_abs_sigma_perm": 0.5912704364781761,
+      "p_spearman_abs_sigma_perm": 0.14614269286535672
+    },
+    {
+      "name": "B",
+      "pearson_abs_sigma": -0.7359249740467516,
+      "spearman_abs_sigma": -0.7912087912087912,
+      "p_pearson_abs_sigma_perm": 0.0030998450077496125,
+      "p_spearman_abs_sigma_perm": 0.0016999150042497876
+    },
+    {
+      "name": "S",
+      "pearson_abs_sigma": 0.04369527455537965,
+      "spearman_abs_sigma": 0.42857142857142855,
+      "p_pearson_abs_sigma_perm": 0.8061096945152743,
+      "p_spearman_abs_sigma_perm": 0.14614269286535672
+    },
+    {
+      "name": "V",
+      "pearson_abs_sigma": 0.20468515245188265,
+      "spearman_abs_sigma": 0.3241758241758242,
+      "p_pearson_abs_sigma_perm": 0.5125243737813109,
+      "p_spearman_abs_sigma_perm": 0.27688615569221536
+    },
+    {
+      "name": "R_resp",
+      "pearson_abs_sigma": -0.3784927072985603,
+      "spearman_abs_sigma": -0.35714285714285715,
+      "p_pearson_abs_sigma_perm": 0.1937903104844758,
+      "p_spearman_abs_sigma_perm": 0.22978851057447128
+    },
+    {
+      "name": "R_rob",
+      "pearson_abs_sigma": -0.3368635525182498,
+      "spearman_abs_sigma": -0.37362637362637363,
+      "p_pearson_abs_sigma_perm": 0.24768761561921904,
+      "p_spearman_abs_sigma_perm": 0.2047897605119744
+    },
+    {
+      "name": "CCI_min",
+      "pearson_abs_sigma": 0.11760337082791132,
+      "spearman_abs_sigma": 0.5934065934065934,
+      "p_pearson_abs_sigma_perm": 0.5312234388280586,
+      "p_spearman_abs_sigma_perm": 0.033798310084495777
+    },
+    {
+      "name": "CCI_diag",
+      "pearson_abs_sigma": 0.11503511964003298,
+      "spearman_abs_sigma": 0.5934065934065934,
+      "p_pearson_abs_sigma_perm": 0.5368231588420579,
+      "p_spearman_abs_sigma_perm": 0.033798310084495777
+    }
+  ],
+  "breakthrough_tests": {
+    "CCI_diag_vs_abs_residual_sigma": {
+      "signature": "corr(CCI_diag, |residual_sigma|)",
+      "original_spearman": 0.5934065934065934,
+      "original_pearson": 0.11503511964003298,
+      "random_field_null_spearman": {
+        "observed_corr": 0.5934065934065934,
+        "null_mean": 7.175824175824218e-05,
+        "null_std": 0.2891425874206265,
+        "p_value": 0.03629927401451971,
+        "n_perm": 50000
+      },
+      "redshift_shuffle_spearman": {
+        "observed_corr": 0.5934065934065934,
+        "shuffle_mean": 0.0004939560439560441,
+        "shuffle_std": 0.28905328201338976,
+        "p_value": 0.035919281614367714,
+        "n_perm": 50000
+      }
+    },
+    "CCI_min_vs_abs_residual_sigma": {
+      "signature": "corr(CCI_min, |residual_sigma|)",
+      "original_spearman": 0.5934065934065934,
+      "original_pearson": 0.11760337082791132,
+      "random_field_null_spearman": {
+        "observed_corr": 0.5934065934065934,
+        "null_mean": 0.00032824175824175834,
+        "null_std": 0.28908943964769684,
+        "p_value": 0.03657926841463171,
+        "n_perm": 50000
+      },
+      "redshift_shuffle_spearman": {
+        "observed_corr": 0.5934065934065934,
+        "shuffle_mean": 0.00016263736263736264,
+        "shuffle_std": 0.28980411603080714,
+        "p_value": 0.03629927401451971,
+        "n_perm": 50000
+      }
+    }
+  },
+  "note": "Diagnostic signature test only. Small sample size N=13. Permutation p-values are exploratory and not a full cosmological likelihood."
+}
