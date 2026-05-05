@@ -1231,6 +1231,58 @@ variable conventions used by the existing reproducibility folders:
 
 ---
 
+### Extra Phenomenological Paper — Structural Selection in SO(10)-Motivated Unified Field Theories
+**Structural Selection in SO(10)-Motivated Unified Field Theories:**
+*A Phenomenological MAAT Layer for Gauge and Yukawa Benchmarks*
+
+**Core idea:** Treats SO(10)-motivated grand unification as the dynamical
+base and MAAT v1.2.1 as a structural-selection layer over gauge and Yukawa
+parameter regions. The paper does not construct a complete SO(10) model,
+prove precision unification, or derive the Standard Model spectrum from first
+principles. It tests whether structurally coherent GUT-scale regions can be
+ranked reproducibly.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Gauge benchmark | one-loop SM running, no threshold corrections |
+| Best `alpha_GUT` | `0.022676468338` |
+| Best `M_GUT` | `6.639198e15 GeV` |
+| Gauge `SM chi2` | `100.789861` |
+| Gauge `R_rob` | `0.60301490` |
+| Yukawa benchmark | SO(10)-motivated `b-tau` boundary |
+| Yukawa `M_GUT` | `1.858006e16 GeV` |
+| `Delta_b` | `0.0506451697` |
+| `chi2_yukawa` | `0.00024341` |
+| Yukawa `R_rob` | `0.99916912` |
+
+**Key finding:**
+> The one-loop gauge benchmark locates a plausible GUT-scale region but fails
+> precision unification, while the third-generation Yukawa benchmark shows
+> that an SO(10)-motivated `b-tau` boundary can be compatible with low-energy
+> effective masses using a modest bottom-threshold correction. The result is a
+> structural compatibility benchmark, not a first-principles derivation.
+
+**Scientific status:** This is an extra phenomenological bridge paper. It is
+not a complete SO(10) construction and not a precision GUT fit.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_so10_structural_selection/` | SO(10)-motivated gauge and Yukawa benchmarks, JSON summaries, and selection-landscape figure |
+
+**Data attribution and license note:** The electroweak-scale inputs use
+standard reference values for `M_Z`, gauge couplings, and third-generation
+fermion masses cited in the paper to the Particle Data Group. Repository
+JSON/PNG/PDF artifacts are derived analysis outputs only. No endorsement by
+the Particle Data Group or any external collaboration is implied.
+
+**Documentation PDF:** `documentation/Structural_Selection_in_SO10_Unified_Field_Theories.pdf`
+
+---
+
 ### Extra Phenomenological Paper — Structural Selection in the String Landscape
 **Structural Selection in the String Landscape:**
 *A MAAT-Based Phenomenological Framework for Vacuum Ranking*
@@ -1312,6 +1364,7 @@ structural-selection-principle/
 │   ├── maat_paper38_v121_robustness_closure/ ← Paper 38: v1.2.1 closure in linear growth
 │   ├── maat_paper39_observable_growth_signature/ ← Paper 39: v1.2.1 observable growth signature proxy
 │   ├── maat_paper40_structural_signature_test/ ← Paper 40: v1.2.1 CCI residual signature test
+│   ├── maat_so10_structural_selection/   ← extra paper: SO(10)-motivated gauge and Yukawa benchmarks
 │   └── string_landscape_selection/        ← extra paper: MAAT string-landscape ranking
 │
 ├── documentation/                         ← PDFs of all papers
@@ -1414,6 +1467,7 @@ Paper 38 (growth closure): v1.2.1 in linear growth      <R_rob>=0.9313, max |ΔD
 Paper 39 (growth signature): projection-modulated fσ8   ε_best=-0.0100, Δχ²=-0.0601, max |Δfσ8/fσ8|=0.9891%
 Paper 40 (residual signature): CCI vs residual stress    ρS(CCI_diag, |rσ|)=0.5934, p=0.0338, null p≈0.036
 Paper 41 (variable closure): definitions + measurement map H,B,S,V primary; R_rob emergent; no standalone code
+SO(10) extra: gauge one-loop + Yukawa bridge           M_GUT≈1.86e16 GeV, Δb≈0.0506, Yukawa R_rob≈0.999
 ```
 
 ---
