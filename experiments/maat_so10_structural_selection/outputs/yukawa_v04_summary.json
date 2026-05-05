@@ -1,0 +1,47 @@
+{
+  "success_global": true,
+  "success_local": true,
+  "message_local": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+  "total_cost": 0.3194063033746875,
+  "chi2_yukawa": 0.00024341487902205614,
+  "MAAT_cost": 0.004156204535327891,
+  "threshold_penalty": 0.020938230326206512,
+  "complexity_penalty": 0.29406845363413103,
+  "y_t_MGUT": 0.4136766812284491,
+  "y_btau_MGUT": 0.00773897743860316,
+  "log10_MGUT_GeV": 16.269047138991098,
+  "MGUT_GeV": 1.8580061149889716e+16,
+  "Delta_b": 0.05064516971005525,
+  "bottom_boost_1_plus_Delta": 1.0506451697100552,
+  "predicted_yukawas": {
+    "top": 0.9922760345884641,
+    "bottom": 0.02399525242868231,
+    "tau": 0.010205755156924007
+  },
+  "predicted_masses_GeV": {
+    "top": 172.75905968996503,
+    "bottom": 4.177665389572534,
+    "tau": 1.7768610778425633
+  },
+  "observed_yukawas": {
+    "top": 0.9922814354462509,
+    "bottom": 0.024008661728208664,
+    "tau": 0.010205748966120778
+  },
+  "supports": {
+    "H": 0.9999998960087656,
+    "B": 0.9999996872038873,
+    "S": 0.999999925147723,
+    "V": 0.9975098445676873,
+    "R_resp": 0.9991691194347686,
+    "R_rob": 0.9991691194347686,
+    "d_H": 1.0399124512505053e-07,
+    "d_B": 3.1279621056535623e-07,
+    "d_S": 7.485228263675529e-08,
+    "d_V": 0.002496371786076831
+  },
+  "b_tau_MZ_RG_only": 2.237814634940431,
+  "b_tau_MZ_effective": 2.351149136906634,
+  "b_tau_MZ_observed": 2.3524644597773596,
+  "status": "SO(10)-motivated b-tau boundary with one-loop SM running and fitted bottom-threshold correction"
+}

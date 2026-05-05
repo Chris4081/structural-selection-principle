@@ -469,6 +469,41 @@ Because the balance support `B` is residual-sensitive, this benchmark is a
 semi-supervised structural consistency test, not a blind prediction or
 detection claim.
 
+## Reproducing the SO(10)-Motivated Structural Selection Benchmark
+
+The `maat_so10_structural_selection/` directory contains the extra
+phenomenological SO(10)-motivated bridge benchmark. It tests MAAT v1.2.1 as a
+structural-selection layer over one-loop gauge running and a third-generation
+Yukawa benchmark with an imposed high-scale `b-tau` boundary condition.
+
+Run:
+
+```bash
+cd experiments/maat_so10_structural_selection
+python3 maat_so10_gauge_2d_fit.py
+python3 maat_so10_yukawa_coupled_rg_v04.py
+```
+
+This generates:
+
+- `outputs/gauge_2d_summary.json`
+- `outputs/yukawa_v04_summary.json`
+- `outputs/maat_selection_landscape.png`
+
+Main diagnostic results:
+
+- Gauge benchmark: `alpha_GUT = 0.022676468338`,
+  `M_GUT = 6.639198e15 GeV`, `SM chi2 = 100.789861`,
+  `R_rob = 0.60301490`.
+- Yukawa benchmark: `M_GUT = 1.858006e16 GeV`,
+  `Delta_b = 0.0506451697`, `chi2_yukawa = 0.00024341`,
+  `R_rob = 0.99916912`.
+
+The gauge benchmark is a one-loop diagnostic and does not achieve precision
+unification. The Yukawa benchmark is an SO(10)-motivated compatibility test
+with a fitted bottom-threshold correction, not a first-principles derivation
+of fermion masses.
+
 ## String-Landscape Script Overview
 
 | Script | Purpose | Main outputs |
@@ -645,6 +680,13 @@ Margins: A Multi-Sector Structural-Stress Benchmark Using H(z) and f sigma_8(z)*
 For the external cosmology inputs used in Papers 28 and 29, cite the
 Planck-2018 cosmological-parameter paper, the Cosmic Chronometer literature,
 and the BOSS DR12 consensus analysis referenced in the manuscripts.
+
+For the SO(10)-motivated structural selection benchmark, cite:
+
+Christof Krieg,
+*Structural Selection in SO(10)-Motivated Unified Field Theories:
+A Phenomenological MAAT Layer for Gauge and Yukawa Benchmarks*,
+2026.
 
 Reference comparison values for fundamental constants and Standard-Model
 inputs should cite CODATA/NIST and PDG 2024:
