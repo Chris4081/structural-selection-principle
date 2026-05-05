@@ -1185,6 +1185,52 @@ not a Boltzmann-code calculation and not a full cosmological likelihood.
 
 ---
 
+### Paper 41 — MAAT v1.2.1 Variable Closure and Measurement Definitions
+**MAAT v1.2.1 Variable Closure and Measurement Definitions:**
+*Formal Definition of Structural Supports, Activity, Response-Derived Closure,
+and Projection Observable Derivation*
+
+**Core idea:** Provides the formal variable-definition layer for the
+v1.2.1 framework used in Papers 33--40. It defines the four primary support
+sectors `H`, `B`, `S`, `V` from non-negative defects, keeps robustness
+emergent through `R_resp=(H B V)^(1/3)` and
+`R_rob=min(R_resp,(H B S V)^(1/4))`, and makes clear that `lambda_cl` is a
+derived closure coefficient rather than a fifth primary sector weight.
+
+**Core definitions:**
+
+| Quantity | Definition / role |
+|----------|-------------------|
+| Support scores | `Gamma_a = 1 / (1 + d_a)` |
+| Primary sectors | `H`, `B`, `S`, `V` only |
+| Implicit respect | `R_resp = (H B V)^(1/3)` |
+| Emergent robustness | `R_rob = min(R_resp,(H B S V)^(1/4))` |
+| Stability | `Stability = R_rob` |
+| Closure coefficient | `lambda_cl = sum_a w_a lambda_a`, sensitivity-projected from primary weights |
+| CCI diagnostic | `CCI_diag = S / (H + B + V + R_rob + epsilon)` |
+
+**Key finding:**
+> MAAT v1.2.1 is operationally closed at the variable-definition level:
+> no independent fifth robustness sector is introduced, `R_resp` is not
+> double-counted in the CCI denominator, and projection parameters are fixed
+> by the stated response-map convention rather than fitted as independent
+> observables.
+
+**Scientific status:** This is a formal closure and measurement-definition
+note. It introduces no new numerical data set, likelihood analysis, or
+observational fit.
+
+**Reproducibility:** Paper 41 has no standalone code folder. It documents the
+variable conventions used by the existing reproducibility folders:
+`experiments/lambda_response_closure/`,
+`experiments/maat_cci_projection_paper33/`,
+`experiments/maat_paper39_observable_growth_signature/`, and
+`experiments/maat_paper40_structural_signature_test/`.
+
+**Documentation PDF:** `documentation/41_MAAT_v121_Variable_Closure_and_Measurement_Definitions.pdf`
+
+---
+
 ### Extra Phenomenological Paper — Structural Selection in the String Landscape
 **Structural Selection in the String Landscape:**
 *A MAAT-Based Phenomenological Framework for Vacuum Ranking*
@@ -1367,6 +1413,7 @@ Paper 37 (v1.2.1): observable proxy + stability scan   max |ΔH/H|=1.70%, max |�
 Paper 38 (growth closure): v1.2.1 in linear growth      <R_rob>=0.9313, max |ΔD/D|=0.0591%, λ positivity passed
 Paper 39 (growth signature): projection-modulated fσ8   ε_best=-0.0100, Δχ²=-0.0601, max |Δfσ8/fσ8|=0.9891%
 Paper 40 (residual signature): CCI vs residual stress    ρS(CCI_diag, |rσ|)=0.5934, p=0.0338, null p≈0.036
+Paper 41 (variable closure): definitions + measurement map H,B,S,V primary; R_rob emergent; no standalone code
 ```
 
 ---
