@@ -967,6 +967,224 @@ small and stable growth-sector effects when treated as a forward model.
 
 ---
 
+### Paper 36 — The Maturation of MAAT
+**The Maturation of MAAT:**
+*From Projection Observables (v0.11) to Structural Selection (v1.0) to Emergent Robustness Closure (v1.2.1)*
+
+**Core idea:** Reconstructs the conceptual evolution of the MAAT framework
+from projection diagnostics to structural selection and finally to the
+v1.2.1 robustness closure. The paper resolves the ambiguity of the old
+independent `R` sector by replacing it with derived support-level quantities:
+`R_resp` for structural respect and `R_rob` for emergent robustness.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Primary support sectors | `H, B, S, V` |
+| Old v1.0 input | independent `R` |
+| v1.2.1 respect closure | `R_resp = (H B V)^(1/3)` |
+| v1.2.1 robustness closure | `R_rob = min(R_resp, (H B S V)^(1/4))` |
+| Stability convention | `Stability = R_rob` |
+| Closure coefficient | `lambda_cl`, covariance/response-derived |
+| Primary-field count | reduced from `5` to `4` |
+
+**Key finding:**
+> MAAT v1.2.1 does not add another sector. It reduces the framework by
+> reconstructing robustness as a derived closure quantity on normalised
+> supports. The result is a more closed and interpretable selection
+> framework with the same baseline observable pipeline.
+
+**Scientific status:** This is a conceptual closure and synthesis paper.
+It does not introduce a new numerical benchmark. Its role is to make the
+notation, support-level interpretation, and R-closure logic internally
+consistent across Papers 30--35 and the Paper 37 v1.2.1 benchmark.
+
+**Documentation PDF:** `documentation/36_The_Maturation_of_MAAT.pdf`
+
+---
+
+### Paper 37 — MAAT v1.2.1 Observable Proxy Predictions
+**MAAT v1.2.1 Observable Proxy Predictions and Stability Landscape:**
+*Structural Fields, Projection Layer, CCI Diagnostics, and Parameter Sensitivity*
+
+**Core idea:** Provides the numerical companion benchmark for Paper 36.
+The paper applies the v1.2.1 closure convention with four primary support
+sectors `H, B, S, V`, derived structural respect `R_resp=(H B V)^(1/3)`,
+and emergent robustness `R_rob=min(R_resp,(H B S V)^(1/4))`. It then tests
+the baseline observable proxy and scans a two-parameter projection/damping
+landscape.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Trajectory points | `382` |
+| Redshift range | `0 <= z <= 2.33` |
+| Baseline max `|Delta H/H|` | `1.70%` |
+| Baseline max `Omega_MAAT` | `3.31%` |
+| Baseline max `|Delta f sigma_8 / f sigma_8|` | `1.83%` |
+| Mean structural respect | `<R_resp> = 0.818` |
+| Mean emergent robustness | `<R_rob> = 0.805` |
+| Mean CCI v1.2.1 | `0.208` |
+| Stability scan | `1089/1089` internally stable points |
+| Best scan point | `eta = 0.000`, `gamma = 0.050` |
+| SAT companion correlations | `rho(V, runtime)=0.647`, `rho(R_rob, runtime)=0.484` |
+
+**Key finding:**
+> The v1.2.1 closure does not destabilise the observable proxy pipeline.
+> Emergent robustness remains finite across the scanned parameter space,
+> and the baseline is not an isolated fine-tuned point within the tested
+> two-parameter landscape.
+
+**Scientific status:** This is a toy/proxy benchmark, not an observational
+cosmology fit. Growth deviations are simplified proxy quantities, not
+Boltzmann-code predictions.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_v121_observables_stability_paper37/` | Paper 37 observable proxy run, stability landscape scan, SAT companion validation, output CSV/JSON files, and figures |
+
+**Documentation PDF:** `documentation/37_MAAT_v121_Observable_Proxy_Predictions_and_Stability_Landscape.pdf`
+
+---
+
+### Paper 38 — MAAT v1.2.1 Robustness Closure in Linear Growth
+**MAAT v1.2.1 Robustness Closure in Linear Growth:**
+*Sub-Percent Growth Signatures, Emergent Robustness, and Selection-Field Stability*
+
+**Core idea:** Applies the v1.2.1 closure convention to a minimal
+linear-growth benchmark. The paper updates the Paper 35 growth pipeline with
+the Paper 36/Paper 37 closure logic:
+`R_resp=(H B V)^(1/3)`, `R_rob=min(R_resp,(H B S V)^(1/4))`,
+and `Stability=R_rob`. It also checks selection-field perturbations,
+positivity of the lambda-relaxation equation, fixed-point decay, and basic
+energy-condition diagnostics.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Max `|Delta D/D|` for `z < 2` | `0.0591%` |
+| Max `|Delta f sigma_8 / f sigma_8|` for `z < 2` | `0.4570%` |
+| Mean `R_resp` | `0.9543` |
+| Mean `R_rob` | `0.9313` |
+| Mean `CCI_min` | `0.3114` |
+| Mean `CCI_diag` | `0.2348` |
+| Selection-field positivity | passed all tested scenarios |
+| Fixed-point perturbations | stable for all tested modes |
+
+**Key finding:**
+> The v1.2.1 robustness closure can be inserted into a growth-sensitive
+> benchmark without producing large observable deviations or obvious
+> selection-field instabilities. The result is an internal consistency check,
+> not an observational detection.
+
+**Scientific status:** This is an effective-theory growth benchmark, not a
+Boltzmann-code calculation and not a cosmological likelihood.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_paper38_v121_robustness_closure/` | Paper 38 linear-growth closure benchmark, selection-field perturbation test, output CSV/JSON files, and figures |
+
+**Documentation PDF:** `documentation/38_MAAT_v121_Robustness_Closure_in_Linear_Growth.pdf`
+
+---
+
+### Paper 39 — MAAT v1.2.1 Observable Growth Signature Proxy
+**MAAT v1.2.1 Observable Growth Signature Proxy:**
+*Projection-Modulated f sigma_8, Emergent Robustness, and a Boundary-Limited Diagnostic Scan*
+
+**Core idea:** Tests whether the MAAT projection observable can be inserted
+as a small explicit signature template in the growth observable `f sigma_8(z)`
+while preserving the v1.2.1 closure convention:
+`R_resp=(H B V)^(1/3)`, `R_rob=min(R_resp,(H B S V)^(1/4))`,
+and `Stability=R_rob`.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Growth comparison points | `13` |
+| Projection transition estimate | `z_tr ~= 0.6508` |
+| Epsilon scan range | `[-0.01, 0.01]` |
+| Best epsilon | `-0.0100` |
+| LCDM chi2 | `12.4373` |
+| MAAT proxy chi2 | `12.3772` |
+| Delta chi2 | `-0.0601` |
+| Max `|Delta f sigma_8 / f sigma_8|` | `0.9891%` |
+| Mean `|Delta f sigma_8 / f sigma_8|` | `0.5725%` |
+| Mean `R_resp` | `0.7247` |
+| Mean `R_rob` | `0.6673` |
+| Mean `CCI_min` | `0.2662` |
+| Mean `CCI_diag` | `0.2036` |
+
+**Key finding:**
+> A bounded MAAT projection template can modulate `f sigma_8(z)` at the
+> sub-percent level while preserving the v1.2.1 robustness closure. The best
+> epsilon value lies at the scan boundary, so the result is a diagnostic
+> compatibility check, not a measured parameter or evidence for modified
+> growth.
+
+**Scientific status:** This is an observable-signature proxy, not a full
+Boltzmann-code calculation and not a precision cosmological likelihood.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_paper39_observable_growth_signature/` | Paper 39 projection-modulated `f sigma_8` proxy, epsilon chi2 scan, v1.2.1 closure diagnostics, output CSV/JSON files, and figures |
+
+**Documentation PDF:** `documentation/39_MAAT_v121_Observable_Growth_Signature_Proxy.pdf`
+
+---
+
+### Paper 40 — MAAT v1.2.1 Structural Signature Test in Growth Data
+**MAAT v1.2.1 Structural Signature Test in Growth Data:**
+*Projection CCI, Residual Magnitudes, and Exploratory Null Tests*
+
+**Core idea:** Tests whether MAAT v1.2.1 structural diagnostics align with
+the residual structure of a compact `f sigma_8(z)` growth comparison set
+relative to a Planck-normalised LCDM baseline. Unlike Paper 39, this paper
+does not ask whether MAAT improves the fit. It asks whether structural
+diagnostics track where the reference model shows larger residual stress.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Growth comparison points | `13` |
+| Projection transition estimate | `z_tr ~= 0.6508` |
+| Spearman `R_proj` vs signed residual | `0.6319`, `p = 0.0228` |
+| Spearman `V` vs signed residual | `-0.6319`, `p = 0.0228` |
+| Spearman `CCI_diag` vs `|residual_sigma|` | `0.5934`, `p = 0.0338` |
+| Random-field null for `CCI_diag` | `p = 0.0363` |
+| Redshift-shuffle null for `CCI_diag` | `p = 0.0359` |
+| Spearman `B` vs `|residual_sigma|` | `-0.7912`, `p = 0.0017` |
+
+**Key finding:**
+> The diagnostic CCI tracks residual magnitude more clearly than residual
+> direction in this compact growth-data benchmark. Because the balance support
+> `B` is residual-sensitive, the result is a semi-supervised structural
+> consistency test, not a blind prediction or detection claim.
+
+**Scientific status:** This is an exploratory residual-structure diagnostic,
+not a Boltzmann-code calculation and not a full cosmological likelihood.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_paper40_structural_signature_test/` | Paper 40 CCI/residual structural signature test, permutation null tests, output CSV/JSON files, and figures |
+
+**Documentation PDF:** `documentation/40_MAAT_v121_Structural_Signature_Test_in_Growth_Data.pdf`
+
+---
+
 ### Extra Phenomenological Paper — Structural Selection in the String Landscape
 **Structural Selection in the String Landscape:**
 *A MAAT-Based Phenomenological Framework for Vacuum Ranking*
@@ -1044,6 +1262,10 @@ structural-selection-principle/
 │   ├── maat_cci_projection_paper33/       ← Paper 33: CCI projection observable + sensitivity scan
 │   ├── maat_projection_growth_paper34/    ← Paper 34: projection observable vs growth-data diagnostic
 │   ├── maat_growth_perturbation_paper35/  ← Paper 35: linear growth embedding + perturbation stability
+│   ├── maat_v121_observables_stability_paper37/ ← Paper 37: v1.2.1 observable proxy + stability landscape
+│   ├── maat_paper38_v121_robustness_closure/ ← Paper 38: v1.2.1 closure in linear growth
+│   ├── maat_paper39_observable_growth_signature/ ← Paper 39: v1.2.1 observable growth signature proxy
+│   ├── maat_paper40_structural_signature_test/ ← Paper 40: v1.2.1 CCI residual signature test
 │   └── string_landscape_selection/        ← extra paper: MAAT string-landscape ranking
 │
 ├── documentation/                         ← PDFs of all papers
@@ -1101,6 +1323,10 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/maat_observable_predictions_v10/maat_observable_predictions_v10.py` | 31 | observable projection: H(z), Delta H/H, w(z), Omega_MAAT, and f sigma_8 proxy |
 | `experiments/maat_hz_chi2_paper32/maat_hz_data_comparison_v01.py` | 32 | fixed v0.10 MAAT comparison against Cosmic Chronometer H(z) data |
 | `experiments/maat_hz_chi2_paper32/maat_hz_chi2_fit_v01.py` | 32 | two-parameter MAAT H(z) chi-square scan |
+| `experiments/maat_v121_observables_stability_paper37/paper37_observables_emergent_robustness.py` | 37 | v1.2.1 baseline observable proxy with derived respect and emergent robustness |
+| `experiments/maat_v121_observables_stability_paper37/paper37_stability_landscape.py` | 37 | two-parameter v1.2.1 proxy stability landscape scan |
+| `experiments/maat_v121_observables_stability_paper37/sat_validation/maat_v121_sat_validation.py` | 37 | companion SAT correlation validation for the empirical discussion |
+| `experiments/maat_paper38_v121_robustness_closure/maat_paper38_v121_robustness_closure.py` | 38 | v1.2.1 robustness closure in a linear-growth benchmark plus selection-field perturbation tests |
 
 ---
 
@@ -1136,6 +1362,11 @@ Paper 32 (H(z)):     first chronometer chi2 test      LCDM χ²=14.8759, MAAT χ
 Paper 33 (CCI proj): breadth-depth projection stress z_tr=0.8499, scan median=0.8889, N=6930
 Paper 34 (proj/growth): distinct info layer           z_tr=1.0436, C_proj χ²ν=42.77 vs fσ8, scan N=625
 Paper 35 (growth):  forward perturbation embedding    max |ΔD/D|=0.0591%, max |Δfσ8/fσ8|=0.4570%
+Paper 36 (closure): R becomes derived robustness       R_resp=(HBV)^(1/3), R_rob=min(R_resp,(HBSV)^(1/4))
+Paper 37 (v1.2.1): observable proxy + stability scan   max |ΔH/H|=1.70%, max |Δfσ8/fσ8|=1.83%, stable=1089/1089
+Paper 38 (growth closure): v1.2.1 in linear growth      <R_rob>=0.9313, max |ΔD/D|=0.0591%, λ positivity passed
+Paper 39 (growth signature): projection-modulated fσ8   ε_best=-0.0100, Δχ²=-0.0601, max |Δfσ8/fσ8|=0.9891%
+Paper 40 (residual signature): CCI vs residual stress    ρS(CCI_diag, |rσ|)=0.5934, p=0.0338, null p≈0.036
 ```
 
 ---
