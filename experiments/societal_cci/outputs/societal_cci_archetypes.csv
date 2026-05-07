@@ -1,0 +1,7 @@
+name,H,B,A_raw,S_eff,V,R_resp_soc,R_rob_soc,R_sig_soc,CCI_soc,ASI_soc,regime,description
+"stagnant_order",0.82,0.76,0.18,0.02385991188,0.7,0.7584177609,0.3194100524,0.1599192146,0.06924648143,0.1495625352,"stable but stagnant","Stable but low-transformational system with limited civic activity."
+"constructive_reform",0.78,0.74,0.96,0.9911505005,0.76,0.7598245209,0.7598245209,0.8563575673,0.3158077031,0.6508227344,"constructive transformation","Moderate-to-high activity integrated by coherence, balance, and trust."
+"polarized_mobilization",0.42,0.28,1.42,0.3753110989,0.35,0.3452696904,0.3452696904,0.3584786405,1.017724393,0.1776648197,"polarization risk","High mobilization with weak balance and low shared coherence."
+"fragmented_activism",0.38,0.46,1.1,0.9459594689,0.22,0.3375369873,0.3375369873,0.5366849185,0.7870990244,0.3003106774,"fragmentation risk","Activity near the constructive window but poor connectedness."
+"authoritarian_stability",0.7,0.32,0.24,0.04040147887,0.3,0.4065585427,0.228266213,0.1438455623,0.1550121018,0.1245403075,"constrained stability","Low activity and restricted connectedness with apparent order."
+"creative_democratic_renewal",0.84,0.81,1.02,0.9977802451,0.86,0.8364132783,0.8364132783,0.9055182567,0.3048039542,0.6939879771,"constructive transformation","High coherence, balance, trust, and controlled transformation."
