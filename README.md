@@ -1421,6 +1421,66 @@ part of this toy extension and does not retroactively modify the v1.2.1 papers.
 
 ---
 
+### Extra Experiment Paper — Societal Critical Coherence Index
+**Societal Critical Coherence Index:**
+*A Toy Framework for Structural Stress and Constructive Transformation*
+
+**Core idea:** Transfers the CCI/MAAT diagnostic logic to a deliberately
+synthetic social-system toy model. The goal is not to rank real people,
+parties, countries, organisations, or communities. The paper tests whether a
+structural index can separate raw activity, passive coherence, robustness,
+and constructive transformation.
+
+**Master definitions:**
+
+```text
+S_eff(A)    = exp[-0.5 ((A_raw - A_star) / sigma_A)^2]
+R_resp,soc  = (H B V)^(1/3)
+R_rob,soc   = min(R_resp,soc, (H B S_eff V)^(1/4))
+R_sig,soc   = R_resp,soc^(1-alpha) S_eff^alpha
+CCI_soc     = A_raw / (H + B + V + R_rob,soc + epsilon)
+ASI_soc     = R_sig,soc / (1 + CCI_soc)
+```
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Synthetic archetypes | `6` |
+| Random ensemble size | `5000` |
+| Fixed seed | `44` |
+| Activity optimum | `A_star = 1.0` |
+| Activity width | `sigma_A = 0.30` |
+| Significance exponent | `alpha = 0.45` |
+| Best `ASI_soc` archetype | `creative_democratic_renewal` |
+| Best `ASI_soc` | `0.6940` |
+| Highest `R_sig,soc` archetype | `creative_democratic_renewal` |
+| Highest `R_sig,soc` | `0.9055` |
+| Highest `CCI_soc` archetype | `polarized_mobilization` |
+| Highest `CCI_soc` | `1.0177` |
+| Ensemble mean `CCI_soc` | `0.4530` |
+| Ensemble mean `ASI_soc` | `0.2813` |
+
+**Key finding:**
+> Low structural stress can still be stagnant, and high social activity can
+> still be polarising or fragmenting. Constructive transformation appears only
+> when controlled activity is supported by coherence, balance, and
+> connectedness.
+
+**Ethical status:** This is a conceptual diagnostics toy framework. It is not
+an instrument for political scoring, population ranking, surveillance,
+persuasion, or normative judgement of real communities.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/societal_cci/` | Synthetic societal CCI script, archetype table, random ensemble, JSON/CSV outputs, and figures |
+
+**Documentation PDF:** `documentation/Societal_Critical_Coherence_Index.pdf`
+
+---
+
 
 ### Extra Phenomenological Paper — Structural Selection in SO(10)-Motivated Unified Field Theories
 **Structural Selection in SO(10)-Motivated Unified Field Theories:**
