@@ -1365,6 +1365,63 @@ data authors is implied.
 
 ---
 
+### Paper 44 — Active Structural Significance
+**Active Structural Significance:**
+*A Toy Extension of the MAAT v1.2.1 Robustness Closure*  
+MAAT Structural Selection Series --- Paper 44 / Diagnostic Note
+
+**Core idea:** Extends the v1.2.1 interpretation without returning to a fifth
+primitive `R` sector. The paper treats `R` as an emergent hierarchy over the
+four primary support sectors `H, B, S, V`:
+
+```text
+R_resp = (H B V)^(1/3)
+R_rob  = min(R_resp, (H B S_eff V)^(1/4))
+R_sig  = R_resp^(1-alpha) S_eff^alpha
+```
+
+Here `S_eff` is controlled activity in an optimal window, not raw activity:
+
+```text
+S_eff(A) = exp[-0.5 ((A - A_star) / sigma_A)^2]
+```
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Ensemble size | `6000` |
+| Activity optimum | `A_star = 1.0` |
+| Activity width | `sigma_A = 0.28` |
+| Significance exponent | `alpha = 0.45` |
+| Max `R_sig` location | `A = 0.9977` |
+| Max `R_sig` | `0.9918` |
+| Dormant coherent `R_resp` / `R_sig` | `0.6361 / 0.0980` |
+| Stable-star `R_resp` / `R_sig` | `0.9850 / 0.9917` |
+| Chaotic-burst `R_resp` / `R_sig` | `0.4451 / 0.0806` |
+| High `R_resp` but low `R_sig` fraction | `13.07%` |
+
+**Key finding:**
+> MAAT v1.2.1 should be read as a robustness closure, not a complete theory of
+> structural significance. Active significance peaks only when passive
+> adherence is combined with controlled activity in the optimal window.
+
+**Scientific status:** This is a diagnostic note and toy conceptual
+simulation, not a physical stellar model, not a cosmological fit, and not a
+new primitive-field proposal. The use of `S_eff` in the robustness boundary is
+part of this toy extension and does not retroactively modify the v1.2.1 papers.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/active_respect_significance/` | Paper 44 active significance toy simulation, archetype comparison, ensemble CSV/JSON outputs, and figures |
+
+**Documentation PDF:** `documentation/44_Active_Structural_Significance.pdf`
+
+---
+
+
 ### Extra Phenomenological Paper — Structural Selection in SO(10)-Motivated Unified Field Theories
 **Structural Selection in SO(10)-Motivated Unified Field Theories:**
 *A Phenomenological MAAT Layer for Gauge and Yukawa Benchmarks*
