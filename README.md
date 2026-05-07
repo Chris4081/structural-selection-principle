@@ -12,6 +12,26 @@ structural selection, coherence, and chaos in nonlinear field theories.
 
 ---
 
+## Start Here — Core Formalism Primer
+
+If you are new to the series, start with **Paper 00**:
+
+**Core Formalism of Structural Selection**  
+*A Reader's Primer for the MAAT / Structural Selection Paper Series*
+
+This primer collects the common notation, master functional, support
+geometry, covariance-response closure, emergent robustness closure, CCI
+diagnostics, and cosmological projection layer used throughout the later
+papers. It is intended as the conceptual and mathematical entry point before
+reading the numbered research papers.
+
+| File | Role |
+|------|------|
+| `documentation/00_Core_Formalism_of_Structural_Selection.pdf` | compiled reader primer |
+| `documentation/00_Core_Formalism_of_Structural_Selection.tex` | LaTeX source |
+
+---
+
 ## Papers in this Series
 
 ### Paper 01 — General Framework
@@ -1283,6 +1303,65 @@ endorsement by the Planck Collaboration, survey collaborations, or original
 data authors is implied.
 
 **Documentation PDF:** `documentation/42_Blind_Projection_Test.pdf`
+
+---
+
+### Paper 43 — Linear Perturbations and Structure Growth
+**Linear Perturbations and Structure Growth:**
+*From Projection Signatures to Effective Growth Dynamics in Structural-Selection Cosmology*
+
+**Core idea:** Promotes the MAAT projection layer from a direct growth
+signature template to an explicit effective linear matter-growth equation.
+The bounded projection kernel `C_hat_proj(z)` modifies the sub-horizon growth
+source through
+
+```text
+mu(z) = G_eff/G = 1 + eta * C_hat_proj(z)
+```
+
+with `C_hat_proj` normalised over `0 <= z <= 3`. This makes `eta` the maximum
+fractional growth-coupling deformation in the benchmark interval.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Growth comparison points | `13` |
+| Eta scan | `eta in [0, 0.08]`, `41` grid points |
+| Stable branches | `41/41` |
+| Best eta | `0.0000` |
+| LCDM chi2 | `12.2021` |
+| Representative eta | `0.0200` |
+| Max `|Delta D/D|` for `z <= 3` at eta `0.02` | `0.7656%` |
+| Max `|Delta f sigma_8 / f sigma_8|` for `z <= 3` at eta `0.02` | `0.5441%` |
+| Max `|mu - 1|` for `z <= 3` at eta `0.02` | `1.9966%` |
+| Representative eta chi2 | `12.5737` |
+
+**Key finding:**
+> The compact growth comparison does not prefer a nonzero MAAT coupling:
+> the best value is the LCDM limit `eta=0`. However, nonzero perturbative
+> branches remain stable and produce only small, structured deviations. Paper
+> 43 therefore establishes a controlled bridge from projection observables to
+> explicit linear growth dynamics.
+
+**Scientific status:** This is an effective sub-horizon linear-growth
+benchmark, not a Boltzmann-code calculation, not a CMB or weak-lensing
+likelihood, and not evidence for modified gravity.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_linear_perturbations_paper43/` | Paper 43 linear perturbation benchmark, eta scan, compact `f sigma_8` comparison, output CSV/JSON files, and figures |
+
+**Data attribution and license note:** The Planck-normalised reference
+parameters and compact `f sigma_8` comparison points are external scientific
+data and should be cited to the original publications/collaborations. The
+repository CSV/PNG files are derived reproducibility artifacts only. No
+endorsement by the Planck Collaboration, survey collaborations, or original
+data authors is implied.
+
+**Documentation PDF:** `documentation/43_Linear_Perturbations_and_Structure_Growth.pdf`
 
 ---
 
