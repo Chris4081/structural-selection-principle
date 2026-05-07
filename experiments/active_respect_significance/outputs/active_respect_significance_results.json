@@ -1,0 +1,94 @@
+{
+  "model": "Active Respect / Structural Significance Toy Simulation",
+  "seed": 42,
+  "n_ensemble": 6000,
+  "definitions": {
+    "R_resp": "(H B V)^(1/3)",
+    "R_rob": "min(R_resp, (H B S_eff V)^(1/4))",
+    "R_sig": "R_resp^(1-alpha) S_eff^alpha",
+    "S_eff": "exp(-0.5*((A-A_star)/sigma_A)^2)"
+  },
+  "parameters": {
+    "A_star": 1.0,
+    "sigma_A": 0.28,
+    "alpha_sig": 0.45
+  },
+  "curve_optima": {
+    "A_at_max_R_resp": 0.9851216022889844,
+    "max_R_resp": 0.985354390635483,
+    "A_at_max_R_rob": 0.9851216022889844,
+    "max_R_rob": 0.985354390635483,
+    "A_at_max_R_sig": 0.9977110157367669,
+    "max_R_sig": 0.9917587913363707
+  },
+  "regime_summary": {
+    "dormant": {
+      "count": 976,
+      "mean_activity": 0.18003809772382304,
+      "mean_R_resp": 0.6499344715886869,
+      "mean_R_rob": 0.23064459520376882,
+      "mean_R_sig": 0.12451159428312467,
+      "mean_S_eff": 0.026845866685109146
+    },
+    "controlled_active": {
+      "count": 1352,
+      "mean_activity": 1.0058695668486821,
+      "mean_R_resp": 0.9519347376516561,
+      "mean_R_rob": 0.9323185040534233,
+      "mean_R_sig": 0.9195531178428085,
+      "mean_S_eff": 0.8836591439824364
+    },
+    "overdriven": {
+      "count": 1739,
+      "mean_activity": 1.873858619032984,
+      "mean_R_resp": 0.46022093943647124,
+      "mean_R_rob": 0.182056888096461,
+      "mean_R_sig": 0.10919955853366335,
+      "mean_S_eff": 0.03180232566559596
+    }
+  },
+  "archetypes": [
+    {
+      "name": "dormant_coherent",
+      "activity": 0.15,
+      "H": 0.6534306696595417,
+      "B": 0.7524174330596883,
+      "S_eff": 0.009973929779430341,
+      "V": 0.5234140858155595,
+      "R_resp": 0.6360646453887324,
+      "R_rob": 0.22508290884468402,
+      "R_sig": 0.09804276010005895
+    },
+    {
+      "name": "stable_star",
+      "activity": 1.0,
+      "H": 0.9881653443967842,
+      "B": 0.9850509613433064,
+      "S_eff": 1.0,
+      "V": 0.9817764456848457,
+      "R_resp": 0.9849941295757093,
+      "R_rob": 0.9849941295757093,
+      "R_sig": 0.9917187017371261
+    },
+    {
+      "name": "chaotic_burst",
+      "activity": 1.85,
+      "H": 0.3240172866979757,
+      "B": 0.3363163177398156,
+      "S_eff": 0.009973929779430332,
+      "V": 0.8091684397095511,
+      "R_resp": 0.44509394400304997,
+      "R_rob": 0.17220880002270944,
+      "R_sig": 0.08056348873633842
+    }
+  ],
+  "ensemble_tests": {
+    "fraction_high_R_resp_low_R_sig": 0.13066666666666665,
+    "top_10pct_R_sig_mean_activity": 0.9974725153766951,
+    "top_10pct_R_sig_std_activity": 0.06453370090613887,
+    "spearman_R_sig_activity": -0.23182303744110946,
+    "spearman_R_sig_S_eff": 0.9974242380806397,
+    "spearman_R_sig_R_resp": 0.9412570649378318
+  },
+  "interpretation": "The simulation supports treating R as an emergent hierarchy: passive adherence can be nonzero in quiet systems, but active significance peaks only when controlled activity is present."
+}
