@@ -1,0 +1,42 @@
+{
+  "model": "MAAT Paper 43 Linear Perturbation Benchmark",
+  "cosmology": {
+    "H0": 67.4,
+    "Omega_m0": 0.315,
+    "Omega_L0": 0.685,
+    "sigma8_0": 0.811
+  },
+  "projection_params": {
+    "gamma_lambda": 1.3305071182030523,
+    "Bstar_lambda": 4.5090578827501755,
+    "alpha_lambda": 1.9936731161592685,
+    "latent_zc": 1.1,
+    "latent_sharpness": 3.5,
+    "latent_floor": 0.2
+  },
+  "coupling_definition": "mu(z)=1+eta*C_hat_proj(z), C_hat bounded over 0<=z<=3",
+  "n_growth_points": 13,
+  "eta_scan": {
+    "min_eta": 0.0,
+    "max_eta": 0.08,
+    "n_eta": 41,
+    "stable_count": 41,
+    "total_count": 41,
+    "best_eta": 0.0,
+    "chi2_lcdm": 12.202093197421574,
+    "chi2_best": 12.202093197421574
+  },
+  "representative_eta": 0.02,
+  "representative_results": {
+    "max_abs_delta_D_pct_z_le_3": 0.7656415181443775,
+    "max_abs_delta_fsigma8_pct_z_le_3": 0.5440833785291084,
+    "max_abs_delta_mu_pct_z_le_3": 1.9966150648587533,
+    "chi2": 12.573694296649213
+  },
+  "stability": {
+    "mu_positive_all_scan": true,
+    "D_positive_all_scan": true,
+    "f_positive_all_scan": true
+  },
+  "note": "This is an effective linear-growth benchmark, not a Boltzmann-code likelihood or a precision cosmological fit."
+}

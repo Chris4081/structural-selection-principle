@@ -510,6 +510,50 @@ Main diagnostic results:
 The result is positive but non-significant. This is a response-derived
 robustness stress test, not a detection claim.
 
+## Reproducing Paper 43 Linear Perturbations and Structure Growth
+
+The `maat_linear_perturbations_paper43/` directory contains the first
+perturbation-level MAAT growth benchmark. It solves an explicit linear
+matter-growth equation with a projection-derived effective coupling
+
+```text
+mu(z) = G_eff/G = 1 + eta * C_hat_proj(z)
+```
+
+where `C_hat_proj` is the bounded Paper-42 projection shape over
+`0 <= z <= 3`.
+
+Run:
+
+```bash
+cd experiments/maat_linear_perturbations_paper43
+python3 maat_linear_growth_solver_v01.py
+```
+
+This generates:
+
+- `outputs_paper43/paper43_summary.json`
+- `outputs_paper43/paper43_growth_curves.csv`
+- `outputs_paper43/paper43_eta_scan.csv`
+- `outputs_paper43/paper43_fsigma8_comparison.csv`
+- `outputs_paper43/fig1_growth_perturbation_summary.png`
+- `outputs_paper43/fig2_eta_scan.png`
+
+Main diagnostic results:
+
+- Eta scan: `eta in [0, 0.08]`, `41` points
+- Stable branches: `41/41`
+- Best eta against compact `f sigma_8` table: `0.0000`
+- LCDM chi-square: `12.2021`
+- Representative eta: `0.0200`
+- Max `|Delta D/D|` for `z <= 3` at eta `0.02`: `0.7656 %`
+- Max `|Delta f sigma_8/f sigma_8|` for `z <= 3` at eta `0.02`: `0.5441 %`
+- Max `|mu-1|` for `z <= 3` at eta `0.02`: `1.9966 %`
+
+The benchmark is stable and perturbatively controlled, but the compact
+comparison set does not favour a nonzero eta. It is a perturbation-level
+consistency bridge, not a detection claim.
+
 ## Reproducing the SO(10)-Motivated Structural Selection Benchmark
 
 The `maat_so10_structural_selection/` directory contains the extra
