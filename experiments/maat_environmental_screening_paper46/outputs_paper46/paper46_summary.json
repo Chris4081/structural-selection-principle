@@ -1,0 +1,152 @@
+{
+  "model": "MAAT Paper 46 Environmental Screening Benchmark",
+  "cosmology": {
+    "H0": 67.4,
+    "Omega_m0": 0.315,
+    "Omega_L0": 0.685,
+    "sigma8_0": 0.811
+  },
+  "projection_params": {
+    "gamma_lambda": 1.3305071182030523,
+    "Bstar_lambda": 4.5090578827501755,
+    "alpha_lambda": 1.9936731161592685,
+    "latent_zc": 1.1,
+    "latent_sharpness": 3.5,
+    "latent_floor": 0.2
+  },
+  "screening_params": {
+    "alpha_rho": 0.15,
+    "alpha_sigma": 1.0,
+    "n_rho": 0.75,
+    "m_sigma": 2.0
+  },
+  "response_params": {
+    "eta_g": 0.02,
+    "beta_s": 0.03
+  },
+  "definitions": {
+    "S_env": "[1 + alpha_rho Delta_+^n + alpha_sigma Sigma_env^m]^(-1)",
+    "Delta_plus": "max(Delta - 1, 0)",
+    "C_env": "C_hat_proj(z) * S_env(Delta, Sigma_env)",
+    "mu_env": "1 + eta_g * C_env",
+    "eta_slip_env": "1 + beta_s * C_env",
+    "Sigma_lens_env": "mu_env * (1 + eta_slip_env) / 2"
+  },
+  "environment_metrics": [
+    {
+      "name": "void",
+      "Delta": 0.2,
+      "Sigma_env": 0.05,
+      "S_env": 0.9975062344139651,
+      "chi2_growth": 12.572757095514543,
+      "max_abs_C_env": 0.9958179874607255,
+      "max_abs_delta_D_pct": 0.7637500685625915,
+      "max_abs_delta_fsigma8_pct": 0.5427420220212393,
+      "max_abs_delta_mu_pct": 1.9916359749214463,
+      "max_abs_delta_slip_pct": 2.9874539623821805,
+      "max_abs_delta_Sigma_lens_pct": 3.515112560037026,
+      "max_abs_delta_Weyl_proxy_pct": 2.7245158168870853,
+      "max_abs_delta_EG_proxy_pct": 2.2961149144329562,
+      "stable": true,
+      "description": "Underdense low-stabilization region; weakest screening."
+    },
+    {
+      "name": "sheet",
+      "Delta": 0.8,
+      "Sigma_env": 0.15,
+      "S_env": 0.9779951100244499,
+      "chi2_growth": 12.565426253893529,
+      "max_abs_C_env": 0.9763398850165059,
+      "max_abs_delta_D_pct": 0.7489483893302822,
+      "max_abs_delta_fsigma8_pct": 0.5322446633182003,
+      "max_abs_delta_mu_pct": 1.9526797700330167,
+      "max_abs_delta_slip_pct": 2.929019655049525,
+      "max_abs_delta_Sigma_lens_pct": 3.445786784690008,
+      "max_abs_delta_Weyl_proxy_pct": 2.671031230736043,
+      "max_abs_delta_EG_proxy_pct": 2.2510494085353994,
+      "stable": true,
+      "description": "Mildly underdense sheet-like environment."
+    },
+    {
+      "name": "field",
+      "Delta": 1.0,
+      "Sigma_env": 0.2,
+      "S_env": 0.9615384615384615,
+      "chi2_growth": 12.559245519406923,
+      "max_abs_C_env": 0.959911088874401,
+      "max_abs_delta_D_pct": 0.7364597110350942,
+      "max_abs_delta_fsigma8_pct": 0.5233870328550337,
+      "max_abs_delta_mu_pct": 1.9198221777487978,
+      "max_abs_delta_slip_pct": 2.879733266623208,
+      "max_abs_delta_Sigma_lens_pct": 3.387331690016726,
+      "max_abs_delta_Weyl_proxy_pct": 2.625925645805549,
+      "max_abs_delta_EG_proxy_pct": 2.2130436865778647,
+      "stable": true,
+      "description": "Mean-density field environment."
+    },
+    {
+      "name": "filament",
+      "Delta": 5.0,
+      "Sigma_env": 0.45,
+      "S_env": 0.6147172901303382,
+      "chi2_growth": 12.42951483981001,
+      "max_abs_C_env": 0.6136769010516915,
+      "max_abs_delta_D_pct": 0.4723629998913049,
+      "max_abs_delta_fsigma8_pct": 0.3359360068979124,
+      "max_abs_delta_mu_pct": 1.2273538021033925,
+      "max_abs_delta_slip_pct": 1.8410307031550666,
+      "max_abs_delta_Sigma_lens_pct": 2.1591671338474505,
+      "max_abs_delta_Weyl_proxy_pct": 1.6766050273100408,
+      "max_abs_delta_EG_proxy_pct": 1.4130928922582386,
+      "stable": true,
+      "description": "Moderately overdense connected large-scale structure."
+    },
+    {
+      "name": "cluster",
+      "Delta": 100.0,
+      "Sigma_env": 0.85,
+      "S_env": 0.1555138312811885,
+      "chi2_growth": 12.25931877201541,
+      "max_abs_C_env": 0.1552506291649618,
+      "max_abs_delta_D_pct": 0.12002103565823784,
+      "max_abs_delta_fsigma8_pct": 0.08543750276646768,
+      "max_abs_delta_mu_pct": 0.3105012583299205,
+      "max_abs_delta_slip_pct": 0.4657518874948918,
+      "max_abs_delta_Sigma_lens_pct": 0.5441002848130649,
+      "max_abs_delta_Weyl_proxy_pct": 0.42342621435795813,
+      "max_abs_delta_EG_proxy_pct": 0.3569133521325485,
+      "stable": true,
+      "description": "Dense high-stability cluster-like environment."
+    },
+    {
+      "name": "local_dense",
+      "Delta": 1000000.0,
+      "Sigma_env": 0.95,
+      "S_env": 0.00021073414700973343,
+      "chi2_growth": 12.202170599865937,
+      "max_abs_C_env": 0.0002103774862998966,
+      "max_abs_delta_D_pct": 0.00016287875089093267,
+      "max_abs_delta_fsigma8_pct": 0.00011598321452083879,
+      "max_abs_delta_mu_pct": 0.0004207549725965265,
+      "max_abs_delta_slip_pct": 0.0006311324588947897,
+      "max_abs_delta_Sigma_lens_pct": 0.0007363225298151477,
+      "max_abs_delta_Weyl_proxy_pct": 0.000573442579598904,
+      "max_abs_delta_EG_proxy_pct": 0.0004833823903593881,
+      "stable": true,
+      "description": "Very high-density local-test proxy; near-complete screening."
+    }
+  ],
+  "key_results": {
+    "stable_environments": 6,
+    "total_environments": 6,
+    "S_env_void": 0.9975062344139651,
+    "S_env_cluster": 0.1555138312811885,
+    "S_env_local_dense": 0.00021073414700973343,
+    "void_max_delta_Sigma_lens_pct": 3.515112560037026,
+    "cluster_max_delta_Sigma_lens_pct": 0.5441002848130649,
+    "local_dense_max_delta_Sigma_lens_pct": 0.0007363225298151477,
+    "screening_half_delta_at_sigma_env_0p2": 12.352206422918023,
+    "screening_half_value": 0.5082109106785053
+  },
+  "status": "Effective environmental screening benchmark only; not a microscopic chameleon, Vainshtein, or symmetron derivation and not a local-gravity test."
+}
