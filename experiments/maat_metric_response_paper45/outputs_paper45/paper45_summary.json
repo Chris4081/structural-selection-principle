@@ -1,0 +1,58 @@
+{
+  "model": "MAAT Paper 45 Effective Metric Response Benchmark",
+  "cosmology": {
+    "H0": 67.4,
+    "Omega_m0": 0.315,
+    "Omega_L0": 0.685,
+    "sigma8_0": 0.811
+  },
+  "projection_params": {
+    "gamma_lambda": 1.3305071182030523,
+    "Bstar_lambda": 4.5090578827501755,
+    "alpha_lambda": 1.9936731161592685,
+    "latent_zc": 1.1,
+    "latent_sharpness": 3.5,
+    "latent_floor": 0.2
+  },
+  "definitions": {
+    "mu": "mu(z)=1+eta_g*C_hat_proj(z)",
+    "eta_slip": "eta_slip(z)=Phi/Psi=1+beta_s*C_hat_proj(z)",
+    "Sigma": "Sigma(z)=mu(z)*(1+eta_slip(z))/2",
+    "Weyl_proxy": "Sigma(z)*D_MAAT(z)/D_LCDM(z)",
+    "EG_proxy": "Sigma(z)*f_LCDM(z)/f_MAAT(z)"
+  },
+  "scan": {
+    "eta_g_min": 0.0,
+    "eta_g_max": 0.08,
+    "eta_g_count": 41,
+    "beta_s_min": -0.06,
+    "beta_s_max": 0.06,
+    "beta_s_count": 61,
+    "total_branches": 2501,
+    "stable_count": 2501,
+    "best_growth_eta_g": 0.0,
+    "best_growth_beta_s_first_listed": -0.06,
+    "best_growth_beta_s_note": "beta_s does not enter the growth-only chi2 and is therefore unconstrained by the compact f sigma_8 comparison.",
+    "best_growth_chi2": 12.202093197421574
+  },
+  "representative": {
+    "eta_g": 0.02,
+    "beta_s": 0.03,
+    "chi2_growth": 12.573694296649213,
+    "max_abs_delta_D_pct_z_le_3": 0.7656415181443775,
+    "max_abs_delta_fsigma8_pct_z_le_3": 0.5440833785291084,
+    "max_abs_delta_mu_pct_z_le_3": 1.9966150648587533,
+    "max_abs_delta_slip_pct_z_le_3": 2.99492259728813,
+    "max_abs_delta_Sigma_pct_z_le_3": 3.5239749013819877,
+    "max_abs_delta_Weyl_proxy_pct_z_le_3": 2.731352368303641,
+    "max_abs_delta_EG_proxy_pct_z_le_3": 2.30187529040935,
+    "mu_positive": true,
+    "slip_positive": true,
+    "Sigma_positive": true
+  },
+  "growth_data": {
+    "n_points": 13,
+    "note": "The compact f sigma_8 set constrains eta_g through growth only and does not constrain beta_s without lensing data."
+  },
+  "status": "Effective metric-response benchmark only; no Boltzmann code, no weak-lensing likelihood, no CMB anisotropy calculation, and no evidence claim."
+}
