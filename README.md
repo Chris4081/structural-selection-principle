@@ -1492,6 +1492,163 @@ data authors is implied.
 
 ---
 
+### Paper 46 — Environmental Screening in MAAT Structural Cosmology
+**Environmental Screening in MAAT Structural Cosmology:**
+*Emergent Suppression of Metric Response in High-Coherence Regions*
+
+**Core idea:** Extends Paper 45 by making the bounded MAAT projection response
+environment-dependent. The same projection kernel that sources growth and
+metric response is multiplied by an environmental suppression factor:
+
+```text
+C_env(z, Delta, Sigma_env) = C_hat_proj(z) * S_env(Delta, Sigma_env)
+
+S_env = [1 + alpha_rho Delta_+^n + alpha_sigma Sigma_env^m]^(-1)
+Delta_+ = max(Delta - 1, 0)
+```
+
+The screened response channels are:
+
+```text
+mu_env(z)        = 1 + eta_g  C_env(z)
+eta_slip_env(z)  = 1 + beta_s C_env(z)
+Sigma_lens_env   = mu_env(z) * [1 + eta_slip_env(z)] / 2
+```
+
+Because `0 <= C_hat_proj <= 1` and `0 <= S_env <= 1`, the environmental
+response is bounded by construction. The GR-recovery limit is explicit:
+
+```text
+S_env -> 0  =>  mu_env, eta_slip_env, Sigma_lens_env -> 1
+```
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Representative response | `eta_g = 0.02`, `beta_s = 0.03` |
+| Screening parameters | `alpha_rho = 0.15`, `alpha_sigma = 1.0`, `n = 0.75`, `m = 2.0` |
+| Synthetic environments | `void`, `sheet`, `field`, `filament`, `cluster`, `local_dense` |
+| Stable environments | `6 / 6` |
+| `S_env(void)` | `0.9975` |
+| `S_env(cluster)` | `0.1555` |
+| `S_env(local_dense)` | `0.0002107` |
+| Void max `|Sigma_lens - 1|` | `3.5151%` |
+| Cluster max `|Sigma_lens - 1|` | `0.5441%` |
+| Local-dense max `|Sigma_lens - 1|` | `0.000736%` |
+| Screening transition at `Sigma_env=0.2` | `S_env ~= 0.5` at `Delta ~= 12.35` |
+
+**Key finding:**
+> MAAT metric response can remain percent-level in void-like regions while
+> being strongly suppressed in dense or highly organized environments. The
+> construction provides an effective structural screening layer, not a
+> microscopic chameleon, Vainshtein, or symmetron derivation.
+
+**Scientific status:** This is an effective environmental-screening benchmark,
+not a local-gravity test, not an N-body or halo-model analysis, and not a
+first-principles derivation of a screening mechanism.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_environmental_screening_paper46/` | Paper 46 environmental screening benchmark, environment archetypes, phase-space grid, CSV/JSON outputs, and figures |
+
+**Data attribution and license note:** The Planck-normalised reference
+parameters and compact `f sigma_8` comparison points are external scientific
+data and should be cited to the original publications/collaborations. The
+repository CSV/PNG files are derived reproducibility artifacts only. No
+endorsement by the Planck Collaboration, survey collaborations, or original
+data authors is implied.
+
+**Documentation PDF:** `documentation/46_Environmental_Screening_in_MAAT_Structural_Cosmology.pdf`
+
+---
+
+### Paper 47 — From Environmental Screening to Observable Void Signatures
+**From Environmental Screening to Observable Void Signatures:**
+*A Halo-Environment Interpretation of MAAT Metric Response*
+
+**Core idea:** Addresses the main limitation of Paper 46 by translating the
+environmental screening axis into large-scale-structure language. Instead of
+using only an abstract `Sigma_env`, Paper 47 uses overdensity
+`Delta = rho / rho_bar` and a bounded tidal/shear proxy:
+
+```text
+Sigma_env(q) = q^2 / (q^2 + q_star^2)
+```
+
+The screened kernel becomes:
+
+```text
+C_env(z, Delta, q) = C_hat_proj(z) * S_env(Delta, q)
+
+S_env(Delta, q)
+  = [1 + alpha_rho Delta_+^n + alpha_sigma Sigma_env(q)^m]^(-1)
+
+Delta_+ = max(Delta - 1, 0)
+```
+
+The observable target is the lensing-to-growth response ratio:
+
+```text
+R_LG(z) = Sigma_lens_env(z) / mu_env(z)
+        = [1 + eta_slip_env(z)] / 2
+```
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Synthetic populations | `void`, `field`, `filament`, `cluster`, `local_dense` |
+| Samples per population | `6000` |
+| Random seed | `47` |
+| `mean S_env(void)` | `0.998821` |
+| `mean S_env(cluster)` | `0.160656` |
+| `mean S_env(local_dense)` | `0.000213` |
+| `mean max R_LG - 1` in voids | `1.498231%` |
+| `mean max R_LG - 1` in clusters | `0.240984%` |
+| `mean max R_LG - 1` in local-dense proxy | `0.000320%` |
+| Void--cluster `R_LG` contrast | `1.257248 percentage points` |
+| Void--local `R_LG` contrast | `1.497912 percentage points` |
+| Minimum stable fraction | `1.0` |
+| Screening sensitivity cases | `11` |
+| Positive void--cluster contrast under sensitivity | `11 / 11` |
+| Void--cluster contrast range under sensitivity | `0.571843` to `1.400886` percentage points |
+
+**Key finding:**
+> If the MAAT metric response is environmentally screened, the residual
+> lensing-to-growth response should be largest in void-like environments,
+> strongly suppressed in clusters, and essentially absent in high-density
+> local-test proxies.
+
+**Scientific status:** This is a phenomenological bridge benchmark. It is not
+a full halo model, not a weak-lensing likelihood, not a Boltzmann-code
+calculation, and not a microscopic derivation of a screening mechanism.
+
+**Scripts and reproducibility:**
+
+Repository URL:
+
+```text
+https://github.com/Chris4081/structural-selection-principle/tree/main/experiments/maat_void_environment_paper47
+```
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_void_environment_paper47/` | Paper 47 void/cluster environment benchmark, Monte-Carlo samples, tidal phase-space grid, CSV/JSON outputs, and figures |
+
+**Data attribution and license note:** The benchmark uses Planck-normalised
+reference cosmological parameters as external literature values and synthetic
+environment populations generated by the script. No external survey catalogue
+is redistributed. Repository CSV/PNG files are derived reproducibility
+artifacts only. No endorsement by the Planck Collaboration, survey
+collaborations, or cited authors is implied.
+
+**Documentation PDF:** `documentation/47_From_Environmental_Screening_to_Observable_Void_Signatures.pdf`
+
+---
+
 ### Extra Experiment Paper — Societal Critical Coherence Index
 **Societal Critical Coherence Index:**
 *A Toy Framework for Structural Stress and Constructive Transformation*
