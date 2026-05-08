@@ -1421,6 +1421,77 @@ part of this toy extension and does not retroactively modify the v1.2.1 papers.
 
 ---
 
+### Paper 45 — Effective Metric Response in MAAT Structural Cosmology
+**Effective Metric Response in MAAT Structural Cosmology:**
+*Gravitational Slip, Weyl-Potential Proxies, and Growth-Lensing Consistency*
+
+**Core idea:** Extends the Paper-43 linear-growth benchmark from a
+growth-only response channel to a minimal metric-response benchmark. The
+bounded MAAT projection kernel `C_hat_proj(z)` now sources both the effective
+Newtonian growth coupling and a gravitational-slip channel:
+
+```text
+mu(z)       = G_eff/G = 1 + eta_g * C_hat_proj(z)
+eta_slip(z)= Phi/Psi = 1 + beta_s * C_hat_proj(z)
+Sigma(z)   = mu(z) * [1 + eta_slip(z)] / 2
+```
+
+Here `Sigma` parameterizes the Weyl/lensing response channel. A nonzero
+`eta_slip` is equivalent, at the effective perturbation level, to introducing
+a metric anisotropic-stress channel.
+
+Two diagnostic consistency proxies are reported:
+
+```text
+Weyl_proxy(z) = Sigma(z) * D_MAAT(z) / D_LCDM(z)
+EG_proxy(z)   = Sigma(z) * f_LCDM(z) / f_MAAT(z)
+```
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| `eta_g` scan | `[0.00, 0.08]`, `41` points |
+| `beta_s` scan | `[-0.06, 0.06]`, `61` points |
+| Total metric-response branches | `2501` |
+| Stable / positive branches | `2501 / 2501` |
+| Growth-only best `eta_g` | `0.0000` |
+| Growth-only `beta_s` | unconstrained without lensing data |
+| Representative branch | `eta_g = 0.02`, `beta_s = 0.03` |
+| Representative max `|mu - 1|` | `1.9966%` |
+| Representative max `|eta_slip - 1|` | `2.9949%` |
+| Representative max `|Sigma - 1|` | `3.5240%` |
+| Representative Weyl-proxy deviation | `2.7314%` |
+| Representative `E_G`-proxy deviation | `2.3019%` |
+
+**Key finding:**
+> MAAT projection structure can be coupled to matter growth and metric
+> potentials as two distinct bounded response channels. Growth-only data still
+> prefer the LCDM limit for `eta_g` and cannot constrain `beta_s`, because
+> slip changes the metric potentials rather than the matter-growth source term;
+> lensing or metric-potential data are required for the next step.
+
+**Scientific status:** This is an effective metric-response benchmark, not a
+Boltzmann-code implementation, not a weak-lensing likelihood, not a CMB
+anisotropy calculation, and not evidence for modified gravity.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_metric_response_paper45/` | Paper 45 metric-response benchmark, gravitational-slip scan, Weyl/`E_G` proxy outputs, CSV/JSON files, and figures |
+
+**Data attribution and license note:** The Planck-normalised reference
+parameters and compact `f sigma_8` comparison points are external scientific
+data and should be cited to the original publications/collaborations. The
+repository CSV/PNG files are derived reproducibility artifacts only. No
+endorsement by the Planck Collaboration, survey collaborations, or original
+data authors is implied.
+
+**Documentation PDF:** `documentation/45_Effective_Metric_Response_in_MAAT_Structural_Cosmology.pdf`
+
+---
+
 ### Extra Experiment Paper — Societal Critical Coherence Index
 **Societal Critical Coherence Index:**
 *A Toy Framework for Structural Stress and Constructive Transformation*
