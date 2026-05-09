@@ -1,0 +1,56 @@
+{
+  "model": "Paper 50b SAT Frustration-Field Compression Test",
+  "status": "Synthetic multi-family SAT frustration-field benchmark; not a proof of P vs NP and not a modern CDCL benchmark.",
+  "random_seed": 51051,
+  "n_instances": 550,
+  "formula_types": {
+    "modular": 110,
+    "planted": 110,
+    "random": 330
+  },
+  "n_vars_range": [
+    24,
+    38
+  ],
+  "alpha_range": [
+    3.25680634318078,
+    5.178655516257309
+  ],
+  "sat_fraction": 0.7018181818181818,
+  "timeout_fraction": 0.0,
+  "best_model": {
+    "model": "raw_graph_plus_frustration",
+    "estimator": "random_forest",
+    "n_features": 38,
+    "features": "alpha+density_peak+formula_type+degree_cv+max_degree_norm+literal_imbalance+interaction_cycle_density+backdoor_density+propagation_depth_mean+contradiction_rate_mean+covariance_condition_log+frust_mean+frust_std+frust_q75+frust_q90+frust_q95+frust_q99+frust_max+frust_tail95_mean+frust_tail_mass+frust_gini+hotspot_fraction+hotspot_cluster_frac+hotspot_edge_density+R_tail+R_var+R_cluster+R_sat+F_frust+F_mean+F_tail+F_cluster+F_scale+F_MAAT_multi+F_MAAT+R_rob",
+    "cv_r2": 0.31522602794004373,
+    "pearson": 0.561959698006609,
+    "spearman": 0.5510576860744781,
+    "rmse": 0.515274929715344
+  },
+  "ridge_density_r2": 0.10176741071164241,
+  "ridge_global_maat_r2": 0.12633255741695681,
+  "ridge_local_frustration_density_r2": 0.2589773470492903,
+  "rf_density_r2": 0.036161346658820204,
+  "rf_global_maat_r2": 0.1374652815896652,
+  "rf_multi_scalar_50c_r2": -0.08060272976983307,
+  "rf_multi_components_50c_r2": -0.022404764586245962,
+  "rf_multi_plus_density_50c_r2": 0.2832812328731028,
+  "rf_local_frustration_density_r2": 0.294609489606093,
+  "rf_raw_graph_frustration_r2": 0.31522602794004373,
+  "rf_multi_plus_density_minus_global_maat_r2": 0.1458159512834376,
+  "rf_local_minus_global_maat_r2": 0.1571442080164278,
+  "rf_local_minus_density_type_r2": 0.11120152684371398,
+  "key_interpretation": "If local frustration fields outperform global MAAT scalar compression, SAT hardness is better interpreted as multi-scale frustration geometry than as macroscopic robustness.",
+  "outputs": [
+    "paper50b_sat_instances.csv",
+    "paper50b_model_comparison.csv",
+    "paper50b_scalar_correlations.csv",
+    "paper50b_feature_importance.csv",
+    "paper50b_summary.json",
+    "fig1_compression_ladder_rf.png",
+    "fig2_tail_q95_vs_nodes.png",
+    "fig3_hotspot_cluster_vs_nodes.png",
+    "fig4_feature_importance.png"
+  ]
+}

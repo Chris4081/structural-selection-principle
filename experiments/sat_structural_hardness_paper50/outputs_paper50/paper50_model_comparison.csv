@@ -1,0 +1,7 @@
+model,features,cv_r2,pearson,spearman,rmse
+density_only,alpha+density_peak,0.1886370201651757,0.4362593164256803,0.46171978023354565,0.5174407979139616
+standard_graph,alpha+degree_cv+max_degree_norm+literal_imbalance+interaction_cycle_density,0.2469034631230651,0.49923679077776095,0.5161666366550356,0.49851519350924306
+stability_only,R_rob,-0.01446208099846058,-0.11450874371936343,-0.1337977674089312,0.5785900795902243
+MAAT_scalar,F_MAAT,-0.014452712017575253,-0.11518828516907541,-0.1345011216947843,0.578587407823574
+MAAT_graph_local,F_MAAT+H+B+S+V+R_rob+expansion_defect+degree_cv+max_degree_norm+literal_imbalance+interaction_cycle_density+backdoor_density+contradiction_rate+propagation_depth+covariance_condition_log,0.14688312804340498,0.3848192549749234,0.3913908859372492,0.5305878970777335
+MAAT_graph_local_plus_density,alpha+density_peak+F_MAAT+H+B+S+V+R_rob+expansion_defect+degree_cv+max_degree_norm+literal_imbalance+interaction_cycle_density+backdoor_density+contradiction_rate+propagation_depth+covariance_condition_log,0.23472419507661424,0.4897329438084189,0.5088299540356823,0.5025300831817433

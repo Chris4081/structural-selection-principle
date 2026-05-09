@@ -1,0 +1,113 @@
+{
+  "model": "Paper 50 SAT Structural Hardness II",
+  "status": "Synthetic random-3-SAT graph-local benchmark; not a proof of P vs NP and not a solver competition.",
+  "random_seed": 50050,
+  "n_instances": 520,
+  "n_vars_range": [
+    24,
+    36
+  ],
+  "alpha_range": [
+    3.1743740845900197,
+    5.2249286141496745
+  ],
+  "timeout_fraction": 0.0,
+  "sat_fraction": 0.6346153846153846,
+  "scalar_correlations": [
+    {
+      "score": "F_MAAT",
+      "pearson": -0.029559545204156053,
+      "spearman": 0.002890504670643175
+    },
+    {
+      "score": "density_peak",
+      "pearson": 0.09087538439454716,
+      "spearman": 0.08332076916263018
+    },
+    {
+      "score": "R_rob_inverse",
+      "pearson": -0.02986876552923958,
+      "spearman": 0.002890504670643175
+    },
+    {
+      "score": "covariance_condition_log",
+      "pearson": 0.27515455156360663,
+      "spearman": 0.29179649134458846
+    },
+    {
+      "score": "backdoor_density",
+      "pearson": 0.12145568020511724,
+      "spearman": 0.1256804531470539
+    }
+  ],
+  "model_comparison": [
+    {
+      "model": "density_only",
+      "features": "alpha+density_peak",
+      "cv_r2": 0.1886370201651757,
+      "pearson": 0.4362593164256803,
+      "spearman": 0.46171978023354565,
+      "rmse": 0.5174407979139616
+    },
+    {
+      "model": "standard_graph",
+      "features": "alpha+degree_cv+max_degree_norm+literal_imbalance+interaction_cycle_density",
+      "cv_r2": 0.2469034631230651,
+      "pearson": 0.49923679077776095,
+      "spearman": 0.5161666366550356,
+      "rmse": 0.49851519350924306
+    },
+    {
+      "model": "stability_only",
+      "features": "R_rob",
+      "cv_r2": -0.01446208099846058,
+      "pearson": -0.11450874371936343,
+      "spearman": -0.1337977674089312,
+      "rmse": 0.5785900795902243
+    },
+    {
+      "model": "MAAT_scalar",
+      "features": "F_MAAT",
+      "cv_r2": -0.014452712017575253,
+      "pearson": -0.11518828516907541,
+      "spearman": -0.1345011216947843,
+      "rmse": 0.578587407823574
+    },
+    {
+      "model": "MAAT_graph_local",
+      "features": "F_MAAT+H+B+S+V+R_rob+expansion_defect+degree_cv+max_degree_norm+literal_imbalance+interaction_cycle_density+backdoor_density+contradiction_rate+propagation_depth+covariance_condition_log",
+      "cv_r2": 0.14688312804340498,
+      "pearson": 0.3848192549749234,
+      "spearman": 0.3913908859372492,
+      "rmse": 0.5305878970777335
+    },
+    {
+      "model": "MAAT_graph_local_plus_density",
+      "features": "alpha+density_peak+F_MAAT+H+B+S+V+R_rob+expansion_defect+degree_cv+max_degree_norm+literal_imbalance+interaction_cycle_density+backdoor_density+contradiction_rate+propagation_depth+covariance_condition_log",
+      "cv_r2": 0.23472419507661424,
+      "pearson": 0.4897329438084189,
+      "spearman": 0.5088299540356823,
+      "rmse": 0.5025300831817433
+    }
+  ],
+  "permutation_null": {
+    "null_spearman_mean": -0.022944684300000674,
+    "null_spearman_std": 0.06355723476158072,
+    "null_spearman_p95": 0.06225171657776243
+  },
+  "maat_graph_local_minus_density_r2": -0.04175389212177072,
+  "maat_graph_local_minus_standard_graph_r2": -0.10002033507966013,
+  "maat_graph_local_plus_density_minus_density_r2": 0.046087174911438544,
+  "maat_graph_local_plus_density_minus_standard_graph_r2": -0.012179268046450864,
+  "maat_graph_local_spearman_above_null_p95": true,
+  "key_interpretation": "Graph-local MAAT defects are evaluated against density-only, standard graph, stability-only, scalar MAAT, and shuffled-null baselines.",
+  "outputs": [
+    "paper50_sat_instances.csv",
+    "paper50_scalar_correlations.csv",
+    "paper50_model_comparison.csv",
+    "paper50_summary.json",
+    "fig1_fmaat_vs_dpll_nodes.png",
+    "fig2_conditioning_vs_nodes.png",
+    "fig3_model_comparison.png"
+  ]
+}
