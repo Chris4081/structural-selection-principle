@@ -1,0 +1,8 @@
+domain,energy-only,entropy/activity,stability-only,random/null,domain baseline,cross-domain
+fields,complete,partial,partial,missing,complete,partial
+string,complete,missing,partial,missing,complete,partial
+cosmology,n/a,missing,partial,complete,complete,partial
+SAT,n/a,missing,partial,missing,partial,missing
+AI/safety,n/a,missing,complete,missing,partial,missing
+SM bridge,n/a,missing,partial,complete,partial,partial
+quantum,missing,missing,missing,missing,missing,missing

@@ -1,0 +1,33 @@
+{
+  "model": "Paper 49 Universal Structural Selection Benchmark Registry",
+  "status": "Meta-benchmark aggregator. It audits existing evidence and identifies missing competitor tests; it is not a new solver.",
+  "domains": [
+    "nonlinear_fields",
+    "string_landscape",
+    "cosmology",
+    "sat_constraints",
+    "ai_safety_boundary",
+    "sm_like_constants",
+    "quantum_measurement"
+  ],
+  "complete_domain_evidence": 2,
+  "partial_domain_evidence": 4,
+  "missing_domain_evidence": 1,
+  "matrix_complete_cells": 8,
+  "matrix_partial_cells": 13,
+  "matrix_missing_cells": 17,
+  "benchmark_readiness_index": 0.3815789473684211,
+  "key_findings": [
+    "Energy-only baselines are already defeated in field and string benchmarks.",
+    "Cosmology has null/permutation protocols but remains at diagnostic evidence level.",
+    "SAT and quantum measurement are the main open universality stress tests.",
+    "Entropy/activity-only and stability-only competitors are not yet standardized across all domains."
+  ],
+  "outputs": [
+    "paper49_domain_evidence_registry.csv",
+    "paper49_benchmark_readiness_matrix.csv",
+    "paper49_summary.json",
+    "fig1_benchmark_readiness_matrix.png",
+    "fig2_domain_evidence_status.png"
+  ]
+}
