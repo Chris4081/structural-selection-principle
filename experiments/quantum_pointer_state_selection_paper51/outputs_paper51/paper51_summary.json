@@ -1,0 +1,236 @@
+{
+  "model": "Paper 51 Quantum Pointer-State Selection",
+  "status": "Toy non-commuting Lindblad benchmark; not a full decoherence theory or experimental fit.",
+  "random_seed": 51053,
+  "n_instances": 3500,
+  "channels": [
+    "z-dephasing",
+    "x-dephasing",
+    "amplitude damping"
+  ],
+  "target": "initial-state fidelity after Lindblad evolution",
+  "leakage_note": "Features are computed from the initial state and generator parameters, not from final fidelity.",
+  "model_comparison": [
+    {
+      "model": "MAAT scalar/supports",
+      "features": "H+B+S+V+R_resp+R_rob+F_maat",
+      "n_features": 7,
+      "cv_r2_mean": 0.538298420780208,
+      "cv_r2_std": 0.015080372292800515,
+      "oof_r2": 0.5359024223943121,
+      "oof_rmse": 0.07657248377627146
+    },
+    {
+      "model": "MAAT v1.4 field features",
+      "features": "H+B+S+V+R_resp+R_rob+F_maat+channel_conflict+damping_pressure+coherence_exposure+x_exposure",
+      "n_features": 11,
+      "cv_r2_mean": 0.7424262312150661,
+      "cv_r2_std": 0.005664206649894256,
+      "oof_r2": 0.7460872040884692,
+      "oof_rmse": 0.056638321911827494
+    },
+    {
+      "model": "Rates only",
+      "features": "gamma_z+gamma_x+gamma_m+t",
+      "n_features": 4,
+      "cv_r2_mean": 0.054174818578125936,
+      "cv_r2_std": 0.054660969188764515,
+      "oof_r2": 0.04987175632846497,
+      "oof_rmse": 0.10956180986469581
+    },
+    {
+      "model": "Basis geometry only",
+      "features": "basis_z+basis_x+basis_y+offdiag",
+      "n_features": 4,
+      "cv_r2_mean": -0.11336530993224633,
+      "cv_r2_std": 0.03310862057289676,
+      "oof_r2": -0.07682861233966776,
+      "oof_rmse": 0.11663835259615919
+    },
+    {
+      "model": "Hamiltonian only",
+      "features": "H+hx+hz",
+      "n_features": 3,
+      "cv_r2_mean": -0.04060338001165964,
+      "cv_r2_std": 0.02409995723266439,
+      "oof_r2": -0.036414893600194675,
+      "oof_rmse": 0.11442868480174948
+    },
+    {
+      "model": "Domain combo",
+      "features": "gamma_z+gamma_x+gamma_m+t+basis_z+basis_x+basis_y+offdiag+hx+hz",
+      "n_features": 10,
+      "cv_r2_mean": 0.13620914968965922,
+      "cv_r2_std": 0.029098000015813193,
+      "oof_r2": 0.1391063633812032,
+      "oof_rmse": 0.10429003964615338
+    }
+  ],
+  "scalar_correlations": [
+    {
+      "score": "F_maat",
+      "spearman_rho": -0.3771438857143697,
+      "p_value": 1.0273489413802543e-118
+    },
+    {
+      "score": "R_rob",
+      "spearman_rho": 0.4305639873813168,
+      "p_value": 5.6343848958041424e-158
+    },
+    {
+      "score": "H",
+      "spearman_rho": 0.159314340235573,
+      "p_value": 2.4845714411965563e-21
+    },
+    {
+      "score": "B",
+      "spearman_rho": 0.03293926239737419,
+      "p_value": 0.05134970447571577
+    },
+    {
+      "score": "S",
+      "spearman_rho": 0.03293926239737419,
+      "p_value": 0.05134970447571577
+    },
+    {
+      "score": "V",
+      "spearman_rho": 0.603448095815005,
+      "p_value": 0.0
+    },
+    {
+      "score": "gamma_z",
+      "spearman_rho": -0.061439905377018524,
+      "p_value": 0.0002758623469838027
+    },
+    {
+      "score": "gamma_x",
+      "spearman_rho": -0.11071305020398077,
+      "p_value": 5.1087565364365297e-11
+    },
+    {
+      "score": "gamma_m",
+      "spearman_rho": -0.06987001424011778,
+      "p_value": 3.5165268148182843e-05
+    },
+    {
+      "score": "basis_z",
+      "spearman_rho": 0.03293926239737419,
+      "p_value": 0.05134970447571577
+    },
+    {
+      "score": "basis_x",
+      "spearman_rho": 0.07681505196157859,
+      "p_value": 5.376346101527166e-06
+    },
+    {
+      "score": "offdiag",
+      "spearman_rho": -0.03293926239737419,
+      "p_value": 0.05134970447571577
+    },
+    {
+      "score": "channel_conflict",
+      "spearman_rho": -0.12404769451118207,
+      "p_value": 1.7767968352524085e-13
+    },
+    {
+      "score": "damping_pressure",
+      "spearman_rho": -0.0040481501613650285,
+      "p_value": 0.8107898263641509
+    },
+    {
+      "score": "coherence_exposure",
+      "spearman_rho": -0.08893640870617915,
+      "p_value": 1.3633824325741762e-07
+    },
+    {
+      "score": "x_exposure",
+      "spearman_rho": -0.08115186547012314,
+      "p_value": 1.5304027950780264e-06
+    }
+  ],
+  "v14_feature_importance": [
+    {
+      "feature": "V",
+      "permutation_importance_mean": 1.4251896646333233,
+      "permutation_importance_std": 0.02529323838408731,
+      "rf_builtin_importance": 0.5666509004870399
+    },
+    {
+      "feature": "damping_pressure",
+      "permutation_importance_mean": 0.2855309426318297,
+      "permutation_importance_std": 0.005540162973088975,
+      "rf_builtin_importance": 0.14610484870133264
+    },
+    {
+      "feature": "S",
+      "permutation_importance_mean": 0.15504696423137507,
+      "permutation_importance_std": 0.004442005647764859,
+      "rf_builtin_importance": 0.04348535509825752
+    },
+    {
+      "feature": "B",
+      "permutation_importance_mean": 0.15437466628803773,
+      "permutation_importance_std": 0.004496729292178741,
+      "rf_builtin_importance": 0.04326858332521088
+    },
+    {
+      "feature": "x_exposure",
+      "permutation_importance_mean": 0.1272942740664272,
+      "permutation_importance_std": 0.006388920585896331,
+      "rf_builtin_importance": 0.06476106633684268
+    },
+    {
+      "feature": "channel_conflict",
+      "permutation_importance_mean": 0.0684462478910592,
+      "permutation_importance_std": 0.002259110466196613,
+      "rf_builtin_importance": 0.036518214831895185
+    },
+    {
+      "feature": "coherence_exposure",
+      "permutation_importance_mean": 0.05974693327985995,
+      "permutation_importance_std": 0.0016505556111809263,
+      "rf_builtin_importance": 0.03258248232800753
+    },
+    {
+      "feature": "H",
+      "permutation_importance_mean": 0.04379591989938871,
+      "permutation_importance_std": 0.001964492336336062,
+      "rf_builtin_importance": 0.027429583089579657
+    },
+    {
+      "feature": "F_maat",
+      "permutation_importance_mean": 0.02086353444201471,
+      "permutation_importance_std": 0.0006922173496811433,
+      "rf_builtin_importance": 0.015725666179939087
+    },
+    {
+      "feature": "R_resp",
+      "permutation_importance_mean": 0.015439763041374704,
+      "permutation_importance_std": 0.0005779321938476469,
+      "rf_builtin_importance": 0.012047552281248958
+    },
+    {
+      "feature": "R_rob",
+      "permutation_importance_mean": 0.015406448794190017,
+      "permutation_importance_std": 0.0005581543380789726,
+      "rf_builtin_importance": 0.011425747340646043
+    }
+  ],
+  "r2_maat_scalar": 0.538298420780208,
+  "r2_maat_v14": 0.7424262312150661,
+  "r2_domain_combo": 0.13620914968965922,
+  "delta_v14_minus_scalar": 0.20412781043485817,
+  "delta_v14_minus_domain_combo": 0.6062170815254069,
+  "key_interpretation": "Scalar MAAT retains moderate pointer-robustness signal, but v1.4 field features substantially improve prediction in a non-commuting Lindblad benchmark.",
+  "outputs": [
+    "paper51_pointer_instances.csv",
+    "paper51_model_comparison.csv",
+    "paper51_scalar_correlations.csv",
+    "paper51_v14_feature_importance.csv",
+    "paper51_summary.json",
+    "fig1_model_comparison.png",
+    "fig2_V_support_vs_fidelity.png",
+    "fig3_Rrob_vs_fidelity.png",
+    "fig4_v14_feature_importance.png"
+  ]
+}
