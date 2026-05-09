@@ -1705,6 +1705,79 @@ SAT/constraint, and environmental-response tests.
 
 ---
 
+### Paper 49 — Universal Structural Selection Benchmarks
+**Universal Structural Selection Benchmarks:**
+*Testing MAAT Against Energy, Stability, Random, and Domain-Specific Baselines*
+
+**Core idea:** Turns the universality claim following Paper 48 into an
+explicit falsification matrix. The paper audits existing experiments across
+fields, string landscapes, cosmology, SAT/constraint systems, AI/safety
+boundary calibration, SM-like constants, and quantum measurement.
+
+Each domain is checked against competitor classes:
+
+```text
+energy-only
+entropy/activity-only
+stability-only
+random or shuffled nulls
+domain-specific baselines
+cross-domain / holdout transfer
+```
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| Domains audited | `7` |
+| Complete domain evidence | `2` |
+| Partial domain evidence | `4` |
+| Missing domain evidence | `1` |
+| Complete matrix cells | `8` |
+| Partial matrix cells | `13` |
+| Missing matrix cells | `17` |
+| Benchmark-readiness index | `0.3816` |
+| Strongest current successes | field fixed-energy and string/path energy-only baselines |
+| Main open stress tests | SAT and quantum measurement |
+| Immediate roadmap | SAT Structural Hardness II, Quantum Pointer-State Selection, Cross-Domain Transfer |
+
+**Key finding:**
+> Energy-only baselines are already defeated in field and string benchmarks,
+> but the universal MAAT claim is not yet earned. Entropy/activity-only,
+> stability-only, shuffled-null, SAT, and quantum tests remain the decisive
+> next layer.
+> In fixed-energy fields the structural score changes by nearly `8x` at
+> sub-permille energy variation, while in the KKLT path graph the top-20
+> structural and energy transitions have `0/20` overlap.
+
+**Scientific status:** This is a meta-benchmark registry and audit paper. It
+does not introduce a new solver and does not claim universal proof. It turns
+the post-MaxEnt universality claim into a reproducible benchmark programme.
+The low readiness index is interpreted as an audit warning, not as a success
+metric. SAT is treated explicitly as an Achilles test: the current SAT result
+is poor and motivates new graph-local and solver-independent defect sectors.
+
+**Scripts and reproducibility:**
+
+Repository URL:
+
+```text
+https://github.com/Chris4081/structural-selection-principle/tree/main/experiments/universal_structural_selection_benchmarks_paper49
+```
+
+| Folder | Role |
+|--------|------|
+| `experiments/universal_structural_selection_benchmarks_paper49/` | Paper 49 meta-benchmark aggregator, evidence registry, readiness matrix, JSON summary, and figures |
+
+**Data attribution and license note:** The script aggregates derived outputs
+already present in the repository. External scientific data used by the
+underlying experiments remain attributed in their respective experiment folders
+and papers. No new external dataset is redistributed here.
+
+**Documentation PDF:** `documentation/49_Universal_Structural_Selection_Benchmarks.pdf`
+
+---
+
 ### Extra Experiment Paper — Societal Critical Coherence Index
 **Societal Critical Coherence Index:**
 *A Toy Framework for Structural Stress and Constructive Transformation*
@@ -2032,6 +2105,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/maat_v121_observables_stability_paper37/paper37_stability_landscape.py` | 37 | two-parameter v1.2.1 proxy stability landscape scan |
 | `experiments/maat_v121_observables_stability_paper37/sat_validation/maat_v121_sat_validation.py` | 37 | companion SAT correlation validation for the empirical discussion |
 | `experiments/maat_paper38_v121_robustness_closure/maat_paper38_v121_robustness_closure.py` | 38 | v1.2.1 robustness closure in a linear-growth benchmark plus selection-field perturbation tests |
+| `experiments/universal_structural_selection_benchmarks_paper49/universal_structural_selection_benchmarks_paper49.py` | 49 | aggregates existing benchmark outputs into a universality evidence registry and competitor-readiness matrix |
 
 ---
 
@@ -2075,6 +2149,7 @@ Paper 40 (residual signature): CCI vs residual stress    ρS(CCI_diag, |rσ|)=0.
 Paper 41 (variable closure): definitions + measurement map H,B,S,V primary; R_rob emergent; no standalone code
 Paper 42 (blind projection): response-derived projection  ρS(CCI_diag, |rσ|)=0.4286, p=0.1456, no shape tuning
 Paper 48 (MaxEnt):   structural measure theorem           P[X]∝exp[-F_struct], support form = bounded viability
+Paper 49 (benchmarks): universality audit matrix           complete/partial/missing domains=2/4/1, readiness=0.3816
 SO(10) extra: gauge one-loop + Yukawa bridge           M_GUT≈1.86e16 GeV, Δb≈0.0506, Yukawa R_rob≈0.999
 ```
 
