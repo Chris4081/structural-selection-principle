@@ -2156,11 +2156,11 @@ the script.
 
 ### Paper 54 — External Validation of Structural Modes
 **External Validation of Structural Modes:**  
-*MAAT Defect Features on Public scikit-learn Datasets*
+*MAAT Defect Features on Public Datasets Accessed via scikit-learn*
 
 **Core idea:** Breaks the internal-artifact loop of Papers 52--53 by testing
 MAAT structural supports on public external machine-learning datasets loaded
-through `scikit-learn`. Sample-level hardness is predeclared as the fraction
+via `scikit-learn`. Sample-level hardness is predeclared as the fraction
 of repeated cross-validation runs in which a sample is misclassified by a
 fixed Random Forest classifier.
 
@@ -2208,8 +2208,8 @@ https://github.com/Chris4081/structural-selection-principle/tree/main/experiment
 |--------|------|
 | `experiments/external_ml_hardness_paper54/` | Paper 54 external ML sample-hardness benchmark, scikit-learn dataset loader, CV hardness target, CSV/JSON outputs, and figures |
 
-**Data attribution and license note:** The experiment loads public datasets
-through `scikit-learn`. No raw external dataset files are redistributed in the
+**Data attribution and license note:** The experiment accesses public datasets
+via `scikit-learn`. No raw external dataset files are redistributed in the
 experiment folder. Generated CSV/JSON/PNG files are derived reproducibility
 artifacts. Cite `scikit-learn` and the original dataset sources as appropriate.
 No endorsement by `scikit-learn` maintainers, UCI dataset curators, or original
