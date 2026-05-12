@@ -1,0 +1,3 @@
+source_domain,source_notes,lambda_H,lambda_B,lambda_S,lambda_V,lambda_R_rob
+SAT,quality = 1 - minmax(log DPLL nodes),0.0,0.0,0.0,1.0,0.0
+Quantum,quality = minmax(pointer robustness / fidelity target),0.483894927840362,0.0,0.29776433829597987,0.21834073386365818,0.0

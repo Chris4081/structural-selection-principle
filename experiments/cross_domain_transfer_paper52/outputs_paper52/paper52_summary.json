@@ -1,0 +1,32 @@
+{
+  "seed": 4081,
+  "sectors": [
+    "H",
+    "B",
+    "S",
+    "V",
+    "R_rob"
+  ],
+  "n_sat": 550,
+  "n_quantum": 3500,
+  "n_null": 500,
+  "score_convention": "higher score = higher structural quality; no target-domain sign retuning",
+  "transfers": {
+    "SAT->Quantum": {
+      "frozen_spearman": 0.603448095815005,
+      "frozen_mutual_info": 0.33714878066661225,
+      "equal_spearman": 0.3771438857143697,
+      "scalar_spearman": 0.3771438857143697,
+      "delta_spearman_vs_equal": 0.22630421010063534,
+      "delta_spearman_vs_scalar": 0.22630421010063534
+    },
+    "Quantum->SAT": {
+      "frozen_spearman": -0.04075887445711216,
+      "frozen_mutual_info": 0.046329495058256676,
+      "equal_spearman": -0.2683245685215357,
+      "scalar_spearman": -0.2683245685215357,
+      "delta_spearman_vs_equal": 0.22756569406442353,
+      "delta_spearman_vs_scalar": 0.22756569406442353
+    }
+  }
+}
