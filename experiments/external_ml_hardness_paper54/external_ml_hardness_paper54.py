@@ -3,7 +3,8 @@
 
 This script is intentionally conservative:
 
-* It uses public scikit-learn datasets, not repository-internal toy targets.
+* It uses public datasets accessed via scikit-learn, not repository-internal
+  toy targets.
 * Sample hardness is predeclared as repeated-CV misclassification frequency.
 * MAAT supports are computed from raw feature geometry and labels only.
 * Baselines and shuffled-feature nulls are reported alongside MAAT features.
