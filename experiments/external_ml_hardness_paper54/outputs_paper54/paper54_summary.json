@@ -1,0 +1,148 @@
+{
+  "seed": 4081,
+  "hardness_repeats": 25,
+  "eval_repeats": 10,
+  "n_null": 40,
+  "datasets": {
+    "breast_cancer": {
+      "dataset": "breast_cancer",
+      "n_samples": 569,
+      "n_features": 30,
+      "n_classes": 2,
+      "knn_k": 15,
+      "hardness_repeats": 25,
+      "eval_repeats": 10,
+      "mean_cv_accuracy": 0.9585964912280701,
+      "mean_misclassification_rate": 0.041405975395430575,
+      "fraction_nonzero_hardness": 0.07557117750439367,
+      "max_misclassification_rate": 1.0
+    },
+    "wine": {
+      "dataset": "wine",
+      "n_samples": 178,
+      "n_features": 13,
+      "n_classes": 3,
+      "knn_k": 13,
+      "hardness_repeats": 25,
+      "eval_repeats": 10,
+      "mean_cv_accuracy": 0.9802285714285714,
+      "mean_misclassification_rate": 0.019775280898876403,
+      "fraction_nonzero_hardness": 0.0449438202247191,
+      "max_misclassification_rate": 1.0
+    },
+    "digits": {
+      "dataset": "digits",
+      "n_samples": 1797,
+      "n_features": 64,
+      "n_classes": 10,
+      "knn_k": 15,
+      "hardness_repeats": 25,
+      "eval_repeats": 10,
+      "mean_cv_accuracy": 0.9382517486846178,
+      "mean_misclassification_rate": 0.06174735670562048,
+      "fraction_nonzero_hardness": 0.12520868113522537,
+      "max_misclassification_rate": 1.0
+    }
+  },
+  "aggregate_model_summary": [
+    {
+      "model": "external_geometry",
+      "mean_spearman": 0.3888524644077666,
+      "median_spearman": 0.4188159837787867,
+      "mean_auroc": 0.6684905726093815,
+      "mean_r2": 0.13856144176691135,
+      "positive_fraction": 1.0
+    },
+    {
+      "model": "combined_geometry",
+      "mean_spearman": 0.3823600803979977,
+      "median_spearman": 0.39326206232615324,
+      "mean_auroc": 0.6666150566189364,
+      "mean_r2": 0.35949514106776687,
+      "positive_fraction": 1.0
+    },
+    {
+      "model": "MAAT_supports",
+      "mean_spearman": 0.3241226035208022,
+      "median_spearman": 0.3290340484052194,
+      "mean_auroc": 0.6393128866509077,
+      "mean_r2": 0.24810390879769506,
+      "positive_fraction": 1.0
+    },
+    {
+      "model": "label_geometry",
+      "mean_spearman": 0.3106948351513352,
+      "median_spearman": 0.320060474596338,
+      "mean_auroc": 0.6437787897268951,
+      "mean_r2": 0.3309304016767443,
+      "positive_fraction": 1.0
+    },
+    {
+      "model": "MAAT_v14_field",
+      "mean_spearman": 0.2795222647440447,
+      "median_spearman": 0.33934741454471645,
+      "mean_auroc": 0.6190832388403357,
+      "mean_r2": -0.423833518533886,
+      "positive_fraction": 1.0
+    },
+    {
+      "model": "MAAT_defects",
+      "mean_spearman": 0.24344464450800105,
+      "median_spearman": 0.36721617532726114,
+      "mean_auroc": 0.5813022408596242,
+      "mean_r2": 0.13313682494027126,
+      "positive_fraction": 0.6666666666666666
+    }
+  ],
+  "aggregate_scalar_summary": [
+    {
+      "model": "label_disagreement",
+      "mean_spearman": 0.42992698032245363,
+      "median_spearman": 0.4539008292314943,
+      "mean_auroc": 0.6718759147571713,
+      "positive_fraction": 1.0
+    },
+    {
+      "model": "MAAT_robustness_loss",
+      "mean_spearman": 0.3301274214285878,
+      "median_spearman": 0.34042766468663815,
+      "mean_auroc": 0.6708076029158544,
+      "positive_fraction": 1.0
+    },
+    {
+      "model": "MAAT_scalar_cost",
+      "mean_spearman": 0.32257169790801765,
+      "median_spearman": 0.3197027132708979,
+      "mean_auroc": 0.6705620744537636,
+      "positive_fraction": 1.0
+    },
+    {
+      "model": "centroid_distance",
+      "mean_spearman": 0.2725925433385124,
+      "median_spearman": 0.23083335627264523,
+      "mean_auroc": 0.6336001689520669,
+      "positive_fraction": 1.0
+    },
+    {
+      "model": "density_anomaly",
+      "mean_spearman": 0.17291034750957054,
+      "median_spearman": 0.17213957577777497,
+      "mean_auroc": 0.5997586460665548,
+      "positive_fraction": 1.0
+    },
+    {
+      "model": "pca_reconstruction_error",
+      "mean_spearman": 0.05205046956584584,
+      "median_spearman": 0.0011825297120507596,
+      "mean_auroc": 0.5438529293680378,
+      "positive_fraction": 0.6666666666666666
+    },
+    {
+      "model": "isolation_anomaly",
+      "mean_spearman": 0.03606965572386601,
+      "median_spearman": 0.04049645610391373,
+      "mean_auroc": 0.5364080226265584,
+      "positive_fraction": 0.6666666666666666
+    }
+  ]
+}
