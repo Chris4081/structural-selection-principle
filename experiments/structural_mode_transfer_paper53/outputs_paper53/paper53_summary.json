@@ -1,0 +1,334 @@
+{
+  "seed": 4081,
+  "n_null": 200,
+  "domains": [
+    {
+      "name": "SAT-Frustration",
+      "n": 550,
+      "quality_label": "1 - minmax(log DPLL nodes)",
+      "notes": "Paper 50b random-3-SAT frustration-field benchmark"
+    },
+    {
+      "name": "Quantum-Pointer",
+      "n": 3500,
+      "quality_label": "minmax(pointer robustness target)",
+      "notes": "Paper 51 non-commuting Lindblad pointer-state benchmark"
+    },
+    {
+      "name": "Active-Significance",
+      "n": 6000,
+      "quality_label": "minmax(active significance R_sig)",
+      "notes": "Paper 44 active-structural-significance toy ensemble"
+    },
+    {
+      "name": "Societal-CCI",
+      "n": 5000,
+      "quality_label": "minmax(societal constructive-impact ASI_soc)",
+      "notes": "Societal CCI toy ensemble"
+    }
+  ],
+  "fit_rules": [
+    "equal",
+    "nnls",
+    "ridge_pos",
+    "lasso_pos",
+    "response_top20",
+    "v_only"
+  ],
+  "best_fit_rule_by_mean_cross_spearman": {
+    "fit_rule": "equal",
+    "cross_mean_spearman": 0.5156181855700479,
+    "cross_median_spearman": 0.6661245267272882,
+    "cross_positive_fraction": 0.75,
+    "cross_mean_mutual_info": 1.1710510184861886,
+    "mean_v_weight": 0.2,
+    "v_dominant_fraction": 0.0
+  },
+  "overall_v_dominant_fraction": 0.5833333333333334,
+  "max_cross_spearman": 0.999387809926844,
+  "min_cross_spearman": -0.27457118052250357,
+  "mean_cross_spearman": 0.4600461620328069,
+  "positive_cross_fraction": 0.8055555555555556,
+  "strong_cross_transfers": [
+    {
+      "source_domain": "SAT-Frustration",
+      "target_domain": "Active-Significance",
+      "fit_rule": "equal",
+      "spearman": 0.9985482573471512,
+      "v_weight": 0.2,
+      "dominant_sector": "H"
+    },
+    {
+      "source_domain": "SAT-Frustration",
+      "target_domain": "Societal-CCI",
+      "fit_rule": "equal",
+      "spearman": 0.9551051677402066,
+      "v_weight": 0.2,
+      "dominant_sector": "H"
+    },
+    {
+      "source_domain": "SAT-Frustration",
+      "target_domain": "Quantum-Pointer",
+      "fit_rule": "nnls",
+      "spearman": 0.603448095815005,
+      "v_weight": 1.0,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "SAT-Frustration",
+      "target_domain": "Active-Significance",
+      "fit_rule": "nnls",
+      "spearman": 0.8334706917947551,
+      "v_weight": 1.0,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "SAT-Frustration",
+      "target_domain": "Quantum-Pointer",
+      "fit_rule": "ridge_pos",
+      "spearman": 0.5981206571060596,
+      "v_weight": 0.8394408736949722,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "SAT-Frustration",
+      "target_domain": "Active-Significance",
+      "fit_rule": "ridge_pos",
+      "spearman": 0.9575273845566901,
+      "v_weight": 0.8394408736949722,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "SAT-Frustration",
+      "target_domain": "Quantum-Pointer",
+      "fit_rule": "lasso_pos",
+      "spearman": 0.603448095815005,
+      "v_weight": 1.0,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "SAT-Frustration",
+      "target_domain": "Active-Significance",
+      "fit_rule": "lasso_pos",
+      "spearman": 0.8334706917947551,
+      "v_weight": 1.0,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "SAT-Frustration",
+      "target_domain": "Quantum-Pointer",
+      "fit_rule": "response_top20",
+      "spearman": 0.5975026398427812,
+      "v_weight": 0.8264498877807888,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "SAT-Frustration",
+      "target_domain": "Active-Significance",
+      "fit_rule": "response_top20",
+      "spearman": 0.9613320843327418,
+      "v_weight": 0.8264498877807888,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "SAT-Frustration",
+      "target_domain": "Quantum-Pointer",
+      "fit_rule": "v_only",
+      "spearman": 0.603448095815005,
+      "v_weight": 1.0,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "SAT-Frustration",
+      "target_domain": "Active-Significance",
+      "fit_rule": "v_only",
+      "spearman": 0.8334706917947551,
+      "v_weight": 1.0,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "Quantum-Pointer",
+      "target_domain": "Active-Significance",
+      "fit_rule": "equal",
+      "spearman": 0.9985482573471512,
+      "v_weight": 0.2,
+      "dominant_sector": "H"
+    },
+    {
+      "source_domain": "Quantum-Pointer",
+      "target_domain": "Societal-CCI",
+      "fit_rule": "equal",
+      "spearman": 0.9551051677402066,
+      "v_weight": 0.2,
+      "dominant_sector": "H"
+    },
+    {
+      "source_domain": "Quantum-Pointer",
+      "target_domain": "Active-Significance",
+      "fit_rule": "nnls",
+      "spearman": 0.9987954052141017,
+      "v_weight": 0.21834073386365818,
+      "dominant_sector": "H"
+    },
+    {
+      "source_domain": "Quantum-Pointer",
+      "target_domain": "Societal-CCI",
+      "fit_rule": "nnls",
+      "spearman": 0.9156899476355976,
+      "v_weight": 0.21834073386365818,
+      "dominant_sector": "H"
+    },
+    {
+      "source_domain": "Quantum-Pointer",
+      "target_domain": "Active-Significance",
+      "fit_rule": "ridge_pos",
+      "spearman": 0.9989644540257835,
+      "v_weight": 0.0,
+      "dominant_sector": "S"
+    },
+    {
+      "source_domain": "Quantum-Pointer",
+      "target_domain": "Societal-CCI",
+      "fit_rule": "ridge_pos",
+      "spearman": 0.9199654135986165,
+      "v_weight": 0.0,
+      "dominant_sector": "S"
+    },
+    {
+      "source_domain": "Quantum-Pointer",
+      "target_domain": "Active-Significance",
+      "fit_rule": "lasso_pos",
+      "spearman": 0.93689884822379,
+      "v_weight": 0.7830651052511175,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "Quantum-Pointer",
+      "target_domain": "Active-Significance",
+      "fit_rule": "response_top20",
+      "spearman": 0.9984335410660753,
+      "v_weight": 0.3822638163312314,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "Quantum-Pointer",
+      "target_domain": "Societal-CCI",
+      "fit_rule": "response_top20",
+      "spearman": 0.8797128973965157,
+      "v_weight": 0.3822638163312314,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "Quantum-Pointer",
+      "target_domain": "Active-Significance",
+      "fit_rule": "v_only",
+      "spearman": 0.8334706917947551,
+      "v_weight": 1.0,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "Active-Significance",
+      "target_domain": "Societal-CCI",
+      "fit_rule": "equal",
+      "spearman": 0.9551051677402066,
+      "v_weight": 0.2,
+      "dominant_sector": "H"
+    },
+    {
+      "source_domain": "Active-Significance",
+      "target_domain": "Quantum-Pointer",
+      "fit_rule": "nnls",
+      "spearman": 0.5517824457898207,
+      "v_weight": 0.5944730134593926,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "Active-Significance",
+      "target_domain": "Quantum-Pointer",
+      "fit_rule": "ridge_pos",
+      "spearman": 0.5300960470982197,
+      "v_weight": 0.5030692982587732,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "Active-Significance",
+      "target_domain": "Quantum-Pointer",
+      "fit_rule": "lasso_pos",
+      "spearman": 0.5498634826011007,
+      "v_weight": 0.58685645255624,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "Active-Significance",
+      "target_domain": "Societal-CCI",
+      "fit_rule": "response_top20",
+      "spearman": 0.555539700429588,
+      "v_weight": 0.23242018905959524,
+      "dominant_sector": "H"
+    },
+    {
+      "source_domain": "Active-Significance",
+      "target_domain": "Quantum-Pointer",
+      "fit_rule": "v_only",
+      "spearman": 0.603448095815005,
+      "v_weight": 1.0,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "Societal-CCI",
+      "target_domain": "Active-Significance",
+      "fit_rule": "equal",
+      "spearman": 0.9985482573471512,
+      "v_weight": 0.2,
+      "dominant_sector": "H"
+    },
+    {
+      "source_domain": "Societal-CCI",
+      "target_domain": "Active-Significance",
+      "fit_rule": "nnls",
+      "spearman": 0.997671682655283,
+      "v_weight": 0.26247085076343496,
+      "dominant_sector": "H"
+    },
+    {
+      "source_domain": "Societal-CCI",
+      "target_domain": "Active-Significance",
+      "fit_rule": "ridge_pos",
+      "spearman": 0.9975867832083979,
+      "v_weight": 0.2632269085982356,
+      "dominant_sector": "H"
+    },
+    {
+      "source_domain": "Societal-CCI",
+      "target_domain": "Active-Significance",
+      "fit_rule": "lasso_pos",
+      "spearman": 0.999387809926844,
+      "v_weight": 0.2331661712539914,
+      "dominant_sector": "S"
+    },
+    {
+      "source_domain": "Societal-CCI",
+      "target_domain": "Active-Significance",
+      "fit_rule": "response_top20",
+      "spearman": 0.9977246194345827,
+      "v_weight": 0.2472367271403314,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "Societal-CCI",
+      "target_domain": "Quantum-Pointer",
+      "fit_rule": "v_only",
+      "spearman": 0.603448095815005,
+      "v_weight": 1.0,
+      "dominant_sector": "V"
+    },
+    {
+      "source_domain": "Societal-CCI",
+      "target_domain": "Active-Significance",
+      "fit_rule": "v_only",
+      "spearman": 0.8334706917947551,
+      "v_weight": 1.0,
+      "dominant_sector": "V"
+    }
+  ]
+}
