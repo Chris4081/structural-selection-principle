@@ -1,0 +1,97 @@
+{
+  "seed": 4081,
+  "n_zeros": 40,
+  "n_random": 40,
+  "n_pair_zeros": 200,
+  "deltas": [
+    -0.05,
+    -0.02,
+    -0.01,
+    -0.005,
+    -0.002,
+    0.0,
+    0.002,
+    0.005,
+    0.01,
+    0.02,
+    0.05
+  ],
+  "default_alpha": 10.0,
+  "default_dsigma": 0.002,
+  "headline": {
+    "known_zero_full_HBR_best_delta": 0.0,
+    "known_zero_full_HBR_mean_F": 0.008179631358937501,
+    "known_zero_without_B_HR_best_delta": 0.0,
+    "known_zero_without_H_BR_best_delta": 0.0,
+    "delta0_margin_vs_best_full_HBR": 0.0
+  },
+  "sweep_stats_known_zero": [
+    {
+      "config": "BR",
+      "delta0_best_fraction": 0.8,
+      "mean_abs_best_delta": 0.010000000000000002
+    },
+    {
+      "config": "HBR",
+      "delta0_best_fraction": 1.0,
+      "mean_abs_best_delta": 0.0
+    },
+    {
+      "config": "HR",
+      "delta0_best_fraction": 1.0,
+      "mean_abs_best_delta": 0.0
+    }
+  ],
+  "pair_correlation": {
+    "n_pair_zeros": 200,
+    "n_spacings": 199,
+    "spacing_normalisation": "Delta t_n * log(t_n/(2pi))/(2pi), rescaled to mean 1",
+    "gue_reference": "Wigner-surmise unit-mean GUE nearest-neighbour spacing proxy",
+    "summary": [
+      {
+        "series": "jittered_zeta_spacings",
+        "n_spacings": 199,
+        "mean_spacing": 1.0,
+        "std_spacing": 0.36411705786589266,
+        "L1_to_GUE": 0.20588481930470062,
+        "L2_to_GUE": 0.07026777789976651,
+        "V_pair_weighted": 0.9844488156093196,
+        "V_pair_mean": 0.9937154620656763,
+        "F_pair": 0.015673372492871318
+      },
+      {
+        "series": "zeta_normalized_spacings",
+        "n_spacings": 199,
+        "mean_spacing": 1.0,
+        "std_spacing": 0.3632009404851214,
+        "L1_to_GUE": 0.29384709136080844,
+        "L2_to_GUE": 0.08674828712773622,
+        "V_pair_weighted": 0.9797317074904581,
+        "V_pair_mean": 0.9910446732472246,
+        "F_pair": 0.02047651266464165
+      },
+      {
+        "series": "uniform_points_control",
+        "n_spacings": 199,
+        "mean_spacing": 1.0,
+        "std_spacing": 0.9928168541501434,
+        "L1_to_GUE": 0.8102749589020384,
+        "L2_to_GUE": 0.23400530879241416,
+        "V_pair_weighted": 0.9572579993024052,
+        "V_pair_mean": 0.9762571975248029,
+        "F_pair": 0.04368233211391355
+      },
+      {
+        "series": "poisson_unit_mean_control",
+        "n_spacings": 199,
+        "mean_spacing": 1.0246713976012627,
+        "std_spacing": 0.9552735441274558,
+        "L1_to_GUE": 0.822516088323633,
+        "L2_to_GUE": 0.2220195276355839,
+        "V_pair_weighted": 0.9559012397563429,
+        "V_pair_mean": 0.9757269012567045,
+        "F_pair": 0.04510067696029241
+      }
+    ]
+  }
+}
