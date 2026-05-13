@@ -2219,6 +2219,76 @@ dataset authors is implied.
 
 ---
 
+### Extra Mathematical Diagnostic Paper — Riemann Zeta Critical-Line Diagnostic
+**A Structural Selection Diagnostic on the Riemann Zeta Critical Line**  
+*A purely diagnostic, non-proof toy experiment with controls, ablations, and pair-correlation tests*
+
+**Core idea:** Applies a simple heuristic structural diagnostic to known
+nontrivial Riemann zeta zeros. The test asks whether known zero ordinates have
+lower diagnostic cost on the critical line than under small off-line shifts,
+and how much of that behaviour is built into the scoring rule itself. This is
+a mathematical toy benchmark, not evidence for or a proof of the Riemann
+Hypothesis. The pair-correlation component compares normalised zeta-zero
+spacings with a GUE spacing proxy and Poisson/uniform controls.
+
+**Diagnostic terms:**
+
+| Term | Definition |
+|------|------------|
+| `H` | `1 / (1 + |zeta(sigma + i t)|)` |
+| `B` | `1 / (1 + alpha |sigma - 1/2|)` |
+| `R` | symmetric real-direction zeta-response robustness |
+
+**Core results:**
+
+| Set | Config | Best mean delta | Mean F at best |
+|-----|--------|----------------:|---------------:|
+| known zeros | HBR | `0.000` | `0.00818` |
+| known zeros | HR, no explicit B | `0.000` | `0.00818` |
+| known zeros | BR, no H | `0.000` | `0.00818` |
+| jittered zeros | HBR | `0.000` | `0.16544` |
+| random critical-line points | HBR | `0.000` | `0.86054` |
+| random critical-line points | HR, no explicit B | `0.050` | `0.83426` |
+
+Pair-correlation diagnostic:
+
+| Series | Spacings | L1 to GUE | V_pair | F_pair |
+|--------|---------:|----------:|-------:|-------:|
+| jittered zeta spacings | 199 | `0.2059` | `0.9844` | `0.0157` |
+| zeta normalised spacings | 199 | `0.2938` | `0.9797` | `0.0205` |
+| uniform-points control | 199 | `0.8103` | `0.9573` | `0.0437` |
+| poisson control | 199 | `0.8225` | `0.9559` | `0.0451` |
+
+**Key finding:**
+> Known zeta-zero locations exhibit a low-cost minimum on the critical line
+> under the proposed diagnostic score. However, the score partly
+> builds in critical-line preference through the balance term and directly
+> rewards known zeros through the zeta-null term. The result is therefore a
+> diagnostic benchmark, not an RH result.
+
+**Scientific status:** Mathematical toy diagnostic with controls and
+ablations. The full HBR and no-balance HR diagnostics select `delta=0` for
+known zeros across the tested parameter sweep, while random critical-line
+controls reveal how much of the critical-line preference is score-induced.
+The pair-correlation diagnostic is conceptually closer to spectral-universality
+tests than to direct zero-location tests, but it remains finite-sample and uses
+a GUE/Wigner-surmise proxy rather than a theorem.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/zeta_critical_line_selection/` | zeta critical-line diagnostic script, zero/control tables, CSV/JSON outputs, and figures |
+
+**Data attribution and license note:** No external dataset file is
+redistributed. The script computes zeta zeros using `mpmath.zetazero` and
+evaluates the zeta function directly. Generated CSV/JSON/PNG files are derived
+reproducibility artifacts.
+
+**Documentation PDF:** `documentation/Structural_Selection_on_the_Critical_Line.pdf`
+
+---
+
 ### Extra Experiment Paper — Societal Critical Coherence Index
 **Societal Critical Coherence Index:**
 *A Toy Framework for Structural Stress and Constructive Transformation*
