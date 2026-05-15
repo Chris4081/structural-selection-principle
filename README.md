@@ -2274,8 +2274,8 @@ artifacts.
 
 ---
 
-### Paper 56 — Defect-Field Geometry and Projection Operators
-**Defect-Field Geometry and Projection Operators:**  
+### Paper 56 — From Scalar Scores to Defect-Field Geometry
+**From Scalar Scores to Defect-Field Geometry:**  
 *Formal Definitions for Multi-Scale Structural Selection*
 
 **Core idea:** Consolidates the operator language needed by MAAT v1.4.1:
