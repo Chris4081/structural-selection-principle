@@ -2219,6 +2219,61 @@ dataset authors is implied.
 
 ---
 
+### Paper 55 — CDCL Hardness Prediction on Standard SAT Families
+**CDCL Hardness Prediction on Standard SAT Families:**  
+*A Benchmark for Graph-Local and Defect-Field Features*
+
+**Core idea:** Replaces the earlier transparent DPLL SAT-hardness target with
+real CDCL solver statistics from PySAT implementations of Glucose3 and
+MiniSat22. The benchmark uses deterministically generated standard SAT
+families rather than previous repository-internal artifacts: random 3-SAT,
+planted 3-SAT, modular 3-SAT, 3-XOR CNF, graph coloring, and pigeonhole
+formulas.
+
+**Target:**
+
+```text
+y_CDCL = log(1 + mean_conflicts + 0.10 mean_decisions + 0.01 mean_propagations)
+```
+
+**Core results:**
+
+| Feature set | RF R2 | RF Spearman |
+|-------------|------:|------------:|
+| Standard graph | `0.2742` | `0.4254` |
+| Multi-scale defect field | `0.2621` | `0.3984` |
+| Graph-local structural | `0.2573` | `0.4170` |
+| Scalar structural | `0.1062` | `0.3400` |
+| Shuffled defect null | `-0.0609` | `-0.0070` |
+| Density-only | `-0.0894` | `0.2503` |
+
+**Key finding:**
+> Multi-scale defect-field features carry real CDCL-hardness signal and
+> strongly beat shuffled-defect nulls and scalar compression, but they do not
+> beat a strong standard graph baseline. The decisive negative result is
+> leave-family-out transfer: all feature sets fail to extrapolate cleanly across
+> canonical SAT families.
+
+**Scientific status:** This is a standard-family CDCL benchmark, not a SAT
+Competition or industrial SAT benchmark. It strengthens the local
+defect-field direction while weakening broad universality claims.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/sat_cdcl_external_paper55/` | canonical SAT-family generator, PySAT/CDCL solver statistics, feature extraction, shuffled-null tests, model comparisons, figures |
+
+**Data attribution and license note:** No external CNF dataset is redistributed.
+Instances are generated from standard SAT benchmark families by the script.
+Solver statistics are produced locally through PySAT-compatible Glucose3 and
+MiniSat22 solvers. Generated CSV/JSON/PNG files are derived reproducibility
+artifacts.
+
+**Documentation PDF:** `documentation/55_External_SAT_CDCL_Hardness_Validation.pdf`
+
+---
+
 ### Extra Mathematical Diagnostic Paper — Riemann Zeta Critical-Line Diagnostic
 **A Structural Selection Diagnostic on the Riemann Zeta Critical Line**  
 *A purely diagnostic, non-proof toy experiment with controls, ablations, and pair-correlation tests*
