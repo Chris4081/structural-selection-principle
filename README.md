@@ -2274,6 +2274,48 @@ artifacts.
 
 ---
 
+### Paper 56 — Defect-Field Geometry and Projection Operators
+**Defect-Field Geometry and Projection Operators:**  
+*Formal Definitions for Multi-Scale Structural Selection*
+
+**Core idea:** Consolidates the operator language needed by MAAT v1.4.1:
+local defect fields, multi-scale coarse-graining, defect-field dynamics,
+observation projections, and no-retuning universality tests. The paper is a
+formal definition layer rather than a new numerical benchmark.
+
+**Key definitions:**
+
+```text
+d_a(x) = D_a(Phi|N(x), C|N(x), partial N(x), mu|N(x)) >= 0
+d_a^(ell) = Pi_ell[d_a]
+partial_logell d_a^(ell) = beta_a[d^(ell)]
+partial_t d_a = F_a[d] + xi_a
+Pi_obs: Omega_full -> Omega_obs
+U(theta) = E_{D_test notin D_train}[1{Delta I > 0}]
+```
+
+**v1.4.1 anchor:** The paper explicitly uses the v1.4.1 lesson that
+structural sectors must be operationally separated rather than merely renamed
+correlated summaries. In the quantum two-level anchor case:
+
+```text
+B = 1 - |p0 - p1|
+S = |rho_01| / sqrt(rho_00 rho_11)
+```
+
+This keeps balance and activity distinct: balanced-inactive,
+balanced-coherent, imbalanced-incoherent, and imbalanced-coherent states are
+not collapsed into the same structural mode.
+
+**Scientific status:** This is a consolidation and definition paper. It does
+not claim a microscopic derivation, a complete RG theorem, or universal
+cross-domain transfer. It defines the formal objects needed to make those
+claims testable.
+
+**Documentation PDF:** `documentation/56_Defect_Field_Geometry_Projection_and_Universality.pdf`
+
+---
+
 ### Extra Mathematical Diagnostic Paper — Riemann Zeta Critical-Line Diagnostic
 **A Structural Selection Diagnostic on the Riemann Zeta Critical Line**  
 *A purely diagnostic, non-proof toy experiment with controls, ablations, and pair-correlation tests*
