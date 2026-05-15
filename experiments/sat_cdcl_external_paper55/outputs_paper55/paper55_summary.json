@@ -1,0 +1,119 @@
+{
+  "seed": 55055,
+  "n_instances": 395,
+  "families": [
+    "graph_coloring",
+    "modular_3sat",
+    "pigeonhole",
+    "planted_3sat",
+    "random_3sat",
+    "xor3_cnf"
+  ],
+  "conflict_budget": 20000,
+  "target": "log1p(mean_conflicts + 0.10*mean_decisions + 0.01*mean_propagations)",
+  "best_rf_feature_set": "standard_graph",
+  "rf_results": {
+    "standard_graph": {
+      "r2": 0.2741537277214747,
+      "rmse": 0.8340293810976775,
+      "spearman": 0.42544195570736293
+    },
+    "v14_defect_field": {
+      "r2": 0.262076790470954,
+      "rmse": 0.8409392242302582,
+      "spearman": 0.3984319423315504
+    },
+    "graph_local_structural": {
+      "r2": 0.25730549780489753,
+      "rmse": 0.8436535325453025,
+      "spearman": 0.41700127176456714
+    },
+    "scalar_structural": {
+      "r2": 0.10622730862907603,
+      "rmse": 0.9254917788750675,
+      "spearman": 0.34003916249983573
+    },
+    "shuffled_v14_null": {
+      "r2": -0.06090657487518274,
+      "rmse": 1.008242323502308,
+      "spearman": -0.006970885437970186
+    },
+    "density_only": {
+      "r2": -0.08941814531067016,
+      "rmse": 1.0217774811932316,
+      "spearman": 0.25028994055159204
+    }
+  },
+  "lfo_overall": {
+    "density_only": {
+      "r2": -0.522766904917014,
+      "rmse": 1.2080244922972676,
+      "spearman": 0.017139437945192335
+    },
+    "standard_graph": {
+      "r2": -2.3547475865672394,
+      "rmse": 1.793035752665798,
+      "spearman": -0.017134209406351936
+    },
+    "scalar_structural": {
+      "r2": -0.387219536870961,
+      "rmse": 1.1530061481441596,
+      "spearman": 0.02987808083684185
+    },
+    "graph_local_structural": {
+      "r2": -1.1691899984394163,
+      "rmse": 1.4418092966230676,
+      "spearman": -0.03731446670260575
+    },
+    "v14_defect_field": {
+      "r2": -0.3104328333283397,
+      "rmse": 1.1206407423920013,
+      "spearman": 0.010879164325674665
+    }
+  },
+  "timeouts_glucose": 1,
+  "timeouts_minisat": 1,
+  "sat_agreement_fraction": 1.0,
+  "top_importance": [
+    {
+      "feature": "frust_tail_mass",
+      "importance_mean": 0.17977434998009065,
+      "importance_std": 0.016213978569264213
+    },
+    {
+      "feature": "H",
+      "importance_mean": 0.1046353886513866,
+      "importance_std": 0.008293333496871847
+    },
+    {
+      "feature": "R_rob",
+      "importance_mean": 0.06899303702929228,
+      "importance_std": 0.005144050810811388
+    },
+    {
+      "feature": "F_struct_scalar",
+      "importance_mean": 0.057549183157356264,
+      "importance_std": 0.0033934413295504755
+    },
+    {
+      "feature": "frust_mean",
+      "importance_mean": 0.053729490451162175,
+      "importance_std": 0.003400062892098965
+    },
+    {
+      "feature": "frust_q75",
+      "importance_mean": 0.05091388694349518,
+      "importance_std": 0.004700004889681645
+    },
+    {
+      "feature": "F_mean",
+      "importance_mean": 0.04391011360791577,
+      "importance_std": 0.0025464929629974093
+    },
+    {
+      "feature": "S",
+      "importance_mean": 0.04128912184424768,
+      "importance_std": 0.003301493912872046
+    }
+  ]
+}
