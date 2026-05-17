@@ -1,0 +1,274 @@
+{
+  "seed": 57057,
+  "input_csv": "/Volumes/MAATSSD/structural-selection-principle/experiments/sat_cdcl_external_paper55/outputs_paper55/paper55_sat_cdcl_instances.csv",
+  "n_instances": 395,
+  "families": [
+    "graph_coloring",
+    "modular_3sat",
+    "pigeonhole",
+    "planted_3sat",
+    "random_3sat",
+    "xor3_cnf"
+  ],
+  "target": "Paper 55 cdcl_hardness = log1p(mean_conflicts + 0.10*mean_decisions + 0.01*mean_propagations)",
+  "best_rf_feature_set": "standard_graph",
+  "best_rf_r2": 0.21689572770477794,
+  "best_rf_spearman": 0.4233605010658154,
+  "projection_rf_results": {
+    "standard_graph": {
+      "r2": 0.21689572770477794,
+      "rmse": 0.8663010114415589,
+      "spearman": 0.4233605010658154
+    },
+    "all_defect_projections": {
+      "r2": 0.19959525481400886,
+      "rmse": 0.875817970719885,
+      "spearman": 0.3751219690529929
+    },
+    "mean_tail_cluster_scale": {
+      "r2": 0.19959525481400886,
+      "rmse": 0.875817970719885,
+      "spearman": 0.3751219690529929
+    },
+    "macro_scalar": {
+      "r2": 0.18984655516529392,
+      "rmse": 0.881135433955663,
+      "spearman": 0.41925489315939485
+    },
+    "mean_tail": {
+      "r2": 0.1727856633589443,
+      "rmse": 0.8903649415126664,
+      "spearman": 0.32538658561238315
+    },
+    "mean_plus_tail": {
+      "r2": 0.1727856633589443,
+      "rmse": 0.8903649415126664,
+      "spearman": 0.32538658561238315
+    },
+    "tail_scale": {
+      "r2": 0.17251998443341798,
+      "rmse": 0.8905079106320917,
+      "spearman": 0.3793264908488853
+    },
+    "mean_tail_cluster": {
+      "r2": 0.16729845268783117,
+      "rmse": 0.8933131162080088,
+      "spearman": 0.31738040193657774
+    },
+    "cluster_scale": {
+      "r2": 0.14488551871626432,
+      "rmse": 0.905255465207145,
+      "spearman": 0.33500255389686906
+    },
+    "scale_projection": {
+      "r2": 0.1380692777106992,
+      "rmse": 0.9088562648407552,
+      "spearman": 0.3304492048706832
+    },
+    "tail_projection": {
+      "r2": 0.09370961449660531,
+      "rmse": 0.9319502113886964,
+      "spearman": 0.298208242068527
+    },
+    "tail_cluster": {
+      "r2": 0.09200227062889388,
+      "rmse": 0.932827640312065,
+      "spearman": 0.2900703354670762
+    },
+    "cluster_projection": {
+      "r2": 0.06570710671775015,
+      "rmse": 0.9462383542502437,
+      "spearman": 0.16855716505890356
+    },
+    "mean_projection": {
+      "r2": 0.05750794364304246,
+      "rmse": 0.950381281730853,
+      "spearman": 0.2943675293886058
+    },
+    "mean_only": {
+      "r2": 0.05750794364304246,
+      "rmse": 0.950381281730853,
+      "spearman": 0.2943675293886058
+    },
+    "density_only": {
+      "r2": -0.04342195363532597,
+      "rmse": 0.9999746945176341,
+      "spearman": 0.28429490122826007
+    },
+    "shuffled_all_projection_null": {
+      "r2": -0.0666248808969101,
+      "rmse": 1.0109553279194965,
+      "spearman": -0.013386042948415467
+    }
+  },
+  "lfo_overall": {
+    "density_only": {
+      "r2": -0.5270931656007969,
+      "rmse": 1.2097393056791585,
+      "spearman": 0.0019007800999171647
+    },
+    "macro_scalar": {
+      "r2": -0.3128077128853639,
+      "rmse": 1.1216557437010575,
+      "spearman": 0.12429702721812759
+    },
+    "mean_projection": {
+      "r2": -1.8203823325282706,
+      "rmse": 1.6440424140491248,
+      "spearman": -0.07985415666626589
+    },
+    "tail_projection": {
+      "r2": -0.12902371080009734,
+      "rmse": 1.0401849267578673,
+      "spearman": 0.1607013851500923
+    },
+    "cluster_projection": {
+      "r2": -0.247031878172026,
+      "rmse": 1.0931954176705385,
+      "spearman": -0.03181342426459042
+    },
+    "scale_projection": {
+      "r2": -2.4091699524923578,
+      "rmse": 1.807520996406691,
+      "spearman": -0.19298690348653683
+    },
+    "standard_graph": {
+      "r2": -2.493745033373144,
+      "rmse": 1.829804236312504,
+      "spearman": -0.011770464789334925
+    },
+    "mean_tail": {
+      "r2": -0.20162493473618093,
+      "rmse": 1.0731081436368406,
+      "spearman": 0.043678368053306854
+    },
+    "tail_cluster": {
+      "r2": -0.1322001163170421,
+      "rmse": 1.041647131874243,
+      "spearman": 0.14571641767603835
+    },
+    "tail_scale": {
+      "r2": -0.8463504680498277,
+      "rmse": 1.3301974018143015,
+      "spearman": -0.1277771766035322
+    },
+    "cluster_scale": {
+      "r2": -1.9760396033305523,
+      "rmse": 1.6888006129337143,
+      "spearman": -0.1528075967804816
+    },
+    "all_defect_projections": {
+      "r2": -1.0122514369989846,
+      "rmse": 1.3886734998310482,
+      "spearman": -0.09953604905211567
+    },
+    "mean_only": {
+      "r2": -1.8203823325282706,
+      "rmse": 1.6440424140491248,
+      "spearman": -0.07985415666626589
+    },
+    "mean_plus_tail": {
+      "r2": -0.20162493473618093,
+      "rmse": 1.0731081436368406,
+      "spearman": 0.043678368053306854
+    },
+    "mean_tail_cluster": {
+      "r2": -0.21154388457262474,
+      "rmse": 1.077528087825408,
+      "spearman": 0.038994853800522505
+    },
+    "mean_tail_cluster_scale": {
+      "r2": -1.0122514369989846,
+      "rmse": 1.3886734998310482,
+      "spearman": -0.09953604905211567
+    }
+  },
+  "top_single_features": [
+    {
+      "feature": "F_struct_scalar",
+      "projection": "macro_scalar",
+      "spearman": -0.3563099297333248,
+      "abs_spearman": 0.3563099297333248
+    },
+    {
+      "feature": "R_rob",
+      "projection": "macro_scalar",
+      "spearman": 0.35394222718218443,
+      "abs_spearman": 0.35394222718218443
+    },
+    {
+      "feature": "alpha",
+      "projection": "standard_graph",
+      "spearman": 0.34588215813065143,
+      "abs_spearman": 0.34588215813065143
+    },
+    {
+      "feature": "R_resp",
+      "projection": "macro_scalar",
+      "spearman": 0.333119685174046,
+      "abs_spearman": 0.333119685174046
+    },
+    {
+      "feature": "mean_var_graph_degree",
+      "projection": "standard_graph",
+      "spearman": 0.29716093547720995,
+      "abs_spearman": 0.29716093547720995
+    },
+    {
+      "feature": "frust_q75",
+      "projection": "tail_projection",
+      "spearman": -0.2908056667733577,
+      "abs_spearman": 0.2908056667733577
+    },
+    {
+      "feature": "literal_imbalance",
+      "projection": "standard_graph",
+      "spearman": -0.2896692921285139,
+      "abs_spearman": 0.2896692921285139
+    },
+    {
+      "feature": "B",
+      "projection": "macro_scalar",
+      "spearman": 0.2876360906144594,
+      "abs_spearman": 0.2876360906144594
+    },
+    {
+      "feature": "frust_mean",
+      "projection": "mean_projection",
+      "spearman": -0.28300753327649086,
+      "abs_spearman": 0.28300753327649086
+    },
+    {
+      "feature": "F_mean",
+      "projection": "mean_projection",
+      "spearman": -0.28300753327649086,
+      "abs_spearman": 0.28300753327649086
+    }
+  ],
+  "group_importance": [
+    {
+      "projection": "tail",
+      "train_r2_base": 0.7475457781101045,
+      "importance_drop_mean": 0.40444611120418944,
+      "importance_drop_std": 0.01486932927941976
+    },
+    {
+      "projection": "scale",
+      "train_r2_base": 0.7475457781101045,
+      "importance_drop_mean": 0.3414051066130424,
+      "importance_drop_std": 0.022869035298463705
+    },
+    {
+      "projection": "mean",
+      "train_r2_base": 0.7475457781101045,
+      "importance_drop_mean": 0.15671936724043328,
+      "importance_drop_std": 0.008376041828857464
+    },
+    {
+      "projection": "cluster",
+      "train_r2_base": 0.7475457781101045,
+      "importance_drop_mean": 0.02290597482258443,
+      "importance_drop_std": 0.0019314298479043044
+    }
+  ]
+}
