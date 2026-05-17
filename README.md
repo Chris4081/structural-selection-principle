@@ -2373,6 +2373,81 @@ statistics.
 
 ---
 
+### Paper 58 — Stationarity Balance Beats Population Balance
+**Stationarity Balance Beats Population Balance:**  
+*A Defect-Field Benchmark on Open Quantum Pointer States*
+
+**Core idea:** Tests structural defect-field diagnostics on a fully classical
+one-qubit Lindblad simulation. No quantum computer, Qiskit runtime, cloud
+hardware, or paid backend access is required. The benchmark asks whether
+stationarity-sensitive balance predicts robust pointer-like states better than
+raw population balance.
+
+**Simulation setup:**
+
+| Component | Description |
+|----------|-------------|
+| System | one-qubit density matrix |
+| Dynamics | Lindblad master equation integrated by RK4 |
+| Channel families | z-dephasing, x-dephasing, amplitude damping, thermal relaxation, mixed z/x, depolarizing |
+| Instances | `3600` sampled trajectories reused from a `5200`-trajectory generated ensemble |
+| Target | `0.50 fidelity_retention + 0.35 probability_stability + 0.15 purity_final` |
+
+**Key definitions:**
+
+```text
+B_pop  = 1 - |p0 - p1|
+B_stat = 1 / (1 + 2 |dp/dt|_0 + 0.35 |d Tr(rho^2)/dt|_0)
+```
+
+**Core results:**
+
+| Feature set | 5-fold RF R2 | Spearman |
+|-------------|-------------:|---------:|
+| Standard quantum baseline | `0.9011` | `0.9241` |
+| Defect-field stationary | `0.8527` | `0.8856` |
+| Scalar stationarity | `0.6457` | `0.7719` |
+| Scalar population balance | `0.4561` | `0.6221` |
+| Rates only | `0.1641` | `0.4646` |
+| State geometry only | `0.0008` | `0.2945` |
+| Shuffled defect null | `-0.0261` | `-0.0003` |
+
+**Leave-channel-family-out results:**
+
+| Feature set | LFO R2 | LFO Spearman |
+|-------------|------:|-------------:|
+| Defect-field stationary | `0.7075` | `0.8286` |
+| Standard quantum baseline | `0.6637` | `0.8105` |
+| Scalar stationarity | `0.4928` | `0.7284` |
+| Scalar population balance | `0.3108` | `0.5604` |
+
+**Key finding:**
+> Pointer robustness is better captured by stationarity-sensitive balance than
+> by raw population equality. The scalar stationarity model improves over the
+> scalar population-balance model by `Delta R2 = +0.1896`, and the full
+> stationarity-sensitive defect-field model performs best under
+> leave-channel-family-out transfer.
+
+**Scientific status:** This is a reproducible classical open-system
+simulation. It is not a proof of quantum measurement, not a collapse theory,
+and not a hardware experiment. The result supports a narrower refinement:
+quantum balance should track stationarity under the generator, not mere
+population equality.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/open_quantum_pointer_paper58/` | Paper-58 Lindblad simulation, pointer-robustness target, B_pop/B_stat comparison, model outputs, figures |
+
+**Data attribution and license note:** No external quantum dataset is
+redistributed. All CSV/JSON/PNG files are derived reproducibility artifacts
+generated locally by the script.
+
+**Documentation PDF:** `documentation/58_Open_Quantum_Pointer_Stability.pdf`
+
+---
+
 ### Extra Mathematical Diagnostic Paper — Riemann Zeta Critical-Line Diagnostic
 **A Structural Selection Diagnostic on the Riemann Zeta Critical Line**  
 *A purely diagnostic, non-proof toy experiment with controls, ablations, and pair-correlation tests*
