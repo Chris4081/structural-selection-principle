@@ -1,0 +1,201 @@
+{
+  "model": "Paper 58 Open Quantum Pointer Stability",
+  "status": "Classical Lindblad simulation; no quantum computer required; not a collapse theory or hardware result.",
+  "seed": 58058,
+  "n_instances": 3600,
+  "families": [
+    "z_dephasing",
+    "x_dephasing",
+    "amplitude_damping",
+    "thermal_relaxation",
+    "mixed_zx",
+    "depolarizing"
+  ],
+  "target": "pointer_robustness = 0.50 fidelity_retention + 0.35 probability_stability + 0.15 purity_final",
+  "best_rf_feature_set": "standard_quantum_baseline",
+  "rf_results": {
+    "standard_quantum_baseline": {
+      "r2": 0.9011349619992381,
+      "rmse": 0.03624600028394483,
+      "spearman": 0.9240648053547947
+    },
+    "defect_field_stationary": {
+      "r2": 0.8527471296041496,
+      "rmse": 0.04423546585706225,
+      "spearman": 0.8856001184876635
+    },
+    "scalar_stationarity": {
+      "r2": 0.6457387973229028,
+      "rmse": 0.06861206921297519,
+      "spearman": 0.7718544148017716
+    },
+    "scalar_pop_balance": {
+      "r2": 0.45609206607779873,
+      "rmse": 0.08501614683011388,
+      "spearman": 0.622132896237929
+    },
+    "rates_only": {
+      "r2": 0.16408453243828425,
+      "rmse": 0.10539497408367375,
+      "spearman": 0.4646364208824399
+    },
+    "state_geometry_only": {
+      "r2": 0.0007891401051297597,
+      "rmse": 0.11523045943354032,
+      "spearman": 0.2944902912415348
+    },
+    "shuffled_defect_null": {
+      "r2": -0.026110379629081026,
+      "rmse": 0.11677096587201807,
+      "spearman": -0.0002742665463683038
+    }
+  },
+  "lfo_overall": {
+    "rates_only": {
+      "r2": 0.0005710698800776015,
+      "rmse": 0.11524303283639374,
+      "spearman": 0.23237519745693397
+    },
+    "standard_quantum_baseline": {
+      "r2": 0.6637229795678059,
+      "rmse": 0.06684783033985367,
+      "spearman": 0.8105367991669342
+    },
+    "state_geometry_only": {
+      "r2": -0.2560656014741469,
+      "rmse": 0.12919475473726924,
+      "spearman": 0.008713329251909834
+    },
+    "scalar_pop_balance": {
+      "r2": 0.31082465077253496,
+      "rmse": 0.09569816012603323,
+      "spearman": 0.5603849278181631
+    },
+    "scalar_stationarity": {
+      "r2": 0.4928390002966462,
+      "rmse": 0.08209404315564742,
+      "spearman": 0.7283617078330206
+    },
+    "defect_field_stationary": {
+      "r2": 0.7075032975256623,
+      "rmse": 0.062344652396835676,
+      "spearman": 0.8286152768993269
+    }
+  },
+  "delta_r2_stationary_vs_population_scalar": 0.18964673124510412,
+  "delta_r2_defect_vs_standard_quantum": -0.04838783239508859,
+  "top_correlations": [
+    {
+      "score": "fidelity_retention",
+      "spearman": 0.8165316509669484,
+      "abs_spearman": 0.8165316509669484
+    },
+    {
+      "score": "probability_stability",
+      "spearman": 0.7992779924854418,
+      "abs_spearman": 0.7992779924854418
+    },
+    {
+      "score": "dpdt_norm0",
+      "spearman": -0.7197390923152592,
+      "abs_spearman": 0.7197390923152592
+    },
+    {
+      "score": "B_stat",
+      "spearman": 0.7173747528838543,
+      "abs_spearman": 0.7173747528838543
+    },
+    {
+      "score": "purity_decay_pressure",
+      "spearman": -0.4271535193276893,
+      "abs_spearman": 0.4271535193276893
+    },
+    {
+      "score": "H_stationarity",
+      "spearman": 0.4107261265992382,
+      "abs_spearman": 0.4107261265992382
+    },
+    {
+      "score": "lindblad_norm0",
+      "spearman": -0.4107261265992382,
+      "abs_spearman": 0.4107261265992382
+    },
+    {
+      "score": "purity_final",
+      "spearman": 0.4042470121589773,
+      "abs_spearman": 0.4042470121589773
+    },
+    {
+      "score": "coherence_exposure",
+      "spearman": -0.3121017599358354,
+      "abs_spearman": 0.3121017599358354
+    },
+    {
+      "score": "decoherence_pressure",
+      "spearman": -0.3121017599358354,
+      "abs_spearman": 0.3121017599358354
+    }
+  ],
+  "top_importance": [
+    {
+      "feature": "dpdt_norm0",
+      "permutation_importance_mean": 0.7927200927686471,
+      "permutation_importance_std": 0.0349478012270549,
+      "rf_builtin_importance": 0.446395580013047
+    },
+    {
+      "feature": "damping_pressure",
+      "permutation_importance_mean": 0.31977796188790414,
+      "permutation_importance_std": 0.006562062098412864,
+      "rf_builtin_importance": 0.14551493883625768
+    },
+    {
+      "feature": "channel_conflict",
+      "permutation_importance_mean": 0.11156266000031884,
+      "permutation_importance_std": 0.005184745181358559,
+      "rf_builtin_importance": 0.030316763686374922
+    },
+    {
+      "feature": "pointer_alignment_loss",
+      "permutation_importance_mean": 0.06383321024681521,
+      "permutation_importance_std": 0.0027845144204561192,
+      "rf_builtin_importance": 0.05006381805414733
+    },
+    {
+      "feature": "V_align",
+      "permutation_importance_mean": 0.05397284811302069,
+      "permutation_importance_std": 0.0021841324640440116,
+      "rf_builtin_importance": 0.046235234320002455
+    },
+    {
+      "feature": "coherence_exposure",
+      "permutation_importance_mean": 0.04564493256454868,
+      "permutation_importance_std": 0.0010396758399626113,
+      "rf_builtin_importance": 0.029047543439045323
+    },
+    {
+      "feature": "purity_decay_pressure",
+      "permutation_importance_mean": 0.043778269047585805,
+      "permutation_importance_std": 0.0014120473999277552,
+      "rf_builtin_importance": 0.09088167648832406
+    },
+    {
+      "feature": "decoherence_pressure",
+      "permutation_importance_mean": 0.04241673644912917,
+      "permutation_importance_std": 0.0008427992722872676,
+      "rf_builtin_importance": 0.02827847801455493
+    },
+    {
+      "feature": "B_stat",
+      "permutation_importance_mean": 0.029803472069258614,
+      "permutation_importance_std": 0.0011446089613521102,
+      "rf_builtin_importance": 0.022142868366777115
+    },
+    {
+      "feature": "lindblad_norm0",
+      "permutation_importance_mean": 0.021977407803043986,
+      "permutation_importance_std": 0.0009970791712576505,
+      "rf_builtin_importance": 0.01615902151113835
+    }
+  ]
+}
