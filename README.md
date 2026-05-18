@@ -2448,6 +2448,70 @@ generated locally by the script.
 
 ---
 
+### Extra Framework Paper — Generator Stationarity and Dynamical Defect-Field Geometry
+**Generator Stationarity and Dynamical Defect-Field Geometry:**  
+*Refining Structural Selection for Evolving Systems (MAAT v1.5)*
+
+**Core idea:** Consolidates the next MAAT version after v1.4/v1.4.1.
+The central update is that structural supports should be defined relative to
+the generator that preserves, damps, transports, or destabilises them. Static
+support definitions are therefore not enough; they must pass a
+generator-stationarity sanity check.
+
+**Key rule:**
+
+```text
+A support coordinate should measure what the dynamics preserve,
+not merely what looks balanced in a static snapshot.
+```
+
+**v1.5 master functional:**
+
+```text
+F_MAAT^(1.5)
+= F_mean + F_tail + F_cluster + F_scale + F_stat
+```
+
+where `F_stat` measures stationarity defects relative to a domain generator
+`G`, such as a Lindbladian, Hamiltonian, field-equation residual, solver
+transition rule, coarse-graining map, or nonlinear flow.
+
+**Core result from Paper 58 motivating v1.5:**
+
+```text
+B_pop  = 1 - |p0 - p1|
+B_stat = 1 / (1 + 2 |dp/dt|_0 + 0.35 |d Tr(rho^2)/dt|_0)
+```
+
+Stationarity balance outperforms population balance for open quantum
+pointer robustness:
+
+| Comparison | Result |
+|------------|-------:|
+| Scalar stationarity R2 | `0.6457` |
+| Scalar population balance R2 | `0.4561` |
+| Improvement | `Delta R2 = +0.1896` |
+
+**Key finding:**
+> MAAT v1.5 turns the defect-field programme from a static structural language
+> into a generator-aware structural language. Balance should track
+> stationarity under the relevant dynamics, not mere static equality.
+
+**Scientific status:** This is a formal framework note, not a new empirical
+benchmark and not a microscopic derivation of the defect sectors. It tightens
+the operational definition of supports by requiring generator-aware
+validation.
+
+**Reproducibility anchor:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/open_quantum_pointer_paper58/` | Paper-58 Lindblad benchmark motivating the v1.5 stationarity rule |
+
+**Documentation PDF:** `documentation/MAAT_v15_Generator_Stationarity_and_Dynamical_Defect_Fields.pdf`
+
+---
+
 ### Extra Mathematical Diagnostic Paper — Riemann Zeta Critical-Line Diagnostic
 **A Structural Selection Diagnostic on the Riemann Zeta Critical Line**  
 *A purely diagnostic, non-proof toy experiment with controls, ablations, and pair-correlation tests*
