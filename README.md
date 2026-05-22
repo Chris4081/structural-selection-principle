@@ -2512,6 +2512,91 @@ validation.
 
 ---
 
+### Extra Framework + Experiment Paper — Structural Search Geometry
+**Structural Search Geometry:**  
+*A MAAT v1.6 Framework Note with a Toy Search Benchmark*
+
+**Core idea:** Reframes MAAT from state ranking alone into a search-geometry
+layer over complex candidate spaces. Defect supports become
+priority-modulating coordinates for proof search, SAT search, mathematical discovery, AI
+representation search, physical configuration search, and scientific
+hypothesis search.
+
+**v1.6 design rule:**
+
+```text
+Use structural supports to modulate verification-driven search.
+Do not let structural support replace the target, proof obligation,
+or validation criterion.
+```
+
+**Search functional:**
+
+```text
+F_search(x)
+= lambda_D d_ver(x)
+ + lambda_E E(x)
+ + lambda_M[-sum_a log(epsilon + Gamma_a(x))]
+ + lambda_R(1 - R_rob(x))
+ - lambda_V V(x)
+```
+
+where `d_ver` is the distance to the verification target, `E` is a domain
+objective or energy proxy, and `V` rewards bridge-like or connective search
+positions.
+
+**Toy benchmark:** Synthetic graph-search spaces with four families:
+`smooth`, `trap`, `bridge`, and `trap_bridge`.
+
+**Core results:**
+
+| Algorithm | Success rate | Median expansions |
+|-----------|-------------:|------------------:|
+| distance-only | `1.000` | `59.0` |
+| connectivity-only | `1.000` | `59.0` |
+| MAAT v1.6 anchored | `1.000` | `92.0` |
+| energy-only | `1.000` | `106.0` |
+| MAAT v1.6 heavy | `1.000` | `234.0` |
+| random frontier | `0.741` | `702.5` |
+
+**Key finding:** Anchored structural search improves over energy-only search in
+trap-like landscapes (`84.5` vs `150.5` median expansions in `trap`; `92.0`
+vs `183.5` in `trap_bridge`; roughly 44--50% fewer median expansions) but does
+not beat simple distance/connectivity baselines on clean grid tasks. This is
+expected because the target is visible, Euclidean distance is cheap, and the
+bridges are simple graph bottlenecks. Heavy structural weighting is harmful.
+This turns v1.6 into a constrained search-geometry programme rather than a
+broad claim about universal discovery.
+
+**Scientific status:** Toy benchmark and framework note. It is not an
+algorithmic optimality proof and not evidence that MAAT outperforms classical
+search heuristics in general. The next meaningful tests should use richer
+spaces where local evaluation is costly or noisy and bridges are not visible
+as simple geometric bottlenecks: theorem-search graphs, CDCL/SAT state spaces,
+graph-construction problems, model-configuration spaces, or optimisation tasks
+with expensive validation.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/structural_search_geometry_v16/` | MAAT v1.6 structural search toy benchmark, CSV/JSON outputs, and figures |
+
+Run:
+
+```bash
+cd experiments/structural_search_geometry_v16
+python3 structural_search_geometry_v16.py
+```
+
+**Data attribution and license note:** No external dataset is redistributed.
+All CSV/JSON/PNG files are derived reproducibility artifacts generated from
+synthetic search-space instances.
+
+**Documentation PDF:** `documentation/MAAT_v16_Structural_Search_Geometry.pdf`
+
+---
+
 ### Extra Methodology Paper — Ranking Mathematical Candidates
 **Ranking Mathematical Candidates:**  
 *A Structural Selection Layer for Discovery and Counterexample Search*
