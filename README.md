@@ -2512,6 +2512,66 @@ validation.
 
 ---
 
+### Extra Methodology Paper — Ranking Mathematical Candidates
+**Ranking Mathematical Candidates:**  
+*A Structural Selection Layer for Discovery and Counterexample Search*
+
+**Core idea:** Uses the 2026 OpenAI unit-distance breakthrough as motivation
+for a general MAAT-style discovery layer. It proposes that MAAT can help rank
+mathematical candidates before proof by scoring logical coherence, constraint
+balance, constructive novelty, cross-domain connectivity, and verification
+robustness. The paper does **not** reproduce or verify the OpenAI proof.
+
+**Discovery functional:**
+
+```text
+F_MAAT^disc[X]
+= - sum_{a in {H,B,S,V}} lambda_a log(epsilon + Gamma_a[X])
+  - lambda_cl log(epsilon + R_rob[X])
+```
+
+where lower score means higher structural support for further proof effort,
+not mathematical truth.
+
+**Key workflow:**
+
+```text
+generate broadly
+-> select structurally
+-> prove rigorously
+-> verify independently
+```
+
+**Key finding:**
+> MAAT does not prove the theorem; it ranks which mathematical structures are
+> worth trying to prove.
+
+**Bridge-detection update:** The paper expands the connectivity sector into
+four bridge quantities: reach, preservation, yield, and translation cost. This
+turns the OpenAI-style lesson into an operational question: which external
+structure preserves the conjecture's constraints while changing the growth
+mechanism?
+
+**Toy example:** The paper includes a minimal extremal-graph benchmark
+template. Candidate graph families are ranked by forbidden-condition
+violations, edge-target balance, construction degrees of freedom,
+cross-domain bridge support, and perturbation robustness, then compared
+against known-family and random-search baselines. A small-n implementation
+could enumerate labelled or isomorphism-reduced candidates for `n <= 10`,
+enumerate restricted construction families up to `n <= 12`, sample larger
+cases up to about `n <= 20`, and use subgraph counting, single-edge
+perturbation tests, random edge-sampling, graph-feature distance from known
+families, and edge-baseline improvements.
+
+**Scientific status:** Conceptual methodology paper. It is a search-prior and
+robustness-audit proposal for AI-assisted mathematics, not a theorem prover,
+not a verification system, and not a claim to reproduce the OpenAI
+unit-distance construction.
+
+**Documentation PDF:** `documentation/Structural_Selection_for_Mathematical_Discovery.pdf`
+
+---
+
 ### Extra Mathematical Diagnostic Paper — Riemann Zeta Critical-Line Diagnostic
 **A Structural Selection Diagnostic on the Riemann Zeta Critical Line**  
 *A purely diagnostic, non-proof toy experiment with controls, ablations, and pair-correlation tests*
