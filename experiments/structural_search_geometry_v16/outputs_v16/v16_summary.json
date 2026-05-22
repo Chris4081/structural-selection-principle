@@ -1,0 +1,87 @@
+{
+  "benchmark": "MAAT v1.6 structural search geometry toy benchmark",
+  "grid_n": 34,
+  "instances_per_family": 14,
+  "budget": 850,
+  "families": [
+    "bridge",
+    "smooth",
+    "trap",
+    "trap_bridge"
+  ],
+  "algorithms": [
+    "connectivity_only",
+    "distance_only",
+    "energy_only",
+    "maat_v16_anchored",
+    "maat_v16_heavy",
+    "random_frontier"
+  ],
+  "aggregate": [
+    {
+      "algorithm": "connectivity_only",
+      "success_rate": 1.0,
+      "median_expansions": 59.0,
+      "mean_expansions": 60.142857142857146,
+      "n_runs": 56
+    },
+    {
+      "algorithm": "distance_only",
+      "success_rate": 1.0,
+      "median_expansions": 59.0,
+      "mean_expansions": 60.142857142857146,
+      "n_runs": 56
+    },
+    {
+      "algorithm": "maat_v16_anchored",
+      "success_rate": 1.0,
+      "median_expansions": 92.0,
+      "mean_expansions": 92.01785714285714,
+      "n_runs": 56
+    },
+    {
+      "algorithm": "energy_only",
+      "success_rate": 1.0,
+      "median_expansions": 106.0,
+      "mean_expansions": 115.39285714285714,
+      "n_runs": 56
+    },
+    {
+      "algorithm": "maat_v16_heavy",
+      "success_rate": 1.0,
+      "median_expansions": 234.0,
+      "mean_expansions": 231.89285714285714,
+      "n_runs": 56
+    },
+    {
+      "algorithm": "random_frontier",
+      "success_rate": 0.7410714285714286,
+      "median_expansions": 702.5,
+      "mean_expansions": 672.8794642857143,
+      "n_runs": 448
+    }
+  ],
+  "best_by_family": {
+    "bridge": {
+      "algorithm": "connectivity_only",
+      "success_rate": 1.0,
+      "median_expansions": 59.0
+    },
+    "smooth": {
+      "algorithm": "distance_only",
+      "success_rate": 1.0,
+      "median_expansions": 59.0
+    },
+    "trap": {
+      "algorithm": "distance_only",
+      "success_rate": 1.0,
+      "median_expansions": 59.0
+    },
+    "trap_bridge": {
+      "algorithm": "connectivity_only",
+      "success_rate": 1.0,
+      "median_expansions": 59.0
+    }
+  },
+  "scientific_status": "Toy benchmark. It tests search-navigation behaviour on synthetic trap and bridge landscapes; it is not an optimality proof."
+}
