@@ -2752,6 +2752,74 @@ conditions. CSV/JSON/PNG outputs are derived reproducibility artifacts.
 
 ---
 
+### Extra Phenomenological Paper — BKM-Aware MAAT Diagnostics for Navier-Stokes
+**BKM-Aware MAAT Diagnostics for Navier--Stokes:**  
+*A Phenomenological Structural-Action Test on Taylor--Green Vortices*
+
+**Core idea:** Operationalises the symbolic expression
+
+```text
+ToE_MAAT = integral [ (H+B+S+V+R) * Z * cascade_resistance ]
+                    / [ DeltaE + DeltaQ + D0 ] dt
+```
+
+as a reproducible 3D incompressible Navier--Stokes diagnostic. The symbolic
+`cascade_resistance` term is implemented as cascade/tail resistance coupled to
+vorticity-stretching pressure, while `D0=11` is a fixed dimensionless baseline
+penalty.
+
+**Scientific status:** Phenomenological diagnostic note, not a proof of
+Navier--Stokes regularity.
+The purpose is to test whether MAAT v1.6 structural coordinates can act as
+BKM-aware warning coordinates along a Taylor-Green vortex trajectory.
+
+**Core results:**
+
+| Scenario | min `R_rob` | max warning | final `ToE_MAAT` action | warning vs stretching |
+|----------|------------:|------------:|------------------------:|----------------------:|
+| moderate viscosity | `0.9029` | `0.1677` | `0.9567` | `0.9912` |
+| low viscosity / high stress | `0.7578` | `0.5692` | `0.6786` | `1.0000` |
+
+**Key finding:**
+> The MAAT warning does not simply duplicate the vorticity infinity norm. In
+> this toy 3D setting it aligns much more strongly with vortex-stretching
+> pressure, while the integrated `ToE_MAAT` action is larger for the more
+> coherent moderate-viscosity trajectory.
+
+**Structural value added:** The diagnostic points to a genuinely
+three-dimensional stress channel instead of merely renaming a standard
+vorticity monitor.
+
+**Interpretation guardrail:** The observed correlations should not be
+interpreted as evidence for singularity prediction. They indicate only that the
+structural diagnostic appears sensitive to the dynamically relevant stretching
+channel in these controlled toy trajectories.
+
+**Scope note:** Only two Taylor-Green trajectories are tested. The high
+correlations are proof-of-concept evidence for the diagnostic channel, not broad
+turbulence evidence.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/navier_stokes_maat_regularization/` | 3D Taylor-Green Navier--Stokes solver, MAAT/BKM diagnostics, symbolic action outputs, and plots |
+
+Run:
+
+```bash
+cd experiments/navier_stokes_maat_regularization
+python3 navier_stokes_maat_regularization.py
+```
+
+**Data attribution and license note:** No external fluid dataset is
+redistributed. Velocity fields are generated locally from Taylor-Green initial
+conditions. CSV/JSON/PNG files are derived reproducibility artifacts.
+
+**Documentation PDF:** `documentation/Phenomenological_MAAT_Navier_Stokes_Regularity_Functional.pdf`
+
+---
+
 ### Extra Methodology Paper — Ranking Mathematical Candidates
 **Ranking Mathematical Candidates:**  
 *A Structural Selection Layer for Discovery and Counterexample Search*
