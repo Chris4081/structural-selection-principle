@@ -2682,6 +2682,76 @@ CSV/JSON/PNG outputs are derived reproducibility artifacts.
 
 ---
 
+### Paper 60 — Fluid Coherence and Blow-up Diagnostics
+**Fluid Coherence and Blow-up Diagnostics:**  
+*A MAAT Early-Warning Benchmark for Burgers and Navier--Stokes Toy Flows*
+
+**Core idea:** Tests whether MAAT-style structural supports can act as
+early-warning diagnostics for fluid steepening and turbulence-like activity.
+The paper is explicitly not a Navier--Stokes regularity proof. It uses
+viscous Burgers as a finite-gradient warning proxy and unforced 2D
+Navier--Stokes as a regular control case.
+
+**Operational supports:**
+
+```text
+H      equation-residual consistency
+B      energy/enstrophy balance consistency
+S_eff  controlled activity pressure
+V      low-mode spectral coherence
+R_rob  v1.2.1 robustness closure
+W_MAAT robustness-loss warning with spectral-tail pressure
+```
+
+**Core results:**
+
+| Quantity | Result |
+|----------|-------:|
+| Burgers inviscid shock time | `1.3334` |
+| Burgers first 70% warning time | `1.1600` |
+| Burgers warning lead time | `0.1734` |
+| Spearman warning vs max gradient | `0.8413` |
+| Pre-shock warning vs inverse time-to-shock | `0.9952` |
+| 2D Navier-Stokes false high-warning fraction | `0.0000` |
+| 2D Navier-Stokes minimum robustness | `0.8956` |
+
+**Key finding:**
+> MAAT fluid supports can track loss of structural coherence in a Burgers
+> shock-warning setting while remaining bounded in a regular 2D
+> Navier--Stokes control. This supports structural early-warning diagnostics,
+> not a proof of fluid regularity.
+
+**Interpretation note:** The Burgers correlation is partly expected because the
+warning includes activity pressure and spectral-tail growth. The stronger
+control result is the bounded no-false-alarm behaviour in the regular 2D
+Navier--Stokes run.
+
+**Scientific status:** Toy diagnostic benchmark. The Burgers test provides a
+known finite-gradient warning target; the 2D Navier--Stokes run is a regular
+control, not a 3D blow-up test. A serious next step would use forced turbulence,
+vortex-stretching proxies, adaptive simulations, or public DNS datasets.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/fluid_blowup_diagnostics_paper60/` | Paper-60 Burgers and 2D Navier--Stokes diagnostic benchmark, CSV/JSON outputs, and plots |
+
+Run:
+
+```bash
+cd experiments/fluid_blowup_diagnostics_paper60
+python3 fluid_blowup_diagnostics_paper60.py
+```
+
+**Data attribution and license note:** No external fluid dataset is
+redistributed. All fields are generated locally from synthetic initial
+conditions. CSV/JSON/PNG outputs are derived reproducibility artifacts.
+
+**Documentation PDF:** `documentation/60_MAAT_Fluid_Coherence_Blowup_Diagnostics.pdf`
+
+---
+
 ### Extra Methodology Paper — Ranking Mathematical Candidates
 **Ranking Mathematical Candidates:**  
 *A Structural Selection Layer for Discovery and Counterexample Search*
