@@ -1,0 +1,24 @@
+{
+  "paper": 60,
+  "title": "MAAT Fluid Coherence and Blow-up Diagnostics",
+  "status": "toy diagnostic benchmark, not a Navier-Stokes regularity proof",
+  "burgers": {
+    "shock_time_inviscid": 1.3334230027831278,
+    "max_gradient_final": 6.619698472656709,
+    "max_warning": 0.23887362641984114,
+    "first_70pct_warning_time": 1.16,
+    "warning_lead_time_before_inviscid_shock": 0.17342300278312783,
+    "spearman_warning_vs_max_gradient": 0.8413418635740204,
+    "spearman_pre_shock_warning_vs_time_to_shock_inverse": 0.9951995694369694,
+    "min_R_rob": 0.8399081493397148
+  },
+  "navier_stokes_2d": {
+    "initial_enstrophy": 0.4992860633163884,
+    "final_enstrophy": 0.3988419661964011,
+    "max_palinstrophy": 8.4776591924002,
+    "max_warning": 0.1499025156145638,
+    "min_R_rob": 0.8956030524197758,
+    "spearman_warning_vs_palinstrophy": 0.9995079507950795,
+    "false_high_warning_fraction_gt_1": 0.0
+  }
+}
