@@ -2597,6 +2597,91 @@ synthetic search-space instances.
 
 ---
 
+### Paper 59 — MAAT v1.6 Guided SAT Search
+**MAAT v1.6 Guided SAT Search:**  
+*Structural Search Geometry for Transparent DPLL Branching*
+
+**Core idea:** Moves the SAT programme from passive hardness prediction to
+active search steering. A transparent DPLL solver with unit propagation uses
+MAAT v1.6 structural-search coordinates as a branching heuristic and compares
+them against classical baselines.
+
+**Scope:** This is not a proof of `P != NP`, not a CDCL solver competition, and
+not a replacement for modern solvers such as Glucose, MiniSat, CaDiCaL, or
+Kissat. It is a controlled first test of whether structural search geometry
+can provide active branching signal.
+
+**Tested heuristics:**
+
+```text
+first, random, degree, Jeroslow-Wang, MOMS,
+MAAT v1.6 branch, MAAT v1.6 heavy
+```
+
+**Core aggregate results:**
+
+| Heuristic | Solved rate | Median decisions | Median conflicts | Median log cost |
+|-----------|------------:|-----------------:|-----------------:|----------------:|
+| MOMS | `1.000` | `9.0` | `2.0` | `2.6283` |
+| Jeroslow-Wang | `1.000` | `11.0` | `2.0` | `2.7788` |
+| MAAT v1.6 branch | `1.000` | `12.0` | `2.0` | `2.9178` |
+| MAAT v1.6 heavy | `1.000` | `12.0` | `2.0` | `2.9232` |
+| Degree | `1.000` | `14.0` | `3.0` | `3.0587` |
+| First | `0.993` | `17.0` | `6.0` | `3.2696` |
+| Random | `1.000` | `18.0` | `5.0` | `3.3087` |
+
+**Key finding:**
+> MAAT v1.6 provides a usable structural branching signal: it beats degree,
+> first-unassigned, and random branching in aggregate. In its present form,
+> however, it does not yet compete with the strongest SAT-specific heuristics
+> tested here, MOMS and Jeroslow-Wang.
+
+**Important negative control:** The heavy MAAT variant is slightly worse than
+the anchored MAAT brancher (`2.9232` vs. `2.9178` median log cost). This
+supports the v1.6 lesson that structural search geometry must remain anchored
+to immediate verification pressure; increasing structural weight alone does not
+automatically improve search.
+
+**Graphical representation:** Paper 59 now also includes SAT graph
+visualisations analogous in spirit to dense mathematical graph drawings:
+variable co-occurrence graphs, clause-variable bipartite graphs, and a
+branching-component plot. These figures act as root-state feature maps:
+they show visible structural pressure points and connect them to verification
+gain, short-clause pressure, connectivity, and robustness closure. The numerical
+results then show the limit of that signal: useful, but still weaker than
+short-clause-specialised SAT heuristics.
+
+**Scientific status:** First active SAT-search benchmark in the MAAT series.
+The solver is DPLL with unit propagation only; there is no clause learning,
+restart policy, VSIDS, LRB, CHB, or phase saving.
+The generated benchmark is light-to-moderate rather than adversarially hard:
+most nontrivial heuristics solve almost all instances, so the experiment
+primarily measures branching-cost ordering rather than hard timeout separation.
+The improvement over degree, first-unassigned, and random is therefore a
+moderate positive signal, not a scalability claim.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/sat_v16_guided_search_paper59/` | Paper-59 DPLL branching benchmark, generated SAT families, heuristic comparisons, figures, CSV/JSON outputs |
+
+Run:
+
+```bash
+cd experiments/sat_v16_guided_search_paper59
+python3 sat_v16_guided_search_paper59.py
+python3 sat_v16_structure_visualization.py
+```
+
+**Data attribution and license note:** No external CNF dataset is redistributed.
+Instances are generated locally from standard synthetic SAT-family generators.
+CSV/JSON/PNG outputs are derived reproducibility artifacts.
+
+**Documentation PDF:** `documentation/59_MAAT_v16_Guided_SAT_Search.pdf`
+
+---
+
 ### Extra Methodology Paper — Ranking Mathematical Candidates
 **Ranking Mathematical Candidates:**  
 *A Structural Selection Layer for Discovery and Counterexample Search*
