@@ -1,0 +1,103 @@
+{
+  "paper": "Paper 59 - MAAT v1.6 Guided SAT Search",
+  "status": "Transparent DPLL + unit propagation benchmark. Not a P vs NP claim, not a CDCL competition, and not a modern SAT-solver replacement.",
+  "decision_budget": 5500,
+  "n_instances": 141,
+  "heuristics": [
+    "degree",
+    "first",
+    "jeroslow_wang",
+    "maat_v16_branch",
+    "maat_v16_heavy",
+    "moms",
+    "random"
+  ],
+  "families": [
+    "graph_coloring",
+    "modular_3sat",
+    "pigeonhole",
+    "planted_3sat",
+    "random_3sat",
+    "xor3_cnf"
+  ],
+  "aggregate": [
+    {
+      "heuristic": "moms",
+      "solved_rate": 1.0,
+      "timeout_rate": 0.0,
+      "median_decisions": 9.0,
+      "median_conflicts": 2.0,
+      "median_cost": 2.6282852326333477,
+      "mean_cost": 2.7501621070093125,
+      "n_runs": 141
+    },
+    {
+      "heuristic": "jeroslow_wang",
+      "solved_rate": 1.0,
+      "timeout_rate": 0.0,
+      "median_decisions": 11.0,
+      "median_conflicts": 2.0,
+      "median_cost": 2.7788192719904172,
+      "mean_cost": 2.883224155153325,
+      "n_runs": 141
+    },
+    {
+      "heuristic": "maat_v16_branch",
+      "solved_rate": 1.0,
+      "timeout_rate": 0.0,
+      "median_decisions": 12.0,
+      "median_conflicts": 2.0,
+      "median_cost": 2.917770732084279,
+      "mean_cost": 2.9632373319981853,
+      "n_runs": 141
+    },
+    {
+      "heuristic": "maat_v16_heavy",
+      "solved_rate": 1.0,
+      "timeout_rate": 0.0,
+      "median_decisions": 12.0,
+      "median_conflicts": 2.0,
+      "median_cost": 2.9231615807191558,
+      "mean_cost": 3.004625146159231,
+      "n_runs": 141
+    },
+    {
+      "heuristic": "degree",
+      "solved_rate": 1.0,
+      "timeout_rate": 0.0,
+      "median_decisions": 14.0,
+      "median_conflicts": 3.0,
+      "median_cost": 3.0587070727153796,
+      "mean_cost": 3.0543801528785917,
+      "n_runs": 141
+    },
+    {
+      "heuristic": "first",
+      "solved_rate": 0.9929078014184397,
+      "timeout_rate": 0.0070921985815602835,
+      "median_decisions": 17.0,
+      "median_conflicts": 6.0,
+      "median_cost": 3.269568939183719,
+      "mean_cost": 3.466483710794106,
+      "n_runs": 141
+    },
+    {
+      "heuristic": "random",
+      "solved_rate": 1.0,
+      "timeout_rate": 0.0,
+      "median_decisions": 18.0,
+      "median_conflicts": 5.0,
+      "median_cost": 3.3087165288679903,
+      "mean_cost": 3.4586530722863245,
+      "n_runs": 141
+    }
+  ],
+  "paired_cost_differences": {
+    "maat_minus_degree_median": -0.009108716198240163,
+    "maat_better_than_degree_fraction": 0.524822695035461,
+    "maat_minus_jeroslow_wang_median": 0.0,
+    "maat_better_than_jeroslow_wang_fraction": 0.16312056737588654,
+    "maat_minus_moms_median": 0.13439756851237172,
+    "maat_better_than_moms_fraction": 0.19858156028368795
+  }
+}
