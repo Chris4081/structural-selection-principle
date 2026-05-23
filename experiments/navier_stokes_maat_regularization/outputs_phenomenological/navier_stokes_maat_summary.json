@@ -1,0 +1,41 @@
+{
+  "paper": "extra_phenomenological",
+  "title": "BKM-Aware MAAT Diagnostics for Navier-Stokes",
+  "status": "3D spectral diagnostic programme, not a proof",
+  "symbolic_formula": "ToE_MAAT = integral [ (H+B+S+V+R)*Z*cascade_resistance ] / (DeltaE+DeltaQ+D0) dt",
+  "D0_fixed_baseline_penalty": 11.0,
+  "scenarios": [
+    {
+      "scenario": "taylor_green_moderate_viscosity",
+      "viscosity": 0.02,
+      "amplitude": 1.0,
+      "final_energy": 0.08943543591139001,
+      "max_omega_inf": 1.99604619009343,
+      "final_BKM_integral": 3.6936891083205348,
+      "min_R_rob": 0.902921314252193,
+      "max_warning": 0.16767961238604134,
+      "final_ToE_MAAT_action": 0.9566784523367076,
+      "final_warning_action": 0.10517496539001489,
+      "max_spectral_tail_fraction": 0.0012986764267282492,
+      "spearman_warning_vs_omega_inf": -0.753328645100797,
+      "spearman_warning_vs_stretch": 0.9912095639943741,
+      "spearman_toe_integrand_vs_Rrob": 0.9410689170182841
+    },
+    {
+      "scenario": "taylor_green_low_viscosity_high_stress",
+      "viscosity": 0.006,
+      "amplitude": 1.25,
+      "final_energy": 0.18088004520928383,
+      "max_omega_inf": 2.4991495003810726,
+      "final_BKM_integral": 3.7750362938376623,
+      "min_R_rob": 0.7578367992317394,
+      "max_warning": 0.5692314448200195,
+      "final_ToE_MAAT_action": 0.6786012712981195,
+      "final_warning_action": 0.21244454282811087,
+      "max_spectral_tail_fraction": 0.0037191175634604355,
+      "spearman_warning_vs_omega_inf": -0.47925550385443433,
+      "spearman_warning_vs_stretch": 1.0,
+      "spearman_toe_integrand_vs_Rrob": 1.0
+    }
+  ]
+}
