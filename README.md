@@ -2820,6 +2820,108 @@ conditions. CSV/JSON/PNG files are derived reproducibility artifacts.
 
 ---
 
+### Extra Phenomenological Paper — Dark Matter Residuals as Structural Coherence Diagnostics
+**Dark Matter Residuals as Structural Coherence Diagnostics in MAAT v1.6:**  
+*A Phenomenological Interpretation of Galactic Rotation Residuals*
+
+**Core idea:** Interprets the galactic dark-matter signal as a structural
+coherence residual, not as a claim against particle dark matter.  In MAAT v1.6,
+the effective residual
+
+```text
+v_dark^2(r) = max(v_obs^2(r) - v_baryon^2(r), 0)
+```
+
+marks where the visible baryonic state fails to close the observed
+gravitational trajectory.  The paper asks how this residual can be read as a
+structural support channel in gravitational search geometry.
+
+**Scientific status:** Phenomenological diagnostic note, not a galaxy fit, not
+a dark-matter particle model, and not a replacement for Lambda-CDM or cold dark
+matter.  The result is compatible with particle dark matter: a particle halo
+would be one possible microscopic carrier of the residual channel.
+
+**Important caveat:** The benchmark is intentionally weak and synthetic.  It
+does not add a new empirical dark-matter result beyond the familiar
+rotation-curve residual.  Its value is to make the residual explicit as a
+MAAT v1.6 structural diagnostic and to define what a nontrivial real-data test
+would require.
+
+**Core diagnostic:**
+
+```text
+D_struct(r) = f_res(r) * R_rob(r) * V(r)
+```
+
+where `f_res` is the inferred dark residual fraction, `R_rob` is the MAAT
+robustness closure, and `V` measures connectedness between baryonic structure
+and residual-density shape.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|-------:|
+| max observed velocity | `204.9972 km/s` |
+| outer mean residual fraction | `0.8802` |
+| outer mean robustness | `0.7806` |
+| transition peak structural dark support | `0.3486` |
+| peak-support radius | `20.3782 kpc` |
+| mean `H` | `1.0000` |
+| mean `B` | `0.9060` |
+| mean `S_eff` | `0.7506` |
+| mean `V` | `0.5919` |
+| mean `R_rob` | `0.7611` |
+
+**Key finding:**
+> Dark matter can be described, at the phenomenological level, as the
+> gravitationally inferred structural residual required for galactic dynamical
+> coherence.  This statement is structural, not microscopic.
+
+**Interpretation guardrail:** The paper does not claim that dark matter is
+``only structure''.  It says that any successful microscopic dark-sector
+theory must carry the residual gravitational structure while preserving
+coherence, balance, connectedness, and robustness.
+
+**Required next tests:** Real rotation-curve samples, comparison against halo
+and MOND-like baselines, lensing residuals, cluster systems, CMB constraints,
+and large-scale-structure growth.  Without those tests this remains a
+conceptual translation layer, not a competing dark-matter model.
+
+**SPARC/NFW/MOND upgrade protocol:** The paper now specifies a concrete
+real-data path: use SPARC rotation curves and baryonic mass models, compare the
+MAAT structural residual against NFW halo fits, MOND/RAR baselines, and
+published SPARC multi-halo catalogues, and predeclare shuffled-radius and
+shuffled-galaxy null tests.
+
+**Future data attribution:** This repository version does not redistribute
+SPARC data.  If SPARC is added later, cite Lelli, McGaugh, and Schombert
+(2016), the Zenodo DOI `10.5281/zenodo.16284118` when using the Zenodo record,
+respect its CC-BY-4.0 attribution requirement, and include the standard
+VizieR/CDS acknowledgment if the VizieR route is used.  Derived MAAT CSV/PNG
+artifacts must be clearly separated from original SPARC measurements.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/dark_matter_structural_coherence/` | Synthetic rotation-curve toy model, inferred dark residual, MAAT support diagnostics, CSV/JSON outputs, and plots |
+
+Run:
+
+```bash
+cd experiments/dark_matter_structural_coherence
+python3 dark_matter_structural_coherence.py
+```
+
+**Data attribution and license note:** No external astronomical dataset is
+redistributed.  The rotation curve, baryonic profile, residual profile, CSV
+tables, JSON summary, and figures are synthetic reproducibility artifacts
+generated locally by the script.
+
+**Documentation PDF:** `documentation/Phenomenological_MAAT_Dark_Matter_Structural_Coherence.pdf`
+
+---
+
 ### Extra Methodology Paper — Ranking Mathematical Candidates
 **Ranking Mathematical Candidates:**  
 *A Structural Selection Layer for Discovery and Counterexample Search*
