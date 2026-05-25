@@ -1,0 +1,15 @@
+{
+  "paper": "extra_phenomenological",
+  "title": "Dark Matter as Structural Coherence Residual in MAAT v1.6",
+  "status": "toy phenomenological diagnostic, not a replacement for particle dark matter",
+  "max_observed_velocity_km_s": 204.99719678980654,
+  "outer_mean_residual_fraction": 0.8802347649532545,
+  "outer_mean_R_rob": 0.7805753817461806,
+  "transition_peak_structural_dark_support": 0.34864539007760553,
+  "radius_peak_structural_dark_support_kpc": 20.378242677824268,
+  "mean_H": 0.9999999999999958,
+  "mean_B": 0.9060182960955038,
+  "mean_S_eff": 0.7505567596395333,
+  "mean_V": 0.5919364815801004,
+  "mean_R_rob": 0.7610805789479603
+}
