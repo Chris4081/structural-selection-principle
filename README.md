@@ -2766,6 +2766,9 @@ baseline mismatch channels plus shuffled-galaxy nulls.
 a dark-matter solution.  The NFW channel is lightweight, stellar
 mass-to-light factors are fixed, and the result must be checked against
 published SPARC halo catalogues.
+This is a feasibility and signal test: it shows applicability to real data and
+non-random structure, not superiority over professional halo or MOND/RAR
+analyses.
 
 **Core diagnostic:**
 
@@ -2812,6 +2815,9 @@ mass-to-light factors.
 > than shuffled-galaxy nulls, indicating that the diagnostic carries
 > nontrivial SPARC-level signal.
 
+Here smaller mismatch means lower NFW-like residual-shape error or lower RAR
+velocity-residual score under simplified comparison channels.
+
 **Reproducibility:**
 
 | Folder | Role |
@@ -2843,7 +2849,9 @@ measurements from derived MAAT artifacts.
 Zenodo, VizieR, CDS, or original data providers is claimed or implied.  The
 reported numbers are pilot correlations, not a dark-matter model fit.  The
 NFW-like and MOND/RAR-like baselines are comparison diagnostics only, not full
-professional halo or modified-dynamics fits.
+professional halo or modified-dynamics fits.  Fixed
+`Upsilon_disk=0.5` and `Upsilon_bulge=0.7` are reproducible pilot
+simplifications, not fitted astrophysical parameters.
 
 **Documentation PDF:** `documentation/61_SPARC_Pilot_Test_Structural_Dark_Matter_Residuals.pdf`
 
@@ -3016,6 +3024,71 @@ tables, JSON summary, and figures are synthetic reproducibility artifacts
 generated locally by the script.
 
 **Documentation PDF:** `documentation/Phenomenological_MAAT_Dark_Matter_Structural_Coherence.pdf`
+
+---
+
+### Extra Phenomenological Paper — Global Coherence versus Local Projection Defects
+**Global Coherence versus Local Projection Defects:**  
+*Rare B-Decay Anomaly Diagnostics in MAAT v1.6*
+
+**Core idea:** Treats rare electroweak-penguin B-meson tensions as a
+structural anomaly-classification problem. The paper does **not** claim new
+physics, does **not** fit Wilson coefficients, and does **not** redistribute
+LHCb/CMS/Belle/HEPData measurements. It proposes a MAAT v1.6 pre-fit
+diagnostic layer for distinguishing coherent global residual modes from
+localized hadronic or projection-like residuals.
+
+**Diagnostic question:**
+
+```text
+Is the anomaly geometry closer to a coherent global coefficient-space defect
+or to a local q^2-dependent long-distance hadronic projection defect?
+```
+
+Here a projection defect means a charm-loop / charming-penguin-like
+long-distance hadronic residual projected onto a small set of measured angular
+observables and q² bins, not a new fundamental field.
+
+**Toy benchmark results:**
+
+| Scenario | Globality | Locality |
+|----------|-----------|----------|
+| Coherent Wilson-shift toy pattern | `0.9161` | `0.1586` |
+| Localized charm-like projection toy pattern | `0.0139` | `0.6894` |
+| Mixed coherent plus local toy pattern | `0.6594` | `0.4178` |
+
+**Bin-shuffled null control:** The toy code additionally preserves residual
+amplitudes while shuffling q²-bin coherence. The shuffled null raises the mean
+diagnostic cost by `+0.1823` for the coherent Wilson-shift toy pattern,
+`+2.0578` for the localized charm-like pattern, and `+1.8338` for the mixed
+pattern.
+
+**Scientific status:** Synthetic diagnostic protocol only. The benchmark uses
+generated toy residual patterns and is not a particle-physics data analysis.
+
+**Scripts and reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/rare_b_decay_anomaly_diagnostics/` | Synthetic q^2 residual-pattern benchmark, MAAT v1.6 diagnostic supports, CSV/JSON outputs, and plots |
+
+Run:
+
+```bash
+cd experiments/rare_b_decay_anomaly_diagnostics
+python3 rare_b_decay_anomaly_diagnostics.py
+```
+
+**Data attribution and license note:** No external experimental data are
+redistributed. No CERN, LHCb, Nature, Physical Review Letters, or HEPData
+figures, tables, images, or long text passages are reused. Any future use of
+LHCb, CMS, Belle, Belle II, or HEPData tables, covariance matrices, plots, or
+figures must cite the relevant collaboration papers and comply with the
+corresponding data and figure licenses. No endorsement by CERN, LHCb, CMS,
+Belle, Belle II, HEPData, Physical Review Letters, Nature, or the cited authors
+is implied.
+
+**Documentation PDF:** `documentation/Phenomenological_MAAT_Rare_B_Decay_Anomaly_Diagnostics.pdf`
 
 ---
 
