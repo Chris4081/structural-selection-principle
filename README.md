@@ -2752,6 +2752,103 @@ conditions. CSV/JSON/PNG outputs are derived reproducibility artifacts.
 
 ---
 
+### Paper 61 — SPARC Pilot Test of Structural Dark-Matter Residuals
+**SPARC Pilot Test of Structural Dark-Matter Residuals:**  
+*A MAAT v1.6 Real-Data Bridge from Rotation-Curve Residuals to NFW/MOND Baselines*
+
+**Core idea:** Converts the previous synthetic dark-matter residual note into
+a real SPARC pilot test.  It prepares the Zenodo-hosted SPARC `Rotmod_LTG`
+rotation-curve files, computes baryonic decomposition and MAAT residual
+supports, and compares the structural residual against NFW-like and MOND/RAR
+baseline mismatch channels plus shuffled-galaxy nulls.
+
+**Scientific status:** First real-data pilot, not a precision halo fit and not
+a dark-matter solution.  The NFW channel is lightweight, stellar
+mass-to-light factors are fixed, and the result must be checked against
+published SPARC halo catalogues.
+
+**Core diagnostic:**
+
+```text
+D_struct(r) = f_res(r) * R_rob(r) * V(r)
+```
+
+with
+
+```text
+v_res^2(r) = max(v_obs^2(r) - v_bar^2(r), 0)
+```
+
+where `v_bar` is computed from gas, disk, and bulge components using
+mass-to-light factors.
+
+**External baselines:**
+
+| Baseline | Role |
+|----------|------|
+| NFW-like residual fit | lightweight halo-shape comparison channel |
+| MOND/RAR proxy | acceleration-relation comparison channel |
+| shuffled-galaxy null | tests whether galaxy-level pairing carries signal |
+| future shuffled-radius null | tests whether radial structure carries signal |
+
+**SPARC pilot results:**
+
+| Quantity | Result |
+|----------|-------:|
+| SPARC galaxies | `175` |
+| radius rows | `3391` |
+| mean residual fraction | `0.5592` |
+| mean `D_struct` | `0.1652` |
+| mean `R_rob` | `0.5814` |
+| mean `V` | `0.4661` |
+| Spearman `D_struct` vs NFW-like mismatch | `-0.6378` |
+| Spearman `D_struct` vs RAR mismatch | `-0.3256` |
+| mean shuffled-null `|rho|` for NFW channel | `0.0608` |
+| mean shuffled-null `|rho|` for RAR channel | `0.0593` |
+
+**Key finding:**
+> Higher structural residual support anticorrelates with both NFW-like and
+> RAR mismatch in the SPARC pilot.  The real galaxy pairing is much stronger
+> than shuffled-galaxy nulls, indicating that the diagnostic carries
+> nontrivial SPARC-level signal.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/sparc_structural_residual_pilot_paper61/` | Paper-61 SPARC structural residual pilot, SPARC data preparation, CSV/JSON outputs, and plots |
+
+Prepare SPARC data:
+
+```bash
+cd experiments/sparc_structural_residual_pilot_paper61
+python3 prepare_sparc_rotmod.py
+```
+
+Run SPARC pilot:
+
+```bash
+cd experiments/sparc_structural_residual_pilot_paper61
+python3 sparc_structural_residual_pilot.py --input data/sparc_rotation_curves.csv --output outputs_sparc_real
+```
+
+**Data attribution and license note:** SPARC data were obtained from the
+Zenodo record `10.5281/zenodo.16284118`, which lists CC-BY-4.0.  Cite Lelli,
+McGaugh, and Schombert (2016), cite the Zenodo DOI when using the Zenodo
+record, respect the CC-BY-4.0 attribution requirement, include the VizieR/CDS
+acknowledgment if using VizieR, and clearly distinguish original SPARC
+measurements from derived MAAT artifacts.
+
+**Scope and compliance checklist:** No endorsement by the SPARC authors,
+Zenodo, VizieR, CDS, or original data providers is claimed or implied.  The
+reported numbers are pilot correlations, not a dark-matter model fit.  The
+NFW-like and MOND/RAR-like baselines are comparison diagnostics only, not full
+professional halo or modified-dynamics fits.
+
+**Documentation PDF:** `documentation/61_SPARC_Pilot_Test_Structural_Dark_Matter_Residuals.pdf`
+
+---
+
 ### Extra Phenomenological Paper — BKM-Aware MAAT Diagnostics for Navier-Stokes
 **BKM-Aware MAAT Diagnostics for Navier--Stokes:**  
 *A Phenomenological Structural-Action Test on Taylor--Green Vortices*
