@@ -1,0 +1,18 @@
+{
+  "paper": 61,
+  "title": "SPARC Pilot Protocol for Structural Dark-Matter Residuals",
+  "mode": "mock_schema_test",
+  "data_note": "No local SPARC CSV was used; generated synthetic SPARC-like schema test data.",
+  "n_galaxies": 8,
+  "n_radius_points": 272,
+  "mean_residual_fraction": 0.6619110700135122,
+  "mean_D_struct": 0.14399542564478207,
+  "mean_R_rob": 0.5307355759786652,
+  "mean_V": 0.4228945725665026,
+  "real_spearman_Dstruct_vs_nfw_chi2": -0.14285714285714288,
+  "real_spearman_Dstruct_vs_rar_residual": 0.07142857142857144,
+  "null_mean_abs_spearman_nfw": 0.2843650793650794,
+  "null_mean_abs_spearman_rar": 0.3285714285714286,
+  "n_null": 300,
+  "license_note": "This run does not redistribute SPARC data. If SPARC data are used, cite Lelli, McGaugh & Schombert (2016), cite DOI 10.5281/zenodo.16284118 for the Zenodo record when applicable, respect CC-BY-4.0 attribution, and include VizieR/CDS acknowledgment if using VizieR."
+}

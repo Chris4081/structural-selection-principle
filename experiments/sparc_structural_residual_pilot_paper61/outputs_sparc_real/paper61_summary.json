@@ -1,0 +1,18 @@
+{
+  "paper": 61,
+  "title": "SPARC Pilot Protocol for Structural Dark-Matter Residuals",
+  "mode": "real_input",
+  "data_note": "Loaded local input file: data/sparc_rotation_curves.csv",
+  "n_galaxies": 175,
+  "n_radius_points": 3391,
+  "mean_residual_fraction": 0.5591671661471309,
+  "mean_D_struct": 0.16521586764757726,
+  "mean_R_rob": 0.5814041763275228,
+  "mean_V": 0.4661081578417863,
+  "real_spearman_Dstruct_vs_nfw_chi2": -0.6377630989699956,
+  "real_spearman_Dstruct_vs_rar_residual": -0.32562695924764895,
+  "null_mean_abs_spearman_nfw": 0.06077621286759218,
+  "null_mean_abs_spearman_rar": 0.05927541424093148,
+  "n_null": 300,
+  "license_note": "If SPARC data are used or redistributed, cite Lelli, McGaugh & Schombert (2016), cite DOI 10.5281/zenodo.16284118 for the Zenodo record when applicable, respect CC-BY-4.0 attribution, and include VizieR/CDS acknowledgment if using VizieR. Derived MAAT artifacts must be distinguished from original SPARC measurements."
+}

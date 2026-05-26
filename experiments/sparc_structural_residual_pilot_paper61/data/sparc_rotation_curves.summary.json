@@ -1,0 +1,9 @@
+{
+  "input": "data/raw/Rotmod_LTG.zip",
+  "output": "data/sparc_rotation_curves.csv",
+  "n_galaxies": 175,
+  "n_rows": 3391,
+  "upsilon_disk": 0.5,
+  "upsilon_bulge": 0.7,
+  "license_note": "Prepared from SPARC Rotmod_LTG.zip. Cite Lelli, McGaugh & Schombert (2016). If using the Zenodo record, cite DOI 10.5281/zenodo.16284118 and respect CC-BY-4.0 attribution."
+}
