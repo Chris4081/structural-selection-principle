@@ -1,0 +1,114 @@
+{
+  "status": "synthetic_toy_only_no_lhcb_data",
+  "rng_seed": 4081,
+  "n_shuffles": 200,
+  "n_q2_bins": 12,
+  "observables": [
+    "P5prime",
+    "BR",
+    "FL"
+  ],
+  "best_supported_scenario_by_F_diag": "mixed_coherent_plus_local",
+  "highest_globality_scenario": "coherent_wilson_shift",
+  "highest_locality_scenario": "localized_charm_like_projection",
+  "rows": [
+    {
+      "scenario": "standard_model_like_noise",
+      "H": 0.8362232897777024,
+      "B": 0.7980003496177012,
+      "S_eff": 0.30506697560081736,
+      "V": 0.3470596087643704,
+      "R_resp": 0.6141057132843819,
+      "R_rob": 0.5155623000328622,
+      "F_diag": 3.312485646106105,
+      "globality": 0.007408201351289723,
+      "locality": 0.6393898256952599
+    },
+    {
+      "scenario": "coherent_wilson_shift",
+      "H": 0.9361074316876976,
+      "B": 0.9068690648315159,
+      "S_eff": 0.9694597004675573,
+      "V": 0.25731022827012284,
+      "R_resp": 0.6022485691841882,
+      "R_rob": 0.6022485691841882,
+      "F_diag": 2.059356425586059,
+      "globality": 0.9160707868944874,
+      "locality": 0.15857513889327746
+    },
+    {
+      "scenario": "localized_charm_like_projection",
+      "H": 0.7269285146618424,
+      "B": 0.6322981439874867,
+      "S_eff": 0.34677134208783733,
+      "V": 0.9167830744671001,
+      "R_resp": 0.7497101654863825,
+      "R_rob": 0.6182738089695387,
+      "F_diag": 2.4041193152915517,
+      "globality": 0.013938873826909726,
+      "locality": 0.6893675160415194
+    },
+    {
+      "scenario": "mixed_coherent_plus_local",
+      "H": 0.8510304788722315,
+      "B": 0.770433583168551,
+      "S_eff": 0.6613791189427608,
+      "V": 0.8160474806689081,
+      "R_resp": 0.8118302866141832,
+      "R_rob": 0.7712790888643339,
+      "F_diag": 1.2985249397735654,
+      "globality": 0.6594189876436137,
+      "locality": 0.4178386014012899
+    }
+  ],
+  "bin_shuffled_null_summary": [
+    {
+      "scenario": "coherent_wilson_shift",
+      "F_diag_mean": 2.2416855509133526,
+      "F_diag_std": 0.6723848762553738,
+      "globality_mean": 0.9160707868944874,
+      "globality_std": 7.870162355242804e-18,
+      "locality_mean": 0.15857513889327746,
+      "locality_std": 3.067092239196707e-17,
+      "delta_F_vs_real_mean": 0.1823291253272936,
+      "delta_globality_vs_real_mean": -5.551115123125783e-19,
+      "delta_locality_vs_real_mean": -5.689893001203927e-18
+    },
+    {
+      "scenario": "localized_charm_like_projection",
+      "F_diag_mean": 4.46194251601874,
+      "F_diag_std": 0.7460403635750797,
+      "globality_mean": 0.01393887382690974,
+      "globality_std": 1.0000597843778741e-16,
+      "locality_mean": 0.6893675160415194,
+      "locality_std": 5.565045170431277e-17,
+      "delta_F_vs_real_mean": 2.0578232007271877,
+      "delta_globality_vs_real_mean": 1.2212453270876722e-17,
+      "delta_locality_vs_real_mean": 2.831068712794149e-17
+    },
+    {
+      "scenario": "mixed_coherent_plus_local",
+      "F_diag_mean": 3.1322822013015745,
+      "F_diag_std": 0.7472365587553489,
+      "globality_mean": 0.6594189876436138,
+      "globality_std": 7.126735122639426e-17,
+      "locality_mean": 0.4178386014012899,
+      "locality_std": 3.563367561319713e-17,
+      "delta_F_vs_real_mean": 1.8337572615280093,
+      "delta_globality_vs_real_mean": 7.105427357601002e-17,
+      "delta_locality_vs_real_mean": -1.1657341758564143e-17
+    },
+    {
+      "scenario": "standard_model_like_noise",
+      "F_diag_mean": 4.008992201091783,
+      "F_diag_std": 0.5967313147998597,
+      "globality_mean": 0.007408201351289738,
+      "globality_std": 5.709014003954188e-17,
+      "locality_mean": 0.6393898256952599,
+      "locality_std": 6.631516674449027e-17,
+      "delta_F_vs_real_mean": 0.696506554985678,
+      "delta_globality_vs_real_mean": 1.4988010832439614e-17,
+      "delta_locality_vs_real_mean": -3.9412917374193055e-17
+    }
+  ]
+}
