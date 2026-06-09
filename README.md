@@ -2682,7 +2682,7 @@ CSV/JSON/PNG outputs are derived reproducibility artifacts.
 
 ---
 
-### MAAT v1.6-T T1 — Mode-A CDCL Branching Pilot
+### Paper 62 — Mode-A CDCL Branching
 **Mode-A CDCL Branching Pilot:**  
 *Compute-to-Solution Regret against VSIDS in a Transparent Conflict-Learning Solver*
 
@@ -2711,7 +2711,7 @@ learning.
 | Main positive signal | Mode A improves median regret on modular SAT |
 | Main negative signal | Mode A does not beat progress-only overall |
 
-**Interpretation:** This is the first policy-level test of the v1.6 search
+**Interpretation:** Paper 62 is the first policy-level test of the v1.6 search
 geometry layer. The result is mixed and useful: Mode A is an active branching
 signal, but the structural penalty does not yet earn compute globally. The
 family-level pattern supports a sector-/scale-dependent view of structural
@@ -3607,7 +3607,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/maat_paper38_v121_robustness_closure/maat_paper38_v121_robustness_closure.py` | 38 | v1.2.1 robustness closure in a linear-growth benchmark plus selection-field perturbation tests |
 | `experiments/universal_structural_selection_benchmarks_paper49/universal_structural_selection_benchmarks_paper49.py` | 49 | aggregates existing benchmark outputs into a universality evidence registry and competitor-readiness matrix |
 | `experiments/sat_structural_hardness_paper50/sat_structural_hardness_paper50.py` | 50 | synthetic random-3-SAT graph-local hardness benchmark with density, graph, MAAT, and shuffled-null baselines |
-| `experiments/sat_cdcl_mode_a_t1/sat_cdcl_mode_a_t1.py` | T1 | Mode-A v1.6-T CDCL branching pilot with paired compute-to-solution regret against VSIDS |
+| `experiments/sat_cdcl_mode_a_t1/sat_cdcl_mode_a_t1.py` | 62 | Mode-A v1.6-T CDCL branching pilot with paired compute-to-solution regret against VSIDS |
 
 ---
 
@@ -3653,7 +3653,7 @@ Paper 42 (blind projection): response-derived projection  ρS(CCI_diag, |rσ|)=0
 Paper 48 (MaxEnt):   structural measure theorem           P[X]∝exp[-F_struct], support form = bounded viability
 Paper 49 (benchmarks): universality audit matrix           complete/partial/missing domains=2/4/1, readiness=0.3816
 Paper 50 (SAT II): graph-local SAT hardness benchmark      MAAT+density R²=0.2347 vs density 0.1886, graph 0.2469
-T1 CDCL pilot:     Mode-A active branching vs VSIDS         median regret=0.000, mean regret=+7.4619, wins/losses/ties=44/47/8
+Paper 62 (CDCL):   Mode-A active branching vs VSIDS         median regret=0.000, mean regret=+7.4619, wins/losses/ties=44/47/8
 SO(10) extra: gauge one-loop + Yukawa bridge           M_GUT≈1.86e16 GeV, Δb≈0.0506, Yukawa R_rob≈0.999
 ```
 
