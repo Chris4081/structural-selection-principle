@@ -2597,6 +2597,64 @@ synthetic search-space instances.
 
 ---
 
+### Extra Framework Specification — MAAT v1.6-T Triage Instantiation
+**MAAT v1.6-T: The Triage Instantiation:**  
+*Structural Search Geometry as a Pre-Inference Layer*
+
+**Core idea:** Defines the policy/triage face of MAAT v1.6.  The v1.6 measure
+face ranks paths through structural search spaces; the v1.6-T triage face
+ranks candidate continuations before full inference, proof, simulation, or
+solving is committed.
+
+**Search arena:**
+
+```text
+(N, C, cost, goal)
+```
+
+where `N` is the search-state space, `C(n)` the candidate-continuation set,
+`cost` the expansion cost, and `goal` the domain validation criterion.
+
+**Unification equation:**
+
+```text
+pi(c | n) proportional exp[-beta * h_MAAT^(h)(c)]
+```
+
+At `h -> infinity`, the finite-horizon heuristic approaches a
+quasipotential-like cost-to-go.  At `h = 0`, it becomes greedy structural
+triage.
+
+**Goal-blindness guardrail:**
+
+```text
+F_MAAT measures coherence, not progress.
+```
+
+Therefore v1.6-T permits two sanctioned usage modes:
+
+| Mode | Role |
+|------|------|
+| Mode F | feasibility prior; structural support filters or down-weights broken candidates |
+| Mode A | combined acquisition rule: `A(c)=prog(c)-tau*h_MAAT(c)` |
+
+**Predeclared obligations:**
+
+| Obligation | Test |
+|------------|------|
+| T1 | insert Mode A into CDCL and measure compute-to-solution regret against VSIDS/LRB |
+| T2 | compare Mode F, Mode A, progress-only, and MAAT-only ablations |
+| T3 | frozen-weight triage transfer across domains |
+| T4 | verify finite-horizon `h_MAAT` approaches quasipotential orderings in small arenas |
+
+**Scientific status:** Framework specification, not evidence.  Paper 62
+implements the first T1 benchmark and shows that global `h=0` Mode A is mixed:
+family-sensitive and not yet globally compute-positive.
+
+**Documentation PDF:** `documentation/MAAT_v16_T_Triage_Specification.pdf`
+
+---
+
 ### Paper 59 — MAAT v1.6 Guided SAT Search
 **MAAT v1.6 Guided SAT Search:**  
 *Structural Search Geometry for Transparent DPLL Branching*
