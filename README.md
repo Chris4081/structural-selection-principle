@@ -2682,62 +2682,6 @@ CSV/JSON/PNG outputs are derived reproducibility artifacts.
 
 ---
 
-### Paper 62 — Mode-A CDCL Branching
-**Mode-A CDCL Branching Pilot:**  
-*Compute-to-Solution Regret against VSIDS in a Transparent Conflict-Learning Solver*
-
-**Core idea:** Paper 59 tested MAAT v1.6 as an active DPLL branching
-heuristic. The T1 pilot moves one layer closer to modern SAT practice by
-inserting the Mode-A acquisition rule into a small transparent CDCL solver:
-
-```text
-A(c) = prog(c) - tau * h_MAAT(c)
-```
-
-The benchmark measures paired compute-to-solution regret against VSIDS under
-fixed seeds, fixed beta/tau/horizon, shared propagation, and shared conflict
-learning.
-
-**Core results:**
-
-| Quantity | Result |
-|----------|--------|
-| CNF instances | 99 |
-| Policies | VSIDS, progress-only, MAAT-only, Mode A, random |
-| Conflict budget | 3500 |
-| Mode-A median regret vs VSIDS | 0.000 |
-| Mode-A mean regret vs VSIDS | +7.4619 |
-| Mode-A wins/losses/ties vs VSIDS | 44 / 47 / 8 |
-| Main positive signal | Mode A improves median regret on modular SAT |
-| Main negative signal | Mode A does not beat progress-only overall |
-
-**Interpretation:** Paper 62 is the first policy-level test of the v1.6 search
-geometry layer. The result is mixed and useful: Mode A is an active branching
-signal, but the structural penalty does not yet earn compute globally. The
-family-level pattern supports a sector-/scale-dependent view of structural
-search rather than a universal scalar-heuristic claim.
-
-**Reproducibility:**
-
-| Folder | Role |
-|--------|------|
-| `experiments/sat_cdcl_mode_a_t1/` | transparent CDCL solver, fixed Mode-A parameters, generated SAT families, paired regret CSV/JSON outputs, and figures |
-
-Run:
-
-```bash
-cd experiments/sat_cdcl_mode_a_t1
-python3 sat_cdcl_mode_a_t1.py
-```
-
-**Data attribution and license note:** No external CNF dataset is redistributed.
-Instances are generated locally from standard synthetic SAT-family generators.
-CSV/JSON/PNG outputs are derived reproducibility artifacts.
-
-**Documentation PDF:** `documentation/62_Mode_A_CDCL_Branching_Pilot.pdf`
-
----
-
 ### Paper 60 — Fluid Coherence and Blow-up Diagnostics
 **Fluid Coherence and Blow-up Diagnostics:**  
 *A MAAT Early-Warning Benchmark for Burgers and Navier--Stokes Toy Flows*
@@ -2910,6 +2854,62 @@ professional halo or modified-dynamics fits.  Fixed
 simplifications, not fitted astrophysical parameters.
 
 **Documentation PDF:** `documentation/61_SPARC_Pilot_Test_Structural_Dark_Matter_Residuals.pdf`
+
+---
+
+### Paper 62 — Mode-A CDCL Branching
+**Mode-A CDCL Branching Pilot:**  
+*Compute-to-Solution Regret against VSIDS in a Transparent Conflict-Learning Solver*
+
+**Core idea:** Paper 59 tested MAAT v1.6 as an active DPLL branching
+heuristic. The T1 pilot moves one layer closer to modern SAT practice by
+inserting the Mode-A acquisition rule into a small transparent CDCL solver:
+
+```text
+A(c) = prog(c) - tau * h_MAAT(c)
+```
+
+The benchmark measures paired compute-to-solution regret against VSIDS under
+fixed seeds, fixed beta/tau/horizon, shared propagation, and shared conflict
+learning.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|--------|
+| CNF instances | 99 |
+| Policies | VSIDS, progress-only, MAAT-only, Mode A, random |
+| Conflict budget | 3500 |
+| Mode-A median regret vs VSIDS | 0.000 |
+| Mode-A mean regret vs VSIDS | +7.4619 |
+| Mode-A wins/losses/ties vs VSIDS | 44 / 47 / 8 |
+| Main positive signal | Mode A improves median regret on modular SAT |
+| Main negative signal | Mode A does not beat progress-only overall |
+
+**Interpretation:** Paper 62 is the first policy-level test of the v1.6 search
+geometry layer. The result is mixed and useful: Mode A is an active branching
+signal, but the structural penalty does not yet earn compute globally. The
+family-level pattern supports a sector-/scale-dependent view of structural
+search rather than a universal scalar-heuristic claim.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/sat_cdcl_mode_a_t1/` | transparent CDCL solver, fixed Mode-A parameters, generated SAT families, paired regret CSV/JSON outputs, and figures |
+
+Run:
+
+```bash
+cd experiments/sat_cdcl_mode_a_t1
+python3 sat_cdcl_mode_a_t1.py
+```
+
+**Data attribution and license note:** No external CNF dataset is redistributed.
+Instances are generated locally from standard synthetic SAT-family generators.
+CSV/JSON/PNG outputs are derived reproducibility artifacts.
+
+**Documentation PDF:** `documentation/62_Mode_A_CDCL_Branching_Pilot.pdf`
 
 ---
 
