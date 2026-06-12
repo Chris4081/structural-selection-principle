@@ -3037,6 +3037,81 @@ CSV/JSON/PNG outputs are derived reproducibility artifacts.
 
 ---
 
+### Paper 64 — Correlated Stationarity for Two-Qubit Entanglement Robustness
+**Correlated Stationarity for Two-Qubit Entanglement Robustness:**  
+*A Two-Qubit Pointer-Selection Benchmark*
+
+**Core idea:** Extends the one-qubit pointer-state programme of Papers 51 and
+58 to two qubits. The benchmark asks which entangled states survive open-system
+Lindblad evolution, and whether raw local population balance should be replaced
+by correlated generator stationarity when the protected structure is
+entanglement rather than a one-qubit pointer axis.
+
+**Simulation setup:**
+
+| Component | Description |
+|----------|-------------|
+| System | two-qubit density matrix |
+| Dynamics | Lindblad master equation integrated by RK4 |
+| Initial-state families | product-z, Bell-phi, Bell-psi, partial-phi, partial-psi, Haar-entangled |
+| Channel families | local z-dephasing, collective z-dephasing, pair ZZ dephasing, amplitude damping, thermal mixed, depolarizing |
+| Instances | `1800` sampled trajectories |
+| Target | final concurrence + concurrence retention + mutual-information retention + final purity |
+
+**Key definitions:**
+
+```text
+B_pop = (1 - |<Z1>|) (1 - |<Z2>|)
+
+B_corr-stat =
+1 / (1 + (0.65 D_local + 1.15 D_corr
+           + 0.90 D_concurrence + 0.25 D_purity) / 2.2)
+```
+
+**Core results:**
+
+| Feature set | RF R2 | RF Spearman | Leave-channel R2 |
+|-------------|------:|------------:|-----------------:|
+| defect-field stationary | `0.9160` | `0.9477` | `0.6033` |
+| short-time generator baseline | `0.8060` | `0.8773` | `0.7800` |
+| scalar correlated stationarity | `0.7831` | `0.8154` | `0.7286` |
+| einselection baseline | `0.7574` | `0.8672` | `-0.0110` |
+| scalar population | `0.7232` | `0.7899` | `0.6179` |
+| rates only | `0.4871` | `0.8520` | `0.0357` |
+| shuffled defect null | `-0.0493` | `-0.0048` | `-0.2176` |
+
+**Key finding:**
+> Two-qubit entanglement robustness is better aligned with correlated
+> generator stationarity than with raw local population balance.  The full
+> stationarity-sensitive defect field performs best in ordinary
+> cross-validation, but the compact short-time generator baseline remains best
+> under leave-channel-family-out transfer.
+
+**Scientific status:** Classical simulation benchmark only. This is not a
+quantum-hardware experiment, not a collapse model, not a derivation of quantum
+measurement, and not a replacement for decoherence/einselection theory.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/two_qubit_pointer_paper64/` | Paper-64 two-qubit Lindblad simulation, entanglement-robustness target, model comparisons, CSV/JSON outputs, and figures |
+
+Run:
+
+```bash
+cd experiments/two_qubit_pointer_paper64
+python3 two_qubit_pointer_paper64.py
+```
+
+**Data attribution and license note:** No external quantum dataset is
+redistributed. All trajectories are generated locally from the script using a
+fixed random seed. CSV/JSON/PNG outputs are derived reproducibility artifacts.
+
+**Documentation PDF:** `documentation/64_Two_Qubit_Pointer_Selection.pdf`
+
+---
+
 ### Extra Phenomenological Paper — BKM-Aware MAAT Diagnostics for Navier-Stokes
 **BKM-Aware MAAT Diagnostics for Navier--Stokes:**  
 *A Phenomenological Structural-Action Test on Taylor--Green Vortices*
@@ -3733,6 +3808,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/sat_structural_hardness_paper50/sat_structural_hardness_paper50.py` | 50 | synthetic random-3-SAT graph-local hardness benchmark with density, graph, MAAT, and shuffled-null baselines |
 | `experiments/sat_cdcl_mode_a_t1/sat_cdcl_mode_a_t1.py` | 62 | Mode-A v1.6-T CDCL branching pilot with paired compute-to-solution regret against VSIDS |
 | `experiments/sat_cdcl_structure_gated_mode_a_paper63/sat_cdcl_structure_gated_mode_a_paper63.py` | 63 | structure-gated Mode-A CDCL branching benchmark with instance-level gate diagnostics |
+| `experiments/two_qubit_pointer_paper64/two_qubit_pointer_paper64.py` | 64 | two-qubit Lindblad pointer-selection benchmark for entanglement robustness under correlated generator stationarity |
 
 ---
 
@@ -3780,6 +3856,7 @@ Paper 49 (benchmarks): universality audit matrix           complete/partial/miss
 Paper 50 (SAT II): graph-local SAT hardness benchmark      MAAT+density R²=0.2347 vs density 0.1886, graph 0.2469
 Paper 62 (CDCL):   Mode-A active branching vs VSIDS         median regret=0.000, mean regret=+7.4619, wins/losses/ties=44/47/8
 Paper 63 (gated):  structure-gated Mode-A vs global Mode-A  mean regret=-0.5703, median=-0.0080, wins/losses/ties=50/45/4
+Paper 64 (2-qubit): correlated stationarity improves pointer-entanglement prediction  scalar R²: 0.7232→0.7831, field R²=0.9160
 SO(10) extra: gauge one-loop + Yukawa bridge           M_GUT≈1.86e16 GeV, Δb≈0.0506, Yukawa R_rob≈0.999
 ```
 
