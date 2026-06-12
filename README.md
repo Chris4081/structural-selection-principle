@@ -2971,6 +2971,72 @@ CSV/JSON/PNG outputs are derived reproducibility artifacts.
 
 ---
 
+### Paper 63 — Structure-Gated Mode-A CDCL Branching
+**Structure-Gated Mode-A CDCL Branching:**  
+*Instance-Level Triage of Structural Search in MAAT v1.6-T*
+
+**Core idea:** Paper 62 showed that global `h=0` Mode A is family-sensitive:
+it can help in structure-rich cases but also creates concentrated regret in
+families where structural steering is misleading. Paper 63 tests the next
+v1.6-T hypothesis: gate the structural penalty by an instance-level diagnostic
+before applying it.
+
+**Gated acquisition:**
+
+```text
+A_g(c) = prog(c) - g(F) * tau * h_MAAT(c)
+```
+
+where `g(F)` is computed once at the root from clause-variable graph
+diagnostics: co-occurrence clustering, V-mode spread, degree-tail pressure,
+and a symmetry penalty.  The gate uses no family labels.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|-------:|
+| CNF instances | `99` |
+| Policies | VSIDS, progress-only, MAAT-only, Mode A, gated Mode A, random |
+| Gated Mode-A mean regret vs VSIDS | `+7.1023` |
+| Global Mode-A mean regret vs VSIDS | `+7.6727` |
+| Gated vs global Mode-A mean regret | `-0.5703` |
+| Gated vs global Mode-A median regret | `-0.0080` |
+| Gated vs global wins/losses/ties | `50 / 45 / 4` |
+| Pigeonhole median gate | `0.0000` |
+| Random 3-SAT median gate | `0.5810` |
+
+**Key finding:**
+> Structure-gating reduces mean regret relative to global Mode A and correctly
+> suppresses the structural penalty on pigeonhole formulas.  However, the
+> current hand-built gate remains too permissive on random and XOR-like
+> families and still does not beat progress-only globally.
+
+**Scientific status:** Partial repair, not a victory.  Paper 63 supports
+structure-gated triage as the right direction, but shows that the current gate
+is too coarse.  The next step should test learned or predeclared multi-feature
+gates against stronger CDCL baselines and harder external SAT instances.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/sat_cdcl_structure_gated_mode_a_paper63/` | Paper-63 transparent CDCL benchmark, structure-gate diagnostics, paired regret CSV/JSON outputs, and figures |
+
+Run:
+
+```bash
+cd experiments/sat_cdcl_structure_gated_mode_a_paper63
+python3 sat_cdcl_structure_gated_mode_a_paper63.py
+```
+
+**Data attribution and license note:** No external CNF dataset is redistributed.
+Instances are generated locally from standard synthetic SAT-family generators.
+CSV/JSON/PNG outputs are derived reproducibility artifacts.
+
+**Documentation PDF:** `documentation/63_Structure_Gated_Mode_A_CDCL_Branching.pdf`
+
+---
+
 ### Extra Phenomenological Paper — BKM-Aware MAAT Diagnostics for Navier-Stokes
 **BKM-Aware MAAT Diagnostics for Navier--Stokes:**  
 *A Phenomenological Structural-Action Test on Taylor--Green Vortices*
@@ -3666,6 +3732,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/universal_structural_selection_benchmarks_paper49/universal_structural_selection_benchmarks_paper49.py` | 49 | aggregates existing benchmark outputs into a universality evidence registry and competitor-readiness matrix |
 | `experiments/sat_structural_hardness_paper50/sat_structural_hardness_paper50.py` | 50 | synthetic random-3-SAT graph-local hardness benchmark with density, graph, MAAT, and shuffled-null baselines |
 | `experiments/sat_cdcl_mode_a_t1/sat_cdcl_mode_a_t1.py` | 62 | Mode-A v1.6-T CDCL branching pilot with paired compute-to-solution regret against VSIDS |
+| `experiments/sat_cdcl_structure_gated_mode_a_paper63/sat_cdcl_structure_gated_mode_a_paper63.py` | 63 | structure-gated Mode-A CDCL branching benchmark with instance-level gate diagnostics |
 
 ---
 
@@ -3712,6 +3779,7 @@ Paper 48 (MaxEnt):   structural measure theorem           P[X]∝exp[-F_struct],
 Paper 49 (benchmarks): universality audit matrix           complete/partial/missing domains=2/4/1, readiness=0.3816
 Paper 50 (SAT II): graph-local SAT hardness benchmark      MAAT+density R²=0.2347 vs density 0.1886, graph 0.2469
 Paper 62 (CDCL):   Mode-A active branching vs VSIDS         median regret=0.000, mean regret=+7.4619, wins/losses/ties=44/47/8
+Paper 63 (gated):  structure-gated Mode-A vs global Mode-A  mean regret=-0.5703, median=-0.0080, wins/losses/ties=50/45/4
 SO(10) extra: gauge one-loop + Yukawa bridge           M_GUT≈1.86e16 GeV, Δb≈0.0506, Yukawa R_rob≈0.999
 ```
 
