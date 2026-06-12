@@ -1,0 +1,223 @@
+{
+  "experiment": "Paper 64 Two-Qubit Pointer Selection",
+  "seed": 64064,
+  "n_instances": 1800,
+  "target": "entanglement_robustness",
+  "model_comparison": [
+    {
+      "feature_set": "defect_field_stationary",
+      "n_features": 41,
+      "rf_r2": 0.9160323557524581,
+      "rf_rmse": 0.049977599580561624,
+      "rf_spearman": 0.947693187559626,
+      "ridge_r2": 0.7689797518528247,
+      "ridge_spearman": 0.7741431010729737,
+      "leave_channel_r2": 0.6033104235777562,
+      "leave_channel_spearman": 0.6706320012238687
+    },
+    {
+      "feature_set": "short_time_generator_baseline",
+      "n_features": 6,
+      "rf_r2": 0.805995152156558,
+      "rf_rmse": 0.07596712659550915,
+      "rf_spearman": 0.8773357687250316,
+      "ridge_r2": 0.41229061065942374,
+      "ridge_spearman": 0.7173668654424483,
+      "leave_channel_r2": 0.779966757697698,
+      "leave_channel_spearman": 0.72136624478874
+    },
+    {
+      "feature_set": "scalar_correlated_stationarity",
+      "n_features": 6,
+      "rf_r2": 0.7831468528596097,
+      "rf_rmse": 0.08031603740891936,
+      "rf_spearman": 0.8154497311058841,
+      "ridge_r2": 0.6613683340025807,
+      "ridge_spearman": 0.6456890387929132,
+      "leave_channel_r2": 0.7285873012501041,
+      "leave_channel_spearman": 0.5553549862766958
+    },
+    {
+      "feature_set": "einselection_baseline",
+      "n_features": 11,
+      "rf_r2": 0.7573829163490272,
+      "rf_rmse": 0.08495326949101566,
+      "rf_spearman": 0.8672046935816956,
+      "ridge_r2": 0.5118222292048216,
+      "ridge_spearman": 0.5859905388859687,
+      "leave_channel_r2": -0.011016857737274455,
+      "leave_channel_spearman": 0.1658746397585692
+    },
+    {
+      "feature_set": "scalar_population",
+      "n_features": 6,
+      "rf_r2": 0.723246580882005,
+      "rf_rmse": 0.09073313277421234,
+      "rf_spearman": 0.7898608260887324,
+      "ridge_r2": 0.5449705831631402,
+      "ridge_spearman": 0.5020862969402152,
+      "leave_channel_r2": 0.6178564809495248,
+      "leave_channel_spearman": 0.505505947037204
+    },
+    {
+      "feature_set": "rates_only",
+      "n_features": 12,
+      "rf_r2": 0.4870814751460595,
+      "rf_rmse": 0.1235217969359555,
+      "rf_spearman": 0.8519861683084883,
+      "ridge_r2": 0.3704531220895001,
+      "ridge_spearman": 0.697052871518376,
+      "leave_channel_r2": 0.035653302446586266,
+      "leave_channel_spearman": 0.19953173853860245
+    },
+    {
+      "feature_set": "shuffled_defect_null",
+      "n_features": 41,
+      "rf_r2": -0.049302091001111936,
+      "rf_rmse": 0.17667279422314158,
+      "rf_spearman": -0.004832670215844717,
+      "ridge_r2": -0.02890093638427582,
+      "ridge_spearman": 0.012922187115901375,
+      "leave_channel_r2": -0.21760003366389635,
+      "leave_channel_spearman": -0.39659849483492643
+    }
+  ],
+  "top_scalar_correlations": [
+    {
+      "score": "purity_decay0",
+      "spearman": 0.5381711084890254
+    },
+    {
+      "score": "concurrence_slope0",
+      "spearman": 0.5347384340684653
+    },
+    {
+      "score": "B_corr_stat",
+      "spearman": 0.5280828152518978
+    },
+    {
+      "score": "H_stationarity",
+      "spearman": 0.4502369928714999
+    },
+    {
+      "score": "V_corr",
+      "spearman": 0.41374083345910506
+    },
+    {
+      "score": "R_rob_stat",
+      "spearman": 0.2721636704208859
+    },
+    {
+      "score": "F_scalar_stat",
+      "spearman": 0.2447369952891961
+    },
+    {
+      "score": "R_rob_pop",
+      "spearman": 0.1217049696620277
+    },
+    {
+      "score": "F_scalar_pop",
+      "spearman": 0.11388512568470957
+    },
+    {
+      "score": "dfs_collective_overlap",
+      "spearman": 0.10559478381408091
+    },
+    {
+      "score": "dfs_parity_overlap",
+      "spearman": 0.08031455198328517
+    },
+    {
+      "score": "S_ent",
+      "spearman": -0.045916199419066286
+    }
+  ],
+  "top_feature_importance": [
+    {
+      "feature": "R_rob_stat",
+      "importance_mean": 0.2775288263922524,
+      "importance_std": 0.00553666566681121
+    },
+    {
+      "feature": "purity_decay0",
+      "importance_mean": 0.16108447629054318,
+      "importance_std": 0.00668296358261678
+    },
+    {
+      "feature": "T",
+      "importance_mean": 0.13829947967058726,
+      "importance_std": 0.007092101220486083
+    },
+    {
+      "feature": "concurrence_slope0",
+      "importance_mean": 0.04571967801296364,
+      "importance_std": 0.0014409462964837662
+    },
+    {
+      "feature": "V_corr",
+      "importance_mean": 0.034998399174116936,
+      "importance_std": 0.002201359696847909
+    },
+    {
+      "feature": "B_corr_stat",
+      "importance_mean": 0.027545622658473472,
+      "importance_std": 0.001359911693612678
+    },
+    {
+      "feature": "corr_drift0",
+      "importance_mean": 0.025672531246468233,
+      "importance_std": 0.0012263625604048399
+    },
+    {
+      "feature": "J",
+      "importance_mean": 0.01621703925447456,
+      "importance_std": 0.002233641676186261
+    },
+    {
+      "feature": "symmetry_expectation",
+      "importance_mean": 0.014420257341436501,
+      "importance_std": 0.002015478845080869
+    },
+    {
+      "feature": "gamma_dep",
+      "importance_mean": 0.013948647100249364,
+      "importance_std": 0.0010291995393696283
+    },
+    {
+      "feature": "hamiltonian_coupling_pressure",
+      "importance_mean": 0.010651560226932996,
+      "importance_std": 0.0013995864043951356
+    },
+    {
+      "feature": "bell_phi_overlap",
+      "importance_mean": 0.010378689512253902,
+      "importance_std": 0.00096637312422928
+    },
+    {
+      "feature": "F_scalar_stat",
+      "importance_mean": 0.008440202982892442,
+      "importance_std": 0.00037566125006593937
+    },
+    {
+      "feature": "gamma_heat",
+      "importance_mean": 0.006879126987511845,
+      "importance_std": 0.0006853478496882362
+    }
+  ],
+  "channel_family_counts": {
+    "depolarizing": 312,
+    "collective_z_dephasing": 310,
+    "pair_zz_dephasing": 300,
+    "thermal_mixed": 298,
+    "local_z_dephasing": 291,
+    "local_amplitude_damping": 289
+  },
+  "state_family_counts": {
+    "bell_psi": 322,
+    "haar_entangled": 302,
+    "partial_psi": 298,
+    "product_z": 297,
+    "bell_phi": 293,
+    "partial_phi": 288
+  }
+}
