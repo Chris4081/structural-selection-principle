@@ -1,0 +1,217 @@
+{
+  "experiment": "Paper 63 Structure-gated Mode-A CDCL branching",
+  "seed": 63063,
+  "conflict_budget": 3500,
+  "beta": 8.0,
+  "tau": 0.38,
+  "horizon_h": 0,
+  "n_instances": 99,
+  "policies": [
+    "vsids",
+    "progress_only",
+    "maat_only",
+    "mode_a",
+    "mode_a_gated",
+    "random"
+  ],
+  "summary_by_policy": [
+    {
+      "policy": "mode_a",
+      "solved_rate": 1.0,
+      "timeout_rate": 0.0,
+      "median_conflicts": 4.0,
+      "median_decisions": 7.0,
+      "median_compute_cost": 5.252,
+      "mean_compute_cost": 20.55680808080808,
+      "median_runtime_s": 0.0014541250420734286,
+      "n_runs": 99
+    },
+    {
+      "policy": "progress_only",
+      "solved_rate": 1.0,
+      "timeout_rate": 0.0,
+      "median_conflicts": 4.0,
+      "median_decisions": 7.0,
+      "median_compute_cost": 5.26,
+      "mean_compute_cost": 13.276242424242424,
+      "median_runtime_s": 0.0013816669816151261,
+      "n_runs": 99
+    },
+    {
+      "policy": "mode_a_gated",
+      "solved_rate": 1.0,
+      "timeout_rate": 0.0,
+      "median_conflicts": 4.0,
+      "median_decisions": 8.0,
+      "median_compute_cost": 5.268,
+      "mean_compute_cost": 19.986464646464647,
+      "median_runtime_s": 0.0014942080015316606,
+      "n_runs": 99
+    },
+    {
+      "policy": "vsids",
+      "solved_rate": 1.0,
+      "timeout_rate": 0.0,
+      "median_conflicts": 4.0,
+      "median_decisions": 7.0,
+      "median_compute_cost": 5.584,
+      "mean_compute_cost": 12.884121212121212,
+      "median_runtime_s": 0.0013815420679748058,
+      "n_runs": 99
+    },
+    {
+      "policy": "maat_only",
+      "solved_rate": 1.0,
+      "timeout_rate": 0.0,
+      "median_conflicts": 5.0,
+      "median_decisions": 9.0,
+      "median_compute_cost": 7.092,
+      "mean_compute_cost": 24.25389898989899,
+      "median_runtime_s": 0.001910500111989677,
+      "n_runs": 99
+    },
+    {
+      "policy": "random",
+      "solved_rate": 1.0,
+      "timeout_rate": 0.0,
+      "median_conflicts": 4.0,
+      "median_decisions": 10.0,
+      "median_compute_cost": 7.212,
+      "mean_compute_cost": 27.587636363636364,
+      "median_runtime_s": 0.0019402079051360488,
+      "n_runs": 99
+    }
+  ],
+  "paired_regret_vs_vsids": [
+    {
+      "policy": "progress_only",
+      "n_pairs": 99,
+      "mean_regret_vs_vsids": 0.3921212121212125,
+      "median_regret_vs_vsids": 0.0,
+      "mean_cost_ratio_vs_vsids": 0.9780980134877172,
+      "median_cost_ratio_vs_vsids": 0.9999999996991576,
+      "wins_vs_vsids": 32,
+      "losses_vs_vsids": 24,
+      "ties_vs_vsids": 43,
+      "solve_rate_delta_vs_vsids": 0.0
+    },
+    {
+      "policy": "maat_only",
+      "n_pairs": 99,
+      "mean_regret_vs_vsids": 11.369777777777777,
+      "median_regret_vs_vsids": 1.332,
+      "mean_cost_ratio_vs_vsids": 1.4903931216957462,
+      "median_cost_ratio_vs_vsids": 1.2633451953548795,
+      "wins_vs_vsids": 35,
+      "losses_vs_vsids": 63,
+      "ties_vs_vsids": 1,
+      "solve_rate_delta_vs_vsids": 0.0
+    },
+    {
+      "policy": "mode_a",
+      "n_pairs": 99,
+      "mean_regret_vs_vsids": 7.672686868686868,
+      "median_regret_vs_vsids": 0.0,
+      "mean_cost_ratio_vs_vsids": 1.0725632018216067,
+      "median_cost_ratio_vs_vsids": 0.9999999992038215,
+      "wins_vs_vsids": 47,
+      "losses_vs_vsids": 44,
+      "ties_vs_vsids": 8,
+      "solve_rate_delta_vs_vsids": 0.0
+    },
+    {
+      "policy": "mode_a_gated",
+      "n_pairs": 99,
+      "mean_regret_vs_vsids": 7.102343434343435,
+      "median_regret_vs_vsids": 0.0,
+      "mean_cost_ratio_vs_vsids": 1.1626513495809345,
+      "median_cost_ratio_vs_vsids": 0.9999999995327102,
+      "wins_vs_vsids": 47,
+      "losses_vs_vsids": 48,
+      "ties_vs_vsids": 4,
+      "solve_rate_delta_vs_vsids": 0.0
+    },
+    {
+      "policy": "random",
+      "n_pairs": 99,
+      "mean_regret_vs_vsids": 14.703515151515154,
+      "median_regret_vs_vsids": 1.332,
+      "mean_cost_ratio_vs_vsids": 1.746214090361674,
+      "median_cost_ratio_vs_vsids": 1.3065118206857618,
+      "wins_vs_vsids": 31,
+      "losses_vs_vsids": 63,
+      "ties_vs_vsids": 5,
+      "solve_rate_delta_vs_vsids": 0.0
+    }
+  ],
+  "paired_regret_vs_mode_a": [
+    {
+      "baseline": "mode_a",
+      "policy": "vsids",
+      "n_pairs": 99,
+      "mean_regret": -7.672686868686868,
+      "median_regret": 0.0,
+      "mean_cost_ratio": 1.2460730727874312,
+      "median_cost_ratio": 0.9999999995327102,
+      "wins": 44,
+      "losses": 47,
+      "ties": 8
+    },
+    {
+      "baseline": "mode_a",
+      "policy": "progress_only",
+      "n_pairs": 99,
+      "mean_regret": -7.280565656565655,
+      "median_regret": 0.0,
+      "mean_cost_ratio": 1.180215147111967,
+      "median_cost_ratio": 0.9999999995941559,
+      "wins": 44,
+      "losses": 46,
+      "ties": 9
+    },
+    {
+      "baseline": "mode_a",
+      "policy": "maat_only",
+      "n_pairs": 99,
+      "mean_regret": 3.6970909090909108,
+      "median_regret": 1.6039999999999992,
+      "mean_cost_ratio": 1.6246613721287306,
+      "median_cost_ratio": 1.2747681794442693,
+      "wins": 24,
+      "losses": 72,
+      "ties": 3
+    },
+    {
+      "baseline": "mode_a",
+      "policy": "mode_a_gated",
+      "n_pairs": 99,
+      "mean_regret": -0.5703434343434328,
+      "median_regret": -0.007999999999999119,
+      "mean_cost_ratio": 1.3012321915206129,
+      "median_cost_ratio": 0.9992242047130311,
+      "wins": 50,
+      "losses": 45,
+      "ties": 4
+    },
+    {
+      "baseline": "mode_a",
+      "policy": "random",
+      "n_pairs": 99,
+      "mean_regret": 7.030828282828282,
+      "median_regret": 1.7759999999999998,
+      "mean_cost_ratio": 1.8079854704989757,
+      "median_cost_ratio": 1.389523604150166,
+      "wins": 24,
+      "losses": 72,
+      "ties": 3
+    }
+  ],
+  "gate_by_family_median": {
+    "graph_coloring": 0.5218514803685534,
+    "modular_3sat": 0.5903311392014812,
+    "pigeonhole": 0.0,
+    "planted_3sat": 0.5629397121333505,
+    "random_3sat": 0.580968044126805,
+    "xor3_cnf": 0.7488245074777762
+  }
+}
