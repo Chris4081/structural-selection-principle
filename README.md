@@ -3112,6 +3112,77 @@ fixed random seed. CSV/JSON/PNG outputs are derived reproducibility artifacts.
 
 ---
 
+### Paper 65 — SPARC II
+**SPARC II:**  
+*Shuffled-Radius Nulls, Halo-Catalogue Cross-Check Interface, and Morphology Splits*
+
+**Core idea:** Extends the Paper-61 SPARC pilot with a stronger
+within-galaxy shuffled-radius null, baryonic morphology/proxy splits, and an
+optional Li-et-al.-style published halo-catalogue cross-check interface.
+The goal is not to fit a dark-matter model, but to test whether the
+structural residual keeps radius-resolved information under a null that
+preserves each galaxy's one-point residual distribution while destroying
+radial pairing.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|-------:|
+| SPARC galaxies | `175` |
+| Radius rows | `3391` |
+| Radius-shuffle nulls | `500` |
+| pooled rho(`D_struct`, NFW-like residual) | `0.3930` |
+| NFW-like shuffled-radius `|rho|_95` | `0.0355` |
+| NFW-like exceeds shuffled null? | `yes` |
+| pooled rho(`D_struct`, RAR residual) | `0.0123` |
+| RAR shuffled-radius `|rho|_95` | `0.0336` |
+| RAR exceeds shuffled null? | `no` |
+| median galaxywise rho(`D_struct`, NFW-like residual) | `0.3000` |
+| published halo-catalogue status | `not run; no local catalogue supplied` |
+
+**Key finding:**
+> The structural residual retains radius-resolved SPARC information in the
+> NFW-like comparison channel under a shuffled-radius null, but the same does
+> not hold for the RAR channel. The signal is therefore channel- and
+> population-dependent, not a dark-matter solution.
+
+**Scientific status:** Robustness follow-up to Paper 61. The optional
+published-halo-catalogue interface is implemented, but the present repository
+run reports `not_run_no_local_catalogue` because no local Li-et-al. halo-fit
+table is supplied. The morphology splits are baryonic proxy classes derived
+from available SPARC components, not official Hubble types.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/sparc_ii_paper65/` | Paper-65 shuffled-radius nulls, proxy morphology splits, optional halo-catalogue cross-check interface, generated CSV/JSON outputs, and figures |
+
+Run:
+
+```bash
+cd experiments/sparc_ii_paper65
+python3 sparc_ii_paper65.py
+```
+
+Optional published-halo-catalogue interface:
+
+```bash
+python3 sparc_ii_paper65.py --halo-catalog path/to/li_halo_catalog.csv
+```
+
+**Data attribution and license note:** Paper 65 reuses the SPARC-derived
+Paper-61 inputs. SPARC data are external scientific data released via Zenodo
+under CC-BY-4.0 and should be cited to the SPARC source and Lelli et al. when
+reused. If a published halo-fit catalogue is supplied locally, cite the
+original catalogue source, e.g. Li et al. for SPARC halo fits. Repository
+CSV/JSON/PNG files are derived reproducibility artifacts only. No endorsement
+by the SPARC team, Lelli et al., Li et al., or any catalogue authors is implied.
+
+**Documentation PDF:** `documentation/65_SPARC_II_Shuffled_Radius_Nulls.pdf`
+
+---
+
 ### Extra Phenomenological Paper — BKM-Aware MAAT Diagnostics for Navier-Stokes
 **BKM-Aware MAAT Diagnostics for Navier--Stokes:**  
 *A Phenomenological Structural-Action Test on Taylor--Green Vortices*
@@ -3809,6 +3880,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/sat_cdcl_mode_a_t1/sat_cdcl_mode_a_t1.py` | 62 | Mode-A v1.6-T CDCL branching pilot with paired compute-to-solution regret against VSIDS |
 | `experiments/sat_cdcl_structure_gated_mode_a_paper63/sat_cdcl_structure_gated_mode_a_paper63.py` | 63 | structure-gated Mode-A CDCL branching benchmark with instance-level gate diagnostics |
 | `experiments/two_qubit_pointer_paper64/two_qubit_pointer_paper64.py` | 64 | two-qubit Lindblad pointer-selection benchmark for entanglement robustness under correlated generator stationarity |
+| `experiments/sparc_ii_paper65/sparc_ii_paper65.py` | 65 | SPARC-II shuffled-radius nulls, morphology/proxy splits, and optional published halo-catalogue cross-check |
 
 ---
 
@@ -3857,6 +3929,7 @@ Paper 50 (SAT II): graph-local SAT hardness benchmark      MAAT+density R²=0.23
 Paper 62 (CDCL):   Mode-A active branching vs VSIDS         median regret=0.000, mean regret=+7.4619, wins/losses/ties=44/47/8
 Paper 63 (gated):  structure-gated Mode-A vs global Mode-A  mean regret=-0.5703, median=-0.0080, wins/losses/ties=50/45/4
 Paper 64 (2-qubit): correlated stationarity improves pointer-entanglement prediction  scalar R²: 0.7232→0.7831, field R²=0.9160
+Paper 65 (SPARC II): shuffled-radius null supports NFW-like radial signal rho=0.3930 vs |rho|95=0.0355; RAR rho=0.0123 not significant
 SO(10) extra: gauge one-loop + Yukawa bridge           M_GUT≈1.86e16 GeV, Δb≈0.0506, Yukawa R_rob≈0.999
 ```
 
@@ -3867,3 +3940,11 @@ www.maat-research.com
 ## License
 Code:
 MIT License — free to use, modify, and share with attribution.
+
+External data:
+External scientific datasets used or redistributed in experiment folders retain
+their original licences and attribution requirements. In particular, SPARC
+rotation-curve data are attributed to Lelli, McGaugh, and Schombert and to the
+Zenodo record `10.5281/zenodo.16284118`, listed under CC-BY-4.0. Repository
+CSV/JSON/PNG files derived from external data are reproducibility artifacts and
+do not imply endorsement by the original data providers.
