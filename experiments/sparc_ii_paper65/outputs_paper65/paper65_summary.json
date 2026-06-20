@@ -1,0 +1,51 @@
+{
+  "paper": 65,
+  "title": "SPARC II: Shuffled-Radius Nulls, Halo-Catalogue Cross-Check, and Morphology Splits",
+  "seed": 65065,
+  "n_null": 500,
+  "n_galaxies": 175,
+  "n_radius_rows": 3391,
+  "radius_null_summary": {
+    "n_null": 500,
+    "pooled_radius_spearman_Dstruct_vs_nfw": 0.3930122888912468,
+    "pooled_radius_spearman_Dstruct_vs_rar": 0.012294805260875665,
+    "pooled_radius_spearman_Dstruct_vs_radius": 0.12411640066915947,
+    "pooled_radius_spearman_Dstruct_vs_nfw_null_mean": 0.00551323838964965,
+    "pooled_radius_spearman_Dstruct_vs_nfw_null_std": 0.017192855666393284,
+    "pooled_radius_spearman_Dstruct_vs_nfw_null_abs95": 0.035478620580222525,
+    "pooled_radius_spearman_Dstruct_vs_nfw_exceeds_abs95": true,
+    "pooled_radius_spearman_Dstruct_vs_rar_null_mean": -0.0013306517298142825,
+    "pooled_radius_spearman_Dstruct_vs_rar_null_std": 0.01764282713813789,
+    "pooled_radius_spearman_Dstruct_vs_rar_null_abs95": 0.03361776830472577,
+    "pooled_radius_spearman_Dstruct_vs_rar_exceeds_abs95": false,
+    "pooled_radius_spearman_Dstruct_vs_radius_null_mean": 0.00026842764668975736,
+    "pooled_radius_spearman_Dstruct_vs_radius_null_std": 0.017138704196669137,
+    "pooled_radius_spearman_Dstruct_vs_radius_null_abs95": 0.03320477370711931,
+    "pooled_radius_spearman_Dstruct_vs_radius_exceeds_abs95": true
+  },
+  "galaxywise_radial_correlations": {
+    "median_rho_Dstruct_nfw_radius": 0.3,
+    "median_rho_Dstruct_rar_radius": -0.12266825250796677,
+    "median_rho_Dstruct_radius": -0.034965034965034975,
+    "n_galaxies_with_ge5_points": 171
+  },
+  "morphology_proxy_counts": {
+    "dwarf_proxy": 70,
+    "disk_proxy": 38,
+    "dm_dominated_disk_proxy": 32,
+    "bulge_proxy": 26,
+    "gas_rich_late_proxy": 9
+  },
+  "morphology_catalogue_status": "not_available_proxy_used",
+  "halo_catalogue_metadata": {
+    "halo_catalogue_status": "not_available",
+    "halo_catalogue_note": "No local published halo-catalogue CSV was provided."
+  },
+  "halo_catalogue": {
+    "halo_catalogue_matched_galaxies": 0,
+    "spearman_Dstruct_vs_halo_catalogue_chi2": NaN,
+    "spearman_Dstruct_vs_internal_nfw_chi2": -0.6377630989699956,
+    "halo_catalogue_crosscheck_status": "not_run_no_local_catalogue"
+  },
+  "license_note": "SPARC-derived inputs follow the Paper 61 SPARC attribution note. If a published halo catalogue is supplied locally, cite the original catalogue source, e.g. Li et al. for SPARC halo fits, and do not imply endorsement by catalogue authors."
+}

@@ -1,0 +1,18 @@
+{
+  "n_null": 500,
+  "pooled_radius_spearman_Dstruct_vs_nfw": 0.3930122888912468,
+  "pooled_radius_spearman_Dstruct_vs_rar": 0.012294805260875665,
+  "pooled_radius_spearman_Dstruct_vs_radius": 0.12411640066915947,
+  "pooled_radius_spearman_Dstruct_vs_nfw_null_mean": 0.00551323838964965,
+  "pooled_radius_spearman_Dstruct_vs_nfw_null_std": 0.017192855666393284,
+  "pooled_radius_spearman_Dstruct_vs_nfw_null_abs95": 0.035478620580222525,
+  "pooled_radius_spearman_Dstruct_vs_nfw_exceeds_abs95": true,
+  "pooled_radius_spearman_Dstruct_vs_rar_null_mean": -0.0013306517298142825,
+  "pooled_radius_spearman_Dstruct_vs_rar_null_std": 0.01764282713813789,
+  "pooled_radius_spearman_Dstruct_vs_rar_null_abs95": 0.03361776830472577,
+  "pooled_radius_spearman_Dstruct_vs_rar_exceeds_abs95": false,
+  "pooled_radius_spearman_Dstruct_vs_radius_null_mean": 0.00026842764668975736,
+  "pooled_radius_spearman_Dstruct_vs_radius_null_std": 0.017138704196669137,
+  "pooled_radius_spearman_Dstruct_vs_radius_null_abs95": 0.03320477370711931,
+  "pooled_radius_spearman_Dstruct_vs_radius_exceeds_abs95": true
+}
