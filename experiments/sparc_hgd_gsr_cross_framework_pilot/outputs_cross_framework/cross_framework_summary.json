@@ -1,0 +1,6 @@
+{
+  "status": "waiting_for_hgd_gsr_qbar",
+  "message": "Fill data/hgd_gsr_qbar.csv using the generated template and rerun.",
+  "template_path": "/Volumes/MAATSSD/structural-selection-principle/experiments/sparc_hgd_gsr_cross_framework_pilot/data/hgd_gsr_qbar_template.csv",
+  "n_template_galaxies": 175
+}
