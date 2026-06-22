@@ -32,6 +32,33 @@ reading the numbered research papers.
 
 ---
 
+## Foundational Support Note
+
+**Foundations of MAAT Structural Supports**  
+*Why H, B, S, V, Log-Support Selection, and Emergent Robustness*
+
+This note addresses the foundational question left open by the MaxEnt and
+defect-field papers: why the canonical MAAT support language uses four
+primitive sectors `(H, B, S, V)`, why defects are mapped to bounded supports
+`Gamma_a = 1/(1+d_a)`, why the selection functional is logarithmic in sector
+supports, and why robustness is treated as an emergent closure rather than a
+fifth primitive field.
+
+Core conclusion:
+
+> The paper does not prove MAAT as a microscopic fundamental theory. It gives
+> an operational axiomatic basis: `H,B,S,V` are a minimal diagnostic basis for
+> consistency, balance, controlled activity, and connectivity; the log-support
+> form follows from multiplicative viability and MaxEnt; and `R_rob` is a
+> bottleneck closure over the primitive supports.
+
+| File | Role |
+|------|------|
+| `documentation/MAAT_Foundations_of_Structural_Supports.pdf` | compiled foundational support note |
+| `documentation/MAAT_Foundations_of_Structural_Supports.tex` | LaTeX source |
+
+---
+
 ## Papers in this Series
 
 ### Paper 01 — General Framework
@@ -3183,6 +3210,52 @@ by the SPARC team, Lelli et al., Li et al., or any catalogue authors is implied.
 
 ---
 
+### Collaboration Pilot — SPARC MAAT x HGD-GSR Cross-Framework Test
+**SPARC Cross-Framework Structural Signal Test:**  
+*Comparing MAAT `D_struct` with externally supplied HGD-GSR `Q_bar` values*
+
+**Core idea:** Provides a collaboration-ready pilot for testing whether the
+MAAT structural residual signal from Paper 65 and the HGD-GSR `Q_bar` signal
+are related, independent, complementary, or redundant on the same SPARC galaxy
+basis.
+
+The repository does not redistribute HGD-GSR data. If no `Q_bar` CSV is
+present, the script writes a 175-galaxy template and a data contract. Once a
+collaborator supplies `data/hgd_gsr_qbar.csv`, the same pipeline performs the
+join, correlation tests, bootstrap intervals, and cross-validated predictive
+comparisons against the Paper-65 mismatch targets.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/sparc_hgd_gsr_cross_framework_pilot/` | Collaboration-ready MAAT x HGD-GSR SPARC pilot; writes Q-bar template if external data are absent |
+
+Run:
+
+```bash
+cd experiments/sparc_hgd_gsr_cross_framework_pilot
+python3 sparc_hgd_gsr_cross_framework_pilot.py
+```
+
+Expected external input:
+
+```text
+data/hgd_gsr_qbar.csv
+columns: galaxy,Q_bar
+```
+
+**Scientific status:** Protocol/scaffold only until real HGD-GSR `Q_bar`
+values are supplied under clear citation/licence terms.
+
+**Data attribution and license note:** MAAT/SPARC-derived inputs follow the
+Paper-65 SPARC attribution and CC-BY-4.0 notes. HGD-GSR `Q_bar` values are not
+redistributed unless explicitly supplied with permission and citation/licence
+terms by the HGD-GSR author. No endorsement by SPARC, HGD-GSR, Ali Alhawarat,
+Zenodo, or any original data provider is implied.
+
+---
+
 ### Extra Phenomenological Paper — BKM-Aware MAAT Diagnostics for Navier-Stokes
 **BKM-Aware MAAT Diagnostics for Navier--Stokes:**  
 *A Phenomenological Structural-Action Test on Taylor--Green Vortices*
@@ -3661,6 +3734,46 @@ the Particle Data Group or any external collaboration is implied.
 
 ---
 
+### Extra Phenomenological Paper — MAAT--SO(10) Extended Benchmark Framework
+**MAAT--SO(10) Extended Benchmark Framework:**  
+*From Phenomenological Bridge to Response-Closed Multi-Scale GUT Selection*
+
+**Core idea:** Extends the first SO(10)-motivated MAAT bridge paper into a
+versioned benchmark programme. The paper does not claim a complete SO(10)
+construction, precision unification, or a derivation of the Standard Model
+spectrum. Instead, it converts the limitations of the first bridge into a
+testable roadmap: two-loop and threshold-aware gauge diagnostics, expanded
+Yukawa and neutrino tests, response-closed structural weights, v1.2.1
+emergent robustness, multi-scale defect-field selection, RG
+generator-stationarity, CCI-style regime diagnostics, and explicit
+falsification baselines.
+
+**Starting evidence from the first SO(10) bridge:**
+
+| Sector | Result | Interpretation |
+|--------|--------|----------------|
+| Gauge one-loop | `M_GUT ~= 6.64e15 GeV`, `chi2 ~= 100.79`, `R_rob ~= 0.603` | plausible scale, no precision unification |
+| Yukawa `b-tau` | `M_GUT ~= 1.86e16 GeV`, `Delta_b ~= 0.0506`, `R_rob ~= 0.999` | coherent third-generation compatibility valley |
+
+**Key finding:**
+> The SO(10) bridge should not be inflated into a result claim. Its strongest
+> next form is a falsifiable benchmark ladder: MAAT must show added predictive
+> information beyond chi-square-only, threshold-only, complexity-only,
+> random-weight, and shuffled-defect baselines.
+
+**Scientific status:** Extended benchmark specification. It is a roadmap and
+formalisation paper, not a new numerical fit and not a complete GUT model.
+
+**Reproducibility:** Uses the existing SO(10) experiment outputs:
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_so10_structural_selection/` | Existing gauge and Yukawa benchmark scripts, JSON summaries, and Yukawa selection-landscape figure |
+
+**Documentation PDF:** `documentation/MAAT_SO10_Extended_Benchmark_Framework.pdf`
+
+---
+
 ### Extra Phenomenological Paper — Structural Selection in the String Landscape
 **Structural Selection in the String Landscape:**
 *A MAAT-Based Phenomenological Framework for Vacuum Ranking*
@@ -3881,6 +3994,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/sat_cdcl_structure_gated_mode_a_paper63/sat_cdcl_structure_gated_mode_a_paper63.py` | 63 | structure-gated Mode-A CDCL branching benchmark with instance-level gate diagnostics |
 | `experiments/two_qubit_pointer_paper64/two_qubit_pointer_paper64.py` | 64 | two-qubit Lindblad pointer-selection benchmark for entanglement robustness under correlated generator stationarity |
 | `experiments/sparc_ii_paper65/sparc_ii_paper65.py` | 65 | SPARC-II shuffled-radius nulls, morphology/proxy splits, and optional published halo-catalogue cross-check |
+| `experiments/sparc_hgd_gsr_cross_framework_pilot/sparc_hgd_gsr_cross_framework_pilot.py` | pilot | collaboration-ready SPARC MAAT x HGD-GSR cross-framework test using external Q_bar input |
 
 ---
 
@@ -3931,6 +4045,7 @@ Paper 63 (gated):  structure-gated Mode-A vs global Mode-A  mean regret=-0.5703,
 Paper 64 (2-qubit): correlated stationarity improves pointer-entanglement prediction  scalar R²: 0.7232→0.7831, field R²=0.9160
 Paper 65 (SPARC II): shuffled-radius null supports NFW-like radial signal rho=0.3930 vs |rho|95=0.0355; RAR rho=0.0123 not significant
 SO(10) extra: gauge one-loop + Yukawa bridge           M_GUT≈1.86e16 GeV, Δb≈0.0506, Yukawa R_rob≈0.999
+SO(10) extended: response-closed multi-scale GUT benchmark ladder specified; falsification baselines declared
 ```
 
 ---
