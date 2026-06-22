@@ -1,0 +1,184 @@
+{
+  "coverage": {
+    "summary_rows": 175,
+    "qbar_rows": 175,
+    "matched_rows": 175,
+    "unmatched_summary": [],
+    "unmatched_qbar": []
+  },
+  "qbar": {
+    "min": 0.2204692023,
+    "median": 0.7688801209,
+    "mean": 0.9483045592417143,
+    "max": 2.51581989
+  },
+  "strongest_rank_associations": [
+    {
+      "target": "vobs_max",
+      "n": 175,
+      "pearson_Qbar": 0.6328315764892285,
+      "spearman_Qbar": 0.6174746260305056,
+      "spearman_perm_p_two_sided": 0.0001999600079984003
+    },
+    {
+      "target": "median_bulge_fraction_proxy",
+      "n": 175,
+      "pearson_Qbar": 0.5165974709542924,
+      "spearman_Qbar": 0.5583531190961413,
+      "spearman_perm_p_two_sided": 0.0001999600079984003
+    },
+    {
+      "target": "mean_V",
+      "n": 175,
+      "pearson_Qbar": -0.6039640892994583,
+      "spearman_Qbar": -0.5468607254814152,
+      "spearman_perm_p_two_sided": 0.0001999600079984003
+    },
+    {
+      "target": "nfw_like_rmse_v2",
+      "n": 175,
+      "pearson_Qbar": 0.464050431135172,
+      "spearman_Qbar": 0.545884460367219,
+      "spearman_perm_p_two_sided": 0.0001999600079984003
+    },
+    {
+      "target": "peak_D_struct",
+      "n": 175,
+      "pearson_Qbar": -0.45723226726459165,
+      "spearman_Qbar": -0.4783004926108375,
+      "spearman_perm_p_two_sided": 0.0001999600079984003
+    },
+    {
+      "target": "mean_D_struct",
+      "n": 175,
+      "pearson_Qbar": -0.4464461347221936,
+      "spearman_Qbar": -0.434525302283923,
+      "spearman_perm_p_two_sided": 0.0001999600079984003
+    },
+    {
+      "target": "nfw_like_chi2",
+      "n": 175,
+      "pearson_Qbar": 0.4582484554314944,
+      "spearman_Qbar": 0.39432377966860727,
+      "spearman_perm_p_two_sided": 0.0001999600079984003
+    },
+    {
+      "target": "median_gas_fraction_proxy",
+      "n": 175,
+      "pearson_Qbar": -0.3508790178021013,
+      "spearman_Qbar": -0.37250335871025525,
+      "spearman_perm_p_two_sided": 0.0001999600079984003
+    },
+    {
+      "target": "rho_Dstruct_radius",
+      "n": 171,
+      "pearson_Qbar": 0.4129936252738489,
+      "spearman_Qbar": 0.3673936652192827,
+      "spearman_perm_p_two_sided": 0.0001999600079984003
+    },
+    {
+      "target": "mean_residual_fraction",
+      "n": 175,
+      "pearson_Qbar": -0.27800194044272086,
+      "spearman_Qbar": -0.3346394984326019,
+      "spearman_perm_p_two_sided": 0.0001999600079984003
+    }
+  ],
+  "partial_rank_checks": [
+    {
+      "target": "mean_D_struct",
+      "controls": "vobs",
+      "partial_rank_corr_Qbar": -0.21475646715035349
+    },
+    {
+      "target": "mean_D_struct",
+      "controls": "gas_bulge",
+      "partial_rank_corr_Qbar": -0.2184977621595711
+    },
+    {
+      "target": "mean_D_struct",
+      "controls": "vobs_gas_bulge",
+      "partial_rank_corr_Qbar": -0.276095819003998
+    },
+    {
+      "target": "peak_D_struct",
+      "controls": "vobs",
+      "partial_rank_corr_Qbar": -0.3008473269227338
+    },
+    {
+      "target": "peak_D_struct",
+      "controls": "gas_bulge",
+      "partial_rank_corr_Qbar": -0.28826633968635185
+    },
+    {
+      "target": "peak_D_struct",
+      "controls": "vobs_gas_bulge",
+      "partial_rank_corr_Qbar": -0.3624540104541541
+    },
+    {
+      "target": "mean_residual_fraction",
+      "controls": "vobs",
+      "partial_rank_corr_Qbar": -0.16915371955096054
+    },
+    {
+      "target": "mean_residual_fraction",
+      "controls": "gas_bulge",
+      "partial_rank_corr_Qbar": -0.107795767547217
+    },
+    {
+      "target": "mean_residual_fraction",
+      "controls": "vobs_gas_bulge",
+      "partial_rank_corr_Qbar": -0.26773530933839224
+    },
+    {
+      "target": "outer_residual_fraction",
+      "controls": "vobs",
+      "partial_rank_corr_Qbar": 0.021036595142115675
+    },
+    {
+      "target": "outer_residual_fraction",
+      "controls": "gas_bulge",
+      "partial_rank_corr_Qbar": 0.1145274002234672
+    },
+    {
+      "target": "outer_residual_fraction",
+      "controls": "vobs_gas_bulge",
+      "partial_rank_corr_Qbar": -0.03291838714602435
+    },
+    {
+      "target": "nfw_like_chi2",
+      "controls": "vobs",
+      "partial_rank_corr_Qbar": 0.08337475678380427
+    },
+    {
+      "target": "nfw_like_chi2",
+      "controls": "gas_bulge",
+      "partial_rank_corr_Qbar": 0.14778244931670234
+    },
+    {
+      "target": "nfw_like_chi2",
+      "controls": "vobs_gas_bulge",
+      "partial_rank_corr_Qbar": 0.051235518770675094
+    },
+    {
+      "target": "rar_mean_sigma_residual",
+      "controls": "vobs",
+      "partial_rank_corr_Qbar": 0.1616822080138485
+    },
+    {
+      "target": "rar_mean_sigma_residual",
+      "controls": "gas_bulge",
+      "partial_rank_corr_Qbar": 0.09133465172918463
+    },
+    {
+      "target": "rar_mean_sigma_residual",
+      "controls": "vobs_gas_bulge",
+      "partial_rank_corr_Qbar": 0.10726573866800307
+    }
+  ],
+  "notes": [
+    "Q_bar is treated as a neutral external input.",
+    "Correlations are diagnostic and not causal claims.",
+    "Existing Paper-61 and Paper-65 outputs are not modified."
+  ]
+}
