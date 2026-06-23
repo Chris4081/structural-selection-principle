@@ -3,6 +3,7 @@
     "summary_rows": 175,
     "qbar_rows": 175,
     "matched_rows": 175,
+    "mass_size_control_rows": 175,
     "unmatched_summary": [],
     "unmatched_qbar": []
   },
@@ -101,6 +102,16 @@
       "partial_rank_corr_Qbar": -0.276095819003998
     },
     {
+      "target": "mean_D_struct",
+      "controls": "baryonic_mass_size",
+      "partial_rank_corr_Qbar": -0.2592794736027493
+    },
+    {
+      "target": "mean_D_struct",
+      "controls": "baryonic_mass_size_vobs",
+      "partial_rank_corr_Qbar": -0.35260037665206045
+    },
+    {
       "target": "peak_D_struct",
       "controls": "vobs",
       "partial_rank_corr_Qbar": -0.3008473269227338
@@ -114,6 +125,16 @@
       "target": "peak_D_struct",
       "controls": "vobs_gas_bulge",
       "partial_rank_corr_Qbar": -0.3624540104541541
+    },
+    {
+      "target": "peak_D_struct",
+      "controls": "baryonic_mass_size",
+      "partial_rank_corr_Qbar": -0.35932560618181153
+    },
+    {
+      "target": "peak_D_struct",
+      "controls": "baryonic_mass_size_vobs",
+      "partial_rank_corr_Qbar": -0.4320442353689068
     },
     {
       "target": "mean_residual_fraction",
@@ -131,6 +152,16 @@
       "partial_rank_corr_Qbar": -0.26773530933839224
     },
     {
+      "target": "mean_residual_fraction",
+      "controls": "baryonic_mass_size",
+      "partial_rank_corr_Qbar": -0.24841474285518064
+    },
+    {
+      "target": "mean_residual_fraction",
+      "controls": "baryonic_mass_size_vobs",
+      "partial_rank_corr_Qbar": -0.4294178273362989
+    },
+    {
       "target": "outer_residual_fraction",
       "controls": "vobs",
       "partial_rank_corr_Qbar": 0.021036595142115675
@@ -144,6 +175,16 @@
       "target": "outer_residual_fraction",
       "controls": "vobs_gas_bulge",
       "partial_rank_corr_Qbar": -0.03291838714602435
+    },
+    {
+      "target": "outer_residual_fraction",
+      "controls": "baryonic_mass_size",
+      "partial_rank_corr_Qbar": -0.014734679936315997
+    },
+    {
+      "target": "outer_residual_fraction",
+      "controls": "baryonic_mass_size_vobs",
+      "partial_rank_corr_Qbar": -0.24564477043841842
     },
     {
       "target": "nfw_like_chi2",
@@ -161,6 +202,16 @@
       "partial_rank_corr_Qbar": 0.051235518770675094
     },
     {
+      "target": "nfw_like_chi2",
+      "controls": "baryonic_mass_size",
+      "partial_rank_corr_Qbar": 0.1481788573423493
+    },
+    {
+      "target": "nfw_like_chi2",
+      "controls": "baryonic_mass_size_vobs",
+      "partial_rank_corr_Qbar": 0.10045610671298667
+    },
+    {
       "target": "rar_mean_sigma_residual",
       "controls": "vobs",
       "partial_rank_corr_Qbar": 0.1616822080138485
@@ -174,11 +225,96 @@
       "target": "rar_mean_sigma_residual",
       "controls": "vobs_gas_bulge",
       "partial_rank_corr_Qbar": 0.10726573866800307
+    },
+    {
+      "target": "rar_mean_sigma_residual",
+      "controls": "baryonic_mass_size",
+      "partial_rank_corr_Qbar": 0.11407014953410789
+    },
+    {
+      "target": "rar_mean_sigma_residual",
+      "controls": "baryonic_mass_size_vobs",
+      "partial_rank_corr_Qbar": 0.17043504299869008
+    }
+  ],
+  "independence_model_comparison": [
+    {
+      "target": "nfw_like_chi2",
+      "model": "Dstruct_only",
+      "features": "mean_D_struct",
+      "n": 175,
+      "cv_r2": 0.07081982687834953,
+      "cv_spearman": 0.6211106135244067
+    },
+    {
+      "target": "nfw_like_chi2",
+      "model": "Qbar_only",
+      "features": "Q_bar",
+      "n": 175,
+      "cv_r2": 0.19623824782771937,
+      "cv_spearman": 0.38898343036274075
+    },
+    {
+      "target": "nfw_like_chi2",
+      "model": "Dstruct_Qbar",
+      "features": "mean_D_struct,Q_bar",
+      "n": 175,
+      "cv_r2": 0.2086234219259443,
+      "cv_spearman": 0.5203269144648455
+    },
+    {
+      "target": "nfw_like_rmse_v2",
+      "model": "Dstruct_only",
+      "features": "mean_D_struct",
+      "n": 175,
+      "cv_r2": 0.22313887891256112,
+      "cv_spearman": 0.6067129422301836
+    },
+    {
+      "target": "nfw_like_rmse_v2",
+      "model": "Qbar_only",
+      "features": "Q_bar",
+      "n": 175,
+      "cv_r2": 0.20397795286184117,
+      "cv_spearman": 0.5327630989699956
+    },
+    {
+      "target": "nfw_like_rmse_v2",
+      "model": "Dstruct_Qbar",
+      "features": "mean_D_struct,Q_bar",
+      "n": 175,
+      "cv_r2": 0.2987467183439282,
+      "cv_spearman": 0.6654030452306314
+    },
+    {
+      "target": "rar_mean_sigma_residual",
+      "model": "Dstruct_only",
+      "features": "mean_D_struct",
+      "n": 175,
+      "cv_r2": 0.06066606452762591,
+      "cv_spearman": 0.2956090461262875
+    },
+    {
+      "target": "rar_mean_sigma_residual",
+      "model": "Qbar_only",
+      "features": "Q_bar",
+      "n": 175,
+      "cv_r2": 0.014769651969016917,
+      "cv_spearman": 0.1409807433945365
+    },
+    {
+      "target": "rar_mean_sigma_residual",
+      "model": "Dstruct_Qbar",
+      "features": "mean_D_struct,Q_bar",
+      "n": 175,
+      "cv_r2": 0.05866108413832183,
+      "cv_spearman": 0.28535826242722795
     }
   ],
   "notes": [
     "Q_bar is treated as a neutral external input.",
     "Correlations are diagnostic and not causal claims.",
-    "Existing Paper-61 and Paper-65 outputs are not modified."
+    "Existing Paper-61 and Paper-65 outputs are not modified.",
+    "Baryonic mass and galaxy size controls are approximate proxies derived from SPARC rotation-curve rows."
   ]
 }

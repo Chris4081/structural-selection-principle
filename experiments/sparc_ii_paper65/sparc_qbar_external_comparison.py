@@ -34,6 +34,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 EPS = 1.0e-12
+MASS_PROXY_FACTOR = 2.325e5  # M_sun for v^2[km/s] * r[kpc] / G.
 
 
 def safe_corr(x: Iterable[float], y: Iterable[float], method: str = "spearman") -> float:
@@ -90,7 +91,50 @@ def permutation_pvalue(x: pd.Series, y: pd.Series, observed: float, n_perm: int,
     return float((count + 1) / (n_perm + 1))
 
 
-def load_inputs(summary_path: Path, qbar_path: Path, radial_corr_path: Path | None) -> tuple[pd.DataFrame, dict]:
+def derive_baryonic_size_controls(radius_path: Path | None) -> pd.DataFrame:
+    """Return simple galaxy-level mass/size controls from SPARC radius rows.
+
+    The mass term is a baryonic dynamical mass-scale proxy,
+    M_bar(<R_max>) ~= V_bar(R_max)^2 R_max / G, not a photometric stellar mass.
+    It is used only as a rank-control variable for the independence test.
+    """
+    if radius_path is None or not radius_path.exists():
+        return pd.DataFrame()
+
+    profile = pd.read_csv(radius_path)
+    required = {"galaxy", "r_kpc", "v_baryon_km_s"}
+    if not required.issubset(profile.columns):
+        return pd.DataFrame()
+
+    rows = []
+    for galaxy, g in profile.groupby("galaxy"):
+        work = g[["r_kpc", "v_baryon_km_s"]].replace([np.inf, -np.inf], np.nan).dropna()
+        if work.empty:
+            continue
+        work = work.sort_values("r_kpc")
+        rmax = float(work["r_kpc"].max())
+        outer = work.iloc[-1]
+        vbar_outer = float(max(outer["v_baryon_km_s"], 0.0))
+        mbar_proxy = MASS_PROXY_FACTOR * vbar_outer * vbar_outer * max(rmax, EPS)
+        rows.append(
+            {
+                "galaxy": str(galaxy),
+                "r_max_kpc": rmax,
+                "vbar_outer_km_s": vbar_outer,
+                "mbar_proxy_msun": mbar_proxy,
+                "log_r_max_kpc": float(np.log10(max(rmax, EPS))),
+                "log_mbar_proxy_msun": float(np.log10(max(mbar_proxy, EPS))),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def load_inputs(
+    summary_path: Path,
+    qbar_path: Path,
+    radial_corr_path: Path | None,
+    radius_diagnostics_path: Path | None,
+) -> tuple[pd.DataFrame, dict]:
     summary = pd.read_csv(summary_path)
     qbar = pd.read_csv(qbar_path)
     qbar["galaxy"] = qbar["galaxy"].astype(str)
@@ -109,10 +153,15 @@ def load_inputs(summary_path: Path, qbar_path: Path, radial_corr_path: Path | No
         ]
         merged = merged.merge(radial[[c for c in keep if c in radial.columns]], on="galaxy", how="left")
 
+    controls = derive_baryonic_size_controls(radius_diagnostics_path)
+    if not controls.empty:
+        merged = merged.merge(controls, on="galaxy", how="left")
+
     meta = {
         "summary_rows": int(len(summary)),
         "qbar_rows": int(len(qbar)),
         "matched_rows": int(len(merged)),
+        "mass_size_control_rows": int(len(controls)) if not controls.empty else 0,
         "unmatched_summary": unmatched_summary,
         "unmatched_qbar": unmatched_qbar,
     }
@@ -162,6 +211,8 @@ def compute_partial_checks(df: pd.DataFrame) -> pd.DataFrame:
         "vobs": ["vobs_max"],
         "gas_bulge": ["median_gas_fraction_proxy", "median_bulge_fraction_proxy"],
         "vobs_gas_bulge": ["vobs_max", "median_gas_fraction_proxy", "median_bulge_fraction_proxy"],
+        "baryonic_mass_size": ["log_mbar_proxy_msun", "log_r_max_kpc"],
+        "baryonic_mass_size_vobs": ["log_mbar_proxy_msun", "log_r_max_kpc", "vobs_max"],
     }
     targets = [
         "mean_D_struct",
@@ -185,6 +236,77 @@ def compute_partial_checks(df: pd.DataFrame) -> pd.DataFrame:
                     "partial_rank_corr_Qbar": partial_rank_corr(df, "Q_bar", target, controls),
                 }
             )
+    return pd.DataFrame(rows)
+
+
+def zscore_train_test(x_train: np.ndarray, x_test: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    mu = np.nanmean(x_train, axis=0)
+    sd = np.nanstd(x_train, axis=0)
+    sd = np.where(sd < EPS, 1.0, sd)
+    return (x_train - mu) / sd, (x_test - mu) / sd
+
+
+def cv_linear_metrics(df: pd.DataFrame, target: str, features: list[str], seed: int, n_fold: int = 5) -> dict:
+    work = df[[target, *features]].replace([np.inf, -np.inf], np.nan).dropna()
+    if len(work) < 20:
+        return {
+            "target": target,
+            "model": "",
+            "features": ",".join(features),
+            "n": int(len(work)),
+            "cv_r2": float("nan"),
+            "cv_spearman": float("nan"),
+        }
+    rng = np.random.default_rng(seed)
+    indices = np.arange(len(work))
+    rng.shuffle(indices)
+    folds = np.array_split(indices, n_fold)
+    pred = np.full(len(work), np.nan)
+    y = work[target].to_numpy(dtype=float)
+    x = work[features].to_numpy(dtype=float)
+    for fold in folds:
+        train = np.setdiff1d(indices, fold)
+        x_train, x_test = zscore_train_test(x[train], x[fold])
+        design_train = np.column_stack([np.ones(len(train)), x_train])
+        design_test = np.column_stack([np.ones(len(fold)), x_test])
+        beta, *_ = np.linalg.lstsq(design_train, y[train], rcond=None)
+        pred[fold] = design_test @ beta
+    good = np.isfinite(pred) & np.isfinite(y)
+    ss_res = float(np.sum((y[good] - pred[good]) ** 2))
+    ss_tot = float(np.sum((y[good] - np.mean(y[good])) ** 2))
+    r2 = 1.0 - ss_res / max(ss_tot, EPS)
+    rho = safe_corr(pd.Series(pred[good]), pd.Series(y[good]), method="spearman")
+    return {
+        "target": target,
+        "model": "",
+        "features": ",".join(features),
+        "n": int(np.sum(good)),
+        "cv_r2": float(r2),
+        "cv_spearman": float(rho),
+    }
+
+
+def compute_independence_model_comparison(df: pd.DataFrame, seed: int) -> pd.DataFrame:
+    targets = [
+        "nfw_like_chi2",
+        "nfw_like_rmse_v2",
+        "rar_mean_sigma_residual",
+    ]
+    models = {
+        "Dstruct_only": ["mean_D_struct"],
+        "Qbar_only": ["Q_bar"],
+        "Dstruct_Qbar": ["mean_D_struct", "Q_bar"],
+    }
+    rows = []
+    for target in targets:
+        if target not in df.columns:
+            continue
+        for model, features in models.items():
+            if not all(f in df.columns for f in features):
+                continue
+            row = cv_linear_metrics(df, target, features, seed=seed)
+            row["model"] = model
+            rows.append(row)
     return pd.DataFrame(rows)
 
 
@@ -279,6 +401,31 @@ def plot_morphology(df: pd.DataFrame, out: Path) -> None:
     plt.close(fig)
 
 
+def plot_model_comparison(model_df: pd.DataFrame, out: Path) -> None:
+    if model_df.empty:
+        return
+    targets = model_df["target"].drop_duplicates().tolist()
+    models = ["Dstruct_only", "Qbar_only", "Dstruct_Qbar"]
+    x = np.arange(len(targets))
+    width = 0.24
+    fig, ax = plt.subplots(figsize=(8.0, 5.0))
+    for i, model in enumerate(models):
+        vals = []
+        for target in targets:
+            row = model_df[(model_df["target"] == target) & (model_df["model"] == model)]
+            vals.append(float(row["cv_spearman"].iloc[0]) if not row.empty else np.nan)
+        ax.bar(x + (i - 1) * width, vals, width, label=model)
+    ax.set_xticks(x)
+    ax.set_xticklabels(targets, rotation=20, ha="right", fontsize=8)
+    ax.set_ylabel("5-fold CV Spearman")
+    ax.set_title("Q_bar independence test: mismatch prediction")
+    ax.grid(axis="y", alpha=0.25)
+    ax.legend(frameon=False, fontsize=8)
+    fig.tight_layout()
+    fig.savefig(out, dpi=180)
+    plt.close(fig)
+
+
 def write_readme(outdir: Path, summary: dict, corr: pd.DataFrame) -> None:
     strongest = corr.head(6)
     lines = [
@@ -304,11 +451,25 @@ def write_readme(outdir: Path, summary: dict, corr: pd.DataFrame) -> None:
     lines.extend(
         [
             "",
+            "## Independence-test highlights",
+            "",
+            "- Direct `Q_bar`--`mean_D_struct` Spearman correlation is reported in `qbar_correlations.csv`.",
+            "- Partial rank checks include controls for `log_mbar_proxy_msun` and `log_r_max_kpc` in `qbar_partial_rank_checks.csv`.",
+            "- Mismatch prediction comparisons for `D_struct only`, `Q_bar only`, and `D_struct + Q_bar` are reported in `qbar_independence_model_comparison.csv`.",
+            "",
+            "The baryonic mass control is a simple enclosed baryonic mass-scale proxy derived from `V_bar(R_max)^2 R_max / G`; it is not a full photometric stellar-mass estimate.",
+            "",
             "## Interpretation note",
             "",
             "These results are diagnostic correlations only. They do not establish a physical model or causal relation. Q_bar is treated as an external input and compared against existing MAAT/SPARC structural summaries without changing the Paper-61 or Paper-65 pipelines.",
             "",
-            "No endorsement by SPARC, Zenodo, VizieR, CDS, the original data providers, or the external Q_bar author is implied.",
+            "## Data attribution and license note",
+            "",
+            "SPARC-derived MAAT inputs follow the Paper-65 SPARC attribution and CC-BY-4.0 notes. SPARC rotation-curve data should be cited to Lelli, McGaugh, and Schombert and to the Zenodo-hosted SPARC record when reused.",
+            "",
+            "The `Q_bar` table is a collaborator-supplied derived HGD-GSR descriptor from Ali Alhawarat. It is not an original SPARC measurement and not a MAAT-derived quantity. Unless broader redistribution terms are separately supplied by the HGD-GSR author, treat the table as a neutral comparison input for this pilot and cite/acknowledge Ali Alhawarat and HGD-GSR when discussing or reusing the comparison.",
+            "",
+            "No endorsement by SPARC, Zenodo, VizieR, CDS, HGD-GSR, Ali Alhawarat, the original SPARC data providers, or any catalogue authors is implied.",
         ]
     )
     outdir.joinpath("README.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -318,6 +479,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--summary", type=Path, default=Path("outputs_paper65/paper65_galaxy_summary_with_proxy_morphology.csv"))
     parser.add_argument("--radial-corr", type=Path, default=Path("outputs_paper65/paper65_galaxywise_radial_correlations.csv"))
+    parser.add_argument("--radius-diagnostics", type=Path, default=Path("../sparc_structural_residual_pilot_paper61/outputs_sparc_real/paper61_radius_diagnostics.csv"))
     parser.add_argument("--qbar", type=Path, default=Path("external_qbar_alhawarat.csv"))
     parser.add_argument("--output", type=Path, default=Path("outputs_qbar_external"))
     parser.add_argument("--n-perm", type=int, default=5000)
@@ -327,7 +489,7 @@ def main() -> int:
     outdir = args.output
     outdir.mkdir(parents=True, exist_ok=True)
 
-    df, coverage = load_inputs(args.summary, args.qbar, args.radial_corr)
+    df, coverage = load_inputs(args.summary, args.qbar, args.radial_corr, args.radius_diagnostics)
     if df.empty:
         raise SystemExit("No galaxy overlap between Q_bar table and Paper-65 summary.")
 
@@ -340,6 +502,9 @@ def main() -> int:
     partial = compute_partial_checks(df)
     partial.to_csv(outdir / "qbar_partial_rank_checks.csv", index=False)
 
+    model_comparison = compute_independence_model_comparison(df, seed=args.seed)
+    model_comparison.to_csv(outdir / "qbar_independence_model_comparison.csv", index=False)
+
     morph_summary, quartile_summary = compute_group_summaries(df)
     morph_summary.to_csv(outdir / "qbar_morphology_proxy_summary.csv", index=False)
     quartile_summary.to_csv(outdir / "qbar_quartile_summary.csv", index=False)
@@ -348,6 +513,7 @@ def main() -> int:
     plot_scatter(df, "Q_bar", "outer_residual_fraction", outdir / "fig2_qbar_vs_outer_residual.png", "Q_bar vs outer residual fraction", "outer residual fraction")
     plot_correlation_bars(corr, outdir / "fig3_qbar_rank_associations.png")
     plot_morphology(df, outdir / "fig4_qbar_by_morphology_proxy.png")
+    plot_model_comparison(model_comparison, outdir / "fig5_qbar_independence_model_comparison.png")
 
     summary = {
         "coverage": coverage,
@@ -359,10 +525,12 @@ def main() -> int:
         },
         "strongest_rank_associations": corr.head(10).to_dict(orient="records"),
         "partial_rank_checks": partial.to_dict(orient="records"),
+        "independence_model_comparison": model_comparison.to_dict(orient="records"),
         "notes": [
             "Q_bar is treated as a neutral external input.",
             "Correlations are diagnostic and not causal claims.",
             "Existing Paper-61 and Paper-65 outputs are not modified.",
+            "Baryonic mass and galaxy size controls are approximate proxies derived from SPARC rotation-curve rows.",
         ],
     }
     (outdir / "qbar_summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")

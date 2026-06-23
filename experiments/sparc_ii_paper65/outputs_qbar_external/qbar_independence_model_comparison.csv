@@ -1,0 +1,10 @@
+target,model,features,n,cv_r2,cv_spearman
+nfw_like_chi2,Dstruct_only,mean_D_struct,175,0.07081982687834953,0.6211106135244067
+nfw_like_chi2,Qbar_only,Q_bar,175,0.19623824782771937,0.38898343036274075
+nfw_like_chi2,Dstruct_Qbar,"mean_D_struct,Q_bar",175,0.2086234219259443,0.5203269144648455
+nfw_like_rmse_v2,Dstruct_only,mean_D_struct,175,0.22313887891256112,0.6067129422301836
+nfw_like_rmse_v2,Qbar_only,Q_bar,175,0.20397795286184117,0.5327630989699956
+nfw_like_rmse_v2,Dstruct_Qbar,"mean_D_struct,Q_bar",175,0.2987467183439282,0.6654030452306314
+rar_mean_sigma_residual,Dstruct_only,mean_D_struct,175,0.06066606452762591,0.2956090461262875
+rar_mean_sigma_residual,Qbar_only,Q_bar,175,0.014769651969016917,0.1409807433945365
+rar_mean_sigma_residual,Dstruct_Qbar,"mean_D_struct,Q_bar",175,0.05866108413832183,0.28535826242722795
