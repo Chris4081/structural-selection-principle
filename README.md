@@ -3202,9 +3202,15 @@ python3 sparc_ii_paper65.py --halo-catalog path/to/li_halo_catalog.csv
 Paper-61 inputs. SPARC data are external scientific data released via Zenodo
 under CC-BY-4.0 and should be cited to the SPARC source and Lelli et al. when
 reused. If a published halo-fit catalogue is supplied locally, cite the
-original catalogue source, e.g. Li et al. for SPARC halo fits. Repository
-CSV/JSON/PNG files are derived reproducibility artifacts only. No endorsement
-by the SPARC team, Lelli et al., Li et al., or any catalogue authors is implied.
+original catalogue source, e.g. Li et al. for SPARC halo fits. The exploratory
+`Q_bar` comparison uses a collaborator-supplied derived HGD-GSR descriptor from
+Ali Alhawarat; it is not a SPARC measurement and not a MAAT-derived quantity.
+Unless broader redistribution terms are separately supplied by the HGD-GSR
+author, treat the `Q_bar` table as a neutral comparison input for this pilot and
+cite/acknowledge Ali Alhawarat and HGD-GSR when discussing or reusing it.
+Repository CSV/JSON/PNG files are derived reproducibility artifacts only. No
+endorsement by the SPARC team, Lelli et al., Li et al., HGD-GSR, Ali Alhawarat,
+or any catalogue authors is implied.
 
 **Documentation PDF:** `documentation/65_SPARC_II_Shuffled_Radius_Nulls.pdf`
 
@@ -3219,11 +3225,12 @@ MAAT structural residual signal from Paper 65 and the HGD-GSR `Q_bar` signal
 are related, independent, complementary, or redundant on the same SPARC galaxy
 basis.
 
-The repository does not redistribute HGD-GSR data. If no `Q_bar` CSV is
-present, the script writes a 175-galaxy template and a data contract. Once a
-collaborator supplies `data/hgd_gsr_qbar.csv`, the same pipeline performs the
-join, correlation tests, bootstrap intervals, and cross-validated predictive
-comparisons against the Paper-65 mismatch targets.
+The repository includes a collaborator-supplied `Q_bar` table for the neutral
+pilot comparison. If that CSV is removed or replaced, the script can still write
+a 175-galaxy template and a data contract. With `data/hgd_gsr_qbar.csv`
+present, the pipeline performs the join, correlation tests, bootstrap
+intervals, and cross-validated predictive comparisons against the Paper-65
+mismatch targets.
 
 **Reproducibility:**
 
@@ -3245,14 +3252,19 @@ data/hgd_gsr_qbar.csv
 columns: galaxy,Q_bar
 ```
 
-**Scientific status:** Protocol/scaffold only until real HGD-GSR `Q_bar`
-values are supplied under clear citation/licence terms.
+**Scientific status:** Exploratory cross-framework pilot. The present run uses
+real collaborator-supplied HGD-GSR `Q_bar` values for all 175 SPARC galaxies.
+It is not a confirmatory validation of either framework and should be read as a
+neutral relation/complementarity test.
 
 **Data attribution and license note:** MAAT/SPARC-derived inputs follow the
-Paper-65 SPARC attribution and CC-BY-4.0 notes. HGD-GSR `Q_bar` values are not
-redistributed unless explicitly supplied with permission and citation/licence
-terms by the HGD-GSR author. No endorsement by SPARC, HGD-GSR, Ali Alhawarat,
-Zenodo, or any original data provider is implied.
+Paper-65 SPARC attribution and CC-BY-4.0 notes. HGD-GSR `Q_bar` values are
+external collaborator-supplied derived descriptors from Ali Alhawarat's HGD-GSR
+framework. They are included only for this neutral cross-framework pilot unless
+broader redistribution terms are separately supplied by the HGD-GSR author.
+Cite/acknowledge Ali Alhawarat and HGD-GSR when discussing or reusing the
+`Q_bar` comparison. No endorsement by SPARC, HGD-GSR, Ali Alhawarat, Zenodo, or
+any original data provider is implied.
 
 ---
 
