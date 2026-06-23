@@ -3165,6 +3165,9 @@ radial pairing.
 | RAR shuffled-radius `|rho|_95` | `0.0336` |
 | RAR exceeds shuffled null? | `no` |
 | median galaxywise rho(`D_struct`, NFW-like residual) | `0.3000` |
+| rho(`Q_bar`, mean `D_struct`) | `-0.4345` |
+| partial rho(`Q_bar`, mean `D_struct` | mass + size) | `-0.2593` |
+| NFW-like RMSE CV rho, `D_struct + Q_bar` | `0.6654` |
 | published halo-catalogue status | `not run; no local catalogue supplied` |
 
 **Key finding:**
@@ -3172,6 +3175,11 @@ radial pairing.
 > NFW-like comparison channel under a shuffled-radius null, but the same does
 > not hold for the RAR channel. The signal is therefore channel- and
 > population-dependent, not a dark-matter solution.
+
+The exploratory external HGD-GSR `Q_bar` comparison is also channel-dependent:
+`Q_bar` is moderately anti-correlated with `D_struct`, remains nonzero after
+simple baryonic mass and galaxy-size controls, and adds useful information in
+the NFW-like RMSE prediction channel, but not in the RAR channel.
 
 **Scientific status:** Robustness follow-up to Paper 61. The optional
 published-halo-catalogue interface is implemented, but the present repository
