@@ -1,0 +1,7 @@
+domain,metric,variant,spearman,auroc_top20,mean_score,n
+Quantum,entanglement_robustness_higher_is_better,gate_R_ge_q75,0.5149680737221041,0.8787548225308642,0.1705915529012822,1800
+Quantum,entanglement_robustness_higher_is_better,gate_R_ge_q50,0.3226183690980904,0.8556404320987654,0.2855741572238144,1800
+Quantum,entanglement_robustness_higher_is_better,score_base_times_R,0.25131768044784375,0.8348437499999999,0.19498027360564682,1800
+Quantum,entanglement_robustness_higher_is_better,score_negative_F_scalar_stat,0.2447369952891961,0.8298206018518518,-4.724611390331928,1800
+Quantum,entanglement_robustness_higher_is_better,base_HBSV_no_R,0.242066908045342,0.8275501543209876,0.4409127685408225,1800
+Quantum,entanglement_robustness_higher_is_better,gate_R_ge_q25,0.2404609013469482,0.8398852237654321,0.3801741070747689,1800

@@ -1,0 +1,49 @@
+{
+  "status": "pilot re-analysis",
+  "hypothesis": "R as conditional gate versus R as global score",
+  "summary": [
+    {
+      "domain": "SAT",
+      "metric": "compute_cost_lower_is_better",
+      "score_variant": "global Mode A",
+      "gate_variant": "structure-gated Mode A",
+      "score_value": 20.556808080808082,
+      "gate_value": 19.986464646464643,
+      "delta_gate_minus_score": -0.5703434343434329,
+      "relative_improvement": 0.027744746757444608,
+      "median_delta": -0.007999999999999119,
+      "gate_win_rate": 0.5050505050505051,
+      "n": 99,
+      "interpretation": "gate slightly reduces mean/tail damage relative to ungated structural policy"
+    },
+    {
+      "domain": "Quantum",
+      "metric": "Spearman with entanglement robustness",
+      "score_variant": "base * R_rob_stat",
+      "gate_variant": "gate_R_ge_q75",
+      "score_value": 0.25131768044784375,
+      "gate_value": 0.5149680737221041,
+      "delta_gate_minus_score": 0.2636503932742603,
+      "relative_improvement": 1.0490722053593318,
+      "median_delta": null,
+      "gate_win_rate": null,
+      "n": 1800,
+      "interpretation": "hard R gate improves scalar ranking in-distribution, but this is not a field-model replacement"
+    },
+    {
+      "domain": "Fluid",
+      "metric": "lead_coverage_utility",
+      "score_variant": "W_MAAT = base * (1 - R_rob)",
+      "gate_variant": "gate_R_le_q75",
+      "score_value": 1.2749999999999986,
+      "gate_value": 1.5,
+      "delta_gate_minus_score": 0.22500000000000142,
+      "relative_improvement": 0.17647058823515702,
+      "median_delta": null,
+      "gate_win_rate": null,
+      "n": 4,
+      "interpretation": "best hard R gate improves utility but sacrifices event coverage and is threshold-sensitive"
+    }
+  ],
+  "conclusion": "Gate-favouring evidence appears in all three domains, but it is not yet enough for a v2.0 claim. SAT is weak-positive, quantum is strong in-distribution, and fluid is positive but threshold-sensitive and sacrifices detection coverage. This supports a v1.7 gate-hypothesis paper."
+}

@@ -1,0 +1,4 @@
+domain,metric,score_variant,gate_variant,score_value,gate_value,delta_gate_minus_score,relative_improvement,median_delta,gate_win_rate,n,interpretation
+SAT,compute_cost_lower_is_better,global Mode A,structure-gated Mode A,20.556808080808082,19.986464646464643,-0.5703434343434329,0.027744746757444608,-0.007999999999999119,0.5050505050505051,99,gate slightly reduces mean/tail damage relative to ungated structural policy
+Quantum,Spearman with entanglement robustness,base * R_rob_stat,gate_R_ge_q75,0.25131768044784375,0.5149680737221041,0.2636503932742603,1.0490722053593318,,,1800,"hard R gate improves scalar ranking in-distribution, but this is not a field-model replacement"
+Fluid,lead_coverage_utility,W_MAAT = base * (1 - R_rob),gate_R_le_q75,1.2749999999999986,1.5,0.22500000000000142,0.17647058823515702,,,4,best hard R gate improves utility but sacrifices event coverage and is threshold-sensitive
