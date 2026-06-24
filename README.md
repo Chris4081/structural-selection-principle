@@ -3292,6 +3292,72 @@ dataset. It reuses internal derived benchmark outputs from Papers 50b, 51, and
 
 ---
 
+### Paper 67 — Structural Early Warning as a Refinement Trigger
+**Structural Early Warning as a Refinement Trigger:**  
+*A Forced-2D-Turbulence Utility Benchmark and JHTDB Replication Protocol*
+
+**Core idea:** Moves the MAAT fluid programme from diagnostic correlation to
+simulation utility. The benchmark asks whether the MAAT warning functional
+`W_MAAT` can trigger adaptive refinement earlier than standard vorticity
+monitors at the same false-alarm rate. This first implementation uses a local
+forced-2D vorticity ensemble; JHTDB is specified as a predeclared external
+replication route, but no JHTDB data are downloaded or redistributed.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|-------:|
+| Forced-2D runs | `6` |
+| Refinement events | `4` |
+| False-alarm target | `0.05` |
+| Observed false-alarm rate | `~0.0501` |
+| `W_MAAT` detection rate | `1.000` |
+| `W_MAAT` median lead time | `1.275` |
+| `W_MAAT` lead-coverage utility | `1.275` |
+| High-k monitor utility | `1.225` |
+| `W_MAAT - high-k` utility margin | `0.050` |
+| Event-bootstrap 95% CI for margin | `[-0.700, 0.800]` |
+| Best ablation utility | `1.400` (`W_MAAT` without robustness loss) |
+| Max-vorticity utility | `0.825` |
+| RMS-vorticity utility | `0.5125` |
+
+**Key finding:**
+
+> In this local forced-2D pilot, `W_MAAT` gives the best predeclared
+> lead-coverage utility at matched false-alarm rate and beats simple vorticity
+> monitors. The result is narrow: the margin over a direct high-k spectral
+> monitor is small and not resolved by event-bootstrap uncertainty. Component
+> ablation shows that the pilot is tail/activity dominated and that the present
+> robustness-loss factor should be treated as a formula-refinement signal.
+
+**Scientific status:** Utility pilot, not a Navier--Stokes regularity claim
+and not yet a JHTDB result. The JHTDB protocol is predeclared for future
+external validation using public DNS sub-cubes.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/structural_early_warning_paper67/` | forced-2D early-warning benchmark, matched false-alarm trigger comparison, CSV/JSON outputs, JHTDB protocol, and figures |
+
+Run:
+
+```bash
+cd experiments/structural_early_warning_paper67
+python3 structural_early_warning_paper67.py
+```
+
+**Data attribution and license note:** Paper 67 generates its numerical
+results locally and introduces no external raw dataset. JHTDB is referenced as
+a future replication route only. Any future use of JHTDB data should follow
+current JHTDB access terms and cite the relevant JHTDB publications, including
+Li et al. (2008), arXiv:0804.1703. No endorsement by JHTDB, Johns Hopkins
+University, IDIES, SciServer, NSF, or the JHTDB dataset authors is implied.
+
+**Documentation PDF:** `documentation/67_Structural_Early_Warning_Refinement_Trigger.pdf`
+
+---
+
 ### Collaboration Pilot — SPARC MAAT x HGD-GSR Cross-Framework Test
 **SPARC Cross-Framework Structural Signal Test:**  
 *Comparing MAAT `D_struct` with externally supplied HGD-GSR `Q_bar` values*
