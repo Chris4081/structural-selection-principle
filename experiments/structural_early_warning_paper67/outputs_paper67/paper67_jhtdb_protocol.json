@@ -1,0 +1,21 @@
+{
+  "status": "predeclared external replication route, not executed in Paper 67",
+  "source": "Johns Hopkins Turbulence Database (JHTDB)",
+  "url": "https://turbulence.idies.jhu.edu/",
+  "candidate_datasets": [
+    "forced isotropic turbulence / isotropic1024",
+    "JHTDB v2.0 Zarr-backed isotropic turbulence datasets where available"
+  ],
+  "required_fields": [
+    "velocity or vorticity sub-cubes",
+    "spatial gradients or enough local stencil data to compute them",
+    "time-resolved samples for lead-time evaluation"
+  ],
+  "predeclared_test": [
+    "compute W_MAAT and vorticity/palinstrophy monitors on equal sub-cubes",
+    "define refinement events by future high-k stress or gradient-growth oracle",
+    "calibrate thresholds at the same false-alarm rate on non-event windows",
+    "compare median lead time and detection rate using bootstrap confidence intervals"
+  ],
+  "license_note": "Do not redistribute raw JHTDB cutouts unless permitted by the current JHTDB terms. Cite JHTDB and the relevant dataset publications."
+}
