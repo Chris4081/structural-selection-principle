@@ -1,0 +1,161 @@
+{
+  "paper": 66,
+  "title": "The Frozen Transfer Triangle: SAT, Quantum, Fluids",
+  "status": "internal frozen-weight transfer benchmark, not external validation",
+  "domains": [
+    {
+      "name": "SAT",
+      "n": 550,
+      "quality_label": "1 - minmax(log DPLL nodes)",
+      "notes": "Paper 50b SAT frustration-field benchmark; higher quality means lower DPLL hardness."
+    },
+    {
+      "name": "Quantum",
+      "n": 3500,
+      "quality_label": "minmax(pointer robustness target)",
+      "notes": "Paper 51 non-commuting Lindblad pointer-state benchmark."
+    },
+    {
+      "name": "Fluid",
+      "n": 340,
+      "quality_label": "1 - minmax(MAAT warning)",
+      "notes": "Paper 60 Burgers plus 2D Navier--Stokes diagnostic; higher quality means lower warning pressure."
+    }
+  ],
+  "n_cross_directions": 6,
+  "fit_rules": [
+    "equal",
+    "nnls",
+    "ridge_pos",
+    "v_only"
+  ],
+  "best_cross_transfer": {
+    "transfer": "Quantum->Fluid",
+    "fit_rule": "equal",
+    "spearman": 0.99088329178504,
+    "dominant_sector": "H",
+    "v_weight": 0.2,
+    "above_null_q95": true
+  },
+  "mean_cross_spearman_by_rule": {
+    "equal": 0.366567536325958,
+    "nnls": 0.3814321327360763,
+    "ridge_pos": 0.39787907833254166,
+    "v_only": 0.4735423991709135
+  },
+  "v_only_target_alignment": [
+    {
+      "target_domain": "Fluid",
+      "spearman": 0.6571347226708456,
+      "conservative_null_q95": 0.09626923009404226,
+      "above_null_q95": true
+    },
+    {
+      "target_domain": "Quantum",
+      "spearman": 0.603448095815005,
+      "conservative_null_q95": 0.029903930567084704,
+      "above_null_q95": true
+    },
+    {
+      "target_domain": "SAT",
+      "spearman": 0.16004437902688984,
+      "conservative_null_q95": 0.07206977442593786,
+      "above_null_q95": true
+    }
+  ],
+  "nnls_cross_transfers": [
+    {
+      "transfer": "Quantum->Fluid",
+      "spearman": 0.6635046201804108,
+      "null_q95": 0.08471061473664282,
+      "above_null_q95": true,
+      "dominant_sector": "H",
+      "v_weight": 0.21834073386365818
+    },
+    {
+      "transfer": "SAT->Fluid",
+      "spearman": 0.6571347226708456,
+      "null_q95": 0.0923224801373577,
+      "above_null_q95": true,
+      "dominant_sector": "V",
+      "v_weight": 1.0
+    },
+    {
+      "transfer": "SAT->Quantum",
+      "spearman": 0.603448095815005,
+      "null_q95": 0.02869832502027143,
+      "above_null_q95": true,
+      "dominant_sector": "V",
+      "v_weight": 1.0
+    },
+    {
+      "transfer": "Fluid->Quantum",
+      "spearman": 0.441279307579652,
+      "null_q95": 0.026954153677890082,
+      "above_null_q95": true,
+      "dominant_sector": "S",
+      "v_weight": 0.41993014178552085
+    },
+    {
+      "transfer": "Fluid->SAT",
+      "spearman": -0.0360150753723438,
+      "null_q95": 0.06219567755900334,
+      "above_null_q95": false,
+      "dominant_sector": "S",
+      "v_weight": 0.41993014178552085
+    },
+    {
+      "transfer": "Quantum->SAT",
+      "spearman": -0.04075887445711216,
+      "null_q95": 0.06872776230503733,
+      "above_null_q95": false,
+      "dominant_sector": "H",
+      "v_weight": 0.21834073386365818
+    }
+  ],
+  "v_only_cross_transfers": [
+    {
+      "transfer": "SAT->Fluid",
+      "spearman": 0.6571347226708456,
+      "null_q95": 0.09626923009404226,
+      "above_null_q95": true
+    },
+    {
+      "transfer": "Quantum->Fluid",
+      "spearman": 0.6571347226708456,
+      "null_q95": 0.0952475382045142,
+      "above_null_q95": true
+    },
+    {
+      "transfer": "SAT->Quantum",
+      "spearman": 0.603448095815005,
+      "null_q95": 0.02595563289666972,
+      "above_null_q95": true
+    },
+    {
+      "transfer": "Fluid->Quantum",
+      "spearman": 0.603448095815005,
+      "null_q95": 0.029903930567084704,
+      "above_null_q95": true
+    },
+    {
+      "transfer": "Quantum->SAT",
+      "spearman": 0.16004437902688984,
+      "null_q95": 0.07169228488338895,
+      "above_null_q95": true
+    },
+    {
+      "transfer": "Fluid->SAT",
+      "spearman": 0.16004437902688984,
+      "null_q95": 0.07206977442593786,
+      "above_null_q95": true
+    }
+  ],
+  "notes": [
+    "Higher target quality is predeclared per domain.",
+    "No target-domain sign flips or retuning are allowed.",
+    "Shuffled-defect nulls preserve marginal sector distributions but destroy row-level support coherence.",
+    "V-only rows are source-independent and should be read as target alignment, not fair architecture-level transfer.",
+    "Fluid quality is support-derived from Paper 60 and is therefore less independent than the SAT target."
+  ]
+}
