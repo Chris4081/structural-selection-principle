@@ -3224,6 +3224,74 @@ or any catalogue authors is implied.
 
 ---
 
+### Paper 66 — Frozen Transfer Triangle
+**The Frozen Transfer Triangle:**  
+*SAT, Quantum Pointer States, and Fluid Coherence as an Internal Structural-Mode Transfer Test*
+
+**Core idea:** Extends the Paper 52/53 frozen-transfer protocol from two
+domains to three: SAT frustration fields, quantum pointer-state robustness, and
+fluid coherence/blow-up diagnostics.  Source weights are learned once, frozen,
+and evaluated in all six cross-domain directions without target-domain retuning
+or sign flips.  The main question is whether the connectivity support `V`
+behaves as a shared low-frequency transfer channel.
+
+**Core results:**
+
+| Quantity | Result |
+|----------|-------:|
+| domains | `SAT, Quantum, Fluid` |
+| cross-domain directions | `6` |
+| SAT -> Quantum, NNLS Spearman | `0.6034` |
+| SAT -> Fluid, NNLS Spearman | `0.6571` |
+| Quantum -> SAT, NNLS Spearman | `-0.0408` |
+| Fluid -> SAT, NNLS Spearman | `-0.0360` |
+| mean cross-domain Spearman, equal | `0.3666` |
+| mean cross-domain Spearman, NNLS | `0.3814` |
+| mean cross-domain Spearman, ridge-positive | `0.3979` |
+
+`V`-only target alignment is reported separately, because it is not a
+source-trained architecture: SAT `0.1600`, Quantum `0.6034`, Fluid `0.6571`
+(row-duplicated six-direction audit mean `0.4735`).
+
+**Key finding:**
+> The `V` connectivity coordinate is positive and above shuffled-defect nulls
+> in all three target domains when treated as a target-alignment diagnostic.
+> The effect is strong for the support-related Quantum and Fluid targets but
+> weak for the cleaner SAT target (`rho_S = 0.1600`).
+> This is not a fair source-trained architecture comparison because the
+> `V`-only rows are source-independent. Full source-trained architectures remain
+> asymmetric and fail when transferred into SAT under NNLS. Positive ridge
+> slightly improves over NNLS, suggesting that regularization reduces
+> source-domain overfitting. The result supports conditional mode-level
+> portability, not universal global-score transfer.
+
+**Scientific status:** Internal benchmark only.  It reuses repository-derived
+outputs from Papers 50b, 51, and 60.  It is not external validation and not a
+universality proof. The Fluid target is support-derived from Paper 60, so
+transfers into Fluid are partly circular; transfer into SAT is the cleaner
+stress direction.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/frozen_transfer_triangle_paper66/` | Paper-66 three-domain frozen transfer runner, shuffled-defect nulls, CSV/JSON outputs, and figures |
+
+Run:
+
+```bash
+cd experiments/frozen_transfer_triangle_paper66
+python3 frozen_transfer_triangle_paper66.py
+```
+
+**Data attribution and license note:** Paper 66 introduces no new external
+dataset. It reuses internal derived benchmark outputs from Papers 50b, 51, and
+60. Repository CSV/JSON/PNG files are derived reproducibility artifacts only.
+
+**Documentation PDF:** `documentation/66_Frozen_Transfer_Triangle_SAT_Quantum_Fluids.pdf`
+
+---
+
 ### Collaboration Pilot — SPARC MAAT x HGD-GSR Cross-Framework Test
 **SPARC Cross-Framework Structural Signal Test:**  
 *Comparing MAAT `D_struct` with externally supplied HGD-GSR `Q_bar` values*
