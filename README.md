@@ -3358,6 +3358,103 @@ University, IDIES, SciServer, NSF, or the JHTDB dataset authors is implied.
 
 ---
 
+### MAAT v1.7 Gate-Hypothesis Pilot
+**R as Conditional Gate versus R as Global Score:**  
+*A Three-Domain Re-Analysis of SAT, Quantum, and Fluid Benchmarks*
+
+**Core idea:** Tests whether the robustness coordinate `R` is more useful as a
+conditional gate than as another global scoring factor. The pilot reuses
+existing repository artifacts from Paper 63 (SAT), Paper 64 (two-qubit pointer
+robustness), and Paper 67 (forced-2D refinement trigger).
+
+**Core results:**
+
+| Domain | Score form | Gate form | Result |
+|--------|------------|-----------|-------:|
+| SAT | global Mode A mean cost `20.5568` | gated Mode A mean cost `19.9865` | `+2.77%` relative improvement |
+| Quantum | `base * R_rob_stat`, Spearman `0.2513` | hard gate `R >= q75`, Spearman `0.5150` | `+0.2637` Spearman |
+| Fluid | `W_MAAT`, utility `1.275` | hard gate `R <= q75`, utility `1.500` | `+17.65%` utility |
+
+**Key finding:**
+
+> Gate-favouring evidence appears in all three tested domains, but it is not
+> yet enough for a v2.0 claim. SAT is weak-positive, quantum is strong
+> in-distribution, and fluid is positive but threshold-sensitive and sacrifices
+> detection coverage. This supports a MAAT v1.7 gate-hypothesis paper.
+
+**Scientific status:** Internal re-analysis pilot, not an external validation
+and not a completed new MAAT version. The result motivates a formal v1.7
+framework in which `R_rob` acts primarily as a gating/regime coordinate.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_v17_gate_hypothesis_pilot/` | re-analysis script, SAT/Quantum/Fluid gate-vs-score summaries, CSV/JSON outputs, and figures |
+
+Run:
+
+```bash
+cd experiments/maat_v17_gate_hypothesis_pilot
+python3 gate_vs_score_pilot.py
+```
+
+**Data attribution and license note:** The pilot introduces no new external
+dataset. It reuses internal derived artifacts from Papers 63, 64, and 67.
+
+**Documentation PDF:** `documentation/MAAT_v17_Gate_Aware_Structural_Selection.pdf`
+
+---
+
+### Standalone Framework Note — MAAT v1.7 Gate-Aware Structural Selection
+**MAAT v1.7: Gate-Aware Structural Selection:**  
+*From Global Scores to Conditional Structural Activation*
+
+**Core idea:** MAAT v1.7 is a conservative framework refinement. It does not
+replace MAAT v1.6 and does not promote `R` back to a primitive fifth scoring
+sector. Instead, it separates scoring coordinates from gating coordinates:
+`H,B,S,V` remain the primary structural scoring supports, while the emergent
+robustness closure `R_rob` may decide when a structural mode is active.
+
+**Core formulas:**
+
+```text
+F_active[X] = G_gate(R_rob[X]; theta) F_score[H,B,S,V; X]
+
+W_gate[X] = 1[R_rob[X] < R_*] f(S,V,A,P_tail; X)
+```
+
+**Core result:** The accompanying three-domain pilot gives gate-favouring
+evidence in SAT, quantum pointer robustness, and fluid early-warning
+benchmarks. The evidence is intentionally interpreted as v1.7-level support,
+not as a v2.0 triumph: SAT is only weak-positive, quantum is strong but
+in-distribution, and fluid improves utility while sacrificing event coverage.
+
+**Key finding:**
+
+> Structural supports should not always be compressed into one global score.
+> Some supports, especially emergent robustness, can act as regime gates that
+> decide when other structural modes become relevant.
+
+**Scientific status:** Standalone version note and formal refinement of the
+MAAT support language. It is not a new external validation, not a fundamental
+derivation of `R_rob`, and not a claim that gating always dominates scoring.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_v17_gate_hypothesis_pilot/` | three-domain pilot supporting the v1.7 gate-aware interpretation |
+
+**Data attribution and license note:** The v1.7 note introduces no new raw
+dataset. It relies on derived internal benchmark artifacts from Papers 63, 64,
+and 67 and on the reproducibility outputs listed in the pilot folder. No
+external dataset endorsement is implied.
+
+**Documentation PDF:** `documentation/MAAT_v17_Gate_Aware_Structural_Selection.pdf`
+
+---
+
 ### Collaboration Pilot — SPARC MAAT x HGD-GSR Cross-Framework Test
 **SPARC Cross-Framework Structural Signal Test:**  
 *Comparing MAAT `D_struct` with externally supplied HGD-GSR `Q_bar` values*
@@ -4148,6 +4245,8 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/sat_cdcl_structure_gated_mode_a_paper63/sat_cdcl_structure_gated_mode_a_paper63.py` | 63 | structure-gated Mode-A CDCL branching benchmark with instance-level gate diagnostics |
 | `experiments/two_qubit_pointer_paper64/two_qubit_pointer_paper64.py` | 64 | two-qubit Lindblad pointer-selection benchmark for entanglement robustness under correlated generator stationarity |
 | `experiments/sparc_ii_paper65/sparc_ii_paper65.py` | 65 | SPARC-II shuffled-radius nulls, morphology/proxy splits, and optional published halo-catalogue cross-check |
+| `experiments/structural_early_warning_paper67/structural_early_warning_paper67.py` | 67 | forced-2D early-warning utility benchmark and JHTDB replication protocol |
+| `experiments/maat_v17_gate_hypothesis_pilot/gate_vs_score_pilot.py` | v1.7 | three-domain R-gate versus R-score re-analysis pilot |
 | `experiments/sparc_hgd_gsr_cross_framework_pilot/sparc_hgd_gsr_cross_framework_pilot.py` | pilot | collaboration-ready SPARC MAAT x HGD-GSR cross-framework test using external Q_bar input |
 
 ---
