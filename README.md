@@ -3460,6 +3460,81 @@ external dataset endorsement is implied.
 
 ---
 
+### Paper 68 — The Gate Challenge
+**The Gate Challenge:**  
+*A Predeclared Falsification Protocol for MAAT v1.7 Gate-Aware Structural Selection*
+
+**Core idea:** Paper 68 does not introduce a new MAAT version and does not
+claim external validation. It freezes an adversarial validation protocol for
+MAAT v1.7. The default assumption is that the gate hypothesis is false until a
+predeclared gate architecture improves practical decision utility on external
+benchmarks.
+
+**Frozen gate architecture:**
+
+```text
+R_resp = (H B V)^(1/3)
+R_rob  = min(R_resp, (H B S V)^(1/4))
+
+z_R = p_D (R_rob - median_cal(R_rob)) / (MAD_cal(R_rob) + eps)
+g   = z_R + 0.50 z_t + 0.25 z_x
+G   = 1 / (1 + exp(-g))
+```
+
+Here `p_D=+1` means high robustness activates a selection/preservation mode,
+while `p_D=-1` means low robustness activates a warning/refinement mode.
+All centers, scales, and response normalisations must be computed from the
+calibration fold only.
+
+**Primary external domains:**
+
+| Domain | Polarity | Decision |
+|--------|---------:|----------|
+| Fluid / JHTDB turbulence | `-1` | trigger refinement / early warning |
+| SAT / CDCL | `+1` | activate structural branching or fall back |
+| Open quantum systems | `+1` | select robust pointer / entanglement-preserving candidates |
+
+**Success criterion:**
+
+> MAAT v1.7 receives minimum support only if the same gate architecture beats
+> score-with-`R` in at least two of three primary external domains with paired
+> bootstrap 95% lower bound greater than zero, and no primary domain shows a
+> clearly negative gate effect. A v2.0 claim is forbidden unless the gate also
+> beats the strongest classical baselines in all three primary domains.
+
+**Interpretation note:** The fair internal comparison is always gate versus
+score-with-`R`, not gate versus a score that omits robustness. The strong
+support threshold is intentionally severe and should be read as a long-term
+validation standard. The three primary domains are deliberately heterogeneous,
+so a two-of-three result would indicate conditional portability rather than a
+universal law.
+
+**Scientific status:** Protocol paper only. No external validation result is
+reported. Failure is an admissible outcome.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/maat_v17_gate_challenge_paper68/` | preregistered gate equation, domain matrix, baseline matrix, metric registry, JSON/CSV outputs, and protocol figure |
+
+Run:
+
+```bash
+cd experiments/maat_v17_gate_challenge_paper68
+python3 gate_challenge_protocol.py
+```
+
+**Data attribution and license note:** Paper 68 introduces no external raw
+dataset. It defines a preregistered protocol for future external validation.
+Future JHTDB, SAT, quantum, OpenML, or other public datasets must retain their
+original attribution and license requirements. No endorsement by any external
+dataset provider is implied.
+
+**Documentation PDF:** `documentation/68_The_Gate_Challenge_Predeclared_Falsification_Protocol_for_MAAT_v17.pdf`
+
+---
+
 ### Collaboration Pilot — SPARC MAAT x HGD-GSR Cross-Framework Test
 **SPARC Cross-Framework Structural Signal Test:**  
 *Comparing MAAT `D_struct` with externally supplied HGD-GSR `Q_bar` values*
@@ -4252,6 +4327,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/sparc_ii_paper65/sparc_ii_paper65.py` | 65 | SPARC-II shuffled-radius nulls, morphology/proxy splits, and optional published halo-catalogue cross-check |
 | `experiments/structural_early_warning_paper67/structural_early_warning_paper67.py` | 67 | forced-2D early-warning utility benchmark and JHTDB replication protocol |
 | `experiments/maat_v17_gate_hypothesis_pilot/gate_vs_score_pilot.py` | v1.7 | three-domain R-gate versus R-score re-analysis pilot |
+| `experiments/maat_v17_gate_challenge_paper68/gate_challenge_protocol.py` | 68 | preregistered external gate-challenge protocol, domain matrix, baselines, metrics, and failure criteria |
 | `experiments/sparc_hgd_gsr_cross_framework_pilot/sparc_hgd_gsr_cross_framework_pilot.py` | pilot | collaboration-ready SPARC MAAT x HGD-GSR cross-framework test using external Q_bar input |
 
 ---
