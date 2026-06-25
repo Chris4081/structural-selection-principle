@@ -3470,6 +3470,11 @@ MAAT v1.7. The default assumption is that the gate hypothesis is false until a
 predeclared gate architecture improves practical decision utility on external
 benchmarks.
 
+**Preregistration archive:** The complete Gate Challenge protocol was archived
+on Zenodo before any external Gate Challenge benchmark was executed:
+[`10.5281/zenodo.20882852`](https://doi.org/10.5281/zenodo.20882852).
+This DOI freezes the reference protocol; it does not validate the hypothesis.
+
 **Frozen gate architecture:**
 
 ```text
