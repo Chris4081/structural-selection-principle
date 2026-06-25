@@ -3422,6 +3422,8 @@ robustness closure `R_rob` may decide when a structural mode is active.
 F_active[X] = G_gate(R_rob[X]; theta) F_score[H,B,S,V; X]
 
 W_gate[X] = 1[R_rob[X] < R_*] f(S,V,A,P_tail; X)
+
+G_gate^resp[X] = G(R_rob[X], d_t R_rob[X], grad R_rob[X]; theta)
 ```
 
 **Core result:** The accompanying three-domain pilot gives gate-favouring
@@ -3429,6 +3431,9 @@ evidence in SAT, quantum pointer robustness, and fluid early-warning
 benchmarks. The evidence is intentionally interpreted as v1.7-level support,
 not as a v2.0 triumph: SAT is only weak-positive, quantum is strong but
 in-distribution, and fluid improves utility while sacrificing event coverage.
+Paper 66 supplies the mode-transfer motivation: transferable structure appears
+more like a conditionally activated structural mode than a single universal
+scalar architecture.
 
 **Key finding:**
 
