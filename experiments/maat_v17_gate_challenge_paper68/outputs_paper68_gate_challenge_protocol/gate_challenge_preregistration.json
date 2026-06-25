@@ -1,0 +1,68 @@
+{
+  "ablation_rules": [
+    "remove_response_terms_use_z_R_only",
+    "remove_R_value_use_response_terms_only",
+    "soft_gate_vs_hard_gate",
+    "score_only_vs_score_with_R_vs_gate_with_R"
+  ],
+  "default_assumption": "MAAT v1.7 is false until supported by predeclared external utility tests.",
+  "gate_architecture": {
+    "calibration": {
+      "center": "median(R_rob)",
+      "eps": 1e-09,
+      "no_test_set_refit": true,
+      "scale": "MAD(R_rob) + eps",
+      "split": "calibration fold only"
+    },
+    "candidate": "X",
+    "gate_signal": "g = z_R + a_t*z_t + a_x*z_x",
+    "hard_gate": "G_hard = 1[G >= 0.5]",
+    "name": "polarity_normalized_response_gate",
+    "polarity": {
+      "+1": "high robustness activates selection/preservation modes",
+      "-1": "low robustness activates warning/refinement modes",
+      "predeclared_per_domain": true
+    },
+    "response_terms": {
+      "a_t": 0.5,
+      "a_x": 0.25,
+      "z_R": "p_D * (R_rob - median_cal(R_rob)) / (MAD_cal(R_rob) + eps)",
+      "z_t": "p_D * d_t R_rob standardized on calibration fold",
+      "z_x": "p_D * grad R_rob standardized on calibration fold"
+    },
+    "robustness": {
+      "R_resp": "(H*B*V)^(1/3)",
+      "R_rob": "min(R_resp, (H*B*S*V)^(1/4))"
+    },
+    "score_comparison": {
+      "gate_with_R": "G * F_score(H,B,S,V) or gate-triggered action",
+      "score_only": "F_score(H,B,S,V)",
+      "score_with_R": "F_score(H,B,S,V) weighted by continuous R_rob"
+    },
+    "soft_gate": "G = 1 / (1 + exp(-g/tau))",
+    "supports": [
+      "H",
+      "B",
+      "S",
+      "V"
+    ],
+    "tau": 1.0
+  },
+  "null_controls": [
+    "shuffled_R_rob_within_domain",
+    "shuffled_gate_signal_preserving_marginal_distribution",
+    "random_polarity_assignment",
+    "score_label_shuffle_where_applicable"
+  ],
+  "paper": 68,
+  "status": "protocol_only_no_external_results",
+  "subtitle": "A Predeclared Falsification Protocol for MAAT v1.7 Gate-Aware Structural Selection",
+  "success_criteria": {
+    "failure": "Gate fails if it does not beat score_with_R in at least 2 primary domains, or if improvements vanish under shuffled/null controls, or if gains require post-hoc threshold tuning.",
+    "minimum_support": "Gate beats score_with_R in at least 2 of 3 primary external domains with paired bootstrap 95% CI lower bound > 0, and no primary domain shows a CI upper bound < 0 against score_with_R.",
+    "strong_support": "Gate beats both score_with_R and the strongest classical baseline in all 3 primary external domains with paired bootstrap 95% CI lower bound > 0.",
+    "v2_claim_rule": "No v2.0 claim is allowed unless strong_support is met on external benchmarks."
+  },
+  "title": "The Gate Challenge",
+  "year": 2026
+}

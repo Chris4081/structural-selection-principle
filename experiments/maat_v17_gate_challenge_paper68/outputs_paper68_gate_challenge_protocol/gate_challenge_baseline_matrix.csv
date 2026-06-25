@@ -1,0 +1,17 @@
+domain,baseline,role,comparison
+Fluid / JHTDB turbulence,high-k monitor,strong_reasonable_baseline,must be compared against MAAT_score and MAAT_gate
+Fluid / JHTDB turbulence,palinstrophy,strong_reasonable_baseline,must be compared against MAAT_score and MAAT_gate
+Fluid / JHTDB turbulence,max vorticity,strong_reasonable_baseline,must be compared against MAAT_score and MAAT_gate
+Fluid / JHTDB turbulence,RMS vorticity,strong_reasonable_baseline,must be compared against MAAT_score and MAAT_gate
+SAT / CDCL,VSIDS,strong_reasonable_baseline,must be compared against MAAT_score and MAAT_gate
+SAT / CDCL,LRB,strong_reasonable_baseline,must be compared against MAAT_score and MAAT_gate
+SAT / CDCL,MOMS,strong_reasonable_baseline,must be compared against MAAT_score and MAAT_gate
+SAT / CDCL,Jeroslow-Wang,strong_reasonable_baseline,must be compared against MAAT_score and MAAT_gate
+Open quantum systems,decoherence rate,strong_reasonable_baseline,must be compared against MAAT_score and MAAT_gate
+Open quantum systems,purity,strong_reasonable_baseline,must be compared against MAAT_score and MAAT_gate
+Open quantum systems,fidelity,strong_reasonable_baseline,must be compared against MAAT_score and MAAT_gate
+Open quantum systems,stationarity baseline,strong_reasonable_baseline,must be compared against MAAT_score and MAAT_gate
+Optional public ML hardness,local label disagreement,strong_reasonable_baseline,must be compared against MAAT_score and MAAT_gate
+Optional public ML hardness,kNN density,strong_reasonable_baseline,must be compared against MAAT_score and MAAT_gate
+Optional public ML hardness,centroid distance,strong_reasonable_baseline,must be compared against MAAT_score and MAAT_gate
+Optional public ML hardness,PCA error,strong_reasonable_baseline,must be compared against MAAT_score and MAAT_gate

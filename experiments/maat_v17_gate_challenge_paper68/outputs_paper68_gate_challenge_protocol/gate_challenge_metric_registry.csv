@@ -1,0 +1,5 @@
+metric,definition,primary
+delta_utility_gate_vs_score,U(MAAT_gate) - U(MAAT_score_with_R),True
+delta_utility_gate_vs_best_classical,U(MAAT_gate) - U(best_classical_baseline),True
+paired_bootstrap_CI_95,paired bootstrap confidence interval for utility deltas,True
+null_survival,real gate improvement exceeds shuffled/null controls,True
