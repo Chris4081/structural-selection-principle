@@ -3,8 +3,9 @@
 This folder contains the execution scaffold for the first external SAT/CDCL
 run of the preregistered MAAT v1.7 Gate Challenge protocol.
 
-Scientific status: **execution scaffold only until public external CNF files
-are placed in `data_external/` and the run is executed**. The script deliberately
+Scientific status: **execution scaffold and reproducible SATLIB smoke execution**.
+Raw external CNF files are not committed; published outputs are derived from
+the validated SATLIB subset documented in the SHA256 manifest. The script still
 writes a `not_executed` summary when no external DIMACS instances are present.
 
 Preregistration archive:
