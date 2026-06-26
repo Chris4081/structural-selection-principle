@@ -1,0 +1,40 @@
+{
+  "paper": 69,
+  "title": "Gate Challenge I: SAT/CDCL",
+  "validation_type": "dataset_manifest_sha256_gatekeeper",
+  "paper68_preregistration_doi": "10.5281/zenodo.20882852",
+  "manifest_path": "./dataset_manifest.csv",
+  "data_dir": "./data_external",
+  "checks": {
+    "Manifest": "PASS",
+    "CNFs": "PASS",
+    "SHA256": "PASS",
+    "Unexpected Files": "PASS",
+    "Dataset Ready": "YES"
+  },
+  "counts": {
+    "manifest_rows": 98,
+    "actual_cnf_files": 98,
+    "verified_sha256_files": 98,
+    "parseable_dimacs_files": 98,
+    "missing_manifest_columns": 0,
+    "duplicate_local_paths": 0,
+    "missing_files": 0,
+    "manifest_rows_without_hash": 0,
+    "sha256_mismatches": 0,
+    "parse_failures": 0,
+    "unexpected_cnf_files": 0
+  },
+  "failures": {
+    "missing_manifest_columns": [],
+    "duplicate_local_paths": [],
+    "missing_files": [],
+    "manifest_rows_without_hash": [],
+    "sha256_mismatches": [],
+    "parse_failures": [],
+    "unexpected_cnf_files": []
+  },
+  "dataset_ready": true,
+  "status": "VALIDATION PASS",
+  "protocol_note": "Dataset validation checks only data provenance and integrity. It does not alter gate parameters, calibration rules, or solver policies."
+}
