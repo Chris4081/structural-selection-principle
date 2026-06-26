@@ -1,0 +1,3 @@
+dataset_id,family,source_name,source_url,license_or_terms,local_path,sha256,download_tls_mode,archive_sha256,notes
+satlib_uf20_example,random_3sat,SATLIB,https://www.cs.ubc.ca/~hoos/SATLIB/benchm.html,check SATLIB terms before redistribution,data_external/satlib/uf20-01.cnf,,tls_verified,,example row only
+sat_competition_example,competition,SAT Competition,https://satcompetition.github.io/,check competition benchmark terms before redistribution,data_external/sat_competition/example.cnf,,tls_verified,,example row only
