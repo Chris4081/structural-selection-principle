@@ -3540,6 +3540,70 @@ dataset provider is implied.
 
 ---
 
+### Paper 69 Preparation — Gate Challenge I: SAT/CDCL
+**First External Execution Scaffold of the Predeclared MAAT v1.7 Gate Protocol:**  
+*SAT/CDCL gate-vs-score testing on public external CNF benchmarks*
+
+**Core idea:** Paper 69 is the first planned external execution of the Paper 68
+Gate Challenge protocol. It is intentionally separated from the earlier
+Paper-55/Paper-63 dry runs: Paper 69 may use only public external DIMACS CNF
+instances such as SATLIB, SAT Competition, or DIMACS-style benchmark archives
+for primary evidence.
+
+**Preregistration reference:** The gate equation, calibration rule, SAT polarity
+(`p_D=+1`), score-with-`R` comparison, null controls, metrics, and failure
+criteria are frozen by the Paper 68 Zenodo archive:
+[`10.5281/zenodo.20882852`](https://doi.org/10.5281/zenodo.20882852).
+
+**Scientific status:** Execution scaffold only. No external validation result is
+claimed until public CNF files are placed in the experiment folder, source and
+license metadata are documented, and the run outputs are generated.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/gate_challenge_sat_paper69/` | external SAT/CDCL Gate Challenge scaffold, DIMACS parser, dataset manifest template, VSIDS/MOMS/Jeroslow--Wang baselines, score-with-`R`, gate-v1.7, shuffled-`R` null, bootstrap CI outputs |
+
+Run:
+
+```bash
+cd experiments/gate_challenge_sat_paper69
+python3 download_satlib_paper69.py --limit-per-archive 20
+python3 gate_challenge_sat_paper69.py --validate-only
+python3 gate_challenge_sat_paper69.py --family-balanced 5 --conflict-budget 1000
+python3 analyze_moms_vs_gate_paper69.py
+```
+
+If no external CNF files are present, the solver script writes a `not_executed`
+JSON summary rather than generating synthetic evidence. The optional SATLIB
+download helper stages a deterministic public benchmark subset locally under
+the git-ignored `data_external/` folder and writes `dataset_manifest.csv`. The
+validator writes `paper69_dataset_validation.json` and must pass before solver
+execution. `--family-balanced N` is the recommended smoke-test mode because it
+selects up to `N` CNFs per benchmark family instead of taking a lexicographic
+prefix. The MOMS-vs-gate analysis is explicitly post-hoc diagnostics, not a
+gate-retuning step.
+
+**Smoke-test result:** The family-balanced SATLIB smoke execution passes the
+dataset gatekeeper and solver pipeline, but it does not support the frozen gate
+as a practical SAT/CDCL improvement. Gate-v1.7 does not beat score-with-`R`
+with a positive lower confidence bound and loses clearly to MOMS in this
+subset. The diagnostic conclusion is that the current root-level robustness
+gate misses a decision-local short-clause-pressure channel.
+
+**Data attribution and license note:** Raw CNF benchmark files are not
+redistributed by default. Users should cite and follow the original terms for
+SATLIB, SAT Competition, DIMACS, or any other public source used. No endorsement
+by external dataset providers is implied. If the SATLIB helper is executed with
+the explicit `--allow-insecure-ssl` opt-in for a legacy HTTPS certificate issue,
+the generated manifest marks that TLS exception and fixes both archives and
+extracted CNFs by SHA256. Gate parameters must not be changed after download.
+
+**Documentation PDF:** `documentation/69_Gate_Challenge_I_SATLIB_CDCL_Smoke_Execution.pdf`
+
+---
+
 ### Collaboration Pilot — SPARC MAAT x HGD-GSR Cross-Framework Test
 **SPARC Cross-Framework Structural Signal Test:**  
 *Comparing MAAT `D_struct` with externally supplied HGD-GSR `Q_bar` values*
@@ -4333,6 +4397,9 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/structural_early_warning_paper67/structural_early_warning_paper67.py` | 67 | forced-2D early-warning utility benchmark and JHTDB replication protocol |
 | `experiments/maat_v17_gate_hypothesis_pilot/gate_vs_score_pilot.py` | v1.7 | three-domain R-gate versus R-score re-analysis pilot |
 | `experiments/maat_v17_gate_challenge_paper68/gate_challenge_protocol.py` | 68 | preregistered external gate-challenge protocol, domain matrix, baselines, metrics, and failure criteria |
+| `experiments/gate_challenge_sat_paper69/download_satlib_paper69.py` | 69-prep | SATLIB staging helper that downloads public DIMACS archives locally, extracts a deterministic subset, and writes a source manifest |
+| `experiments/gate_challenge_sat_paper69/gate_challenge_sat_paper69.py` | 69-prep | external SAT/CDCL Gate Challenge scaffold with DIMACS parsing, score-with-R, gate-v1.7, shuffled-R null, and bootstrap utility comparisons |
+| `experiments/gate_challenge_sat_paper69/analyze_moms_vs_gate_paper69.py` | 69-diagnostic | post-hoc diagnostic explaining where MOMS beats the frozen gate without changing gate parameters |
 | `experiments/sparc_hgd_gsr_cross_framework_pilot/sparc_hgd_gsr_cross_framework_pilot.py` | pilot | collaboration-ready SPARC MAAT x HGD-GSR cross-framework test using external Q_bar input |
 
 ---
