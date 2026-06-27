@@ -1,0 +1,5 @@
+label,model,n_features,in_sample_r2,lofo_r2,spearman_pred_target,pearson_pred_target
+supports,H+B+S+V+R_rob,5,0.7644510819432423,-1.5539043030360689,0.6062291434927699,0.8743289323493956
+supports+gate,H+B+S+V+R_rob+G_gate,6,0.7644525381354608,-4.66013749744948,0.6062291434927699,0.8743297650975016
+local-only,short_variable_entropy+paper69_degree_cv+variable_occurrence_cv+short_clause_pressure+moms_local_signal+jw_variable_concentration+clause_length_entropy+weighted_clause_pressure,8,0.8910257270803776,-108.21782539810012,0.7299221357063406,0.9439415909262466
+supports+local,H+B+S+V+R_rob+short_variable_entropy+paper69_degree_cv+variable_occurrence_cv+short_clause_pressure+moms_local_signal+jw_variable_concentration+clause_length_entropy+weighted_clause_pressure,13,0.9187620479059241,-155.72429265137032,0.8567296996662961,0.9585207602894796

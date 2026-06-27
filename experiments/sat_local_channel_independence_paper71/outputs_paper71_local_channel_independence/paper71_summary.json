@@ -1,0 +1,149 @@
+{
+  "paper": 71,
+  "title": "Decision-Local Structural Selection in SAT",
+  "analysis_type": "post_hoc_hypothesis_generation_not_gate_update",
+  "source": "Paper 70 derived local-channel features",
+  "n_instances": 30,
+  "families": [
+    "satlib_dimacs_aim",
+    "satlib_dimacs_dubois",
+    "satlib_dimacs_pigeonhole",
+    "satlib_graph_coloring_flat30",
+    "satlib_random_3sat_uf20",
+    "satlib_random_3sat_uuf50"
+  ],
+  "support_basis": [
+    "H",
+    "B",
+    "S",
+    "V",
+    "R_rob",
+    "G_gate"
+  ],
+  "local_channels": [
+    "short_variable_entropy",
+    "paper69_degree_cv",
+    "variable_occurrence_cv",
+    "short_clause_pressure",
+    "moms_local_signal",
+    "jw_variable_concentration",
+    "clause_length_entropy",
+    "weighted_clause_pressure"
+  ],
+  "target": "regret_gate_to_moms",
+  "top_residual_channels": [
+    {
+      "local_channel": "variable_occurrence_cv",
+      "spearman_L_regret": -0.4877906492225806,
+      "pearson_L_regret": -0.6376841434992575,
+      "r2_L_from_supports": 0.722243810073233,
+      "residual_spearman_regret": -0.264071190211346,
+      "residual_pearson_regret": -0.24631029293808598,
+      "interpretation": "weak_or_redundant"
+    },
+    {
+      "local_channel": "paper69_degree_cv",
+      "spearman_L_regret": -0.5666809481504236,
+      "pearson_L_regret": -0.5300558061153148,
+      "r2_L_from_supports": 0.9638998879083627,
+      "residual_spearman_regret": 0.2480533926585095,
+      "residual_pearson_regret": 0.2603109843582536,
+      "interpretation": "weak_or_redundant"
+    },
+    {
+      "local_channel": "jw_variable_concentration",
+      "spearman_L_regret": -0.2170429368418519,
+      "pearson_L_regret": -0.25902401283660437,
+      "r2_L_from_supports": 0.9580741345593624,
+      "residual_spearman_regret": -0.1884315906562848,
+      "residual_pearson_regret": -0.03853934503157764,
+      "interpretation": "weak_or_redundant"
+    },
+    {
+      "local_channel": "clause_length_entropy",
+      "spearman_L_regret": -0.21245058537152733,
+      "pearson_L_regret": -0.21285473923739673,
+      "r2_L_from_supports": 0.8651360041761176,
+      "residual_spearman_regret": 0.1470522803114572,
+      "residual_pearson_regret": 0.20980871891820752,
+      "interpretation": "weak_or_redundant"
+    },
+    {
+      "local_channel": "short_clause_pressure",
+      "spearman_L_regret": -0.3886742466327181,
+      "pearson_L_regret": -0.13353311900695158,
+      "r2_L_from_supports": 0.916560536832146,
+      "residual_spearman_regret": 0.09899888765294775,
+      "residual_pearson_regret": 0.04363674685732135,
+      "interpretation": "weak_or_redundant"
+    }
+  ],
+  "model_comparison": [
+    {
+      "model": "H+B+S+V+R_rob",
+      "n_features": 5,
+      "in_sample_r2": 0.7644510819432423,
+      "lofo_r2": -1.5539043030360689,
+      "spearman_pred_target": 0.6062291434927699,
+      "pearson_pred_target": 0.8743289323493956,
+      "label": "supports"
+    },
+    {
+      "model": "H+B+S+V+R_rob+G_gate",
+      "n_features": 6,
+      "in_sample_r2": 0.7644525381354608,
+      "lofo_r2": -4.66013749744948,
+      "spearman_pred_target": 0.6062291434927699,
+      "pearson_pred_target": 0.8743297650975016,
+      "label": "supports+gate"
+    },
+    {
+      "model": "short_variable_entropy+paper69_degree_cv+variable_occurrence_cv+short_clause_pressure+moms_local_signal+jw_variable_concentration+clause_length_entropy+weighted_clause_pressure",
+      "n_features": 8,
+      "in_sample_r2": 0.8910257270803776,
+      "lofo_r2": -108.21782539810012,
+      "spearman_pred_target": 0.7299221357063406,
+      "pearson_pred_target": 0.9439415909262466,
+      "label": "local-only"
+    },
+    {
+      "model": "H+B+S+V+R_rob+short_variable_entropy+paper69_degree_cv+variable_occurrence_cv+short_clause_pressure+moms_local_signal+jw_variable_concentration+clause_length_entropy+weighted_clause_pressure",
+      "n_features": 13,
+      "in_sample_r2": 0.9187620479059241,
+      "lofo_r2": -155.72429265137032,
+      "spearman_pred_target": 0.8567296996662961,
+      "pearson_pred_target": 0.9585207602894796,
+      "label": "supports+local"
+    }
+  ],
+  "shuffle_nulls": [
+    {
+      "local_channel": "short_variable_entropy",
+      "observed_residual_spearman": -0.014015572858731928,
+      "shuffle_abs_p": 0.8990504747626187,
+      "null_mean": 0.0019050055617352618,
+      "null_q025": -0.20535038932146832,
+      "null_q975": 0.2009232480533925,
+      "n_shuffles": 2000
+    },
+    {
+      "local_channel": "paper69_degree_cv",
+      "observed_residual_spearman": 0.2480533926585095,
+      "shuffle_abs_p": 0.04897551224387806,
+      "null_mean": -0.0019770856507230275,
+      "null_q025": -0.2502892102335929,
+      "null_q975": 0.23384872080088975,
+      "n_shuffles": 2000
+    },
+    {
+      "local_channel": "variable_occurrence_cv",
+      "observed_residual_spearman": -0.264071190211346,
+      "shuffle_abs_p": 0.015492253873063468,
+      "null_mean": -0.002871412680756398,
+      "null_q025": -0.2080756395995551,
+      "null_q975": 0.21780867630700776,
+      "n_shuffles": 2000
+    }
+  ],
+  "interpretation_rule": "Candidate local channels may motivate a future preregistered test, but do not modify Paper 69 or define a new gate here."
+}
