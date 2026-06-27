@@ -3540,11 +3540,11 @@ dataset provider is implied.
 
 ---
 
-### Paper 69 Preparation — Gate Challenge I: SAT/CDCL
-**First External Execution Scaffold of the Predeclared MAAT v1.7 Gate Protocol:**  
+### Paper 69 — Gate Challenge I: SAT/CDCL
+**First External SATLIB Smoke Execution of the Predeclared MAAT v1.7 Gate Protocol:**  
 *SAT/CDCL gate-vs-score testing on public external CNF benchmarks*
 
-**Core idea:** Paper 69 is the first planned external execution of the Paper 68
+**Core idea:** Paper 69 is the first external smoke execution of the Paper 68
 Gate Challenge protocol. It is intentionally separated from the earlier
 Paper-55/Paper-63 dry runs: Paper 69 may use only public external DIMACS CNF
 instances such as SATLIB, SAT Competition, or DIMACS-style benchmark archives
@@ -3555,9 +3555,9 @@ for primary evidence.
 criteria are frozen by the Paper 68 Zenodo archive:
 [`10.5281/zenodo.20882852`](https://doi.org/10.5281/zenodo.20882852).
 
-**Scientific status:** Execution scaffold only. No external validation result is
-claimed until public CNF files are placed in the experiment folder, source and
-license metadata are documented, and the run outputs are generated.
+**Scientific status:** Reproducible SATLIB smoke execution. Raw external CNF
+files are not committed; published outputs are derived from the validated
+SATLIB subset documented in the SHA256 manifest.
 
 **Reproducibility:**
 
@@ -3601,6 +3601,53 @@ the generated manifest marks that TLS exception and fixes both archives and
 extracted CNFs by SHA256. Gate parameters must not be changed after download.
 
 **Documentation PDF:** `documentation/69_Gate_Challenge_I_SATLIB_CDCL_Smoke_Execution.pdf`
+
+---
+
+### Paper 70 — Local Structural Channels in SAT
+**A Diagnostic Analysis of the First External Gate Challenge:**  
+*Why MOMS beats the frozen root-level gate in the SATLIB smoke execution*
+
+**Core idea:** Paper 70 does not retune the Paper-69 gate and does not propose
+a new MAAT version. It asks what the first external SAT result teaches: which
+local SAT information channels are exploited by MOMS but missing from the
+frozen MAAT v1.7 root-level gate?
+
+**Diagnostic result:** The strongest signal is not the root gate itself
+(`Spearman rho = -0.176` against gate-to-MOMS regret), but local
+short-clause/occurrence geometry. Shortest-clause variable entropy correlates
+positively with gate-to-MOMS regret (`rho = 0.643`), while degree/occurrence
+concentration correlates negatively (`rho = -0.567` for Paper-69 degree CV and
+`rho = -0.488` for variable-occurrence CV). The largest family-level regret
+appears on Dubois and pigeonhole instances; graph-colouring and small random
+3-SAT are near zero in the smoke subset.
+
+**Interpretation:** The frozen gate did not lose because the external pipeline
+was weak. It lost because the current root-level robustness gate lacks a
+decision-local shortest-clause/occurrence channel. This is a
+missing-information result, not a retroactive gate update.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/sat_local_structural_channels_paper70/` | post-hoc diagnostic analysis of local SAT channels using Paper-69 outputs and locally staged SHA256-verified SATLIB CNFs |
+
+Run:
+
+```bash
+cd experiments/sat_local_structural_channels_paper70
+python3 analyze_sat_local_channels_paper70.py \
+  --paper69-dir ../gate_challenge_sat_paper69
+```
+
+**Data attribution and license note:** Raw SATLIB CNFs are local inputs only and
+are not emitted or redistributed. Paper-70 outputs contain derived local-channel
+features, correlations, family summaries, JSON metadata, and figures. Any future
+SAT-specific channel extension must be preregistered as a new test and may not
+alter Paper-69 results retroactively.
+
+**Documentation PDF:** `documentation/70_Local_Structural_Channels_in_SAT.pdf`
 
 ---
 
@@ -4397,9 +4444,10 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/structural_early_warning_paper67/structural_early_warning_paper67.py` | 67 | forced-2D early-warning utility benchmark and JHTDB replication protocol |
 | `experiments/maat_v17_gate_hypothesis_pilot/gate_vs_score_pilot.py` | v1.7 | three-domain R-gate versus R-score re-analysis pilot |
 | `experiments/maat_v17_gate_challenge_paper68/gate_challenge_protocol.py` | 68 | preregistered external gate-challenge protocol, domain matrix, baselines, metrics, and failure criteria |
-| `experiments/gate_challenge_sat_paper69/download_satlib_paper69.py` | 69-prep | SATLIB staging helper that downloads public DIMACS archives locally, extracts a deterministic subset, and writes a source manifest |
-| `experiments/gate_challenge_sat_paper69/gate_challenge_sat_paper69.py` | 69-prep | external SAT/CDCL Gate Challenge scaffold with DIMACS parsing, score-with-R, gate-v1.7, shuffled-R null, and bootstrap utility comparisons |
+| `experiments/gate_challenge_sat_paper69/download_satlib_paper69.py` | 69 | SATLIB staging helper that downloads public DIMACS archives locally, extracts a deterministic subset, and writes a source manifest |
+| `experiments/gate_challenge_sat_paper69/gate_challenge_sat_paper69.py` | 69 | external SAT/CDCL Gate Challenge scaffold with DIMACS parsing, score-with-R, gate-v1.7, shuffled-R null, and bootstrap utility comparisons |
 | `experiments/gate_challenge_sat_paper69/analyze_moms_vs_gate_paper69.py` | 69-diagnostic | post-hoc diagnostic explaining where MOMS beats the frozen gate without changing gate parameters |
+| `experiments/sat_local_structural_channels_paper70/analyze_sat_local_channels_paper70.py` | 70 | post-hoc local SAT-channel analysis identifying short-clause/occurrence information missing from the Paper-69 root-level gate |
 | `experiments/sparc_hgd_gsr_cross_framework_pilot/sparc_hgd_gsr_cross_framework_pilot.py` | pilot | collaboration-ready SPARC MAAT x HGD-GSR cross-framework test using external Q_bar input |
 
 ---
