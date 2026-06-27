@@ -1,0 +1,86 @@
+{
+  "paper": 70,
+  "title": "Local Structural Channels in SAT",
+  "analysis_type": "post_hoc_diagnostic_not_retuning",
+  "source": "Paper 69 SATLIB family-balanced smoke execution",
+  "paper68_preregistration_doi": "10.5281/zenodo.20882852",
+  "n_instances": 30,
+  "families": [
+    "satlib_dimacs_aim",
+    "satlib_dimacs_dubois",
+    "satlib_dimacs_pigeonhole",
+    "satlib_graph_coloring_flat30",
+    "satlib_random_3sat_uf20",
+    "satlib_random_3sat_uuf50"
+  ],
+  "target": "regret_gate_to_moms (positive means gate costs more than MOMS)",
+  "raw_cnf_policy": "Raw CNFs are local inputs only and are not emitted in outputs.",
+  "top_abs_spearman_channels": [
+    {
+      "channel": "short_variable_entropy",
+      "spearman_regret_gate_to_moms": 0.6429848084737971,
+      "pearson_regret_gate_to_moms": 0.5381071667615492,
+      "mean": 0.9955739959180597,
+      "std": 0.004259030012678383
+    },
+    {
+      "channel": "paper69_degree_cv",
+      "spearman_regret_gate_to_moms": -0.5666809481504236,
+      "pearson_regret_gate_to_moms": -0.5300558061153148,
+      "mean": 0.17197577916399812,
+      "std": 0.15842831942096486
+    },
+    {
+      "channel": "variable_occurrence_cv",
+      "spearman_regret_gate_to_moms": -0.4877906492225806,
+      "pearson_regret_gate_to_moms": -0.6376841434992575,
+      "mean": 0.14391242791603584,
+      "std": 0.10576606263105473
+    },
+    {
+      "channel": "short_clause_pressure",
+      "spearman_regret_gate_to_moms": -0.3886742466327181,
+      "pearson_regret_gate_to_moms": -0.13353311900695158,
+      "mean": 3.106555555555482,
+      "std": 1.5197337689197108
+    },
+    {
+      "channel": "moms_local_signal",
+      "spearman_regret_gate_to_moms": -0.3375361701934772,
+      "pearson_regret_gate_to_moms": -0.14580337525071396,
+      "mean": 3.206062455123971,
+      "std": 1.5905516594463762
+    },
+    {
+      "channel": "paper69_literal_imbalance",
+      "spearman_regret_gate_to_moms": -0.26466063556575803,
+      "pearson_regret_gate_to_moms": -0.24751650929155616,
+      "mean": 0.3381821897915115,
+      "std": 0.29418740263090043
+    },
+    {
+      "channel": "literal_polarity_imbalance",
+      "spearman_regret_gate_to_moms": -0.26466063556575803,
+      "pearson_regret_gate_to_moms": -0.24721430073104797,
+      "mean": 0.33799330094375,
+      "std": 0.29432887911200845
+    },
+    {
+      "channel": "jw_variable_concentration",
+      "spearman_regret_gate_to_moms": -0.2170429368418519,
+      "pearson_regret_gate_to_moms": -0.25902401283660437,
+      "mean": 0.026736816120651728,
+      "std": 0.020390451027131565
+    }
+  ],
+  "outputs": [
+    "paper70_local_channel_features.csv",
+    "paper70_channel_correlations.csv",
+    "paper70_family_channel_summary.csv",
+    "fig1_channel_correlations.png",
+    "fig2_moms_signal_vs_regret.png",
+    "fig3_family_channel_heatmap.png",
+    "fig4_propagation_vs_regret.png"
+  ],
+  "interpretation_rule": "This diagnostic identifies missing local channels. It must not be used to alter Paper 69 gate parameters."
+}
