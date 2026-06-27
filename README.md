@@ -3651,6 +3651,52 @@ alter Paper-69 results retroactively.
 
 ---
 
+### Paper 71 — Independence of Local SAT Channels from MAAT Supports
+**Is the Missing MOMS Channel Independent of MAAT Supports?**  
+*A post-hoc hypothesis-generation test after Papers 69--70*
+
+**Core idea:** Paper 71 does not modify the Paper-69 gate, does not propose a
+new gate, and does not define MAAT v1.8. It asks whether the local SAT channels
+identified in Paper 70 are independent structural information or mostly
+reparameterizations of the existing MAAT support basis `(H,B,S,V,R_rob,G_gate)`.
+
+**Diagnostic result:** Most local SAT channels are strongly reconstructible from
+the existing supports. Degree CV has `R²(L|supports)=0.964`, short-clause
+pressure has `R²=0.917`, and Jeroslow--Wang concentration has `R²=0.958`.
+The strongest raw Paper-70 channel, shortest-clause variable entropy, has no
+residual signal after support removal (`rho=-0.014`, shuffle `p=0.899`). Only
+weak, hypothesis-generating occurrence/degree residuals remain
+(`variable-occurrence CV rho=-0.264`, shuffle `p=0.015`; degree CV `rho=0.248`,
+shuffle `p=0.049`). Local-heavy models improve in-sample fit but collapse under
+leave-one-family-out evaluation, so the local signal is not robust
+cross-family evidence.
+
+**Interpretation:** Paper 71 narrows the hypothesis instead of expanding the
+framework. The missing MOMS channel is partly encoded by the existing supports,
+but small decision-local occurrence/degree residuals may remain. This justifies
+a future preregistered SAT-specific test, not a retroactive update to Paper 69.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/sat_local_channel_independence_paper71/` | post-hoc independence and residual analysis using derived Paper-70 outputs only |
+
+Run:
+
+```bash
+cd experiments/sat_local_channel_independence_paper71
+python3 analyze_local_channel_independence_paper71.py
+```
+
+**Data attribution and license note:** Paper 71 uses only derived Paper-70 CSV
+outputs. No raw SATLIB CNFs are required or redistributed. Its output summary is
+explicitly marked `post_hoc_hypothesis_generation_not_gate_update`.
+
+**Documentation PDF:** `documentation/71_Decision_Local_Structural_Selection_in_SAT.pdf`
+
+---
+
 ### Collaboration Pilot — SPARC MAAT x HGD-GSR Cross-Framework Test
 **SPARC Cross-Framework Structural Signal Test:**  
 *Comparing MAAT `D_struct` with externally supplied HGD-GSR `Q_bar` values*
@@ -4448,6 +4494,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/gate_challenge_sat_paper69/gate_challenge_sat_paper69.py` | 69 | external SAT/CDCL Gate Challenge scaffold with DIMACS parsing, score-with-R, gate-v1.7, shuffled-R null, and bootstrap utility comparisons |
 | `experiments/gate_challenge_sat_paper69/analyze_moms_vs_gate_paper69.py` | 69-diagnostic | post-hoc diagnostic explaining where MOMS beats the frozen gate without changing gate parameters |
 | `experiments/sat_local_structural_channels_paper70/analyze_sat_local_channels_paper70.py` | 70 | post-hoc local SAT-channel analysis identifying short-clause/occurrence information missing from the Paper-69 root-level gate |
+| `experiments/sat_local_channel_independence_paper71/analyze_local_channel_independence_paper71.py` | 71 | post-hoc independence test for whether local SAT channels carry residual information beyond H,B,S,V,R_rob,G_gate |
 | `experiments/sparc_hgd_gsr_cross_framework_pilot/sparc_hgd_gsr_cross_framework_pilot.py` | pilot | collaboration-ready SPARC MAAT x HGD-GSR cross-framework test using external Q_bar input |
 
 ---
