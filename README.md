@@ -3697,6 +3697,62 @@ explicitly marked `post_hoc_hypothesis_generation_not_gate_update`.
 
 ---
 
+### Paper 72 — The Local Occurrence Hypothesis
+**A Preregistered SAT-Specific Test Protocol after Gate Challenge Cycle I:**  
+*Freezing the next SAT hypothesis before any Gate+L execution*
+
+**Core idea:** Paper 72 is not a gate repair, not MAAT v1.8, and not a new
+solver result. It is a preregistration protocol for the next SAT-specific test
+after Gate Challenge Cycle I. It freezes the hypothesis that weak
+decision-local occurrence/degree residuals may carry SAT-specific decision
+information beyond the frozen v1.7 gate.
+
+**Cycle-I basis:** Research Series II / Gate Challenge Cycle I is archived at
+Zenodo DOI [`10.5281/zenodo.21062386`](https://doi.org/10.5281/zenodo.21062386).
+Paper 69 showed that the frozen v1.7 gate was not supported in SATLIB smoke
+testing and lost to MOMS. Paper 70 diagnosed the missing signal as
+decision-local structural information. Paper 71 narrowed the candidate channel:
+most local features are reconstructible from `(H,B,S,V,R_rob,G_gate)`, while
+only weak occurrence/degree residuals remain as hypothesis-generating signals.
+
+**Frozen protocol:** Paper 72 fixes `L_occ`, `L_deg`, residualization against
+the frozen support basis, the combined local channel
+`L_star = 0.5 * (z(D_res) - z(O_res))`, the Gate+L combination rule, external
+SATLIB/DIMACS dataset rules, family-balanced splits, budgets, baselines,
+bootstrap CIs, shuffled-local-channel nulls, and success/failure criteria. The
+`z(...)` standardization in `L_star` is explicitly post-residualization and
+uses calibration-fold statistics only.
+
+**Success and failure criteria:** Minimum support requires Gate+L to beat both
+frozen gate and score-with-R with 95% bootstrap CI lower bound greater than
+zero. Strong SAT support additionally requires beating MOMS and Jeroslow--Wang
+under the family-balanced external benchmark. The criteria are tiered: failing
+against frozen gate or score-with-R means no minimum support, while failing
+against MOMS/Jeroslow--Wang means no strong SAT support. If Gate+L beats the
+MAAT baselines but not the classical baselines, Paper 73 must report minimum
+support only and must not present that category as strong SAT support. Gains
+that disappear under shuffled-L nulls do not count.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/local_occurrence_hypothesis_paper72/` | preregistration-only protocol artifact for the future Paper-73 Gate+L SAT execution |
+
+Run:
+
+```bash
+cd experiments/local_occurrence_hypothesis_paper72
+python3 local_occurrence_protocol_paper72.py
+```
+
+This writes only `outputs_paper72_local_occurrence_protocol/paper72_protocol.json`.
+It does not load CNFs, compute features, calibrate models, or execute a solver.
+
+**Documentation PDF:** `documentation/72_The_Local_Occurrence_Hypothesis.pdf`
+
+---
+
 ### Collaboration Pilot — SPARC MAAT x HGD-GSR Cross-Framework Test
 **SPARC Cross-Framework Structural Signal Test:**  
 *Comparing MAAT `D_struct` with externally supplied HGD-GSR `Q_bar` values*
@@ -4495,6 +4551,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/gate_challenge_sat_paper69/analyze_moms_vs_gate_paper69.py` | 69-diagnostic | post-hoc diagnostic explaining where MOMS beats the frozen gate without changing gate parameters |
 | `experiments/sat_local_structural_channels_paper70/analyze_sat_local_channels_paper70.py` | 70 | post-hoc local SAT-channel analysis identifying short-clause/occurrence information missing from the Paper-69 root-level gate |
 | `experiments/sat_local_channel_independence_paper71/analyze_local_channel_independence_paper71.py` | 71 | post-hoc independence test for whether local SAT channels carry residual information beyond H,B,S,V,R_rob,G_gate |
+| `experiments/local_occurrence_hypothesis_paper72/local_occurrence_protocol_paper72.py` | 72 | preregistration-only protocol artifact freezing the Local Occurrence Hypothesis before any Gate+L SAT execution |
 | `experiments/sparc_hgd_gsr_cross_framework_pilot/sparc_hgd_gsr_cross_framework_pilot.py` | pilot | collaboration-ready SPARC MAAT x HGD-GSR cross-framework test using external Q_bar input |
 
 ---
