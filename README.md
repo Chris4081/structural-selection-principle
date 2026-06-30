@@ -3749,6 +3749,12 @@ python3 local_occurrence_protocol_paper72.py
 This writes only `outputs_paper72_local_occurrence_protocol/paper72_protocol.json`.
 It does not load CNFs, compute features, calibrate models, or execute a solver.
 
+**Data attribution and license note:** Paper 72 contains no raw SATLIB, DIMACS,
+or other external CNF instances. It contains only author-generated protocol
+material. For Paper 73, every external benchmark source must be checked against
+its original license or terms before use, documented in a manifest, and verified
+by SHA256. No endorsement by benchmark providers is implied.
+
 **Documentation PDF:** `documentation/72_The_Local_Occurrence_Hypothesis.pdf`
 
 ---
