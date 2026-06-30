@@ -1,0 +1,109 @@
+# Paper 72 -- The Local Occurrence Hypothesis
+
+This folder contains the preregistration scaffold for the next SAT-specific
+test after Gate Challenge Cycle I.
+
+Scientific status: protocol only. No Gate+L solver run is executed here.
+
+Research Series II / Gate Challenge Cycle I archive:
+
+Krieg, C. (2026). MAAT Research Series II -- Gate Challenge Cycle I.
+Zenodo. DOI: 10.5281/zenodo.21062386
+https://doi.org/10.5281/zenodo.21062386
+
+## Purpose
+
+Paper 69 executed the frozen MAAT v1.7 gate on an external SATLIB smoke subset
+and did not support the gate hypothesis in SAT. Paper 70 diagnosed the
+gate-to-MOMS gap as decision-local SAT information. Paper 71 showed that most
+local SAT channels are reconstructible from the existing support basis
+`H,B,S,V,R_rob,G_gate`, leaving only weak occurrence/degree residuals as
+hypothesis-generating candidates.
+
+Paper 72 does not change Paper 68 retroactively, does not define MAAT v1.8,
+does not retune the gate, and does not run a new solver experiment. It freezes
+the protocol for a future Paper 73 execution.
+
+## Frozen Hypothesis
+
+Hypothesis:
+
+Decision-local occurrence/degree residuals provide SAT-specific decision
+information beyond the frozen v1.7 gate.
+
+Null hypothesis:
+
+The residual local channels provide no robust improvement over the frozen gate,
+score-with-R, or classical SAT heuristics.
+
+## Frozen Primary Local Channel
+
+The future execution must compute raw occurrence and degree channels, residualize
+them against the frozen support basis on calibration folds only, and then apply:
+
+```text
+L_star = 0.5 * (z(D_res) - z(O_res))
+```
+
+where `D_res` is the degree-CV residual and `O_res` is the variable-occurrence-CV
+residual. The `z(...)` standardization is performed after residualization using
+calibration-fold means and standard deviations only; those statistics are then
+frozen for the test fold. The sign convention is fixed from Paper 71 and must
+not be changed after seeing Paper 73 results.
+
+## Frozen Evaluation Rules
+
+- External public SATLIB/DIMACS CNFs only.
+- Raw CNFs must not be committed to the repository.
+- Every CNF must be documented in a manifest and verified by SHA256 before use.
+- Primary benchmark: family-balanced, 10 CNFs per family where available.
+- Calibration/test split: deterministic, family-balanced, 20% calibration and
+  80% test per family.
+- Primary budget: conflict budget 5000.
+- Classical baselines: MOMS, Jeroslow--Wang, VSIDS.
+- MAAT baselines: score-with-R, frozen gate.
+- Null: shuffled local channel within family.
+- Primary metric: paired utility delta, positive means lower compute cost for
+  Gate+L than the comparator.
+- Confidence intervals: paired bootstrap, 10000 resamples, seed 72072.
+
+## Success and Failure Criteria
+
+Minimum support:
+
+Gate+L beats frozen gate and score-with-R with 95% bootstrap CI lower bound
+greater than zero.
+
+Strong SAT support:
+
+Gate+L also beats MOMS and Jeroslow--Wang on the family-balanced external
+benchmark with 95% bootstrap CI lower bound greater than zero.
+
+Failure:
+
+The criteria are tiered. The hypothesis receives no minimum support if Gate+L
+fails to beat frozen gate or score-with-R with a positive 95% CI lower bound,
+or if the apparent MAAT-baseline gain disappears under the shuffled-L null. It
+receives no strong SAT support if it fails to beat MOMS or Jeroslow--Wang.
+
+If Gate+L beats frozen gate and score-with-R but not MOMS/Jeroslow--Wang, the
+result must be reported as minimum support only, not as strong SAT support.
+This category must not be rhetorically promoted to strong SAT support; it only
+means that Gate+L improved the frozen MAAT baseline comparison.
+
+## Protocol Artifact
+
+Generate the machine-readable preregistration artifact:
+
+```bash
+python3 local_occurrence_protocol_paper72.py
+```
+
+This writes:
+
+```text
+outputs_paper72_local_occurrence_protocol/paper72_protocol.json
+```
+
+The script writes a protocol JSON only. It does not load CNFs, does not compute
+features, does not calibrate any model, and does not execute a solver.
