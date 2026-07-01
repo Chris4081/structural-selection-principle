@@ -1,0 +1,45 @@
+{
+  "paper": 73,
+  "title": "Local Occurrence Hypothesis Execution",
+  "status": "no_minimum_support",
+  "execution_status": "executed",
+  "paper72_protocol": "../local_occurrence_hypothesis_paper72/outputs_paper72_local_occurrence_protocol/paper72_protocol.json",
+  "series_ii_doi": "10.5281/zenodo.21062386",
+  "n_instances": 55,
+  "n_test_instances": 44,
+  "n_calibration_instances": 11,
+  "family_counts": {
+    "satlib_dimacs_aim": 10,
+    "satlib_dimacs_dubois": 10,
+    "satlib_dimacs_pigeonhole": 5,
+    "satlib_graph_coloring_flat30": 10,
+    "satlib_random_3sat_uf20": 10,
+    "satlib_random_3sat_uuf50": 10
+  },
+  "policies": [
+    "vsids",
+    "moms",
+    "jeroslow_wang",
+    "score_with_R",
+    "frozen_gate_v17",
+    "gate_plus_L",
+    "gate_shuffled_L"
+  ],
+  "conflict_budget": 5000,
+  "runtime_budget_seconds": 30,
+  "bootstrap_resamples": 10000,
+  "bootstrap_seed": 72072,
+  "dataset_gatekeeper": "VALIDATION PASS",
+  "interpretation_rule": "Only no_minimum_support, minimum_support_only, or strong_sat_support are allowed.",
+  "interpretation_class": "no_minimum_support",
+  "minimum_support_conditions": {
+    "beats_frozen_gate_v17": false,
+    "beats_score_with_R": false,
+    "survives_shuffled_L_null": false
+  },
+  "strong_sat_support_conditions": {
+    "beats_MOMS": false,
+    "beats_Jeroslow_Wang": false
+  },
+  "conclusion": "The preregistered Local Occurrence Hypothesis was not supported under the predefined protocol."
+}

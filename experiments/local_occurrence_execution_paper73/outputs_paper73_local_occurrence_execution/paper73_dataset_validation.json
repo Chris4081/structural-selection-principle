@@ -1,0 +1,42 @@
+{
+  "paper": 73,
+  "title": "Local Occurrence Hypothesis Execution",
+  "validation_type": "dataset_manifest_sha256_gatekeeper",
+  "paper72_protocol": "../local_occurrence_hypothesis_paper72/outputs_paper72_local_occurrence_protocol/paper72_protocol.json",
+  "series_ii_doi": "10.5281/zenodo.21062386",
+  "manifest_path": "./dataset_manifest.csv",
+  "data_dir": "./data_external",
+  "checks": {
+    "Manifest": "PASS",
+    "CNFs": "PASS",
+    "SHA256": "PASS",
+    "Parseability": "PASS",
+    "Unexpected Files": "PASS",
+    "Dataset Ready": "YES"
+  },
+  "counts": {
+    "manifest_rows": 55,
+    "actual_cnf_files": 55,
+    "verified_sha256_files": 55,
+    "parseable_dimacs_files": 55,
+    "missing_manifest_columns": 0,
+    "duplicate_local_paths": 0,
+    "missing_files": 0,
+    "manifest_rows_without_hash": 0,
+    "sha256_mismatches": 0,
+    "parse_failures": 0,
+    "unexpected_cnf_files": 0
+  },
+  "failures": {
+    "missing_manifest_columns": [],
+    "duplicate_local_paths": [],
+    "missing_files": [],
+    "manifest_rows_without_hash": [],
+    "sha256_mismatches": [],
+    "parse_failures": [],
+    "unexpected_cnf_files": []
+  },
+  "dataset_ready": true,
+  "status": "VALIDATION PASS",
+  "protocol_note": "Dataset validation checks provenance and integrity only. It does not alter Gate+L, residualization, calibration, budgets, baselines, or interpretation."
+}

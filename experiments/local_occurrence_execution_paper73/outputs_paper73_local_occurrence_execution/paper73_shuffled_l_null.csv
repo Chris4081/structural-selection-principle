@@ -1,0 +1,2 @@
+comparison,n_pairs,delta_utility_mean,ci95_low,ci95_high,wins,losses,ties
+gate_plus_L_vs_gate_shuffled_L,44,-6.8161818181818745,-20.15984545454561,6.043836363636362,21,23,0
