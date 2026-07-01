@@ -3759,6 +3759,74 @@ by SHA256. No endorsement by benchmark providers is implied.
 
 ---
 
+### Paper 73 — Execution of the Local Occurrence Hypothesis
+**First Test of the Preregistered SAT-Specific Protocol:**  
+*Executing the frozen Gate+L occurrence/degree residual hypothesis without retuning*
+
+**Core idea:** Paper 73 is the execution paper for the protocol frozen in
+Paper 72. It does not introduce a new MAAT version, does not repair the Paper-69
+gate, and does not modify `L_star`, residualization, calibration, budgets,
+baselines, bootstrap rules, or success/failure criteria. It simply runs the
+preregistered Local Occurrence Hypothesis and reports the result under the
+allowed interpretation classes.
+
+**Dataset gatekeeper:** The run uses public SATLIB/DIMACS benchmark instances
+staged locally and verified before solver execution. The manifest/SHA256
+gatekeeper passed on 55 instances across six benchmark families:
+AIM, Dubois, pigeon-hole, flat graph-colouring, UF20-91, and UUF50-218. The
+frozen split contains 11 calibration instances and 44 test instances.
+
+**Result:** Under the Paper-72 criteria, the execution receives
+`no_minimum_support`. Gate+L did not beat the frozen v1.7 gate with a positive
+95% CI lower bound, did not robustly beat score-with-R, did not survive the
+shuffled-L null, and lost clearly against MOMS.
+
+| Comparison | Mean Δ | 95% CI | Interpretation |
+|------------|--------|--------|----------------|
+| Gate+L vs frozen gate v1.7 | -13.2382 | [-37.3121, 6.0309] | no minimum support |
+| Gate+L vs score-with-R | +6.3392 | [-8.5437, 21.7627] | CI crosses zero |
+| Gate+L vs shuffled-L | -6.8162 | [-20.1598, 6.0438] | null not defeated |
+| Gate+L vs MOMS | -84.9530 | [-130.0199, -44.5361] | classical baseline wins |
+
+**Central execution observation:** After calibration-only residualization, the
+occurrence and degree residual channels became nearly collinear. `L_star` was
+effectively inactive (`std ≈ 3.53e-09`), and Gate+L remained practically
+indistinguishable from the frozen gate (`max |G_72-G_gate| ≈ 6.19e-10`). The
+predeclared local channel therefore did not become an additional operative
+branching signal in this execution.
+
+**Reproducibility:**
+
+| Folder | Role |
+|--------|------|
+| `experiments/local_occurrence_execution_paper73/` | Paper-73 SAT execution scaffold, SATLIB staging helper, SHA256 validation gatekeeper, frozen Gate+L execution, CSV/JSON outputs, and figures |
+
+Run:
+
+```bash
+cd experiments/local_occurrence_execution_paper73
+python3 download_satlib_paper73.py --allow-insecure-ssl
+python3 local_occurrence_execution_paper73.py --validate-only
+python3 local_occurrence_execution_paper73.py
+```
+
+The `--allow-insecure-ssl` flag is an explicit opt-in for legacy SATLIB HTTPS
+retrieval only. It records provenance metadata and does not affect the gate,
+residualization, calibration, policies, budgets, or interpretation criteria.
+
+**Data attribution and license note:** SATLIB benchmark instances are not
+redistributed in this repository or release. Raw `.cnf` files and SATLIB
+archives remain under `data_external/` and must not be committed. The included
+manifests contain only source URLs, hashes, and metadata required for
+reproducibility. Users must obtain the original benchmark instances from
+SATLIB and cite the SATLIB source. No endorsement by SATLIB maintainers,
+DIMACS benchmark authors, SAT Competition organizers, or any external dataset
+provider is implied.
+
+**Documentation PDF:** `documentation/73_Local_Occurrence_Hypothesis_Execution.pdf`
+
+---
+
 ### Collaboration Pilot — SPARC MAAT x HGD-GSR Cross-Framework Test
 **SPARC Cross-Framework Structural Signal Test:**  
 *Comparing MAAT `D_struct` with externally supplied HGD-GSR `Q_bar` values*
@@ -4558,6 +4626,8 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/sat_local_structural_channels_paper70/analyze_sat_local_channels_paper70.py` | 70 | post-hoc local SAT-channel analysis identifying short-clause/occurrence information missing from the Paper-69 root-level gate |
 | `experiments/sat_local_channel_independence_paper71/analyze_local_channel_independence_paper71.py` | 71 | post-hoc independence test for whether local SAT channels carry residual information beyond H,B,S,V,R_rob,G_gate |
 | `experiments/local_occurrence_hypothesis_paper72/local_occurrence_protocol_paper72.py` | 72 | preregistration-only protocol artifact freezing the Local Occurrence Hypothesis before any Gate+L SAT execution |
+| `experiments/local_occurrence_execution_paper73/download_satlib_paper73.py` | 73 | SATLIB staging helper for the frozen Local Occurrence Hypothesis execution; raw CNFs remain local and git-ignored |
+| `experiments/local_occurrence_execution_paper73/local_occurrence_execution_paper73.py` | 73 | execution-only run of the Paper-72 frozen Gate+L protocol with SHA256 validation, bootstrap comparisons, shuffled-L null, and no retuning |
 | `experiments/sparc_hgd_gsr_cross_framework_pilot/sparc_hgd_gsr_cross_framework_pilot.py` | pilot | collaboration-ready SPARC MAAT x HGD-GSR cross-framework test using external Q_bar input |
 
 ---
@@ -4608,6 +4678,7 @@ Paper 62 (CDCL):   Mode-A active branching vs VSIDS         median regret=0.000,
 Paper 63 (gated):  structure-gated Mode-A vs global Mode-A  mean regret=-0.5703, median=-0.0080, wins/losses/ties=50/45/4
 Paper 64 (2-qubit): correlated stationarity improves pointer-entanglement prediction  scalar R²: 0.7232→0.7831, field R²=0.9160
 Paper 65 (SPARC II): shuffled-radius null supports NFW-like radial signal rho=0.3930 vs |rho|95=0.0355; RAR rho=0.0123 not significant
+Paper 73 (Gate+L execution): Local Occurrence Hypothesis no_minimum_support; L_star effectively inactive, max |G_72-G_gate|≈6.19e-10
 SO(10) extra: gauge one-loop + Yukawa bridge           M_GUT≈1.86e16 GeV, Δb≈0.0506, Yukawa R_rob≈0.999
 SO(10) extended: response-closed multi-scale GUT benchmark ladder specified; falsification baselines declared
 ```
