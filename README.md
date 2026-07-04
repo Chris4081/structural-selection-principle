@@ -3827,6 +3827,78 @@ provider is implied.
 
 ---
 
+### Paper 74 — MAAT v1.8: State-Conditioned Structural Selection
+**Evaluation Locality, Arbitrated Fallback, and the Lessons of Gate Challenge Cycle I:**  
+*From static instance scores to state-conditioned decision support*
+
+**Core idea:** Paper 74 is a framework hypothesis, not an execution result and
+not a new positive claim. It reads the completed Gate Challenge Cycle I as
+evidence that the next untested degree of freedom is not another static
+support channel, but the evaluation point itself. Paper 69 and Paper 73 tested
+statically evaluated SAT constructs; MOMS and other strong competitors evaluate
+the current residual state at every decision. Paper 74 therefore proposes
+state-conditioned structural selection: evaluate the existing MAAT supports on
+the current decision state `X_t` rather than once per instance.
+
+**Definition:** v1.8 keeps the v1.2.1 robustness closure and the v1.7 gate
+architecture, but changes the argument:
+
+```text
+Gamma_a[X_t],   a in {H,B,S,V}
+R_rob[X_t] = min((HBV)^(1/3), (HBSV)^(1/4))
+G_gate[X_t] = sigmoid((z_R[X_t] + 0.50 z_t[X_t] + 0.25 z_x[X_t]) / tau)
+```
+
+For SAT/CDCL, `X_t` is the current residual formula under the partial
+assignment. For quantum and fluid diagnostics, `X_t` is already the evolving
+density matrix or field snapshot, which explains why those domains were
+closer to the v1.8 interpretation before v1.8 was named.
+
+**New protocol rules:** Paper 74 extracts two binding lessons from Papers 71
+and 73:
+
+- **Distinctness precondition:** constructed channels must be checked on the
+  calibration fold before execution; near-collinear channels become
+  `not_testable_as_constructed`.
+- **Classical-reconstruction check:** if state-conditioned MAAT supports are
+  reconstructible from classical heuristics above a frozen threshold, the
+  correct result is `convergent_rediscovery`, not a new structural signal.
+
+**Arbitrated fallback:** v1.8 is not "MAAT replaces the solver heuristic".
+Instead, it routes between a domain-native default and a MAAT action:
+
+```text
+pi_v1.8(t) = pi_MAAT(X_t)      if G_gate[X_t] >= theta_q
+           = pi_default(t)    otherwise
+```
+
+The threshold is set by a predeclared activation budget, not by post-hoc signal
+quantiles. Any future execution must include a no-harm bound and count the
+per-decision overhead of state-conditioned support computation.
+
+**Status:** Framework note only. It reports no new execution, introduces no
+dataset, does not modify the Paper-68 gate record, and does not reinterpret
+Paper-69 or Paper-73 outcomes. The intended sequence is:
+
+```text
+Paper 74 -> Paper 75 preregistration -> Zenodo DOI -> Paper 76 execution
+```
+
+**Reproducibility:** No code is executed for Paper 74. The planned future
+protocol folder is:
+
+```text
+experiments/maat_v18_state_conditioned_prereg/
+```
+
+**Data attribution and license note:** Paper 74 introduces no external raw
+data and no new derived dataset. It cites prior project papers and the public
+Research Series II / Gate Challenge Cycle I archive.
+
+**Documentation PDF:** `documentation/74_MAAT_v18_State_Conditioned_Structural_Selection.pdf`
+
+---
+
 ### Collaboration Pilot — SPARC MAAT x HGD-GSR Cross-Framework Test
 **SPARC Cross-Framework Structural Signal Test:**  
 *Comparing MAAT `D_struct` with externally supplied HGD-GSR `Q_bar` values*
@@ -4628,6 +4700,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/local_occurrence_hypothesis_paper72/local_occurrence_protocol_paper72.py` | 72 | preregistration-only protocol artifact freezing the Local Occurrence Hypothesis before any Gate+L SAT execution |
 | `experiments/local_occurrence_execution_paper73/download_satlib_paper73.py` | 73 | SATLIB staging helper for the frozen Local Occurrence Hypothesis execution; raw CNFs remain local and git-ignored |
 | `experiments/local_occurrence_execution_paper73/local_occurrence_execution_paper73.py` | 73 | execution-only run of the Paper-72 frozen Gate+L protocol with SHA256 validation, bootstrap comparisons, shuffled-L null, and no retuning |
+| `documentation/74_MAAT_v18_State_Conditioned_Structural_Selection.tex` | 74 | framework note defining state-conditioned structural selection, arbitrated fallback, activation budgets, distinctness preconditions, and classical-reconstruction checks |
 | `experiments/sparc_hgd_gsr_cross_framework_pilot/sparc_hgd_gsr_cross_framework_pilot.py` | pilot | collaboration-ready SPARC MAAT x HGD-GSR cross-framework test using external Q_bar input |
 
 ---
@@ -4679,6 +4752,7 @@ Paper 63 (gated):  structure-gated Mode-A vs global Mode-A  mean regret=-0.5703,
 Paper 64 (2-qubit): correlated stationarity improves pointer-entanglement prediction  scalar R²: 0.7232→0.7831, field R²=0.9160
 Paper 65 (SPARC II): shuffled-radius null supports NFW-like radial signal rho=0.3930 vs |rho|95=0.0355; RAR rho=0.0123 not significant
 Paper 73 (Gate+L execution): Local Occurrence Hypothesis no_minimum_support; L_star effectively inactive, max |G_72-G_gate|≈6.19e-10
+Paper 74 (v1.8 framework): state-conditioned supports proposed as next untested degree of freedom; no execution, Cycle-II preregistration required
 SO(10) extra: gauge one-loop + Yukawa bridge           M_GUT≈1.86e16 GeV, Δb≈0.0506, Yukawa R_rob≈0.999
 SO(10) extended: response-closed multi-scale GUT benchmark ladder specified; falsification baselines declared
 ```
