@@ -1,0 +1,146 @@
+{
+  "paper": 76,
+  "title": "State-Conditioned Gate Arbitration Execution",
+  "paper75_preregistration_doi": "10.5281/zenodo.21767033",
+  "paper75_protocol_sha256": "9e86b1e1f8ddcd3228c90f62cc9465d3dccbd9049d5815c5d7dfda0ffd2f3b9e",
+  "manifest_sha256": "941fad18c5ea4839ee3aac4b5d7f1e3d5dd0cf8ed8c8f37f3ec9a4a9a74df3ad",
+  "n_instances": 98,
+  "n_calibration_instances": 19,
+  "n_test_instances": 79,
+  "kappa_cal": 268.9427522019536,
+  "preconditions": {
+    "construct_status": "distinct",
+    "support_pair_correlations": [
+      {
+        "left": "H",
+        "right": "B",
+        "rho": 0.6695709782548742
+      },
+      {
+        "left": "H",
+        "right": "S",
+        "rho": 0.4514386588912025
+      },
+      {
+        "left": "H",
+        "right": "V",
+        "rho": -0.34223005671578477
+      },
+      {
+        "left": "B",
+        "right": "S",
+        "rho": 0.6820861610702513
+      },
+      {
+        "left": "B",
+        "right": "V",
+        "rho": -0.40957141308522615
+      },
+      {
+        "left": "S",
+        "right": "V",
+        "rho": -0.10697125162665268
+      }
+    ],
+    "support_weighted_std": {
+      "H": 0.13178552293881127,
+      "B": 0.07692934508267772,
+      "S": 0.1507324067189941,
+      "V": 0.14523876703137698
+    },
+    "reconstruction_oof_weighted_R2": {
+      "H": -23926.701534370397,
+      "B": -121.47298413837876,
+      "S": -77.8603080934731,
+      "V": -38184.18259038237,
+      "R_rob": -58906.85723829708,
+      "G": -30000.865429024554
+    }
+  },
+  "status_axes": {
+    "execution_status": "executed",
+    "construct_status": "distinct",
+    "activation_status": "adequate_activation",
+    "safety_status": "harmful",
+    "utility_status": "negative_result",
+    "family_instance_weighted_activation_rate": 0.12558077812912335,
+    "safety_bootstrap_relative_regret_vs_MOMS": {
+      "mean": 0.9134910867846903,
+      "ci95_low": 0.6955981317450901,
+      "ci95_high": 1.1755730413009182
+    }
+  },
+  "primary_comparisons": [
+    {
+      "comparison": "state_v18_primary_vs_static_gate_v17_Paper69",
+      "mean": -517.1976540024481,
+      "ci95_low": -704.8866726267526,
+      "ci95_high": -177.72084444994886,
+      "wins_for_state_v18": 54,
+      "losses_for_state_v18": 25,
+      "ties": 0,
+      "n_pairs": 79
+    },
+    {
+      "comparison": "state_v18_primary_vs_score_with_R_Paper69",
+      "mean": -522.9015706691147,
+      "ci95_low": -715.0306227579674,
+      "ci95_high": -172.41337881369142,
+      "wins_for_state_v18": 53,
+      "losses_for_state_v18": 26,
+      "ties": 0,
+      "n_pairs": 79
+    },
+    {
+      "comparison": "state_v18_primary_vs_state_v18_gate_signal_shuffled",
+      "mean": 42.24136538673735,
+      "ci95_low": 6.647983199956927,
+      "ci95_high": 70.1398531899076,
+      "wins_for_state_v18": 43,
+      "losses_for_state_v18": 36,
+      "ties": 0,
+      "n_pairs": 79
+    },
+    {
+      "comparison": "state_v18_primary_vs_random_activation_matched_q",
+      "mean": 23.96386305672695,
+      "ci95_low": -8.27463713399955,
+      "ci95_high": 51.138726061618804,
+      "wins_for_state_v18": 46,
+      "losses_for_state_v18": 33,
+      "ties": 0,
+      "n_pairs": 79
+    },
+    {
+      "comparison": "state_v18_primary_vs_moms",
+      "mean": -642.9622524872965,
+      "ci95_low": -841.6300044803678,
+      "ci95_high": -295.8216777609561,
+      "wins_for_state_v18": 5,
+      "losses_for_state_v18": 74,
+      "ties": 0,
+      "n_pairs": 79
+    },
+    {
+      "comparison": "state_v18_primary_vs_jeroslow_wang",
+      "mean": -533.745279002448,
+      "ci95_low": -727.0481704732196,
+      "ci95_high": -209.5968358965784,
+      "wins_for_state_v18": 35,
+      "losses_for_state_v18": 44,
+      "ties": 0,
+      "n_pairs": 79
+    },
+    {
+      "comparison": "state_v18_primary_vs_vsids",
+      "mean": -862.5773509721449,
+      "ci95_low": -1605.137873684613,
+      "ci95_high": -274.00558683042055,
+      "wins_for_state_v18": 47,
+      "losses_for_state_v18": 32,
+      "ties": 0,
+      "n_pairs": 79
+    }
+  ],
+  "interpretation_rule": "Only the independent Paper-75 status axes are permitted; no post-hoc retuning or outcome relabelling."
+}

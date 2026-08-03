@@ -1,0 +1,13 @@
+{
+  "doi": "10.5281/zenodo.21767033",
+  "concept_doi": "10.5281/zenodo.19656035",
+  "record_id": 21767033,
+  "status": "published",
+  "publication_date": "2026-08-03",
+  "version": "1.5.3",
+  "title": "Chris4081/structural-selection-principle: Paper 1_75 — MAAT v1.8 State-Conditioned Gate Arbitration Preregistration",
+  "verified_via": "https://zenodo.org/api/records/21767033",
+  "verified_on": "2026-08-03",
+  "protocol_sha256": "9e86b1e1f8ddcd3228c90f62cc9465d3dccbd9049d5815c5d7dfda0ffd2f3b9e",
+  "manifest_sha256": "941fad18c5ea4839ee3aac4b5d7f1e3d5dd0cf8ed8c8f37f3ec9a4a9a74df3ad"
+}

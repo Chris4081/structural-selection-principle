@@ -1,0 +1,24 @@
+{
+  "status": "executed",
+  "paper75_doi": "10.5281/zenodo.21767033",
+  "protocol_hash": "9e86b1e1f8ddcd3228c90f62cc9465d3dccbd9049d5815c5d7dfda0ffd2f3b9e",
+  "manifest_hash": "941fad18c5ea4839ee3aac4b5d7f1e3d5dd0cf8ed8c8f37f3ec9a4a9a74df3ad",
+  "policies": [
+    "jeroslow_wang",
+    "vsids",
+    "score_with_R_Paper69",
+    "static_gate_v17_Paper69",
+    "state_v18_primary",
+    "state_v18_gate_signal_shuffled",
+    "random_activation_matched_q",
+    "state_Mode_A_always",
+    "state_gate_value_only_z_R",
+    "state_gate_response_only_0_5z_t",
+    "Paper68_hard_threshold_0_5",
+    "closure_HBV",
+    "closure_HSV",
+    "closure_BSV",
+    "closure_HBS"
+  ],
+  "primary_policy": "state_v18_primary"
+}

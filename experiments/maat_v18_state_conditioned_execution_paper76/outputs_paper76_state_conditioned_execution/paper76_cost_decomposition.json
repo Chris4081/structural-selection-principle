@@ -1,0 +1,16 @@
+{
+  "status": "secondary_descriptive_analysis_no_reclassification",
+  "search_only_delta_vs_MOMS": {
+    "mean": -49.41567045454544,
+    "ci95_low": -69.81182045454541,
+    "ci95_high": -30.82020587121216
+  },
+  "total_cost_delta_vs_MOMS": {
+    "mean": -642.9622524872965,
+    "ci95_low": -841.6300044803678,
+    "ci95_high": -295.82167776095616
+  },
+  "mean_primary_structural_overhead_seconds": 0.7054080873924052,
+  "max_incremental_audit_error": 7.271960811294775e-14,
+  "note": "Positive delta favors state v1.8. Paper-75 status labels remain unchanged."
+}

@@ -1,0 +1,12 @@
+{
+  "paper": 76,
+  "validation": {
+    "dataset_gatekeeper": "PASS",
+    "record_matrix": "PASS",
+    "incremental_audit": "PASS",
+    "status_axes": "PASS",
+    "portable_derived_outputs": "PASS"
+  },
+  "failures": [],
+  "status": "VALIDATION PASS"
+}

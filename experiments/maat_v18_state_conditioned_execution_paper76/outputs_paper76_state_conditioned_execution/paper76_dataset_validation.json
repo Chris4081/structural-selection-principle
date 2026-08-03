@@ -1,0 +1,34 @@
+{
+  "paper": 76,
+  "paper75_preregistration_doi": "10.5281/zenodo.21767033",
+  "validation_type": "release_protocol_manifest_sha256_dimacs_gatekeeper",
+  "paths": {
+    "manifest": "./dataset_manifest_paper75.csv",
+    "data": "./data_external"
+  },
+  "checks": {
+    "Paper75 release": "PASS",
+    "Protocol SHA256": "PASS",
+    "Manifest": "PASS",
+    "CNFs": "PASS",
+    "SHA256": "PASS",
+    "Parseability": "PASS",
+    "Unexpected Files": "PASS",
+    "Dataset Ready": "YES"
+  },
+  "counts": {
+    "manifest_rows": 98,
+    "actual_cnf_files": 98,
+    "verified_files": 98
+  },
+  "failures": {
+    "release": [],
+    "missing_columns": [],
+    "missing_files": [],
+    "sha256_mismatches": [],
+    "parse_failures": [],
+    "unexpected_cnf_files": []
+  },
+  "dataset_ready": true,
+  "status": "VALIDATION PASS"
+}
