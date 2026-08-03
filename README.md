@@ -3899,6 +3899,62 @@ Research Series II / Gate Challenge Cycle I archive.
 
 ---
 
+### Paper 75 — State-Conditioned Gate Arbitration in SAT/CDCL
+**A Preregistration for MAAT v1.8 Gate Challenge Cycle II:**  
+*Exact state semantics, frozen supports, causal updates, calibration, arbitration, and outcome rules before execution*
+
+**Core idea:** Paper 75 converts the Paper-74 v1.8 framework hypothesis into a
+code-level SAT/CDCL preregistration. It reports no external result. The protocol
+defines `X_t` at each conflict-free branch-decision boundary, evaluates
+`H[X_t], B[X_t], S[X_t], V[X_t]` on the current residual CNF, applies the
+emergent robustness closure, and routes between state-conditioned Mode A and a
+MOMS fallback.
+
+**Frozen constants:** `q=0.25`, minimum test activation `q_test_min=0.125`,
+relative no-harm bound `delta=0.05`,
+distinctness tolerance `epsilon=0.01`, reconstruction threshold
+`rho_star=0.90`, 5000 conflicts, 30 seconds per policy-instance, and 10,000
+paired instance-level bootstrap resamples with seed 75075. Calibration states
+come only from MOMS traces. Primary stochastic comparisons use state-bound
+common random numbers without a policy-index term. Uncertainty is a secondary
+report only and cannot retune the primary gate.
+
+**Data and splits:** The metadata-only manifest freezes 98 public SATLIB
+instances across six families, exact source/archive/instance hashes, and a
+deterministic family-local 19/79 calibration/test split. Raw CNFs and archives
+are excluded. The manifest SHA256 is
+`941fad18c5ea4839ee3aac4b5d7f1e3d5dd0cf8ed8c8f37f3ec9a4a9a74df3ad`.
+
+**Status system:** Execution, construct, activation, safety, and utility are
+reported on separate axes. This permits, for example,
+`construct_status=convergent_rediscovery` together with
+`safety_status=harmful`. Failure to certify no-harm is explicitly separated
+from positive evidence of harm. No secondary ablation may promote the primary
+utility result.
+
+**Release barrier:** Paper 76 must not run before the exact Paper-75 protocol,
+schema, manifest, and tests have a public Zenodo DOI. Before that release, only
+synthetic or explicitly excluded development fixtures may be used.
+
+**Reproducibility:**
+
+```text
+experiments/maat_v18_state_conditioned_prereg/
+```
+
+```bash
+python3 paper75_preregistration.py
+python3 validate_preregistration.py
+python3 -m unittest discover -s tests -v
+```
+
+The validator must end with `VALIDATION PASS`. The folder contains no solver
+runner, no external benchmark execution, and no raw SATLIB data.
+
+**Documentation PDF:** `documentation/75_State_Conditioned_Gate_Arbitration_Preregistration.pdf`
+
+---
+
 ### Collaboration Pilot — SPARC MAAT x HGD-GSR Cross-Framework Test
 **SPARC Cross-Framework Structural Signal Test:**  
 *Comparing MAAT `D_struct` with externally supplied HGD-GSR `Q_bar` values*
@@ -4701,6 +4757,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/local_occurrence_execution_paper73/download_satlib_paper73.py` | 73 | SATLIB staging helper for the frozen Local Occurrence Hypothesis execution; raw CNFs remain local and git-ignored |
 | `experiments/local_occurrence_execution_paper73/local_occurrence_execution_paper73.py` | 73 | execution-only run of the Paper-72 frozen Gate+L protocol with SHA256 validation, bootstrap comparisons, shuffled-L null, and no retuning |
 | `documentation/74_MAAT_v18_State_Conditioned_Structural_Selection.tex` | 74 | framework note defining state-conditioned structural selection, arbitrated fallback, activation budgets, distinctness preconditions, and classical-reconstruction checks |
+| `experiments/maat_v18_state_conditioned_prereg/paper75_preregistration.py` | 75 | preregistration-only generator freezing state-conditioned SAT supports, arbitration, calibration, datasets, overhead, baselines, and outcome precedence before Paper 76 |
 | `experiments/sparc_hgd_gsr_cross_framework_pilot/sparc_hgd_gsr_cross_framework_pilot.py` | pilot | collaboration-ready SPARC MAAT x HGD-GSR cross-framework test using external Q_bar input |
 
 ---
@@ -4753,6 +4810,7 @@ Paper 64 (2-qubit): correlated stationarity improves pointer-entanglement predic
 Paper 65 (SPARC II): shuffled-radius null supports NFW-like radial signal rho=0.3930 vs |rho|95=0.0355; RAR rho=0.0123 not significant
 Paper 73 (Gate+L execution): Local Occurrence Hypothesis no_minimum_support; L_star effectively inactive, max |G_72-G_gate|≈6.19e-10
 Paper 74 (v1.8 framework): state-conditioned supports proposed as next untested degree of freedom; no execution, Cycle-II preregistration required
+Paper 75 (v1.8 preregistration): exact state-conditioned SAT protocol frozen; 98 hashed SATLIB instances, no execution before public DOI
 SO(10) extra: gauge one-loop + Yukawa bridge           M_GUT≈1.86e16 GeV, Δb≈0.0506, Yukawa R_rob≈0.999
 SO(10) extended: response-closed multi-scale GUT benchmark ladder specified; falsification baselines declared
 ```
