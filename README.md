@@ -3955,6 +3955,50 @@ runner, no external benchmark execution, and no raw SATLIB data.
 
 ---
 
+### Paper 76 — State-Conditioned Gate Arbitration in SAT/CDCL
+**Execution of the Preregistered MAAT v1.8 Gate Challenge Cycle II:**  
+*A frozen external SATLIB execution with no post-release retuning*
+
+**Preregistration:** Paper 75 was publicly archived before execution at
+[`10.5281/zenodo.21767033`](https://doi.org/10.5281/zenodo.21767033). Paper 76
+verifies that DOI, the frozen protocol SHA256, the manifest SHA256, all 98 CNF
+hashes, DIMACS parseability, and the absence of unknown CNFs before running.
+
+**Result:** The state-conditioned construction is distinct and its realised
+test activation `0.12558` narrowly exceeds `q_test_min=0.125`. Operationally,
+the frozen result is negative:
+
+```text
+execution_status  = executed
+construct_status  = distinct
+activation_status = adequate_activation
+safety_status     = harmful
+utility_status    = negative_result
+```
+
+Against MOMS, family-balanced total-cost difference is `delta_U=-642.96`
+with 95% bootstrap interval `[-841.63,-295.82]`, where positive would favour
+state v1.8. Relative regret is `0.9135 [0.6956,1.1756]`. Search cost alone also
+loses (`delta_U=-49.42 [-69.81,-30.82]`), while charged structural overhead
+amplifies the negative result, especially in timeout-dominated pigeonhole
+instances. The primary gate beats the shuffled-gate null but not the
+matched-random activation null.
+
+**Reproducibility:**
+
+```text
+experiments/maat_v18_state_conditioned_execution_paper76/
+```
+
+Raw SATLIB CNFs and archives remain excluded. The folder contains code,
+metadata and hashes, derived CSV/JSON measurements, figures, tests, README,
+and paper sources. No threshold, support, split, budget, baseline, or status
+rule was changed after observing the result.
+
+**Documentation PDF:** `documentation/76_State_Conditioned_Gate_Arbitration_Execution.pdf`
+
+---
+
 ### Collaboration Pilot — SPARC MAAT x HGD-GSR Cross-Framework Test
 **SPARC Cross-Framework Structural Signal Test:**  
 *Comparing MAAT `D_struct` with externally supplied HGD-GSR `Q_bar` values*
@@ -4758,6 +4802,7 @@ pip install numpy pandas matplotlib scipy scikit-learn
 | `experiments/local_occurrence_execution_paper73/local_occurrence_execution_paper73.py` | 73 | execution-only run of the Paper-72 frozen Gate+L protocol with SHA256 validation, bootstrap comparisons, shuffled-L null, and no retuning |
 | `documentation/74_MAAT_v18_State_Conditioned_Structural_Selection.tex` | 74 | framework note defining state-conditioned structural selection, arbitrated fallback, activation budgets, distinctness preconditions, and classical-reconstruction checks |
 | `experiments/maat_v18_state_conditioned_prereg/paper75_preregistration.py` | 75 | preregistration-only generator freezing state-conditioned SAT supports, arbitration, calibration, datasets, overhead, baselines, and outcome precedence before Paper 76 |
+| `experiments/maat_v18_state_conditioned_execution_paper76/paper76_execution.py` | 76 | frozen execution of the Paper-75 state-conditioned protocol with DOI/hash gatekeeper, causal residual-CNF tracker, external SATLIB run, paired bootstrap, nulls, ablations, and independent status axes |
 | `experiments/sparc_hgd_gsr_cross_framework_pilot/sparc_hgd_gsr_cross_framework_pilot.py` | pilot | collaboration-ready SPARC MAAT x HGD-GSR cross-framework test using external Q_bar input |
 
 ---
@@ -4811,6 +4856,7 @@ Paper 65 (SPARC II): shuffled-radius null supports NFW-like radial signal rho=0.
 Paper 73 (Gate+L execution): Local Occurrence Hypothesis no_minimum_support; L_star effectively inactive, max |G_72-G_gate|≈6.19e-10
 Paper 74 (v1.8 framework): state-conditioned supports proposed as next untested degree of freedom; no execution, Cycle-II preregistration required
 Paper 75 (v1.8 preregistration): exact state-conditioned SAT protocol frozen; 98 hashed SATLIB instances, no execution before public DOI
+Paper 76 (v1.8 execution): frozen SATLIB run executed; distinct/adequate activation but harmful + negative_result, ΔU vs MOMS=-642.96 [-841.63,-295.82]
 SO(10) extra: gauge one-loop + Yukawa bridge           M_GUT≈1.86e16 GeV, Δb≈0.0506, Yukawa R_rob≈0.999
 SO(10) extended: response-closed multi-scale GUT benchmark ladder specified; falsification baselines declared
 ```
