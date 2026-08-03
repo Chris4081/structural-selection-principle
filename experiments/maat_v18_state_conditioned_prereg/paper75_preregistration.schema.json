@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maat-research.com/schemas/paper75-preregistration.schema.json",
+  "title": "Paper 75 State-Conditioned SAT Preregistration",
+  "type": "object",
+  "required": [
+    "paper", "year", "status", "execution_reserved_for", "provenance_archives", "guardrails",
+    "state_X_t", "supports", "normalization_and_gate", "policy",
+    "causal_update_and_rollback", "evaluation_and_calibration",
+    "frozen_constants", "distinctness", "classical_reconstruction",
+    "dataset", "dataset_rules", "overhead_and_cost", "baselines",
+    "ablations", "metrics", "status_axes", "release_condition"
+  ],
+  "properties": {
+    "paper": {"const": 75},
+    "year": {"const": 2026},
+    "status": {"const": "preregistration_only_no_external_execution"},
+    "execution_reserved_for": {"type": "string", "pattern": "Paper 76"},
+    "provenance_archives": {
+      "type": "object",
+      "required": ["gate_challenge_cycle_I_papers_69_71", "paper72_preregistration", "paper73_execution"]
+    },
+    "guardrails": {
+      "type": "object",
+      "required": ["external_state_conditioned_run_before_doi", "permitted_pre_release_testing", "retuning_after_release", "uncertainty_role", "raw_external_data_in_release"],
+      "properties": {
+        "external_state_conditioned_run_before_doi": {"const": false},
+        "retuning_after_release": {"const": false},
+        "raw_external_data_in_release": {"const": false}
+      },
+      "additionalProperties": true
+    },
+    "state_X_t": {"type": "object"},
+    "supports": {
+      "type": "object",
+      "required": ["H", "B", "S", "V", "R_resp", "R_struct", "R_rob"]
+    },
+    "normalization_and_gate": {
+      "type": "object",
+      "required": ["z_R", "z_t", "z_x", "gate_signal", "soft_gate", "activation_budget_q", "threshold", "tie_fraction", "primary_activation"],
+      "properties": {"activation_budget_q": {"const": 0.25}, "z_x": {"const": 0.0}}
+    },
+    "policy": {
+      "type": "object",
+      "required": ["fallback", "active_policy", "mode_A", "arbitration", "common_random_numbers", "null_random_namespaces"],
+      "properties": {"fallback": {"const": "MOMS"}}
+    },
+    "causal_update_and_rollback": {"type": "object"},
+    "evaluation_and_calibration": {
+      "type": "object",
+      "required": ["frequency", "trajectory_policy", "trajectory_rule", "calibration_states_per_instance", "sampling", "state_weight", "instance_weighting", "test_threshold_refit"],
+      "properties": {"trajectory_policy": {"const": "MOMS-only"}, "calibration_states_per_instance": {"const": 128}, "test_threshold_refit": {"const": false}}
+    },
+    "frozen_constants": {
+      "type": "object",
+      "required": ["activation_budget_q", "no_harm_delta_relative", "distinctness_epsilon", "reconstruction_rho_star", "conflict_budget", "runtime_budget_seconds_per_policy_instance", "bootstrap_resamples", "bootstrap_seed"],
+      "properties": {
+        "activation_budget_q": {"const": 0.25},
+        "no_harm_delta_relative": {"const": 0.05},
+        "distinctness_epsilon": {"const": 0.01},
+        "reconstruction_rho_star": {"const": 0.9},
+        "conflict_budget": {"const": 5000},
+        "runtime_budget_seconds_per_policy_instance": {"const": 30},
+        "bootstrap_resamples": {"const": 10000},
+        "bootstrap_seed": {"const": 75075},
+        "minimum_test_activation": {"const": 0.125}
+      },
+      "additionalProperties": false
+    },
+    "distinctness": {"type": "object"},
+    "classical_reconstruction": {"type": "object"},
+    "dataset": {
+      "type": "object",
+      "required": ["path", "sha256", "rows", "family_counts", "split_counts", "raw_cnf_in_release"],
+      "properties": {
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "rows": {"type": "integer", "minimum": 1},
+        "raw_cnf_in_release": {"const": false}
+      }
+    },
+    "dataset_rules": {"type": "object"},
+    "overhead_and_cost": {"type": "object"},
+    "baselines": {"type": "object"},
+    "ablations": {"type": "array", "minItems": 8, "uniqueItems": true},
+    "metrics": {"type": "object"},
+    "status_axes": {
+      "type": "object",
+      "required": ["execution_status", "construct_status", "activation_status", "safety_status", "utility_status", "reporting_rule"]
+    },
+    "release_condition": {"type": "string", "pattern": "Zenodo DOI"}
+  },
+  "additionalProperties": true
+}
